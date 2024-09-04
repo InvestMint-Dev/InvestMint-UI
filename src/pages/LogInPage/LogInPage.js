@@ -1,6 +1,16 @@
 import './LogInPage.css';
+import React, { useEffect } from 'react';
 
 export const LogInPage = () => {
+    useEffect(() => {
+        // Runs after the component mounts
+        const element = document.querySelector('.loginform');
+        if (element) {
+            element.classList.add('fade-in');
+        }
+    }, []); // Empty dependency array means this effect runs once after the initial render
+
+
     return (
         <div className='loginform-container'>
             <h1>Log-in</h1>
