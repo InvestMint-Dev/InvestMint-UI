@@ -129,7 +129,7 @@ body {
 
 .form-drop-arrow {
   position: absolute;
-  right: 10px; /* Fix arrow to the right side of the button */
+  right: 20px; /* Fix arrow to the right side of the button */
   top: 50%;
   transform: translateY(-50%); /* Center vertically */
   font-size: 20px;

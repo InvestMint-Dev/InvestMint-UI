@@ -1,6 +1,7 @@
 import './../create-account-page.css';
 import './create-account-page-2.css';
 import { useState } from 'react';
+import expandArrow from '../../../assets/images/expand-arrow.png';
 
 export const CreateAccountPage2 = () => {
     const [isDropdown1Open, setIsDropdown1Open] = useState(false);
@@ -21,7 +22,7 @@ export const CreateAccountPage2 = () => {
             <div className='duo-factor-authentication-form'>
                 <div className="form-dropdown">
                     <button onClick={dropdownFunction1} className="form-drop-button">Select a Security Question 
-                    <text className="form-drop-arrow">▼</text> {/* Fixed arrow */}
+                    <text className="form-drop-arrow">▼</text>
                     </button>
                     {isDropdown1Open && (
                         <div id="dropdown-content-1" className="form-dropdown-content">
@@ -37,7 +38,7 @@ export const CreateAccountPage2 = () => {
 
                 <div className="form-dropdown">
                     <button onClick={dropdownFunction2} className="form-drop-button"> Choose an Authentication Method
-                    <text className="form-drop-arrow">▼</text> {/* Fixed arrow */}
+                    <text className="form-drop-arrow">▼</text>
                     </button>
                     {isDropdown2Open && (
                         <div id="dropdown-content-2" className="form-dropdown-content">

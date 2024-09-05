@@ -4,7 +4,7 @@ import './create-account-page.css';
 
 export const CreateAccountPage = () => {
     return (
-        // <CreateAccountPage1/>
-        <CreateAccountPage2/>
+        <CreateAccountPage1/>
+        // <CreateAccountPage2/>
     );
 }
