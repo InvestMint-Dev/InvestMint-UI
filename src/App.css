@@ -11,7 +11,7 @@ body {
 
 .form-textarea { /*input area*/
   width: calc(100% - 40px);
-  height: 50px;
+  height: 54px;
   margin-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
@@ -85,3 +85,80 @@ body {
   cursor: pointer;
   transform: scale(102%);
 }
+
+.form-stepper-button {
+  width: calc(25%);
+  margin-top: 20px;
+  border-radius: 50px;
+  border: none;
+  height: 50px;
+  background: #666666;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.form-stepper-button:hover {
+  cursor: pointer;
+  transform: scale(102%);
+}
+
+/* Dropdown Button */
+.form-drop-button {
+  margin-bottom: 20px;
+  border-radius: 50px;
+  border: none;
+  height: 54px;
+  width: 450px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+  background: #D9D9D9;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative; /* Relative position for the arrow */
+}
+
+/* Dropdown button on hover & focus */
+.form-drop-button:hover, .form-drop-button:focus {
+  background-color: darkgrey;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.form-drop-arrow {
+  position: absolute;
+  right: 10px; /* Fix arrow to the right side of the button */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  font-size: 20px;
+  line-height: 54px;
+  pointer-events: none; /* Prevent arrow from triggering clicks */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.form-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.form-dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 450px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.form-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.form-dropdown-content a:hover {background-color: #ddd;}

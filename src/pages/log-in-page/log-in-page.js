@@ -4,7 +4,7 @@ import './log-in-page.css';
 export const LogInPage = () => {
     useEffect(() => {
         // Runs after the component mounts
-        const element = document.querySelector('.loginform');
+        const element = document.querySelector('.log-in-form');
         if (element) {
             element.classList.add('fade-in');
         }
@@ -12,9 +12,9 @@ export const LogInPage = () => {
 
 
     return (
-        <div className='loginform-container'>
+        <div className='log-in-form-container'>
             <h1 className='form-heading'>Log-in</h1>
-            <div className='loginform'>
+            <div className='log-in-form'>
                 <textarea className='form-textarea' placeholder='Email'></textarea>
                 <textarea className='form-textarea' placeholder='Password'></textarea>
 

@@ -4,7 +4,7 @@ export const CreateAccountPage1 = () => {
     return (
         <div className='page-1-container'>
             <h1 className='form-heading'>Create Your Account</h1>
-            <div className='createaccountform'>
+            <div className='create-account-form'>
                 <textarea className='form-textarea' placeholder='Email'></textarea>
                 <textarea className='form-textarea' placeholder='Password'></textarea>
                 <textarea className='form-textarea' placeholder='Confirm Password'></textarea>
