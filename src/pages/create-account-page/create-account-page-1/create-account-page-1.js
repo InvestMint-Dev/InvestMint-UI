@@ -2,7 +2,7 @@ import './../create-account-page.css';
 
 export const CreateAccountPage1 = () => {
     return (
-        <div className='createaccountform-container'>
+        <div className='page-1-container'>
             <h1 className='form-heading'>Create Your Account</h1>
             <div className='createaccountform'>
                 <textarea className='form-textarea' placeholder='Email'></textarea>
@@ -10,7 +10,7 @@ export const CreateAccountPage1 = () => {
                 <textarea className='form-textarea' placeholder='Confirm Password'></textarea>
 
                 <button className='form-submit-button'>
-                    Submit
+                    Next
                 </button>
 
                 <div className='form-option-2-container'> 

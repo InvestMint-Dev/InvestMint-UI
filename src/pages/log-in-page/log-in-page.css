@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.loginform-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 205px;
+    width: 550px;
+}
+
+.loginform {
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 2s ease-in; /* 2 seconds fade-in with ease-in timing */
+    margin-top: 25px;
+}
+
+.loginform.fade-in {
+    opacity: 1; /* Fully opaque */
+}
