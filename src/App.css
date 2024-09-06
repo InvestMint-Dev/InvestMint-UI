@@ -2,6 +2,13 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.top-left-logo-display {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: auto;
+}
 .form-heading {
   font-size: 40px;
   color: black;
