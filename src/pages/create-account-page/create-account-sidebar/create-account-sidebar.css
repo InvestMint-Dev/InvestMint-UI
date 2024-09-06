@@ -1,0 +1,37 @@
+.create-account-sidebar-container {
+    width: calc(25%);
+    height: 100vh;
+    top: 0;
+    border-radius: 0 50px 50px 0;
+    background-color: #D9D9D9;
+}
+
+.create-account-sidebar-stepper-container {
+    display: block;
+    width: 75%;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.create-account-sidebar-stepper {
+    margin-bottom: 40px;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+}
+
+.create-account-sidebar-stepper-circle {
+    width: 60px;  /* Circle width */
+    height: 60px; /* Circle height */
+    background-color: #9D9D9D; 
+    border-radius: 50%; /* Makes the element circular */
+    display: inline-block; /* Keeps it inline if used with text or other elements */
+}
+
+.create-account-sidebar-stepper-label {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 20px;
+    color: #9D9D9D; 
+}

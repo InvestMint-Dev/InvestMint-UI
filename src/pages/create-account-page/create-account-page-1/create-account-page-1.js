@@ -1,8 +1,11 @@
+import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import './../create-account-page.css';
 
 export const CreateAccountPage1 = () => {
     return (
-        <div className='page-1-container'>
+        <div className='page-container'>
+            <CreateAccountSidebar/>
+            <div className='page-1-container'>
             <h1 className='form-heading'>Create Your Account</h1>
             <div className='create-account-form'>
                 <textarea className='form-textarea' placeholder='Email'></textarea>
@@ -19,5 +22,7 @@ export const CreateAccountPage1 = () => {
                 </div>
             </div>
         </div>
+        </div>
+        
     );
 }
