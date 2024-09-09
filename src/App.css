@@ -123,64 +123,40 @@ body {
   transform: scale(102%);
 }
 
-/* Dropdown Button */
-.form-drop-button {
+.form-select {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the default arrow */
+.form-select select {
   margin-bottom: 20px;
   border-radius: 50px;
   border: none;
   height: 44px;
   width: 450px;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 40px;
   text-align: left;
   background: #D9D9D9;
   border: none;
   font-weight: bold;
   font-size: 18px;
-  position: relative; /* Relative position for the arrow */
+
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none; /* For Webkit browsers */
+  -moz-appearance: none; /* For Firefox */
 }
 
-/* Dropdown button on hover & focus */
-.form-drop-button:hover, .form-drop-button:focus {
-  background-color: darkgrey;
-  cursor: pointer;
-}
-
-.form-drop-arrow {
+/* Custom Arrow */
+.form-select::after {
+  content: '▼'; /* Unicode character for arrow */
   position: absolute;
-  right: 20px; /* Fix arrow to the right side of the button */
-  top: 50%;
-  transform: translateY(-50%); /* Center vertically */
-  font-size: 20px;
-  line-height: 54px;
-  pointer-events: none; /* Prevent arrow from triggering clicks */
+  right: 15px; /* Position arrow */
+  top: 25%;
+  font-size: 15px;
+  pointer-events: none; /* Prevent arrow from interfering with clicks */
 }
-
-/* The container <div> - needed to position the dropdown content */
-.form-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.form-dropdown-content {
-  position: absolute;
-  background-color: #f1f1f1;
-  width: 450px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.form-dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.form-dropdown-content a:hover {background-color: #ddd;}
 
 .form-flex-container {
   display: flex;
