@@ -1,6 +1,7 @@
 .page-container {
-    display: flex;
+    margin-left: 30%; /* Leaves space for the sidebar */
 }
+
 .page-1-container {
     display: block;
     margin-left: auto;
@@ -15,4 +16,20 @@
     margin-right: auto;
     margin-top: 205px;
     width: 550px;
+}
+
+.page-3-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 75px;
+    width: 700px;
+}
+
+.stepper-container {
+    width: 550px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between; /* Pushes buttons to the edges */
 }

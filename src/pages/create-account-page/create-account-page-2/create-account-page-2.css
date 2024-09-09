@@ -13,8 +13,3 @@ h2 {
     text-align: center;
     margin-top: 0;
 }
-
-.stepper-container {
-    display: flex;
-    justify-content: space-between; /* Pushes buttons to the edges */
-}

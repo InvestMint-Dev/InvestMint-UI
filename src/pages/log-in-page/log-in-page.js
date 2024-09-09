@@ -20,8 +20,8 @@ export const LogInPage = () => {
             <div className='log-in-form-container'>
                 <h1 className='form-heading'>Log-in</h1>
                 <div className='log-in-form'>
-                    <textarea className='form-textarea' placeholder='Email'></textarea>
-                    <textarea className='form-textarea' placeholder='Password'></textarea>
+                    <textarea className='form-textarea form-textarea-full' placeholder='Email'></textarea>
+                    <textarea className='form-textarea form-textarea-full' placeholder='Password'></textarea>
 
                     <div className="form-option-1-container">
                         <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />

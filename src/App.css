@@ -9,8 +9,9 @@ body {
   width: 200px;
   height: auto;
 }
+
 .form-heading {
-  font-size: 40px;
+  font-size: 35px;
   color: black;
   text-align: center;
   font-weight: 800;
@@ -18,11 +19,11 @@ body {
 
 .form-textarea { /*input area*/
   width: calc(100% - 40px);
-  height: 54px;
-  margin-bottom: 15px;
+  height: 40px;
+  margin-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  line-height: 54px;
+  line-height: 40px;
   border-radius: 50px;
 
   font-family: "Inter", sans-serif;
@@ -33,6 +34,18 @@ body {
   background: #D9D9D9;
   border: none;
   resize: none;
+}
+
+.form-textarea-full {
+  width: calc(100% - 40px); /* Full width */
+}
+
+.form-textarea-half {
+  width: calc(45% - 10px); /* Half width */
+}
+
+.form-textarea-third {
+  width: calc(30% - 20px); /* One-third width */
 }
 
 .form-option-1-container {
@@ -169,3 +182,8 @@ body {
 
 /* Change color of dropdown links on hover */
 .form-dropdown-content a:hover {background-color: #ddd;}
+
+.form-flex-container {
+  display: flex;
+  justify-content: space-between;
+}
