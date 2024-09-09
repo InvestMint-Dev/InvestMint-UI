@@ -12,7 +12,7 @@ export const CreateAccountPage = () => {
 
     // Function to move to the next page
     const handleNext = () => {
-        if (currentPage < 3) {
+        if (currentPage < 4) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -41,7 +41,7 @@ export const CreateAccountPage = () => {
                                 Back
                             </button>
                         )}
-                        {(currentPage < 3) && (
+                        {(currentPage < 4) && (
                             <button className='form-stepper-button' onClick={handleNext}>
                                 Next
                             </button>
