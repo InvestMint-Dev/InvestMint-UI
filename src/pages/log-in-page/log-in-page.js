@@ -35,7 +35,7 @@ export const LogInPage = () => {
 
                     <div className='form-option-2-container'> 
                         <span className="form-label">New Member? </span>
-                        <a href="" className="form-link">Sign Up here</a>
+                        <a href="/create-account" className="form-link">Sign Up here</a>
                     </div>
                 </div>
             </div>
