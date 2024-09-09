@@ -1,7 +1,7 @@
 import './create-account-sidebar.css';
 import bigLeafLogo from '../../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';
 
-export const CreateAccountSidebar = ({ currentPage, totalSteps }) => {
+export const CreateAccountSidebar = ({ currentPage }) => {
     // Array of step labels for easier management
     const steps = [
         'Create Your Account',
@@ -29,17 +29,18 @@ export const CreateAccountSidebar = ({ currentPage, totalSteps }) => {
                             {step}
                         </span>
 
-                        {/* Render small vertical circles if not the last step */}
+                        {/* Render small vertical circles if not the last step
                         {index < steps.length - 1 && (
-                            <div className="small-circles-container">
-                                <div className="small-circle"></div>
-                                <div className="small-circle"></div>
-                                <div className="small-circle"></div>
+                            <div>
+                                <div className="small-circles-container">
+                                    <div className="small-circle"></div>
+                                    <div className="small-circle"></div>
+                                    <div className="small-circle"></div>
+                                </div>
                             </div>
-                        )}
-                        
+                            
+                        )} */}
                     </div>
-                    
                 ))}
             </div>
         </div>

@@ -25,16 +25,16 @@ export const CreateAccountPage4 = () => {
             <div className='question-container'>
                 <p className='question-label'>Do you know the total amount of cash you would like to invest?</p>
 
-                <button className={`question-answer-button ${knowTotalAmount ? 'clicked' : ''}`} onClick={()=>setKnowTotalAmount(true)}>Yes</button>
-                <button className={`question-answer-button ${!knowTotalAmount ? 'clicked' : ''}`} onClick={()=>setKnowTotalAmount(false)}>No</button>
+                <button className={`question-answer-button ${(knowTotalAmount !== null && knowTotalAmount === true) ? 'clicked' : ''}`} onClick={()=>setKnowTotalAmount(true)}>Yes</button>
+                <button className={`question-answer-button ${(knowTotalAmount !== null && knowTotalAmount === false) ? 'clicked' : ''}`} onClick={()=>setKnowTotalAmount(false)}>No</button>
 
-                {knowTotalAmount && 
+                {(knowTotalAmount !== null && knowTotalAmount === true) && 
                 <div>
                     <p>Enter Amount:</p>
                     <textarea className='form-textarea text-input'>$ </textarea>
                 </div>}
 
-                {!knowTotalAmount && 
+                {(knowTotalAmount !== null && knowTotalAmount === false) && 
                 <div>
                     <p>How long have you been in business?</p>
                     <div className='form-select duration-select'>
@@ -60,16 +60,16 @@ export const CreateAccountPage4 = () => {
                 <p className='question-label'>Do you need the cash back in the bank by a certain date or are 
                 you okay to define a duration in which the investments will be available but not necessarily sold?</p>
 
-                <button className={`question-answer-button ${cashBackByDate ? 'clicked' : ''}`} onClick={()=>setCashBackByDate(true)}>Date</button>
-                <button className={`question-answer-button ${!cashBackByDate ? 'clicked' : ''}`} onClick={()=>setCashBackByDate(false)}>Duration</button>
+                <button className={`question-answer-button ${(cashBackByDate !== null && cashBackByDate === true) ? 'clicked' : ''}`} onClick={()=>setCashBackByDate(true)}>Date</button>
+                <button className={`question-answer-button ${(cashBackByDate !== null && cashBackByDate === false) ? 'clicked' : ''}`} onClick={()=>setCashBackByDate(false)}>Duration</button>
 
-                {cashBackByDate && 
+                {(cashBackByDate !== null && cashBackByDate === true) && 
                 <div>
                     <p>Enter Date:</p>
                     <textarea className='form-textarea text-input'></textarea>
                 </div>}
 
-                {!cashBackByDate && 
+                {(cashBackByDate !== null && cashBackByDate === false) && 
                 <div>
                     <p>Enter Duration:</p>
                     <textarea className='form-textarea text-input'></textarea>

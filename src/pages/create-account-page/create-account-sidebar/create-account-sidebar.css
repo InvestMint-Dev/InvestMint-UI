@@ -20,6 +20,7 @@
     height: 60px;
     line-height: 60px;
     display: flex;
+    align-items: center; /* Aligns the circle and text vertically */
 }
 
 .create-account-sidebar-stepper-circle {
@@ -27,7 +28,6 @@
     height: 60px; /* Circle height */
     background-color: #9D9D9D; 
     border-radius: 50%; /* Makes the element circular */
-    display: inline-block; /* Keeps it inline if used with text or other elements */
 }
 
 .active-circle {
@@ -36,10 +36,8 @@
 
 .create-account-sidebar-stepper-label {
     font-weight: bold;
-    padding-left: 15px;
+    padding-left: 15px; /* Adjust space between circle and label */
     font-size: 18px;
-    line-height: 25px;
-    margin-top: 15px;
     color: #9D9D9D; 
 }
 
