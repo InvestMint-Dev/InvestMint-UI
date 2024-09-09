@@ -30,6 +30,10 @@
     display: inline-block; /* Keeps it inline if used with text or other elements */
 }
 
+.active-circle {
+    background-color: black; /* Color for active or passed circles */
+}
+
 .create-account-sidebar-stepper-label {
     font-weight: bold;
     padding-left: 15px;
@@ -37,4 +41,26 @@
     line-height: 25px;
     margin-top: 15px;
     color: #9D9D9D; 
+}
+
+.active-label {
+    color: black; /* Color for active or passed circles */
+}
+
+/* Container for the small vertical circles */
+.small-circles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px; /* Align with large circles */
+    height: 50px; /* Adjust the spacing between large circles */
+    justify-content: space-between;
+}
+
+/* Style for the small circles */
+.small-circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: grey; /* Small dot color */
 }

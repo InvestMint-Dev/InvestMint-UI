@@ -6,14 +6,13 @@ import { CreateAccountPage3 } from './create-account-page-3/create-account-page-
 import { CreateAccountPage4 } from './create-account-page-4/create-account-page-4';
 import './create-account-page.css';
 
-import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';
-
 export const CreateAccountPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const totalSteps = 4; // Define total steps here
 
     // Function to move to the next page
     const handleNext = () => {
-        if (currentPage < 4) {
+        if (currentPage < totalSteps) {
             setCurrentPage(currentPage + 1);
         }
     };
@@ -27,7 +26,8 @@ export const CreateAccountPage = () => {
 
     return (
         <div>
-            <CreateAccountSidebar/>
+            {/* Pass currentPage and totalSteps to the sidebar */}
+            <CreateAccountSidebar currentPage={currentPage} totalSteps={totalSteps} />
 
             <div className='page-container'>
                 {/* Conditionally render pages based on the current page state */}
@@ -43,7 +43,7 @@ export const CreateAccountPage = () => {
                                 Back
                             </button>
                         )}
-                        {(currentPage < 4) && (
+                        {(currentPage < totalSteps) && (
                             <button className='form-stepper-button' onClick={handleNext}>
                                 Next
                             </button>
