@@ -9,11 +9,6 @@ export const CreateAccountPage1 = () => {
                 <textarea className='form-textarea form-textarea-full' placeholder='Email'></textarea>
                 <textarea className='form-textarea form-textarea-full' placeholder='Password'></textarea>
                 <textarea className='form-textarea form-textarea-full' placeholder='Confirm Password'></textarea>
-
-                <div className='form-option-2-container'> 
-                    <span className="form-label">New Member? </span>
-                    <a href="" className="form-link">Sign Up here</a>
-                </div>
             </div>
         </div>       
         
