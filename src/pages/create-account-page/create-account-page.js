@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { CreateAccountSidebar } from './create-account-sidebar/create-account-sidebar';
 import { CreateAccountPage1 } from './create-account-page-1/create-account-page-1';
 import { CreateAccountPage2 } from './create-account-page-2/create-account-page-2';
@@ -9,6 +11,7 @@ import './create-account-page.css';
 export const CreateAccountPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const totalSteps = 4; // Define total steps here
+    const navigate = useNavigate();
 
     // Function to move to the next page
     const handleNext = () => {
@@ -21,6 +24,9 @@ export const CreateAccountPage = () => {
     const handleBack = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
+        }
+        else if (currentPage == 1) {
+            navigate('/');
         }
     };
 
@@ -38,7 +44,7 @@ export const CreateAccountPage = () => {
 
                 <div>
                      <div className="stepper-container">
-                        {(currentPage > 1) && (
+                        {(currentPage >= 1) && (
                             <button className='form-stepper-button' onClick={handleBack}>
                                 Back
                             </button>
