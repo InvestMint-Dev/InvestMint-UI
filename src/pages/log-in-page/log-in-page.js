@@ -31,19 +31,12 @@ export const LogInPage = () => {
   const handleChange = (e) => {
       const { name, value } = e.target;
 
-      // Remove the error as the user fixes the input
-      setFormData({ ...formData, [name]: value });
-
-      setErrors((prevErrors) => {
-          const newErrors = { ...prevErrors };
-          if (name === "email" && /\S+@\S+\.\S+/.test(value)) {
-              delete newErrors.email; // Remove email error if it's valid
-          }
-          if (name === "password" && value.length >= 6) {
-              delete newErrors.password; // Remove password error if it's valid
-          }
-          return newErrors;
-      });
+      setFormData((prevFormData) => {
+        const updatedFormData = { ...prevFormData, [name]: value };
+        const validationErrors = validateLogInFields(updatedFormData, 'login');
+        setErrors(validationErrors);
+        return updatedFormData;
+    });
   };
 
     useEffect(() => {
@@ -63,6 +56,7 @@ export const LogInPage = () => {
           <h1 className='form-heading'>Log-in</h1>
           <form className='log-in-form' onSubmit={handleSubmit}>
               {/* email input */}
+              {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
               <input 
                   className='form-textarea form-textarea-full' 
                   placeholder='Email'
@@ -73,9 +67,9 @@ export const LogInPage = () => {
                   style={{
                       border: errors.email ? "2px solid red" : "1px solid #ccc"
                   }} />
-              {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
 
               {/* password input */}
+              {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
               <input 
                   type={showPassword ? "text" : "password"} // Toggling between text and password
                   name="password"
@@ -86,7 +80,6 @@ export const LogInPage = () => {
                   style={{
                       border: errors.password ? "2px solid red" : "1px solid #ccc"
                   }} />
-              {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
               <button type="button" onClick={() => setShowPassword(!showPassword)}>
                   {showPassword ? "Hide" : "Show"} Password
               </button>

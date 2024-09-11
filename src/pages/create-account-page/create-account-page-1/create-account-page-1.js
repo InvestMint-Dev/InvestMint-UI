@@ -23,7 +23,12 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevFormData) => {
+        const updatedFormData = { ...prevFormData, [name]: value };
+        const validationErrors = validateLogInFields(updatedFormData, 'createAccount');
+        setErrors(validationErrors);
+        return updatedFormData;
+      });
   };
 
   return (
@@ -31,34 +36,36 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
       <h1 className='form-heading'>Create Your Account</h1>
       <div className='create-account-form'>
         {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-        <textarea
+        <input
           className='form-textarea form-textarea-full'
           name='email'
           placeholder='Email'
           value={formData.email}
           onChange={handleChange}
           style={{ border: errors.email ? "2px solid red" : "none" }}
-        ></textarea>
+        ></input>
 
         {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
-        <textarea
+        <input
           className='form-textarea form-textarea-full'
           name='password'
+          type='password'
           placeholder='Password'
           value={formData.assword}
           onChange={handleChange}
           style={{ border: errors.password ? "2px solid red" : "none" }}
-        ></textarea>
+        ></input>
 
         {errors.confirmPassword && <p style={{ color: 'red' }}>{errors.confirmPassword}</p>}
-        <textarea
+        <input
           className='form-textarea form-textarea-full'
           name='confirmPassword'
+          type='password'
           placeholder='Confirm Password'
           value={formData.confirmPassword}
           onChange={handleChange}
           style={{ border: errors.confirmPassword ? "2px solid red" : "none" }}
-        ></textarea>
+        ></input>
       </div>
     </div>
   );
