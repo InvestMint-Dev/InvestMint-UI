@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CreateAccountSidebar } from './create-account-sidebar/create-account-sidebar';
@@ -13,19 +13,31 @@ export const CreateAccountPage = () => {
     const totalSteps = 4; // Define total steps here
     const navigate = useNavigate();
 
-    // Function to move to the next page
+    // Create refs for each page to access the validate function
+    const pageRefs = {
+        1: useRef(null),
+        2: useRef(null),
+        3: useRef(null),
+        4: useRef(null)
+    };
+
     const handleNext = () => {
-        if (currentPage < totalSteps) {
-            setCurrentPage(currentPage + 1);
+        // Trigger validation for the current page
+        const currentPageRef = pageRefs[currentPage];
+        if (currentPageRef.current) {
+            const isValid = currentPageRef.current.validate();
+            if (isValid) {
+                if (currentPage < totalSteps) {
+                    setCurrentPage(currentPage + 1);
+                }
+            }
         }
     };
 
-    // Function to move to the previous page
     const handleBack = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
-        }
-        else if (currentPage == 1) {
+        } else if (currentPage === 1) {
             navigate('/');
         }
     };
@@ -37,24 +49,25 @@ export const CreateAccountPage = () => {
 
             <div className='page-container'>
                 {/* Conditionally render pages based on the current page state */}
-                {currentPage === 1 && <CreateAccountPage1 />}
-                {currentPage === 2 && <CreateAccountPage2 />}
-                {currentPage === 3 && <CreateAccountPage3 />}
-                {currentPage === 4 && <CreateAccountPage4 />}
+                {currentPage === 1 && <CreateAccountPage1 ref={pageRefs[1]} />}
+                {currentPage === 2 && <CreateAccountPage2 ref={pageRefs[2]} />}
+                {currentPage === 3 && <CreateAccountPage3 ref={pageRefs[3]} />}
+                {currentPage === 4 && <CreateAccountPage4 ref={pageRefs[4]} />}
 
-                <div>
-                     <div className="stepper-container">
-                        {(currentPage >= 1) && (
-                            <button className='form-stepper-button' onClick={handleBack}>
-                                Back
-                            </button>
-                        )}
-                        {(currentPage < totalSteps) && (
-                            <button className='form-stepper-button' onClick={handleNext}>
-                                Next
-                            </button>
-                        )}
-                    </div>
+                <div className="stepper-container">
+                    {currentPage >= 1 && (
+                        <button className='form-stepper-button' onClick={handleBack}>
+                            Back
+                        </button>
+                    )}
+                    {currentPage < totalSteps && (
+                        <button
+                            className='form-stepper-button'
+                            onClick={handleNext}
+                        >
+                            Next
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
