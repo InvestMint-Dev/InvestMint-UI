@@ -1,7 +1,7 @@
 .question-container {
     width: 650px;
     border-radius: 20px 20px 0 0;
-    background-color: #D9D9D9;
+    background-color: #F1FFF0;
     padding: 20px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .question-answer-button:hover, .question-answer-button.clicked {
-    background-color: #666666;
+    background-color: #166739;
     cursor: pointer;
 }
 
@@ -42,7 +42,7 @@
     padding: 15px 20px 0 20px;
     
 
-    background-color: #666666;
+    background-color: #166739;
     color: white;
     margin-top: 0;
     vertical-align: middle;
@@ -66,12 +66,12 @@
     margin-bottom: 0;
     font-weight: normal;
     font-size: 15px;;
-    background-color: #666666;
+    background-color: #166739;
     color: white;
 }
 
 .duration-select select{
-    background: #666666;
+    background: #166739;
     color: white;
     font-size: 15px;
 }

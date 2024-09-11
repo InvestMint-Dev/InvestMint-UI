@@ -4,7 +4,7 @@
     height: 100vh;
     top: 0;
     border-radius: 0 50px 50px 0;
-    background-color: #D9D9D9;
+    background-color: rgba(113, 204, 168, 0.5);
 }
 
 .create-account-sidebar-stepper-container {
@@ -26,23 +26,23 @@
 .create-account-sidebar-stepper-circle {
     width: 60px;  /* Circle width */
     height: 60px; /* Circle height */
-    background-color: #9D9D9D; 
+    background-color: #71CCA8; 
     border-radius: 50%; /* Makes the element circular */
 }
 
 .active-circle {
-    background-color: black; /* Color for active or passed circles */
+    background-color: #166739; /* Color for active or passed circles */
 }
 
 .create-account-sidebar-stepper-label {
     font-weight: bold;
     padding-left: 15px; /* Adjust space between circle and label */
     font-size: 18px;
-    color: #9D9D9D; 
+    color: #71CCA8; 
 }
 
 .active-label {
-    color: black; /* Color for active or passed circles */
+    color: #166739; /* Color for active or passed circles */
 }
 
 /* Container for the small vertical circles */

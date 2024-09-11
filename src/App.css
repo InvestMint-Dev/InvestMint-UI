@@ -31,7 +31,7 @@ body {
   font-weight: bold;
   justify-content: center;
 
-  background: #D9D9D9;
+  background: #F1FFF0;
   border: none;
   resize: none;
 }
@@ -63,7 +63,7 @@ body {
 .form-checkbox {
   width: 18px;
   height: 18px;
-  color: #D9D9D9;
+  color: #F1FFF0;
   border: none;
   border-radius: 5px;
 }
@@ -72,13 +72,13 @@ body {
   margin-left: 5px;
   font-size: 15px;
   font-weight: bold;
-  color: #666666;
+  color: #166739;
 }
 
 .form-link {
   font-size: 15px;
   font-weight: bold;
-  color: #666666;
+  color: #166739;
   margin-left: auto; /* Pushes the forgot password text to the right */
   cursor: pointer;
   font-style: italic;
@@ -95,7 +95,7 @@ body {
   border-radius: 50px;
   border: none;
   height: 50px;
-  background: #666666;
+  background: #166739;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -112,7 +112,7 @@ body {
   border-radius: 50px;
   border: none;
   height: 50px;
-  background: #666666;
+  background: #166739;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -138,7 +138,7 @@ body {
   padding-left: 20px;
   padding-right: 40px;
   text-align: left;
-  background: #D9D9D9;
+  background: #F1FFF0;
   border: none;
   font-weight: bold;
   font-size: 18px;
