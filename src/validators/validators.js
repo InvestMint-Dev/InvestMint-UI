@@ -1,29 +1,46 @@
 // validators.js
 
-export const validateLogIn = (formData, type = 'login') => {
+export const validateLogInFields = (formData, formType) => {
     const errors = {};
   
-    // Email validation (common for both login and create account)
-    if (!formData.email) {
-      errors.email = "Email is required.";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Email is invalid.";
-    }
+    switch (formType) {
+      case 'login':
+        if (!formData.email) {
+          errors.email = 'Email is required.';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+          errors.email = 'Email is invalid.';
+        }
   
-    // Password validation (common for both login and create account)
-    if (!formData.password) {
-      errors.password = "Password is required.";
-    } else if (formData.password.length < 6) {
-      errors.password = "Password must be at least 6 characters long.";
-    }
+        if (!formData.password) {
+          errors.password = 'Password is required.';
+        } else if (formData.password.length < 6) {
+          errors.password = 'Password must be at least 6 characters long.';
+        }
+        break;
   
-    // Confirm password validation (only for create account)
-    if (type === 'createAccount') {
-      if (!formData.confirmPassword) {
-        errors.confirmPassword = "Confirm Password is required.";
-      } else if (formData.password !== formData.confirmPassword) {
-        errors.confirmPassword = "Passwords do not match.";
-      }
+      case 'createAccount':
+        if (!formData.email) {
+          errors.email = 'Email is required.';
+        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+          errors.email = 'Email is invalid.';
+        }
+  
+        if (!formData.password) {
+          errors.password = 'Password is required.';
+        } else if (formData.password.length < 6) {
+          errors.password = 'Password must be at least 6 characters long.';
+        }
+
+        if (!formData.confirmPassword) {
+            errors.confirmPassword = 'Confirm your password.';
+        }
+        else if (formData.password !== formData.confirmPassword) {
+          errors.confirmPassword = 'Passwords do not match.';
+        }
+        break;
+  
+      default:
+        break;
     }
   
     return errors;
