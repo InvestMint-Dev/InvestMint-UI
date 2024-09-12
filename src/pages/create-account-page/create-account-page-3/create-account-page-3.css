@@ -11,12 +11,12 @@
     gap: 10px; /* Space between grid items */
     width: 700px;
     padding: 10px;
-    background-color: #F1FFF0;
+    background-color: rgba(166, 219, 158, 0.5);
     border-radius: 20px;
 }
 
 .bankinputs-set {
-    background-color: #9D9D9D;
+    background-color: white;
     width: 200px;
     display: block;
     border-radius: 20px;
@@ -24,15 +24,16 @@
     padding-bottom: 0;
 }
 
+
 .bankinputs-add-button {
     width: 220px;
     display: block;
     border-radius: 20px;
     border: none;
-    background-color: #9D9D9D;
+    background-color: white;
     font-size: 40px;
     font-weight: 800;
-    color: white;
+    color: #A6DB9E;
 }
 
 .bankinputs-add-button:hover {
@@ -40,21 +41,53 @@
     cursor: pointer;
 }
 
-.bankinputs-drop-button {
+.bankinputs-select select{
     width: 200px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 50px;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* For Webkit browsers */
+    -moz-appearance: none; /* For Firefox */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M0 0l2 2 2-2z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 10px; /* Adjust vertical position */
+    background-size: 12px;
 }
 
 .bankinputs-textarea {
     width: 180px;
-}
-
-.bankinputs-textarea, 
-.bankinputs-drop-button {
-    height: 20px;
-    line-height: 20px;
+    height: 25px;
+    line-height: 25px;
     font-size: 15px;
     margin-bottom: 10px;
     padding: 0;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.bankinputs-select {
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    padding-right: 40px;
+}
+
+.bankinputs-remove-button {
+    background: none;
+    float: right;
+    border: none;
+    font-weight: bold;
+    color: #23694A;
+    margin-bottom: 5px;
+}
+
+.bankinputs-remove-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

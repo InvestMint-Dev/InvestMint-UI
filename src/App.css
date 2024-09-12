@@ -31,7 +31,7 @@ body {
   font-weight: bold;
   justify-content: center;
 
-  background: #F1FFF0;
+  background: rgba(166, 219, 158, 0.5);
   border: none;
   resize: none;
 }
@@ -138,19 +138,15 @@ body {
   padding-left: 20px;
   padding-right: 40px;
   text-align: left;
-  background: #F1FFF0;
+  background: rgba(166, 219, 158, 0.5);
   border: none;
   font-weight: bold;
   font-size: 18px;
-
-  appearance: none; /* Remove default arrow */
-  -webkit-appearance: none; /* For Webkit browsers */
-  -moz-appearance: none; /* For Firefox */
 }
 
 /* Custom Arrow */
 .form-select::after {
-  content: '▼'; /* Unicode character for arrow */
+  content: ''; /* Unicode character for arrow */
   position: absolute;
   right: 15px; /* Position arrow */
   top: 25%;

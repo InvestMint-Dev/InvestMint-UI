@@ -14,12 +14,12 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
 
   // Expose the validate function to the parent
   useImperativeHandle(ref, () => ({
-    validate() {
-        const validationErrors = validateLogInFields(formData, 'createAccount');
-        setErrors(validationErrors);
-        return Object.keys(validationErrors).length === 0;
-    }
-}));
+        validate() {
+            const validationErrors = validateLogInFields(formData, 'createAccount');
+            setErrors(validationErrors);
+            return Object.keys(validationErrors).length === 0;
+        }
+    }));
 
   const handleChange = (e) => {
     const { name, value } = e.target;

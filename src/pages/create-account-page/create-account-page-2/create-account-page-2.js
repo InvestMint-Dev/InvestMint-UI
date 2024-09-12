@@ -1,9 +1,15 @@
-import './../create-account-page.css';
 import './create-account-page-2.css';
-import { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 
-export const CreateAccountPage2 = () => {
+export const CreateAccountPage2 = forwardRef((props, ref) => {
+    const [errors, setErrors] = useState({});
 
+    useImperativeHandle(ref, () => ({
+        validate() {
+            setErrors({});
+            return Object.keys(errors).length === 0;
+        }
+    }));
 
     return (
         <div className='page-2-container'>
@@ -33,4 +39,4 @@ export const CreateAccountPage2 = () => {
             </div>
         </div>
     );
-}
+});
