@@ -1,7 +1,7 @@
 .question-container {
     width: 650px;
     border-radius: 20px 20px 0 0;
-    background-color: #F1FFF0;
+    background-color:rgba(166, 219, 158, 0.5);
     padding: 20px;
 }
 
@@ -23,7 +23,7 @@
     width: 350px;
     height: 40px;
     font-size: 15px;
-    background-color: #9D9D9D;
+    background-color: rgba(35, 105, 74, 0.8);
     color: white;
     font-weight: bold;
     border: none;
@@ -42,7 +42,7 @@
     padding: 15px 20px 0 20px;
     
 
-    background-color: #166739;
+    background-color: rgba(35, 105, 74, 0.8);
     color: white;
     margin-top: 0;
     vertical-align: middle;

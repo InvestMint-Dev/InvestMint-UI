@@ -4,7 +4,7 @@
     height: 100vh;
     top: 0;
     border-radius: 0 50px 50px 0;
-    background-color: rgba(113, 204, 168, 0.5);
+    background-color: rgba(113, 204, 168, 0.3);
 }
 
 .create-account-sidebar-stepper-container {
@@ -31,7 +31,7 @@
 }
 
 .active-circle {
-    background-color: #166739; /* Color for active or passed circles */
+    background-color: rgba(35, 105, 74, 0.8); /* Color for active or passed circles */
 }
 
 .create-account-sidebar-stepper-label {
@@ -42,7 +42,7 @@
 }
 
 .active-label {
-    color: #166739; /* Color for active or passed circles */
+    color: rgba(35, 105, 74, 0.8); /* Color for active or passed circles */
 }
 
 /* Container for the small vertical circles */
