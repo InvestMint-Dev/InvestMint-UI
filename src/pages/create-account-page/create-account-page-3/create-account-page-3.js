@@ -34,12 +34,11 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
     const handleChange = (e, index) => {
         const { name, value } = e.target;
 
-        if (name.startsWith('bank-')) {
+        if (name === 'bank' || name === 'accountNumber') {
             // Handle changes for bank account fields
-            const fieldName = name.split('-')[0]; // bank or accountNumber
             setFormData(prevData => {
                 const updatedBankAccounts = [...prevData.bankAccounts];
-                updatedBankAccounts[index] = { ...updatedBankAccounts[index], [fieldName]: value };
+                updatedBankAccounts[index] = { ...updatedBankAccounts[index], [name]: value }; // name can be 'bank' or 'accountNumber'
                 const updatedData = { ...prevData, bankAccounts: updatedBankAccounts };
                 const validationErrors = validateCompanyLegalInfo(updatedData);
                 setErrors(validationErrors);
@@ -124,9 +123,10 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                                 <select 
                                     id={`bank-${index}`} 
                                     name="bank" 
+                                    value={formData.bankAccounts[index].bank} // Ensure the value is set correctly
                                     onChange={(e) => handleChange(e, index)}
                                 >
-                                    <option value="">Bank Name</option>
+                                    <option value="">Select Bank</option>
                                     <option value="bank1">Bank 1</option>
                                     <option value="bank2">Bank 2</option>
                                     {/* Add more options as needed */}
@@ -138,6 +138,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                                 className='form-textarea bankinputs-textarea'
                                 id={`account-${index}`} 
                                 name="accountNumber" 
+                                value={formData.bankAccounts[index].accountNumber} // Ensure the value is set correctly
                                 placeholder="Account number" 
                                 onChange={(e) => handleChange(e, index)}
                             />
