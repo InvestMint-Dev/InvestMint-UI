@@ -132,7 +132,6 @@ body {
 .form-select select {
   margin-bottom: 20px;
   border-radius: 50px;
-  border: none;
   height: 44px;
   width: 450px;
   padding-left: 20px;
@@ -142,16 +141,14 @@ body {
   border: none;
   font-weight: bold;
   font-size: 18px;
-}
 
-/* Custom Arrow */
-.form-select::after {
-  content: ''; /* Unicode character for arrow */
-  position: absolute;
-  right: 15px; /* Position arrow */
-  top: 25%;
-  font-size: 15px;
-  pointer-events: none; /* Prevent arrow from interfering with clicks */
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none; /* For Webkit browsers */
+  -moz-appearance: none; /* For Firefox */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M0 0l2 2 2-2z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px top 20px; /* Adjust vertical position */
+  background-size: 12px;
 }
 
 .form-flex-container {
