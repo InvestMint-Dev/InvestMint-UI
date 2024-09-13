@@ -1,4 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import axios from 'axios';
 import { validateCompanyLegalInfo } from '../../../validators/validators';
 import './create-account-page-3.css';
 

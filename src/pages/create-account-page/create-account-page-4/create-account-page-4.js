@@ -56,6 +56,23 @@ export const CreateAccountPage4 = () => {
                 Why am I being asked this question?
             </div>
 
+            <div className='question-container'>
+                <p className='question-label'>Generally when making investments, I would like the money 
+                available to be returned to my bank account within:</p>
+
+                <button className='question-answer-button'>1 month or less</button>
+                <button className='question-answer-button'>1 to 3 months</button>
+                <button className='question-answer-button'>3 to 6 months</button>
+                <button className='question-answer-button'>6 to 9 months</button>
+                <button className='question-answer-button'>9 to 12 months</button>
+            </div>
+            <div className='question-footer question-footer-middle'>
+                What does my answer mean?
+            </div>
+            <div className='question-footer question-footer-last'>
+                Why am I being asked this question?
+            </div>
+
             <div className='question-container question-container-no-footer'>
                 <p className='question-label'>Do you need the cash back in the bank by a certain date or are 
                 you okay to define a duration in which the investments will be available but not necessarily sold?</p>
@@ -74,6 +91,35 @@ export const CreateAccountPage4 = () => {
                     <p>Enter Duration:</p>
                     <textarea className='form-textarea text-input'></textarea>
                 </div>}
+            </div>
+
+            <div className='question-container'>
+                <p className='question-label'>My current and future sources of cash are:</p>
+
+                <button className='question-answer-button'>Very unpredictable</button>
+                <button className='question-answer-button'>Unpredictable</button>
+                <button className='question-answer-button'>Somewhat predictable</button>
+                <button className='question-answer-button'>Predictable</button>
+                <button className='question-answer-button'>Very predictable</button>
+            </div>
+            <div className='question-footer question-footer-middle'>
+                What does my answer mean?
+            </div>
+            <div className='question-footer question-footer-last'>
+                Why am I being asked this question?
+            </div>
+
+            <div className='question-container'>
+                <p className='question-label'>From September 2008 through October 2008, bonds lost 4%. If I owned a fixed income investment that lost 4% in two months, I would:</p>
+
+                <button className='question-answer-button'>Sell the entire investment</button>
+                <button className='question-answer-button'>Sell a portion of the investment</button>
+            </div>
+            <div className='question-footer question-footer-middle'>
+                What does my answer mean?
+            </div>
+            <div className='question-footer question-footer-last'>
+                Why am I being asked this question?
             </div>
         </div>
     );
