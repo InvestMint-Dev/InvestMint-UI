@@ -3,6 +3,8 @@ import './log-in-page.css';
 
 import { validateLogInFields } from '../../validators/validators';
 import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';
+import openEye from '../../assets/images/icons/Eye.png';
+import closedEye from '../../assets/images/icons/Closed Eye.png';
 
 export const LogInPage = () => {
     const [formData, setFormData] = useState({
@@ -70,19 +72,22 @@ export const LogInPage = () => {
 
               {/* password input */}
               {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
-              <input 
-                  type={showPassword ? "text" : "password"} // Toggling between text and password
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className='form-textarea form-textarea-full' 
-                  placeholder='Password'
-                  style={{
-                      border: errors.password ? "2px solid red" : "none"
-                  }} />
-              <button type="button" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? "Hide" : "Show"} Password
-              </button>
+              <div className='password-container'>
+                <input 
+                    type={showPassword ? "text" : "password"} // Toggling between text and password
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    className='form-textarea form-textarea-full password-textarea' 
+                    placeholder='Password'
+                    style={{
+                        border: errors.password ? "2px solid red" : "none"
+                    }} >
+                    </input>
+                <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
+                    {showPassword ? <img src={openEye}/> : <img src={closedEye}/>}
+                </button>
+              </div>
 
               <div className="form-option-1-container">
                   <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />
