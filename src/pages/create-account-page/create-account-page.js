@@ -10,6 +10,7 @@ import './create-account-page.css';
 
 export const CreateAccountPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const totalSteps = 4; // Define total steps here
     const navigate = useNavigate();
 
@@ -22,6 +23,8 @@ export const CreateAccountPage = () => {
     };
 
     const handleNext = () => {
+        setNextButtonClicked(true);
+
         // Trigger validation for the current page
         const currentPageRef = pageRefs[currentPage];
         if (currentPageRef.current) {
@@ -29,6 +32,7 @@ export const CreateAccountPage = () => {
             if (isValid) {
                 if (currentPage < totalSteps) {
                     setCurrentPage(currentPage + 1);
+                    setNextButtonClicked(false);
                 }
             }
         }
@@ -49,7 +53,7 @@ export const CreateAccountPage = () => {
 
             <div className='page-container'>
                 {/* Conditionally render pages based on the current page state */}
-                {currentPage === 1 && <CreateAccountPage1 ref={pageRefs[1]} />}
+                {currentPage === 1 && <CreateAccountPage1 nextButtonClicked={nextButtonClicked} ref={pageRefs[1]} />}
                 {currentPage === 2 && <CreateAccountPage2 ref={pageRefs[2]} />}
                 {currentPage === 3 && <CreateAccountPage3 ref={pageRefs[3]} />}
                 {currentPage === 4 && <CreateAccountPage4 ref={pageRefs[4]} />}
