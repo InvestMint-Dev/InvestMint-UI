@@ -3,6 +3,9 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { validateLogInFields } from '../../../validators/validators';
 import './../create-account-page.css';
 
+import openEye from '../../../assets/images/icons/Eye.png';
+import closedEye from '../../../assets/images/icons/Closed Eye.png';
+
 export const CreateAccountPage1 = forwardRef((props, ref) => {
   const { nextButtonClicked } = props;
   const [formData, setFormData] = useState({
@@ -12,6 +15,8 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle password visibility
 
   // Expose the validate function to the parent
   useImperativeHandle(ref, () => ({
@@ -47,26 +52,37 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
         />
 
         {(errors.password && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.password}</p>}
-        <input
-          className='form-textarea form-textarea-full'
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={formData.password}
-          onChange={handleChange}
-          style={{ border: (errors.password && nextButtonClicked) ? "2px solid red" : "none" }}
-        />
+        <div className='password-container'>
+          <input
+            className='form-textarea form-textarea-full'
+            name='password'
+            type={showPassword ? "text" : "password"} 
+            placeholder='Password'
+            value={formData.password}
+            onChange={handleChange}
+            style={{ border: (errors.password && nextButtonClicked) ? "2px solid red" : "none" }}
+          />
+          <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? <img src={openEye}/> : <img src={closedEye}/>}
+          </button>
+        </div>
 
         {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.confirmPassword}</p>}
-        <input
-          className='form-textarea form-textarea-full'
-          name='confirmPassword'
-          type='password'
-          placeholder='Confirm Password'
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          style={{ border: (errors.confirmPassword && nextButtonClicked) ? "2px solid red" : "none" }}
-        />
+        <div className='password-container'>
+          <input
+            className='form-textarea form-textarea-full'
+            name='confirmPassword'
+            type={showConfirmPassword ? "text" : "password"} 
+            placeholder='Confirm Password'
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            style={{ border: (errors.confirmPassword && nextButtonClicked) ? "2px solid red" : "none" }}
+          />
+          <button type="button" className='show-password-button' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+            {showConfirmPassword ? <img src={openEye}/> : <img src={closedEye}/>}
+          </button>
+        </div>
+        
       </div>
     </div>
   );

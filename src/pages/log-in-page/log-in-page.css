@@ -17,28 +17,3 @@
 .log-in-form.fade-in {
     opacity: 1; /* Fully opaque */
 }
-
-.password-container {
-    position: relative;
-    width: 100%;
-  }
-
-.password-textarea {
-    width: calc(100%-40px);
-}
-
-.show-password-button {
-    position: absolute;
-    top: 45%;
-    right: 15px; /* Adjust as needed */
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.show-password-button img {
-    width: 25px; /* Adjust size as needed */
-    height: auto; /* Adjust size as needed */
-}
