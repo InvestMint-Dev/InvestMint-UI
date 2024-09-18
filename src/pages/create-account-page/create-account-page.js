@@ -7,10 +7,12 @@ import { CreateAccountPage2 } from './create-account-page-2/create-account-page-
 import { CreateAccountPage3 } from './create-account-page-3/create-account-page-3';
 import { CreateAccountPage4 } from './create-account-page-4/create-account-page-4';
 import './create-account-page.css';
+import { ErrorAlertPanel } from '../../components/error-alert-panel/error-alert-panel';
 
 export const CreateAccountPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const totalSteps = 4; // Define total steps here
     const navigate = useNavigate();
 
@@ -33,10 +35,17 @@ export const CreateAccountPage = () => {
                 if (currentPage < totalSteps) {
                     setCurrentPage(currentPage + 1);
                     setNextButtonClicked(false);
+                    setShowErrorAlert(false); // Hide error alert on successful validation
                 }
             }
             else if (!isValid) {
+                setShowErrorAlert(true); // Show error alert on validation failure
                 window.scrollTo({ top: 0, behavior: 'auto' });
+
+                // Hide error alert after 2 seconds
+                setTimeout(() => {
+                    setShowErrorAlert(false);
+                }, 2000);
             }
         }
     };
@@ -55,6 +64,8 @@ export const CreateAccountPage = () => {
             <CreateAccountSidebar currentPage={currentPage} totalSteps={totalSteps} />
 
             <div className='page-container'>
+                {showErrorAlert && <ErrorAlertPanel />} {/* Conditionally render error alert panel */}
+                
                 {/* Conditionally render pages based on the current page state */}
                 {currentPage === 1 && <CreateAccountPage1 nextButtonClicked={nextButtonClicked} ref={pageRefs[1]} />}
                 {currentPage === 2 && <CreateAccountPage2 nextButtonClicked={nextButtonClicked} ref={pageRefs[2]} />}
