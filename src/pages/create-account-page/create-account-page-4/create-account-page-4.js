@@ -288,7 +288,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </button>
             </div>
 
-
+            {/* Q8 */}
             <div className='question-container question-container-no-footer'
                 style={{ border: (errors.investingQ8 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>
@@ -297,32 +297,32 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 {(errors.investingQ8 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ8}</p>}
                 
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Strongly disagree") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ8: "Strongly disagree" })}>
                     Strongly disagree
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Disagree") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ8: "Disagree" })}>
                     Disagree
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Somewhat disagree") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ8: "Somewhat disagree" })}>
                     Somewhat disagree
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Somewhat agree") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ8: "Somewhat agree" })}>
                     Somewhat agree
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Agree") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ8: "Agree" })}>
                     Agree
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Strongly agree") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ8: "Strongly agree" })}>
                     Strongly agree
                 </button>
