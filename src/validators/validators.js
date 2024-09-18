@@ -127,3 +127,72 @@ export const validateCompanyLegalInfo = (formData) => {
 
     return errors;
 };
+
+export const validateInvestingQuestionnaire = (formData) => {
+    const errors = {};
+
+    //Q1
+    if (!formData.investingQ1 || formData.investingQ1.trim() === "") {
+        errors.investingQ1 = "Answer this question.";
+    }
+    
+    //Q2
+    if (!formData.investingQ2 || formData.investingQ2.trim() === "") {
+        errors.investingQ2 = "Answer this question.";
+    }
+    if (formData.investingQ2 === "Yes") {
+        if (!formData.investingQ2CashAmount || formData.investingQ2CashAmount.trim() === "") {
+            errors.investingQ2CashAmount = "Enter cash amount.";
+        }
+    }
+    if (formData.investingQ2 === "No") {
+        if (!formData.investingQ2BusinessDuration || formData.investingQ2BusinessDuration.trim() === "") {
+            errors.investingQ2BusinessDuration = "Enter duration.";
+        }
+        if (!formData.investingQ2AverageCashPerYear || formData.investingQ2AverageCashPerYear.trim() === "") {
+            errors.investingQ2AverageCashPerYear = "Enter average cash per year.";
+        }
+    }
+
+    //Q3
+    if (!formData.investingQ3 || formData.investingQ3.trim() === "") {
+        errors.investingQ3 = "Answer this question.";
+    }
+
+    //Q4
+    if (!formData.investingQ4 || formData.investingQ4.trim() === "") {
+        errors.investingQ4 = "Answer this question.";
+    }
+    if (formData.investingQ4 === "Yes") {
+        if (!formData.investingQ4CashBackDate || formData.investingQ4CashBackDate.trim() === "") {
+            errors.investingQ4CashBackDate = "Enter date.";
+        }
+    }
+    if (formData.investingQ4 === "No") {
+        if (!formData.investingQ4CashBackDuration || formData.investingQ4CashBackDuration.trim() === "") {
+            errors.investingQ4CashBackDuration = "Enter duration.";
+        }
+    }
+
+    //Q5
+    if (!formData.investingQ5 || formData.investingQ5.trim() === "") {
+        errors.investingQ5 = "Answer this question.";
+    }
+
+    //Q6
+    if (!formData.investingQ6 || formData.investingQ6.trim() === "") {
+        errors.investingQ6 = "Answer this question.";
+    }
+
+    //Q7
+    if (!formData.investingQ7 || formData.investingQ7.trim() === "") {
+        errors.investingQ7 = "Answer this question.";
+    }
+
+    //Q8
+    if (!formData.investingQ8 || formData.investingQ8.trim() === "") {
+        errors.investingQ8 = "Answer this question.";
+    }
+
+    return errors;
+};
