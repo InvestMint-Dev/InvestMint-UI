@@ -64,7 +64,7 @@ export const CreateAccountPage = () => {
                             Back
                         </button>
                     )}
-                    {currentPage < totalSteps && (
+                    {currentPage <= totalSteps && (
                         <button
                             className='form-stepper-button'
                             onClick={handleNext}
