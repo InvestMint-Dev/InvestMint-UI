@@ -1,6 +1,6 @@
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { validateInvestingQuestionnaire } from '../../../validators/validators';
 import './create-account-page-4.css';
-import { useState } from 'react';
 
 export const CreateAccountPage4 = forwardRef((props, ref) => {
     const { nextButtonClicked } = props;
@@ -168,16 +168,16 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <p className='question-label'>Do you need the cash back in the bank by a certain date or are 
                 you okay to define a duration in which the investments will be available but not necessarily sold?</p>
                 {(errors.investingQ4 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4}</p>}
-                <button className={`question-answer-button ${(investingQ4 !== "" && investingQ4 === "Date") ? 'clicked' : ''}`} 
+                <button className={`question-answer-button ${(formData.investingQ4 !== "" && formData.investingQ4 === "Date") ? 'clicked' : ''}`} 
                     onClick={() => setFormData({ ...formData, investingQ4: "Date" })}>
                     Date
                 </button>
-                <button className={`question-answer-button ${(investingQ4 !== "" && investingQ4 === "Duration") ? 'clicked' : ''}`} 
+                <button className={`question-answer-button ${(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") ? 'clicked' : ''}`} 
                     onClick={() => setFormData({ ...formData, investingQ4: "Duration" })}>
                     Duration
                 </button>
 
-                {(investingQ4 !== "" && investingQ4 === "Date") && 
+                {(formData.investingQ4 !== "" && formData.investingQ4 === "Date") && 
                 <div>
                     <p>Enter Date:</p>
                     {(errors.investingQ4CashBackDate && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDate}</p>}
@@ -187,7 +187,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                         onChange={(e) => setFormData({ ...formData, investingQ4CashBackDate: e.target.value })}/>
                 </div>}
 
-                {(investingQ4 !== "" && investingQ4 === "Duration") && 
+                {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
                 <div>
                     <p>Enter Duration:</p>
                     {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDuration}</p>}
