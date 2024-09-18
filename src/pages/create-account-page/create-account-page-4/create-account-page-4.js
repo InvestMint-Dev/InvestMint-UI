@@ -200,27 +200,27 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 {(errors.investingQ5 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ5}</p>}
                 
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Very unpredictable") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ5: "Very unpredictable" })}>
                     Very unpredictable
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Unpredictable") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ5: "Unpredictable" })}>
                     Unpredictable
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Somewhat predictable") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ5: "Somewhat predictable" })}>
                     Somewhat predictable
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Predictable") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ5: "Predictable" })}>
                     Predictable
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Very predictable") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ5: "Very predictable" })}>
                     Very predictable
                 </button>
