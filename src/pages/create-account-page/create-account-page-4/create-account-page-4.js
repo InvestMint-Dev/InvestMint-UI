@@ -161,23 +161,33 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <p className='question-label'>Do you need the cash back in the bank by a certain date or are 
                 you okay to define a duration in which the investments will be available but not necessarily sold?</p>
                 {(errors.investingQ4 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4}</p>}
-                <button className={`question-answer-button ${(cashBackByDate !== null && cashBackByDate === true) ? 'clicked' : ''}`} onClick={()=>setCashBackByDate(true)}>Date</button>
-                <button className={`question-answer-button ${(cashBackByDate !== null && cashBackByDate === false) ? 'clicked' : ''}`} onClick={()=>setCashBackByDate(false)}>Duration</button>
+                <button className={`question-answer-button ${(investingQ4 !== "" && investingQ4 === "Date") ? 'clicked' : ''}`} 
+                    onClick={() => setFormData({ ...formData, investingQ4: "Date" })}>
+                    Date
+                </button>
+                <button className={`question-answer-button ${(investingQ4 !== "" && investingQ4 === "Duration") ? 'clicked' : ''}`} 
+                    onClick={() => setFormData({ ...formData, investingQ4: "Duration" })}>
+                    Duration
+                </button>
 
-                {(cashBackByDate !== null && cashBackByDate === true) && 
+                {(investingQ4 !== "" && investingQ4 === "Date") && 
                 <div>
                     <p>Enter Date:</p>
                     {(errors.investingQ4CashBackDate && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDate}</p>}
                     <textarea className='form-textarea text-input'
-                    style={{ border: (errors.investingQ4CashBackDate && nextButtonClicked) ? "2px solid red" : "none" }}></textarea>
+                        style={{ border: (errors.investingQ4CashBackDate && nextButtonClicked) ? "2px solid red" : "none" }}
+                        value={formData.investingQ4CashBackDate} // Set the current value from the state
+                        onChange={(e) => setFormData({ ...formData, investingQ4CashBackDate: e.target.value })}/>
                 </div>}
 
-                {(cashBackByDate !== null && cashBackByDate === false) && 
+                {(investingQ4 !== "" && investingQ4 === "Duration") && 
                 <div>
                     <p>Enter Duration:</p>
                     {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDuration}</p>}
                     <textarea className='form-textarea text-input'
-                    style={{ border: (errors.investingQ4CashBackDuration && nextButtonClicked) ? "2px solid red" : "none" }}></textarea>
+                        style={{ border: (errors.investingQ4CashBackDuration && nextButtonClicked) ? "2px solid red" : "none" }}
+                        value={formData.investingQ4CashBackDuration} // Set the current value from the state
+                        onChange={(e) => setFormData({ ...formData, investingQ4CashBackDuration: e.target.value })}/>
                 </div>}
             </div>
 

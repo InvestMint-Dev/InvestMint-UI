@@ -163,12 +163,12 @@ export const validateInvestingQuestionnaire = (formData) => {
     if (!formData.investingQ4 || formData.investingQ4.trim() === "") {
         errors.investingQ4 = "Answer this question.";
     }
-    if (formData.investingQ4 === "Yes") {
+    if (formData.investingQ4 === "Date") {
         if (!formData.investingQ4CashBackDate || formData.investingQ4CashBackDate.trim() === "") {
             errors.investingQ4CashBackDate = "Enter date.";
         }
     }
-    if (formData.investingQ4 === "No") {
+    if (formData.investingQ4 === "Duration") {
         if (!formData.investingQ4CashBackDuration || formData.investingQ4CashBackDuration.trim() === "") {
             errors.investingQ4CashBackDuration = "Enter duration.";
         }
