@@ -240,12 +240,12 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 {(errors.investingQ6 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ6}</p>}
                 
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ6 !== "" && formData.investingQ6 === "Sell the entire investment") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ6: "Sell the entire investment" })}>
                     Sell the entire investment
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ6 !== "" && formData.investingQ6 === "Sell a portion of the investment") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ6: "Sell a portion of the investment" })}>
                     Sell a portion of the investment
                 </button>
