@@ -40,27 +40,27 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <p className='question-label'>When it comes to investing in money markets/fixed income securities or ETFs, I would describe myself as:</p>
                 {(errors.investingQ1 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ1}</p>}
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Very experienced") ? 'clicked' : ''}`} 
                     onClick={() => setFormData({ ...formData, investingQ1: "Very experienced" })}>
                     Very experienced
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Experienced") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ1: "Experienced" })}>
                     Experienced
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Somewhat experienced") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ1: "Somewhat experienced" })}>
                     Somewhat experienced
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Somewhat inexperienced") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ1: "Somewhat inexperienced" })}>
                     Somewhat inexperienced
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Very inexperienced") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ1: "Very inexperienced" })}>
                     Very inexperienced
                 </button>
@@ -74,17 +74,17 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <p className='question-label'>Do you know the total amount of cash you would like to invest?</p>
                 {(errors.investingQ2 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2}</p>}
                 <button 
-                    className={`question-answer-button ${(formData.investingQ2 === "" && formData.investingQ2 === "Yes") ? 'clicked' : ''}`} 
+                    className={`question-answer-button ${(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") ? 'clicked' : ''}`} 
                     onClick={() => setFormData({ ...formData, investingQ2: "Yes" })}>
                     Yes
                 </button>
                 <button 
-                    className={`question-answer-button ${(formData.investingQ2 === "" && formData.investingQ2 === "No") ? 'clicked' : ''}`} 
+                    className={`question-answer-button ${(formData.investingQ2 !== "" && formData.investingQ2 === "No") ? 'clicked' : ''}`} 
                     onClick={() => setFormData({ ...formData, investingQ2: "No" })}>
                     No
                 </button>
 
-                {(formData.investingQ2 === "" && formData.investingQ2 === "Yes") && 
+                {(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") && 
                 <div>
                     {(errors.investingQ2CashAmount && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2CashAmount}</p>}
                     <p>Enter Amount:</p>
@@ -95,7 +95,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                         placeholder="$"/>
                 </div>}
 
-                {(formData.investingQ2 === "" && formData.investingQ2 === "No") && 
+                {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
                 <div>
                     <p>How long have you been in business?</p>
                     {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2BusinessDuration}</p>}
