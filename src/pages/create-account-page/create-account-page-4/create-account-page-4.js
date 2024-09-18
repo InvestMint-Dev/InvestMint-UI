@@ -35,6 +35,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
         <div className='page-4-container'>
             <h1 className='form-heading'>Investing Questionnaire</h1>
 
+            {/* Q1 */}
             <div className='question-container'
             style={{ border: (errors.investingQ1 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>When it comes to investing in money markets/fixed income securities or ETFs, I would describe myself as:</p>
@@ -69,6 +70,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 Why am I being asked this question?
             </div>
 
+            {/* Q2 */}
             <div className='question-container'
             style={{ border: (errors.investingQ2 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>Do you know the total amount of cash you would like to invest?</p>
@@ -123,6 +125,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 Why am I being asked this question?
             </div>
 
+            {/* Q3 */}
             <div className='question-container'  style={{ border: (errors.investingQ3 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>Generally when making investments, I would like the money 
                 available to be returned to my bank account within:</p>
@@ -160,6 +163,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 Why am I being asked this question?
             </div>
 
+            {/* Q4 */}
             <div className='question-container question-container-no-footer' style={{ border: (errors.investingQ4 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>Do you need the cash back in the bank by a certain date or are 
                 you okay to define a duration in which the investments will be available but not necessarily sold?</p>
@@ -194,6 +198,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </div>}
             </div>
 
+            {/* Q5 */}
             <div className='question-container'
                 style={{ border: (errors.investingQ5 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>My current and future sources of cash are:</p>
@@ -232,6 +237,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 Why am I being asked this question?
             </div>
 
+            {/* Q6 */}
             <div className='question-container'
                 style={{ border: (errors.investingQ6 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>
@@ -257,6 +263,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 Why am I being asked this question?
             </div>
 
+            {/* Q7 */}
             <div className='question-container question-container-no-footer'
                 style={{ border: (errors.investingQ7 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>
@@ -265,17 +272,17 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 {(errors.investingQ7 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ7}</p>}
                 
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "The lowest volatility ETF") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ7: "The lowest volatility ETF" })}>
                     The lowest volatility ETF
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "A low volatility ETF") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ7: "A low volatility ETF" })}>
                     A low volatility ETF
                 </button>
                 <button 
-                    className='question-answer-button' 
+                    className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "A low to moderate volatility ETF") ? 'clicked' : ''}`}
                     onClick={() => setFormData({ ...formData, investingQ7: "A low to moderate volatility ETF" })}>
                     A low to moderate volatility ETF
                 </button>
