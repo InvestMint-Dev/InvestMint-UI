@@ -3,8 +3,6 @@ import './create-account-page-4.css';
 import { useState } from 'react';
 
 export const CreateAccountPage4 = forwardRef((props, ref) => {
-    const [knowTotalAmount, setKnowTotalAmount] = useState(null);
-    const [cashBackByDate, setCashBackByDate] = useState(null);
     const { nextButtonClicked } = props;
 
     const [formData, setFormData] = useState({
