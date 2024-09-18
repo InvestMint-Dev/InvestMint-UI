@@ -230,11 +230,22 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
 
             <div className='question-container'
-            style={{ border: (errors.investingQ6 && nextButtonClicked) ? "2px solid red" : "none" }}>
-                <p className='question-label'>From September 2008 through October 2008, bonds lost 4%. If I owned a fixed income investment that lost 4% in two months, I would:</p>
+                style={{ border: (errors.investingQ6 && nextButtonClicked) ? "2px solid red" : "none" }}>
+                <p className='question-label'>
+                    From September 2008 through October 2008, bonds lost 4%. If I owned a fixed income investment that lost 4% in two months, I would:
+                </p>
                 {(errors.investingQ6 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ6}</p>}
-                <button className='question-answer-button'>Sell the entire investment</button>
-                <button className='question-answer-button'>Sell a portion of the investment</button>
+                
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ6: "Sell the entire investment" })}>
+                    Sell the entire investment
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ6: "Sell a portion of the investment" })}>
+                    Sell a portion of the investment
+                </button>
             </div>
             <div className='question-footer question-footer-middle'>
                 What does my answer mean?
