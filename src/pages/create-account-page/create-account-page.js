@@ -35,6 +35,9 @@ export const CreateAccountPage = () => {
                     setNextButtonClicked(false);
                 }
             }
+            else if (!isValid) {
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            }
         }
     };
 
