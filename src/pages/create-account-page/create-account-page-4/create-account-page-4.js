@@ -41,11 +41,31 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             style={{ border: (errors.investingQ1 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>When it comes to investing in money markets/fixed income securities or ETFs, I would describe myself as:</p>
                 {(errors.investingQ1 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ1}</p>}
-                <button className='question-answer-button'>Very experienced</button>
-                <button className='question-answer-button'>Experienced</button>
-                <button className='question-answer-button'>Somewhat experienced</button>
-                <button className='question-answer-button'>Somewhat inexperienced</button>
-                <button className='question-answer-button'>Very inexperienced</button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ1: "Very experienced" })}>
+                    Very experienced
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ1: "Experienced" })}>
+                    Experienced
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ1: "Somewhat experienced" })}>
+                    Somewhat experienced
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ1: "Somewhat inexperienced" })}>
+                    Somewhat inexperienced
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ1: "Very inexperienced" })}>
+                    Very inexperienced
+                </button>
             </div>
             <div className='question-footer question-footer-last'>
                 Why am I being asked this question?
@@ -55,23 +75,35 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             style={{ border: (errors.investingQ2 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>Do you know the total amount of cash you would like to invest?</p>
                 {(errors.investingQ2 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2}</p>}
-                <button className={`question-answer-button ${(knowTotalAmount !== null && knowTotalAmount === true) ? 'clicked' : ''}`} onClick={()=>setKnowTotalAmount(true)}>Yes</button>
-                <button className={`question-answer-button ${(knowTotalAmount !== null && knowTotalAmount === false) ? 'clicked' : ''}`} onClick={()=>setKnowTotalAmount(false)}>No</button>
+                <button 
+                    className={`question-answer-button ${(!formData.investingQ2 && formData.investingQ2 === "Yes") ? 'clicked' : ''}`} 
+                    onClick={() => setFormData({ ...formData, investingQ2: "Yes" })}>
+                    Yes
+                </button>
+                <button 
+                    className={`question-answer-button ${(!formData.investingQ2 && formData.investingQ2 === "No") ? 'clicked' : ''}`} 
+                    onClick={() => setFormData({ ...formData, investingQ2: "No" })}>
+                    No
+                </button>
 
-                {(knowTotalAmount !== null && knowTotalAmount === true) && 
+                {(!formData.investingQ2 && formData.investingQ2 === "Yes") && 
                 <div>
                     {(errors.investingQ2CashAmount && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2CashAmount}</p>}
                     <p>Enter Amount:</p>
                     <textarea style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid red" : "none" }} 
-                    className='form-textarea text-input'>$ </textarea>
+                        className='form-textarea text-input' 
+                        value={formData.investingQ2CashAmount} // Set the current value from the state
+                        onChange={(e) => setFormData({ ...formData, investingQ2CashAmount: e.target.value })} // Update the state with the input value
+                        placeholder="$"/>
                 </div>}
 
-                {(knowTotalAmount !== null && knowTotalAmount === false) && 
+                {(!formData.investingQ2 && formData.investingQ2 === "No") && 
                 <div>
                     <p>How long have you been in business?</p>
                     {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2BusinessDuration}</p>}
                     <div className='form-select duration-select'>
-                        <select style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} >
+                        <select style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} 
+                            onChange={(e) => setFormData({ ...formData, investingQ2BusinessDuration: e.target.value })}>
                             <option value="">Select Duration</option>
                             <option value="duration1">Duration 1</option>
                             <option value="duration2">Duration 2</option>
@@ -80,7 +112,10 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
 
                     <p>What is your average cash per year?</p>
                     {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2AverageCashPerYear}</p>}
-                    <textarea style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input'>$ </textarea>
+                    <textarea style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
+                        value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
+                        onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })} // Update the state with the input value
+                        placeholder="$"/>
                 </div>}
             </div>
             <div className='question-footer question-footer-middle'>
