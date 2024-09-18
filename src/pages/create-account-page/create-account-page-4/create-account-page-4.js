@@ -192,14 +192,35 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
 
             <div className='question-container'
-            style={{ border: (errors.investingQ5 && nextButtonClicked) ? "2px solid red" : "none" }}>
+                style={{ border: (errors.investingQ5 && nextButtonClicked) ? "2px solid red" : "none" }}>
                 <p className='question-label'>My current and future sources of cash are:</p>
                 {(errors.investingQ5 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ5}</p>}
-                <button className='question-answer-button'>Very unpredictable</button>
-                <button className='question-answer-button'>Unpredictable</button>
-                <button className='question-answer-button'>Somewhat predictable</button>
-                <button className='question-answer-button'>Predictable</button>
-                <button className='question-answer-button'>Very predictable</button>
+                
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ5: "Very unpredictable" })}>
+                    Very unpredictable
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ5: "Unpredictable" })}>
+                    Unpredictable
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ5: "Somewhat predictable" })}>
+                    Somewhat predictable
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ5: "Predictable" })}>
+                    Predictable
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ5: "Very predictable" })}>
+                    Very predictable
+                </button>
             </div>
             <div className='question-footer question-footer-middle'>
                 What does my answer mean?
