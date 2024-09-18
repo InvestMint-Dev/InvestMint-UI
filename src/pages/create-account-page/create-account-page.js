@@ -13,6 +13,7 @@ export const CreateAccountPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
+    const [alertClass, setAlertClass] = useState(""); // State for alert class
     const totalSteps = 4; // Define total steps here
     const navigate = useNavigate();
 
@@ -39,12 +40,16 @@ export const CreateAccountPage = () => {
                 }
             }
             else if (!isValid) {
+                setAlertClass("show"); // Show error alert
                 setShowErrorAlert(true); // Show error alert on validation failure
                 window.scrollTo({ top: 0, behavior: 'auto' });
 
                 // Hide error alert after 2 seconds
                 setTimeout(() => {
-                    setShowErrorAlert(false);
+                    setAlertClass("hide"); // Start fade-out
+                    setTimeout(() => {
+                        setShowErrorAlert(false); // Remove from DOM after fade-out
+                    }, 1000); // Duration of the fade-out transition
                 }, 2000);
             }
         }
@@ -64,7 +69,9 @@ export const CreateAccountPage = () => {
             <CreateAccountSidebar currentPage={currentPage} totalSteps={totalSteps} />
 
             <div className='page-container'>
-                {showErrorAlert && <ErrorAlertPanel />} {/* Conditionally render error alert panel */}
+                {showErrorAlert && (
+                    <ErrorAlertPanel className={alertClass} />
+                )}
                 
                 {/* Conditionally render pages based on the current page state */}
                 {currentPage === 1 && <CreateAccountPage1 nextButtonClicked={nextButtonClicked} ref={pageRefs[1]} />}
