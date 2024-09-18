@@ -129,11 +129,26 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <p className='question-label'>Generally when making investments, I would like the money 
                 available to be returned to my bank account within:</p>
                 {(errors.investingQ3 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ3}</p>}
-                <button className='question-answer-button'>1 month or less</button>
-                <button className='question-answer-button'>1 to 3 months</button>
-                <button className='question-answer-button'>3 to 6 months</button>
-                <button className='question-answer-button'>6 to 9 months</button>
-                <button className='question-answer-button'>9 to 12 months</button>
+                <button className='question-answer-button'
+                    onClick={() => setFormData({ ...formData, investingQ3: "1 month or less" })}>
+                    1 month or less
+                </button>
+                <button className='question-answer-button'
+                    onClick={() => setFormData({ ...formData, investingQ3: "1 to 3 months" })}>
+                    1 to 3 months
+                </button>
+                <button className='question-answer-button'
+                    onClick={() => setFormData({ ...formData, investingQ3: "3 to 6 months" })}>
+                    3 to 6 months
+                </button>
+                <button className='question-answer-button'
+                    onClick={() => setFormData({ ...formData, investingQ3: "6 to 9 months" })}>
+                    6 to 9 months
+                </button>
+                <button className='question-answer-button'
+                    onClick={() => setFormData({ ...formData, investingQ3: "9 to 12 months" })}>
+                    9 to 12 months
+                </button>
             </div>
             <div className='question-footer question-footer-middle'>
                 What does my answer mean?
