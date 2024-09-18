@@ -255,29 +255,67 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
 
             <div className='question-container question-container-no-footer'
-            style={{ border: (errors.investingQ7 && nextButtonClicked) ? "2px solid red" : "none" }}>
-                <p className='question-label'>The chart shows the greatest possible 1-year loss and the
-                highest 1-year fain on 3 different hypothetical investments 
-                of $1,000,000.* Given the potential gain or loss in any 
-                1 year, I would invest my money in:</p>
+                style={{ border: (errors.investingQ7 && nextButtonClicked) ? "2px solid red" : "none" }}>
+                <p className='question-label'>
+                    The chart shows the greatest possible 1-year loss and the highest 1-year gain on 3 different hypothetical investments of $1,000,000.* Given the potential gain or loss in any 1 year, I would invest my money in:
+                </p>
                 {(errors.investingQ7 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ7}</p>}
-                <button className='question-answer-button'>The lowest volatility ETF</button>
-                <button className='question-answer-button'>A low volatility ETF</button>
-                <button className='question-answer-button'>A low to moderate volatility ETF</button>
+                
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ7: "The lowest volatility ETF" })}>
+                    The lowest volatility ETF
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ7: "A low volatility ETF" })}>
+                    A low volatility ETF
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ7: "A low to moderate volatility ETF" })}>
+                    A low to moderate volatility ETF
+                </button>
             </div>
 
+
             <div className='question-container question-container-no-footer'
-            style={{ border: (errors.investingQ8 && nextButtonClicked) ? "2px solid red" : "none" }}>
-                <p className='question-label'>Generally, I prefer an investment with few (or no) ups and
-                downs in value, and I am willing to accept the lower
-                returns these investments may make.</p>
+                style={{ border: (errors.investingQ8 && nextButtonClicked) ? "2px solid red" : "none" }}>
+                <p className='question-label'>
+                    Generally, I prefer an investment with few (or no) ups and downs in value, and I am willing to accept the lower returns these investments may make.
+                </p>
                 {(errors.investingQ8 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ8}</p>}
-                <button className='question-answer-button'>Strongly disagree</button>
-                <button className='question-answer-button'>Disagree</button>
-                <button className='question-answer-button'>Somewhat disagree</button>
-                <button className='question-answer-button'>Somewhat agree</button>
-                <button className='question-answer-button'>Agree</button>
-                <button className='question-answer-button'>Strongly agree</button>
+                
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ8: "Strongly disagree" })}>
+                    Strongly disagree
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ8: "Disagree" })}>
+                    Disagree
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ8: "Somewhat disagree" })}>
+                    Somewhat disagree
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ8: "Somewhat agree" })}>
+                    Somewhat agree
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ8: "Agree" })}>
+                    Agree
+                </button>
+                <button 
+                    className='question-answer-button' 
+                    onClick={() => setFormData({ ...formData, investingQ8: "Strongly agree" })}>
+                    Strongly agree
+                </button>
             </div>
         </div>
     );
