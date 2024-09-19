@@ -117,7 +117,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </button>
 
                 {(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") && 
-                <div>
+                <div style={{marginTop: '30px'}}>
                     {(errors.investingQ2CashAmount && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2CashAmount}</p>}
                     <p>Enter Amount:</p>
                     <textarea style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid red" : "none" }} 
@@ -127,7 +127,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </div>}
 
                 {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
-                <div>
+                <div style={{marginTop: '30px'}}>
                     <p>How long have you been in business?</p>
                     {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2BusinessDuration}</p>}
                     <div className='form-select duration-select'>
@@ -246,7 +246,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </button>
 
                 {(formData.investingQ4 !== "" && formData.investingQ4 === "Date") && 
-                <div>
+                <div style={{marginTop: '30px'}}>
                     <p>Enter Date:</p>
                     {(errors.investingQ4CashBackDate && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDate}</p>}
                     <textarea className='form-textarea text-input'
@@ -256,7 +256,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </div>}
 
                 {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
-                <div>
+                <div style={{marginTop: '30px'}}>
                     <p>Enter Duration:</p>
                     {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDuration}</p>}
                     <textarea className='form-textarea text-input'
