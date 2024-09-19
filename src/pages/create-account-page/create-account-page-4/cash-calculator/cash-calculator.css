@@ -31,6 +31,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-collapse: separate;
     border-spacing: 10px; /* Add space between cells */
     background-color: #F1FFF0;
