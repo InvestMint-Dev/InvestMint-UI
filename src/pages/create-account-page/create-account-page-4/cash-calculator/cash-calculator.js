@@ -3,7 +3,11 @@ import './cash-calculator.css';
 export const CashCalculator = () => {
     return(
         <div>
-            <h1>Annual Average Cash Calculator</h1>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '35px' }}>
+                <h1>Annual Average Cash Calculator</h1>
+                <textarea className="final-output-textarea" rows="4" cols="30"></textarea>
+            </div>
+            
 
             <table>
                 <thead>
