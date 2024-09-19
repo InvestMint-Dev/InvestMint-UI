@@ -39,6 +39,7 @@ th, td {
 .input-cell {
     border-radius: 20px;
     border: none;
+    background-color: rgba(113, 204, 168, 0.5);
     width: 5vw;
     height: 20px;
     padding: 10px;
