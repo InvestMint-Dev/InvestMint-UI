@@ -17,10 +17,7 @@ table {
 
 th, td {
     border-radius: 20px;
-    padding: 10px;
     text-align: center;
-    margin-top: 20px;
-
 }
 
 .section-divider {
@@ -32,8 +29,18 @@ th, td {
     padding-left: 15px;
 }
 
-.section-title-cell {
+.title-cell {
     background-color: #71CCA8;
     color: white;
+    padding: 10px;
     font-weight: bold;
+}
+
+.input-cell {
+    border-radius: 20px;
+    border: none;
+    width: 5vw;
+    height: 20px;
+    padding: 10px;
+    margin: 0;
 }

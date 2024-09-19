@@ -9,18 +9,18 @@ export const CashCalculator = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th className="section-title-cell">Month 1</th>
-                        <th className="section-title-cell">Month 2</th>
-                        <th className="section-title-cell">Month 3</th>
-                        <th className="section-title-cell">Month 4</th>
-                        <th className="section-title-cell">Month 5</th>
-                        <th className="section-title-cell">Month 6</th>
-                        <th className="section-title-cell">Month 7</th>
-                        <th className="section-title-cell">Month 8</th>
-                        <th className="section-title-cell">Month 9</th>
-                        <th className="section-title-cell">Month 10</th>
-                        <th className="section-title-cell">Month 11</th>
-                        <th className="section-title-cell">Month 12</th>
+                        <th className="title-cell">Month 1</th>
+                        <th className="title-cell">Month 2</th>
+                        <th className="title-cell">Month 3</th>
+                        <th className="title-cell">Month 4</th>
+                        <th className="title-cell">Month 5</th>
+                        <th className="title-cell">Month 6</th>
+                        <th className="title-cell">Month 7</th>
+                        <th className="title-cell">Month 8</th>
+                        <th className="title-cell">Month 9</th>
+                        <th className="title-cell">Month 10</th>
+                        <th className="title-cell">Month 11</th>
+                        <th className="title-cell">Month 12</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,54 +29,234 @@ export const CashCalculator = () => {
                         <td className="section-divider" colspan="13">Sources of Cash</td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Revenue</td>
+                        <td className="title-cell">Revenue</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Accounts Receivable</td>
+                        <td className="title-cell">Accounts Receivable</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Loans</td>
+                        <td className="title-cell">Loans</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Equity</td>
+                        <td className="title-cell">Equity</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Other</td>
+                        <td className="title-cell">Other</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
 
                     {/* Uses of Cash */}
                     <tr>
-                    <td className="section-divider" colspan="13">Uses of Cash</td>
+                        <td className="section-divider" colspan="13">Uses of Cash</td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Real Estate</td>
+                        <td className="title-cell">Real Estate</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Loan/Lease Bills</td>
+                        <td className="title-cell">Loan/Lease Bills</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Utilities</td>
+                        <td className="title-cell">Utilities</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Insurance</td>
+                        <td className="title-cell">Insurance</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Taxes</td>
+                        <td className="title-cell">Taxes</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Payroll</td>
+                        <td className="title-cell">Payroll</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">SG & A</td>
+                        <td className="title-cell">SG & A</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Inventory</td>
+                        <td className="title-cell">Inventory</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Equipment</td>
+                        <td className="title-cell">Equipment</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     <tr>
-                        <td className="section-title-cell">Other</td>
+                        <td className="title-cell">Other</td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
+                        <td><input type="text" className="input-cell"></input></td>
                     </tr>
                     
                     {/* Monthly Total */}
