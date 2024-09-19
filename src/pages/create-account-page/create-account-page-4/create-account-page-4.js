@@ -8,9 +8,9 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
     const [formData, setFormData] = useState({
         investingQ1: "",
         investingQ2: "",
-        investingQ2CashAmount: "",
+        investingQ2CashAmount: "$",
         investingQ2BusinessDuration: "",
-        investingQ2AverageCashPerYear: "",
+        investingQ2AverageCashPerYear: "$",
         investingQ3: "",
         investingQ4: "",
         investingQ4CashBackDate: "",
@@ -123,8 +123,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                     <textarea style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid red" : "none" }} 
                         className='form-textarea text-input' 
                         value={formData.investingQ2CashAmount} // Set the current value from the state
-                        onChange={(e) => setFormData({ ...formData, investingQ2CashAmount: e.target.value })} // Update the state with the input value
-                        placeholder="$"/>
+                        onChange={(e) => setFormData({ ...formData, investingQ2CashAmount: e.target.value })}/>
                 </div>}
 
                 {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
@@ -144,8 +143,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                     {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2AverageCashPerYear}</p>}
                     <textarea style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
                         value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
-                        onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })} // Update the state with the input value
-                        placeholder="$"/>
+                        onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })}/>
                 </div>}
             </div>
             <div className='question-footer question-footer-middle'>

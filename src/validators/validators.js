@@ -141,7 +141,7 @@ export const validateInvestingQuestionnaire = (formData) => {
         errors.investingQ2 = "Answer this question.";
     }
     if (formData.investingQ2 === "Yes") {
-        if (!formData.investingQ2CashAmount || formData.investingQ2CashAmount.trim() === "") {
+        if (!formData.investingQ2CashAmount || formData.investingQ2CashAmount.trim() === "$") {
             errors.investingQ2CashAmount = "Enter cash amount.";
         }
     }
@@ -149,7 +149,7 @@ export const validateInvestingQuestionnaire = (formData) => {
         if (!formData.investingQ2BusinessDuration || formData.investingQ2BusinessDuration.trim() === "") {
             errors.investingQ2BusinessDuration = "Enter duration.";
         }
-        if (!formData.investingQ2AverageCashPerYear || formData.investingQ2AverageCashPerYear.trim() === "") {
+        if (!formData.investingQ2AverageCashPerYear || formData.investingQ2AverageCashPerYear.trim() === "$") {
             errors.investingQ2AverageCashPerYear = "Enter average cash per year.";
         }
     }
