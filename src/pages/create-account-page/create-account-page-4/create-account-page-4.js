@@ -348,9 +348,29 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
             <div className='question-footer question-footer-middle'>
                 What does my answer mean?
+                <button 
+                    onClick={() => toggleSection(6.1)}
+                >
+                    {expandedSections[6.1] ? '-' : '+'}
+                </button>
+                {expandedSections[6.1] && (
+                    <p>
+                        If you're inclined to sell all or a portion of your investments during a volatile time in the market, that suggests you have a lower risk tolerance and may prefer a more conservative asset mix. If you tend to hold on to your investments or even buy more during this time, you have a slightly higher risk tolerance and may feel comfortable with an higher target return allocation.
+                    </p>
+                )}
             </div>
             <div className='question-footer question-footer-last'>
                 Why am I being asked this question?
+                <button 
+                    onClick={() => toggleSection(6.2)}
+                >
+                    {expandedSections[6.2] ? '-' : '+'}
+                </button>
+                {expandedSections[6.2] && (
+                    <p>
+                        Market volatility can trigger uncertainty and fear. Your risk tolerance is how comfortable you are during volatile times, when market swings can  change the return of your investments. Taking on more risk can lead to higher returns, but could also have lower returns (or even small losses) in certain scenarios. Conversely, a mix that's too conservative can miss out of risk-appropriate returns.
+                    </p>
+                )}
             </div>
 
             {/* Q7 */}
