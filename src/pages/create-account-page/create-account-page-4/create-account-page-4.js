@@ -141,6 +141,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                     <textarea style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
                         value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
                         onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })}/>
+                    <a href='/cash-calculator'>Average cash calculator</a>
                 </div>}
             </div>
             <div className='question-footer question-footer-middle'>

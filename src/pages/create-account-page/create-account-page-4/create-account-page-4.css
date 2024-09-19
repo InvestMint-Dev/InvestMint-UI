@@ -10,6 +10,11 @@
         margin-bottom: 10px;
         border-radius: 20px;
     }
+
+    a {
+        display: block;
+        margin-top: 20px;
+    }
 }
 
 .question-container-no-footer {
