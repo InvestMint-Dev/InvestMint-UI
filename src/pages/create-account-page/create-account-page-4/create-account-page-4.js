@@ -31,6 +31,26 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
         }
     }));
 
+    const [expandedSections, setExpandedSections] = useState({
+        1: false,
+        2.1: false,
+        2.2: false,
+        3.1: false,
+        3.2: false,
+        5.1: false,
+        5.2: false,
+        6.1: false,
+        6.2: false
+    });
+
+    const toggleSection = (sectionKey) => {
+        setExpandedSections((prevSections) => ({
+            ...prevSections,
+            [sectionKey]: !prevSections[sectionKey],
+        }));
+    };
+    
+
     return (
         <div className='page-4-container'>
             <h1 className='form-heading'>Investing Questionnaire</h1>
@@ -68,6 +88,16 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
             <div className='question-footer question-footer-last'>
                 Why am I being asked this question?
+                <button 
+                    onClick={() => toggleSection(1)}
+                >
+                    {expandedSections[1] ? '-' : '+'}
+                </button>
+                {expandedSections[1] && (
+                    <p>
+                        Establishing your comfort level in investing is the first step of an effective asset/liability management program.
+                    </p>
+                )}
             </div>
 
             {/* Q2 */}
@@ -120,9 +150,29 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
             <div className='question-footer question-footer-middle'>
                 What am I being asked?
+                <button 
+                    onClick={() => toggleSection(2.1)}
+                >
+                    {expandedSections[2.1] ? '-' : '+'}
+                </button>
+                {expandedSections[2.1] && (
+                    <p>
+                        It is important to know exactly how much idle cash you have.  Just because you have a certain bank balance, the amount of cash you have available to invest is a function of how much money you have and when you need your cash back in the bank.
+                    </p>
+                )}
             </div>
             <div className='question-footer question-footer-last'>
                 Why am I being asked this question?
+                <button 
+                    onClick={() => toggleSection(2.2)}
+                >
+                    {expandedSections[2.2] ? '-' : '+'}
+                </button>
+                {expandedSections[2.2] && (
+                    <p>
+                        Determining how much money you want invested needs to be assessed with the timing when you want the cash back in your bank account. Depending on your goal, that could be a short or long period of time. It might be a onetime expense, such as buying inventory, paying bills, or even making an acquisition. These future plans are important to consider when mapping out an asset / liability management strategy.
+                    </p>
+                )}
             </div>
 
             {/* Q3 */}

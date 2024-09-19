@@ -10,7 +10,7 @@ import './create-account-page.css';
 import { ErrorAlertPanel } from '../../components/error-alert-panel/error-alert-panel';
 
 export const CreateAccountPage = () => {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(4);
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
