@@ -9,74 +9,74 @@ export const CashCalculator = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Header 2</th>
-                        <th>Header 3</th>
-                        <th>Header 4</th>
-                        <th>Header 5</th>
-                        <th>Header 6</th>
-                        <th>Header 7</th>
-                        <th>Header 8</th>
-                        <th>Header 9</th>
-                        <th>Header 10</th>
-                        <th>Header 11</th>
-                        <th>Header 12</th>
-                        <th>Header 13</th>
+                        <th className="section-title-cell">Month 1</th>
+                        <th className="section-title-cell">Month 2</th>
+                        <th className="section-title-cell">Month 3</th>
+                        <th className="section-title-cell">Month 4</th>
+                        <th className="section-title-cell">Month 5</th>
+                        <th className="section-title-cell">Month 6</th>
+                        <th className="section-title-cell">Month 7</th>
+                        <th className="section-title-cell">Month 8</th>
+                        <th className="section-title-cell">Month 9</th>
+                        <th className="section-title-cell">Month 10</th>
+                        <th className="section-title-cell">Month 11</th>
+                        <th className="section-title-cell">Month 12</th>
                     </tr>
                 </thead>
                 <tbody>
                     {/* Sources of Cash */}
-                    <tr>
-                        Sources of Cash
+                    <tr >
+                        <td className="section-divider" colspan="13">Sources of Cash</td>
                     </tr>
                     <tr>
-                        <td>Revenue</td>
+                        <td className="section-title-cell">Revenue</td>
                     </tr>
                     <tr>
-                        <td>Accounts Receivable</td>
+                        <td className="section-title-cell">Accounts Receivable</td>
                     </tr>
                     <tr>
-                        <td>Loans</td>
+                        <td className="section-title-cell">Loans</td>
                     </tr>
                     <tr>
-                        <td>Equity</td>
+                        <td className="section-title-cell">Equity</td>
                     </tr>
                     <tr>
-                        <td>Other</td>
+                        <td className="section-title-cell">Other</td>
                     </tr>
 
                     {/* Uses of Cash */}
                     <tr>
-                        Uses of Cash
+                    <td className="section-divider" colspan="13">Uses of Cash</td>
                     </tr>
                     <tr>
-                        <td>Real Estate</td>
+                        <td className="section-title-cell">Real Estate</td>
                     </tr>
                     <tr>
-                        <td>Loan/Lease Bills</td>
+                        <td className="section-title-cell">Loan/Lease Bills</td>
                     </tr>
                     <tr>
-                        <td>Utilities</td>
+                        <td className="section-title-cell">Utilities</td>
                     </tr>
                     <tr>
-                        <td>Insurance</td>
+                        <td className="section-title-cell">Insurance</td>
                     </tr>
                     <tr>
-                        <td>Taxes</td>
+                        <td className="section-title-cell">Taxes</td>
                     </tr>
                     <tr>
-                        <td>Payroll</td>
+                        <td className="section-title-cell">Payroll</td>
                     </tr>
                     <tr>
-                        <td>SG & A</td>
+                        <td className="section-title-cell">SG & A</td>
                     </tr>
                     <tr>
-                        <td>Inventory</td>
+                        <td className="section-title-cell">Inventory</td>
                     </tr>
                     <tr>
-                        <td>Equipment</td>
+                        <td className="section-title-cell">Equipment</td>
                     </tr>
                     <tr>
-                        <td>Other</td>
+                        <td className="section-title-cell">Other</td>
                     </tr>
                     
                     {/* Monthly Total */}
