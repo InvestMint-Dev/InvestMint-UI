@@ -5,7 +5,7 @@ export const CashCalculator = () => {
         <div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '35px' }}>
                 <h1>Annual Average Cash Calculator</h1>
-                <textarea className="final-output-textarea" rows="4" cols="30"></textarea>
+                <textarea className="final-output-textarea" value="$" rows="4" cols="30"></textarea>
             </div>
             
 

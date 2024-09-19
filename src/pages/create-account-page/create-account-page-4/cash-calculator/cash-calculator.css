@@ -1,13 +1,14 @@
 .heading-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    gap: 20px; /* Adds space between h1 and textarea */
 }
 
 h1 {
     display: block;
     width: 50%;
+    margin: 0; /* Remove default margin */
 }
 
 .final-output-textarea {
@@ -15,8 +16,13 @@ h1 {
     background-color: rgba(166, 219, 158, 0.5);
     border-radius: 20px;
     border: none;
-    vertical-align: middle;
-    margin-bottom: 20px;
+    height: 30px; /* Adjust height for better sizing */
+    padding: 15px;
+    line-height: 30px;
+    font-size: 20px;
+    margin: 0; /* Remove margin-bottom for better alignment */
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
 }
 
 table {
@@ -24,6 +30,7 @@ table {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
     border-collapse: separate;
     border-spacing: 10px; /* Add space between cells */
     background-color: #F1FFF0;
