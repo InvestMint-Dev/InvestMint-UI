@@ -208,9 +208,29 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
             <div className='question-footer question-footer-middle'>
                 What does my answer mean?
+                <button 
+                    onClick={() => toggleSection(3.1)}
+                >
+                    {expandedSections[3.1] ? '-' : '+'}
+                </button>
+                {expandedSections[3.1] && (
+                    <p>
+                        Estimate the amount of time you have until you need to start spending the money you're investing. If your time frame is short, we'll suggest a more conservative allocation to preserve your assets. If you won't need the money for many years, we'll suggest an allocation that will target a slightly higher return for your risk tolerances.
+                    </p>
+                )}
             </div>
             <div className='question-footer question-footer-last'>
                 Why am I being asked this question?
+                <button 
+                    onClick={() => toggleSection(3.2)}
+                >
+                    {expandedSections[3.2] ? '-' : '+'}
+                </button>
+                {expandedSections[3.2] && (
+                    <p>
+                        Once you start withdrawing and spending your money, you'll want to be sure it will last as long as you need it to. Depending on your goal, that could be a short or long period of time. Your annual plan is critical to consider when mapping out an investment strategy.
+                    </p>
+                )}
             </div>
 
             {/* Q4 */}
