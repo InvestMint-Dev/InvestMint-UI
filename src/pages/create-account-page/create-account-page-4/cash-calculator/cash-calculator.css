@@ -45,3 +45,15 @@ th, td {
     padding: 10px;
     margin: 0;
 }
+
+.output-cell {
+    border-radius: 20px;
+    border: none;
+    width: 5vw;
+    height: 20px;
+    padding: 10px;
+    background-color: #23694A;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}

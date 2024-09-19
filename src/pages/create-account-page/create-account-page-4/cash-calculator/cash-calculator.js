@@ -261,7 +261,19 @@ export const CashCalculator = () => {
                     
                     {/* Monthly Total */}
                     <tr>
-                        <td>Monthly Total</td>
+                        <td className='section-divider' style={{textAlign: 'center'}}>Monthly Total</td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
+                        <td><input type="text" className="output-cell"></input></td>
                     </tr>
                 </tbody>
             </table>
