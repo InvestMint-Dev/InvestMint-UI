@@ -2,6 +2,8 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { validateInvestingQuestionnaire } from '../../../validators/validators';
 import './create-account-page-4.css';
 
+import chart from '../../../assets/images/create-account-page/page-4-chart.png';
+
 export const CreateAccountPage4 = forwardRef((props, ref) => {
     const { nextButtonClicked } = props;
 
@@ -373,6 +375,8 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                     The chart shows the greatest possible 1-year loss and the highest 1-year gain on 3 different hypothetical investments of $1,000,000.* Given the potential gain or loss in any 1 year, I would invest my money in:
                 </p>
                 {(errors.investingQ7 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ7}</p>}
+                
+                <img src={chart}></img>
                 
                 <button 
                     className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "The lowest volatility ETF") ? 'clicked' : ''}`}
