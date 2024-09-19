@@ -302,9 +302,29 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
             </div>
             <div className='question-footer question-footer-middle'>
                 What does my answer mean?
+                <button 
+                    onClick={() => toggleSection(5.1)}
+                >
+                    {expandedSections[5.1] ? '-' : '+'}
+                </button>
+                {expandedSections[5.1] && (
+                    <p>
+                        Consider the sources of cash you expect to have in the future. How certain are you that they'll materialize? We'll consider your estimated degree of financial stability as another factor in determining an appropriate asset allocation.
+                    </p>
+                )}
             </div>
             <div className='question-footer question-footer-last'>
                 Why am I being asked this question?
+                <button 
+                    onClick={() => toggleSection(5.2)}
+                >
+                    {expandedSections[5.2] ? '-' : '+'}
+                </button>
+                {expandedSections[5.2] && (
+                    <p>
+                        Your asset mix could be completely conservative or moderately conservative depending on your current and future sources of cash. A stable financial outlook provides the foundation on which to base your investment strategy. Generally, more stability affords you more opportunity to take on investment risk. Less stability suggests that a more conservative approach might better serve you.
+                    </p>
+                )}
             </div>
 
             {/* Q6 */}
