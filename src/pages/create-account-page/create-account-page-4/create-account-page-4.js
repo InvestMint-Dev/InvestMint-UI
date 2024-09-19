@@ -128,16 +128,11 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
 
                 {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
                 <div style={{marginTop: '30px'}}>
-                    <p>How long have you been in business?</p>
+                    <p>How long have you been in business? (in days)</p>
                     {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2BusinessDuration}</p>}
-                    <div className='form-select duration-select'>
-                        <select style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} 
-                            onChange={(e) => setFormData({ ...formData, investingQ2BusinessDuration: e.target.value })}>
-                            <option value="">Select Duration</option>
-                            <option value="duration1">Duration 1</option>
-                            <option value="duration2">Duration 2</option>
-                        </select>
-                    </div>
+                    <textarea style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
+                        value={formData.investingQ2BusinessDuration} // Set the current value from the state
+                        onChange={(e) => setFormData({ ...formData, investingQ2BusinessDuration: e.target.value })}/>
 
                     <p>What is your average cash per year?</p>
                     {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2AverageCashPerYear}</p>}
