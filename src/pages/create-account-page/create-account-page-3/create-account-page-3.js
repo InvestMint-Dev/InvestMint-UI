@@ -37,6 +37,22 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
     const handleChange = (e, index) => {
         const { name, value } = e.target;
 
+        // Phone number masking logic
+        const formatPhoneNumber = (phoneNumber) => {
+            const cleaned = phoneNumber.replace(/\D/g, ''); // Remove all non-numeric characters
+            let formattedPhoneNumber = '';
+            if (cleaned.length > 0) {
+                formattedPhoneNumber += '(' + cleaned.substring(0, 3);
+            }
+            if (cleaned.length > 3) {
+                formattedPhoneNumber += ') ' + cleaned.substring(3, 6);
+            }
+            if (cleaned.length > 6) {
+                formattedPhoneNumber += '-' + cleaned.substring(6, 10);
+            }
+            return formattedPhoneNumber;
+        };
+
         if (name === 'bank' || name === 'accountNumber') {
             // Handle changes for bank account fields
             setFormData(prevData => {
@@ -50,7 +66,8 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         } else {
             // Handle changes for other form fields
             setFormData(prevData => {
-                const updatedData = { ...prevData, [name]: value };
+                const updatedValue = (name === 'phoneNumber') || (name === 'mobileNumber') ? formatPhoneNumber(value) : value;
+                const updatedData = { ...prevData, [name]: updatedValue };
                 const validationErrors = validateCompanyLegalInfo(updatedData);
                 setErrors(validationErrors);
                 return updatedData;
@@ -90,8 +107,22 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 {(errors.phoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.phoneNumber}</p>}
                 {(errors.mobileNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.mobileNumber}</p>}
                 <div className='form-flex-container'>
-                    <textarea className='form-textarea form-textarea-half' name="phoneNumber" placeholder='Phone Number' value={formData.phoneNumber} onChange={handleChange} style={{ border: (errors.phoneNumber && nextButtonClicked) ? "2px solid red" : "none" }} />
-                    <textarea className='form-textarea form-textarea-half' name="mobileNumber" placeholder='Mobile Number' value={formData.mobileNumber} onChange={handleChange} style={{ border: (errors.mobileNumber && nextButtonClicked) ? "2px solid red" : "none" }} />
+                    <textarea
+                        className='form-textarea form-textarea-half'
+                        name="phoneNumber"
+                        placeholder='Phone Number'
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        style={{ border: (errors.phoneNumber && nextButtonClicked) ? "2px solid red" : "none" }}
+                    />
+                    <textarea
+                        className='form-textarea form-textarea-half'
+                        name="mobileNumber"
+                        placeholder='Mobile Number'
+                        value={formData.mobileNumber}
+                        onChange={handleChange}
+                        style={{ border: (errors.mobileNumber && nextButtonClicked) ? "2px solid red" : "none" }}
+                    />
                 </div>
 
                 {(errors.companyName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyName}</p>}
