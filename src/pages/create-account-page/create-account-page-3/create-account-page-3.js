@@ -246,7 +246,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 <textarea 
                     className='form-textarea form-textarea-full' 
                     name="countryName" 
-                    placeholder='Country Name' 
+                    placeholder='Country' 
                     value={formData.countryName} 
                     style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid red" : "none" }} 
                     readOnly/>
