@@ -214,37 +214,31 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 {(errors.zipcode && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.zipcode}</p>}
                 <div className='form-flex-container'>
                     {/* City Input */}
-                    <div>
-                        <textarea
-                            className='form-textarea'
-                            name="city"
-                            placeholder='City'
-                            value={formData.city}
-                            readOnly // Make this read-only since it's auto-filled
-                        />
-                    </div>
+                    <textarea
+                        className='form-textarea form-textarea-third'
+                        name="city"
+                        placeholder='City'
+                        value={formData.city}
+                        readOnly // Make this read-only since it's auto-filled
+                    />
 
                     {/* State Input */}
-                    <div>
-                        <textarea
-                            className='form-textarea'
-                            name="state"
-                            placeholder='State'
-                            value={formData.state}
-                            readOnly // Make this read-only since it's auto-filled
-                        />
-                    </div>
+                    <textarea
+                        className='form-textarea form-textarea-third'
+                        name="state"
+                        placeholder='State'
+                        value={formData.state}
+                        readOnly // Make this read-only since it's auto-filled
+                    />
 
                     {/* Zipcode Input */}
-                    <div>
-                        <textarea
-                            className='form-textarea'
-                            name="zipcode"
-                            placeholder='Zipcode'
-                            value={formData.zipcode}
-                            readOnly // Make this read-only since it's auto-filled
-                        />
-                    </div>
+                    <textarea
+                        className='form-textarea form-textarea-third'
+                        name="zipcode"
+                        placeholder='Zipcode'
+                        value={formData.zipcode}
+                        readOnly // Make this read-only since it's auto-filled
+                    />
                 </div>
 
                 {(errors.countryName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.countryName}</p>}
