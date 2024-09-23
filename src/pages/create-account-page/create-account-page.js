@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CreateAccountSidebar } from './create-account-sidebar/create-account-sidebar';
@@ -16,6 +16,10 @@ export const CreateAccountPage = () => {
     const [alertClass, setAlertClass] = useState(""); // State for alert class
     const totalSteps = 4; // Define total steps here
     const navigate = useNavigate();
+
+    useEffect(() => {
+        document.title = 'Create Account | InvestMint';
+    }, [currentPage]);
 
     // Create refs for each page to access the validate function
     const pageRefs = {

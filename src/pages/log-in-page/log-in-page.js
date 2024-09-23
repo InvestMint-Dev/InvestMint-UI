@@ -22,6 +22,7 @@ export const LogInPage = () => {
         if (element) {
             element.classList.add('fade-in');
         }
+        document.title = 'Log In | InvestMint';
     }, []); // Empty dependency array means this effect runs once after the initial render
 
 
