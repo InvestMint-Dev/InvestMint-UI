@@ -11,7 +11,8 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         zipcode: [],
         countryName: []
     });
-    const HERE_API_KEY = 'BQBnLLfkc9AS1G9hsnz02EjjLVttce9ct_5saLU_1AE';
+    
+    const HERE_API_KEY = process.env.HERE_API_KEY;
 
     const [formData, setFormData] = useState({
         firstName: "",
