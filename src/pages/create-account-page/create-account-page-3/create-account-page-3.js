@@ -11,7 +11,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         zipcode: [],
         countryName: []
     });
-    
+
     const HERE_API_KEY = process.env.HERE_API_KEY;
 
     const [formData, setFormData] = useState({
@@ -246,7 +246,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 <textarea 
                     className='form-textarea form-textarea-full' 
                     name="countryName" 
-                    placeholder='countryName' 
+                    placeholder='Country Name' 
                     value={formData.countryName} 
                     style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid red" : "none" }} 
                     readOnly/>
