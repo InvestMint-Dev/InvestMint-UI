@@ -8,7 +8,8 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
     const [suggestions, setSuggestions] = useState({
         state: [],
         city: [],
-        zipcode: []
+        zipcode: [],
+        countryName: []
     });
     const HERE_API_KEY = 'BQBnLLfkc9AS1G9hsnz02EjjLVttce9ct_5saLU_1AE';
 
@@ -19,7 +20,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         phoneNumber: "",
         mobileNumber: "",
         companyName: "",
-        country: "",
+        countryName: "",
         addressLine1: "",
         state: "",
         city: "",
@@ -95,13 +96,14 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     apiKey: HERE_API_KEY, // Replace with your actual API key
                 },
             });
-            
+
             if (response.data && response.data.items) {
                 const addressSuggestions = response.data.items.map(item => ({
                     title: item.address.label,
                     city: item.address.city || '', // Handle cases where city might be undefined
                     state: item.address.state || '', // Handle cases where state might be undefined
-                    zipcode: item.address.postalCode || '' // Handle cases where zipcode might be undefined
+                    zipcode: item.address.postalCode || '', // Handle cases where zipcode might be undefined
+                    countryName: item.address.countryName || '' // Handle cases where zipcode might be undefined
                 }));
 
                 setSuggestions(addressSuggestions);
@@ -118,7 +120,8 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
             addressLine1: suggestion.title, // Set the selected address line
             city: suggestion.city,
             state: suggestion.state,
-            zipcode: suggestion.zipcode
+            zipcode: suggestion.zipcode,
+            countryName: suggestion.countryName
         });
         setSuggestions([]); // Clear suggestions after selection
     };
@@ -175,10 +178,9 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 </div>
 
                 {(errors.companyName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyName}</p>}
-                {(errors.country && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.country}</p>}
-                {(errors.addressLine1 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.addressLine1}</p>}
                 <textarea className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid red" : "none" }} />
-                <textarea className='form-textarea form-textarea-full' name="country" placeholder='Country' value={formData.country} onChange={handleChange} style={{ border: (errors.country && nextButtonClicked) ? "2px solid red" : "none" }} />
+
+                {(errors.addressLine1 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.addressLine1}</p>}
                 <textarea
                     className='form-textarea form-textarea-full'
                     name="addressLine1"
@@ -197,6 +199,15 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                         ))}
                     </ul>
                 )}
+
+                {(errors.countryName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.countryName}</p>}
+                <textarea 
+                    className='form-textarea form-textarea-full' 
+                    name="countryName" 
+                    placeholder='countryName' 
+                    value={formData.countryName} 
+                    style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid red" : "none" }} 
+                    readOnly/>
 
                 {(errors.state && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.state}</p>}
                 {(errors.city && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.city}</p>}
