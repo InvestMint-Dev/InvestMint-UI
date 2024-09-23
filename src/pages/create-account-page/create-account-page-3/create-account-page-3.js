@@ -12,7 +12,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         countryName: []
     });
 
-    const HERE_API_KEY = process.env.HERE_API_KEY;
+    const HERE_API_KEY = process.env.REACT_APP_HERE_API_KEY;
 
     const [formData, setFormData] = useState({
         firstName: "",
