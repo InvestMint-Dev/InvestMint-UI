@@ -273,9 +273,14 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                                     onChange={(e) => handleChange(e, index)}
                                 >
                                     <option value="">Select Bank</option>
-                                    <option value="bank1">Bank 1</option>
-                                    <option value="bank2">Bank 2</option>
-                                    {/* Add more options as needed */}
+                                    <option value="RBC">Royal Bank of Canada (RBC)</option>
+                                    <option value="TD">Toronto-Dominion Bank (TD)</option>
+                                    <option value="BMO">Bank of Montreal (BMO)</option>
+                                    <option value="Scotiabank">Scotiabank (TD)</option>
+                                    <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
+                                    <option value="NBC">National Bank of Canada (NBC)</option>
+                                    <option value="Laurentian Bank">Laurentian Bank</option>
+                                    <option value="EQ Bank">Equitable Bank (EQ Bank)</option>
                                 </select>                            
                             </div>
                             
