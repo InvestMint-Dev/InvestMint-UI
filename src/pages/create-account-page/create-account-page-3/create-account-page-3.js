@@ -5,6 +5,8 @@ import './create-account-page-3.css';
 
 export const CreateAccountPage3 = forwardRef((props, ref) => {
     const { nextButtonClicked } = props;
+    const [suggestions, setSuggestions] = useState({ state: [], city: [], zipcode: [] });
+    const HERE_API_KEY = 'BQBnLLfkc9AS1G9hsnz02EjjLVttce9ct_5saLU_1AE';
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -75,6 +77,44 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         }
     };
 
+    const handleLocationInputChange = async (e) => {
+        const { name, value } = e.target;
+
+        // Update form data
+        setFormData((prevData) => ({ ...prevData, [name]: value }));
+
+        if (value.length !== 0) {
+            try {
+                const response = await axios.get(
+                    `https://autocomplete.search.hereapi.com/v1/autocomplete?q=${value}&in=countryCode:CAN&limit=5&apiKey=${HERE_API_KEY}`
+                );
+                
+                // Process suggestions for the respective field
+                if (name === 'state' || name === 'city' || name === 'zipcode') {
+                    setSuggestions((prevSuggestions) => ({
+                        ...prevSuggestions,
+                        [name]: response.data.items // assuming this is where the suggestions are stored
+                    }));
+                }
+            } catch (error) {
+                console.error('Error fetching suggestions from HERE API:', error);
+            }
+        }
+    };
+
+    const handleLocationSuggestionClick = (name, suggestion) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: suggestion.title // Assuming the suggestion has a `title` field with the desired text
+        }));
+        // Clear suggestions after selection
+        setSuggestions((prevSuggestions) => ({
+            ...prevSuggestions,
+            [name]: []
+        }));
+    };
+
+
     const addBankInputSet = () => {
         setFormData(prevData => ({
             ...prevData,
@@ -136,9 +176,70 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 {(errors.city && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.city}</p>}
                 {(errors.zipcode && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.zipcode}</p>}
                 <div className='form-flex-container'>
-                    <textarea className='form-textarea form-textarea-third' name="state" placeholder='State' value={formData.state} onChange={handleChange} style={{ border: (errors.state && nextButtonClicked) ? "2px solid red" : "none" }} />
-                    <textarea className='form-textarea form-textarea-third' name="city" placeholder='City' value={formData.city} onChange={handleChange} style={{ border: (errors.city && nextButtonClicked) ? "2px solid red" : "none" }} />
-                    <textarea className='form-textarea form-textarea-third' name="zipcode" placeholder='Zipcode' value={formData.zipcode} onChange={handleChange} style={{ border: (errors.zipcode && nextButtonClicked) ? "2px solid red" : "none" }} />
+                    <div>
+                    <textarea
+                        className='form-textarea'
+                        name="state"
+                        placeholder='State'
+                        value={formData.state}
+                        onChange={handleLocationInputChange}
+                        style={{ border: (errors.state && nextButtonClicked) ? "2px solid red" : "none" }}
+                    />
+                    {/* Render suggestions for state */}
+                    {suggestions.state.length > 0 && (
+                        <ul className="suggestions-list">
+                            {suggestions.state.map((suggestion, index) => (
+                                <li key={index} onClick={() => handleLocationSuggestionClick('state', suggestion)}>
+                                    {suggestion.title}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+
+                {/* City Input with Autocomplete */}
+                <div>
+                    <textarea
+                        className='form-textarea'
+                        name="city"
+                        placeholder='City'
+                        value={formData.city}
+                        onChange={handleLocationInputChange}
+                        style={{ border: (errors.city && nextButtonClicked) ? "2px solid red" : "none" }}
+                    />
+                    {/* Render suggestions for city */}
+                    {suggestions.city.length > 0 && (
+                        <ul className="suggestions-list">
+                            {suggestions.city.map((suggestion, index) => (
+                                <li key={index} onClick={() => handleLocationSuggestionClick('city', suggestion)}>
+                                    {suggestion.title}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+
+                {/* Zipcode Input with Autocomplete */}
+                <div>
+                    <textarea
+                        className='form-textarea'
+                        name="zipcode"
+                        placeholder='Zipcode'
+                        value={formData.zipcode}
+                        onChange={handleLocationInputChange}
+                        style={{ border: (errors.zipcode && nextButtonClicked) ? "2px solid red" : "none" }}
+                    />
+                    {/* Render suggestions for zipcode */}
+                    {suggestions.zipcode.length > 0 && (
+                        <ul className="suggestions-list">
+                            {suggestions.zipcode.map((suggestion, index) => (
+                                <li key={index} onClick={() => handleLocationSuggestionClick('zipcode', suggestion)}>
+                                    {suggestion.title}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
                 </div>
 
                 {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyPhoneNumber}</p>}
