@@ -95,10 +95,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     apiKey: HERE_API_KEY, // Replace with your actual API key
                 },
             });
-            // const response = await axios.get(
-            //     `https://autocomplete.search.hereapi.com/v1/autocomplete?q=address&in=countryCode:CAN&limit=5&apiKey=${HERE_API_KEY}`
-            // );
-
+            
             if (response.data && response.data.items) {
                 const addressSuggestions = response.data.items.map(item => ({
                     title: item.address.label,
