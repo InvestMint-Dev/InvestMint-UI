@@ -200,15 +200,6 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     </ul>
                 )}
 
-                {(errors.countryName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.countryName}</p>}
-                <textarea 
-                    className='form-textarea form-textarea-full' 
-                    name="countryName" 
-                    placeholder='countryName' 
-                    value={formData.countryName} 
-                    style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid red" : "none" }} 
-                    readOnly/>
-
                 {(errors.state && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.state}</p>}
                 {(errors.city && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.city}</p>}
                 {(errors.zipcode && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.zipcode}</p>}
@@ -246,6 +237,15 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                         />
                     </div>
                 </div>
+
+                {(errors.countryName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.countryName}</p>}
+                <textarea 
+                    className='form-textarea form-textarea-full' 
+                    name="countryName" 
+                    placeholder='countryName' 
+                    value={formData.countryName} 
+                    style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid red" : "none" }} 
+                    readOnly/>
 
                 {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyPhoneNumber}</p>}
                 <textarea className='form-textarea form-textarea-full' name="companyPhoneNumber" placeholder='Company Phone Number' value={formData.companyPhoneNumber} onChange={handleChange} style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid red" : "none" }} />
