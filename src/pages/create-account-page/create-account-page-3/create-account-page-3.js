@@ -73,7 +73,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
         } else {
             // Handle changes for other form fields
             setFormData(prevData => {
-                const updatedValue = (name === 'phoneNumber') || (name === 'mobileNumber') ? formatPhoneNumber(value) : value;
+                const updatedValue = (name === 'phoneNumber') || (name === 'mobileNumber') || (name === 'companyPhoneNumber') ? formatPhoneNumber(value) : value;
                 const updatedData = { ...prevData, [name]: updatedValue };
                 const validationErrors = validateCompanyLegalInfo(updatedData);
                 setErrors(validationErrors);
@@ -180,6 +180,15 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 {(errors.companyName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyName}</p>}
                 <textarea className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid red" : "none" }} />
 
+                {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyPhoneNumber}</p>}
+                <textarea 
+                    className='form-textarea form-textarea-full' 
+                    name="companyPhoneNumber" 
+                    placeholder='Company Phone Number' 
+                    value={formData.companyPhoneNumber} 
+                    onChange={handleChange} 
+                    style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid red" : "none" }} />
+
                 {(errors.addressLine1 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.addressLine1}</p>}
                 <textarea
                     className='form-textarea form-textarea-full'
@@ -246,9 +255,6 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     value={formData.countryName} 
                     style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid red" : "none" }} 
                     readOnly/>
-
-                {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyPhoneNumber}</p>}
-                <textarea className='form-textarea form-textarea-full' name="companyPhoneNumber" placeholder='Company Phone Number' value={formData.companyPhoneNumber} onChange={handleChange} style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid red" : "none" }} />
 
                 <h3>Company Bank Accounts</h3>
                 <div className="bankinputs-container">
