@@ -1,7 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { validateInvestingQuestionnaire } from '../../../validators/validators';
 import './create-account-page-4.css';
-
+import { handleKeyDown } from '../../../utils/utils';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
 export const CreateAccountPage4 = forwardRef((props, ref) => {
@@ -122,7 +122,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <div style={{marginTop: '30px'}}>
                     {(errors.investingQ2CashAmount && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2CashAmount}</p>}
                     <p>Enter Amount:</p>
-                    <textarea id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid red" : "none" }} 
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid red" : "none" }} 
                         className='form-textarea text-input' 
                         value={formData.investingQ2CashAmount} // Set the current value from the state
                         onChange={(e) => setFormData({ ...formData, investingQ2CashAmount: e.target.value })}/>
@@ -132,13 +132,13 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <div style={{marginTop: '30px'}}>
                     <p>How long have you been in business? (in days)</p>
                     {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2BusinessDuration}</p>}
-                    <textarea id="form-textarea" style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
                         value={formData.investingQ2BusinessDuration} // Set the current value from the state
                         onChange={(e) => setFormData({ ...formData, investingQ2BusinessDuration: e.target.value })}/>
 
                     <p>What is your average cash per year?</p>
                     {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2AverageCashPerYear}</p>}
-                    <textarea id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
                         value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
                         onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })}/>
                     <a href='/cash-calculator' target="_blank">Average cash calculator</a>
@@ -247,7 +247,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <div style={{marginTop: '30px'}}>
                     <p>Enter Date:</p>
                     {(errors.investingQ4CashBackDate && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDate}</p>}
-                    <textarea id="form-textarea" className='form-textarea text-input'
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
                         style={{ border: (errors.investingQ4CashBackDate && nextButtonClicked) ? "2px solid red" : "none" }}
                         value={formData.investingQ4CashBackDate} // Set the current value from the state
                         onChange={(e) => setFormData({ ...formData, investingQ4CashBackDate: e.target.value })}/>
@@ -257,7 +257,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 <div style={{marginTop: '30px'}}>
                     <p>Enter Duration:</p>
                     {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDuration}</p>}
-                    <textarea id="form-textarea" className='form-textarea text-input'
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
                         style={{ border: (errors.investingQ4CashBackDuration && nextButtonClicked) ? "2px solid red" : "none" }}
                         value={formData.investingQ4CashBackDuration} // Set the current value from the state
                         onChange={(e) => setFormData({ ...formData, investingQ4CashBackDuration: e.target.value })}/>

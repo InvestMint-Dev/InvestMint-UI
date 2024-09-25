@@ -1,11 +1,12 @@
 import './cash-calculator.css';
+import { handleKeyDown } from '../../../../utils/utils';
 
 export const CashCalculator = () => {
     return(
         <div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '35px' }}>
                 <h1 className="calculator-heading">Annual Average Cash Calculator</h1>
-                <textarea id="form-textarea" className="final-output-textarea" value="$" rows="4" cols="30"></textarea>
+                <textarea onKeyDown={handleKeyDown}  id="form-textarea" className="final-output-textarea" value="$" rows="4" cols="30"></textarea>
             </div>
             
 

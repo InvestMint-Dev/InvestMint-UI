@@ -1,5 +1,6 @@
 import './create-account-page-2.css';
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import { handleKeyDown } from '../../../utils/utils';
 
 export const CreateAccountPage2 = forwardRef((props, ref) => {
     const [errors, setErrors] = useState({});
@@ -23,7 +24,7 @@ export const CreateAccountPage2 = forwardRef((props, ref) => {
                         <option value="3">Option 3</option>
                     </select>
                 </div>
-                <textarea id="form-textarea" className='form-textarea form-textarea-full' placeholder='Answer'></textarea>
+                <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' placeholder='Answer'></textarea>
 
                 <h2>or</h2>
 
@@ -35,7 +36,7 @@ export const CreateAccountPage2 = forwardRef((props, ref) => {
                         <option value="3">Option 3</option>
                     </select>
                 </div>
-                <textarea id="form-textarea" className='form-textarea form-textarea-full' placeholder='SMS'></textarea>
+                <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' placeholder='SMS'></textarea>
             </div>
         </div>
     );
