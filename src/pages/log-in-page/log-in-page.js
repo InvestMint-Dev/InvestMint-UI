@@ -59,7 +59,7 @@ export const LogInPage = () => {
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
             <div className='log-in-form-container'>
-                <h1 className='form-heading'>Log-in</h1>
+                <h1 className='form-heading'>Log In</h1>
                 <form className='log-in-form' onSubmit={handleSubmit}>
                     {/* email input */}
                     {(errors.email && submitButtonClicked) && <p style={{ color: "red" }}>{errors.email}</p>}
