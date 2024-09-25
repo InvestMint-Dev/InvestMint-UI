@@ -2,15 +2,31 @@ html {
   font-size: 16px; /* Default base size */
 }
 
+.logo-display {
+  position: fixed;
+  top: 0.625rem;
+  left: 0.625rem;
+  width: 12.5rem;
+  height: auto;
+}
+
 @media (max-width: 600px) {
   html {
-      font-size: 14px; /* Smaller base size on mobile */
+    font-size: 14px; /* Smaller base size on mobile */
+  }
+
+  .logo-display {
+    top: auto;
+    translate: calc(-55%);
+    margin-left: 50vw;
+    bottom: 0.625rem; /* Move to bottom on mobile */
+    width: 10rem;     /* Adjust width for smaller screens */
   }
 }
 
 @media (min-width: 1025px) {
   html {
-      font-size: 18px; /* Larger base size on desktops */
+    font-size: 18px; /* Larger base size on desktops */
   }
 }
 
@@ -25,12 +41,4 @@ h1 {
 
 p {
   font-size: 1rem;
-}
-
-.logo-display {
-  position: fixed;
-  top: 0.625rem;
-  left: 0.625rem;
-  width: 12.5rem;
-  height: auto;
 }
