@@ -1,7 +1,30 @@
 body {
   background-color: #fafafa;
   font-family: "Inter", sans-serif;
+  font-size: 16px; /* Default font size */
 }
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+  body {
+      font-size: 14px; /* Smaller font size for mobile */
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+      font-size: 18px; /* Larger font size for tablets */
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1025px) {
+  body {
+      font-size: 20px; /* Even larger font size for desktops */
+  }
+}
+
 
 .top-left-logo-display {
   position: fixed;
