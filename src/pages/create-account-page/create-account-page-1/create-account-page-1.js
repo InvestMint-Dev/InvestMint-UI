@@ -41,17 +41,17 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
     <div className='page-1-container'>
       <h1 className='form-heading'>Create Your Account</h1>
       <div className='create-account-form'>
-        {(errors.email && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.email}</p>}
         <input
           className='form-textarea form-textarea-full'
           name='email'
           placeholder='Email'
           value={formData.email}
           onChange={handleChange}
-          style={{ border: (errors.email && nextButtonClicked) ? "2px solid red" : "none" }}
+          style={{ border: (errors.email && nextButtonClicked) ? "2px solid #71CCA8" : "none" }}
         />
+        {(errors.email && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.email}</p>}
 
-        {(errors.password && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.password}</p>}
+
         <div className='password-container'>
           <input
             className='form-textarea form-textarea-full'
@@ -60,14 +60,14 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
             placeholder='Password'
             value={formData.password}
             onChange={handleChange}
-            style={{ border: (errors.password && nextButtonClicked) ? "2px solid red" : "none" }}
+            style={{ border: (errors.password && nextButtonClicked) ? "2px solid #71CCA8" : "none" }}
           />
           <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
             {showPassword ? <img src={openEye}/> : <img src={closedEye}/>}
           </button>
         </div>
+        {(errors.password && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.password}</p>}
 
-        {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.confirmPassword}</p>}
         <div className='password-container'>
           <input
             className='form-textarea form-textarea-full'
@@ -76,12 +76,13 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
             placeholder='Confirm Password'
             value={formData.confirmPassword}
             onChange={handleChange}
-            style={{ border: (errors.confirmPassword && nextButtonClicked) ? "2px solid red" : "none" }}
+            style={{ border: (errors.confirmPassword && nextButtonClicked) ? "2px solid #71CCA8" : "none" }}
           />
           <button type="button" className='show-password-button' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
             {showConfirmPassword ? <img src={openEye}/> : <img src={closedEye}/>}
           </button>
         </div>
+        {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.confirmPassword}</p>}
         
       </div>
     </div>

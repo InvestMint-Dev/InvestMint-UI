@@ -14,7 +14,7 @@ import './create-account-page.css';
 import '../styling/form-styling.css';
 
 export const CreateAccountPage = () => {
-    const [currentPage, setCurrentPage] = useState(4);
+    const [currentPage, setCurrentPage] = useState(1);
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class

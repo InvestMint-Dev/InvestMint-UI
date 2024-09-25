@@ -71,7 +71,7 @@ export const LogInPage = () => {
                         value={formData.email}
                         onChange={handleChange}
                         style={{
-                            border: (errors.email && submitButtonClicked) ? "2px solid red" : "none"
+                            border: (errors.email && submitButtonClicked) ? "2px solid #71CCA8" : "none"
                         }} />
 
                     {/* password input */}
@@ -85,7 +85,7 @@ export const LogInPage = () => {
                             className='form-textarea form-textarea-full password-textarea' 
                             placeholder='Password'
                             style={{
-                                border: (errors.password && submitButtonClicked) ? "2px solid red" : "none"
+                                border: (errors.password && submitButtonClicked) ? "2px solid #71CCA8" : "none"
                             }} >
                             </input>
                         <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
