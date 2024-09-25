@@ -25,7 +25,7 @@
 .question-label {
     text-align: center;
     font-weight: bold;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .question-answer-button {
@@ -90,4 +90,22 @@
     font-size: 0.9375rem;;
     background-color: rgba(35, 105, 74, 0.8);
     color: white;
+}
+
+
+/* Small devices (phones and tablets) */
+@media (max-width: 768px) {
+    .question-container {
+        width: 18rem;
+    }
+
+    .question-answer-button {
+        width: 15rem;
+        font-size: 0.9rem;
+    }
+
+    .question-footer {
+        width: 18rem;
+        font-size: 0.9rem;
+    }
 }
