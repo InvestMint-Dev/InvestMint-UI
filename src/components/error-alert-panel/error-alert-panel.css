@@ -20,7 +20,10 @@
 }
 
 @media (max-width: 768px) {
-    .create-account-form {
-        width: 20rem;
+    .error-alert-panel {
+        display: absolute;
+        top: 2rem;
+        left: calc(50%);
+        width: 80%;
     }
   }
