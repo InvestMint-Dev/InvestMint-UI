@@ -41,3 +41,24 @@
     margin-right: auto;
     justify-content: space-between; /* Pushes buttons to the edges */
 }
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+    .page-container {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .page-1-container {
+        width: 20rem;
+    }
+
+    .stepper-container {
+        width: 20rem;
+
+        button {
+            width: 5rem;
+            font-size: 1rem;
+        }
+    }
+  }

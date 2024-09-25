@@ -1,7 +1,7 @@
 // CreateAccountPage1.js
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { validateLogInFields } from '../../../validators/validators';
-import './../create-account-page.css';
+import './create-account-page-1.css';
 
 import openEye from '../../../assets/images/icons/Eye.png';
 import closedEye from '../../../assets/images/icons/Closed Eye.png';
