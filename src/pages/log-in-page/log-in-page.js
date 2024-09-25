@@ -56,7 +56,7 @@ export const LogInPage = () => {
 
     return (
         <div>
-            <img className='top-left-logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
+            <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
             <div className='log-in-form-container'>
                 <h1 className='form-heading'>Log-in</h1>

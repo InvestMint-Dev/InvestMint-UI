@@ -25,7 +25,7 @@ body {
   }
 }
 
-.top-left-logo-display {
+.logo-display {
   position: fixed;
   top: 0.625rem;
   left: 0.625rem;

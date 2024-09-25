@@ -12,7 +12,7 @@ export const CreateAccountSidebar = ({ currentPage }) => {
 
     return (
         <div className="create-account-sidebar-container">
-            <img className='top-left-logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
+            <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
             <div className='create-account-sidebar-stepper-container'>
                 {steps.map((step, index) => (
@@ -28,18 +28,6 @@ export const CreateAccountSidebar = ({ currentPage }) => {
                             }`}>
                             {step}
                         </span>
-
-                        {/* Render small vertical circles if not the last step
-                        {index < steps.length - 1 && (
-                            <div>
-                                <div className="small-circles-container">
-                                    <div className="small-circle"></div>
-                                    <div className="small-circle"></div>
-                                    <div className="small-circle"></div>
-                                </div>
-                            </div>
-                            
-                        )} */}
                     </div>
                 ))}
             </div>
