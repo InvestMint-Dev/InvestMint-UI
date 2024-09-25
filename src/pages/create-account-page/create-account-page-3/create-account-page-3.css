@@ -59,7 +59,7 @@
 }
 
 .bankinputs-textarea {
-    width: 11.25rem;
+    width: calc(100% - 1.25rem);
     height: 1.5625rem;
     line-height: 1.5625rem;
     font-size: 0.9375rem;
@@ -112,3 +112,25 @@
 .suggestions-list li:hover {
     background-color: #f0f0f0;
 }
+
+@media (max-width: 768px) {
+    .bankinputs-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* 3 columns with equal width */
+        width: 19rem;
+        background-color: rgba(166, 219, 158, 0.5);
+        border-radius: 1.25rem;
+    }
+
+    .bankinputs-set {
+        width: 17.75rem;
+    }
+    
+    .bankinputs-select select {
+        width: 17.75rem;
+    }
+
+    .bankinputs-add-button {
+        width: 19rem;
+    }
+  }

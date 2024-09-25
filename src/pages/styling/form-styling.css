@@ -199,4 +199,12 @@
     width: 20rem;
     font-size: 1rem;
   }
+
+  .form-textarea-half {
+    width: calc(45% - 1.75rem); /* Half width */
+  }
+  
+  .form-textarea-third {
+    width: calc(30% - 2rem); /* One-third width */
+  }
 }
