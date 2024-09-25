@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './log-in-page.css';
+import '../styling/form-styling.css';
 
 import { validateLogInFields } from '../../validators/validators';
 import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';

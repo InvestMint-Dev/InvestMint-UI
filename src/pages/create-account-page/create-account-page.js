@@ -6,8 +6,10 @@ import { CreateAccountPage1 } from './create-account-page-1/create-account-page-
 import { CreateAccountPage2 } from './create-account-page-2/create-account-page-2';
 import { CreateAccountPage3 } from './create-account-page-3/create-account-page-3';
 import { CreateAccountPage4 } from './create-account-page-4/create-account-page-4';
-import './create-account-page.css';
 import { ErrorAlertPanel } from '../../components/error-alert-panel/error-alert-panel';
+
+import './create-account-page.css';
+import '../styling/form-styling.css';
 
 export const CreateAccountPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
