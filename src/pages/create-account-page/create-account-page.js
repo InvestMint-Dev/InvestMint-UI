@@ -8,6 +8,8 @@ import { CreateAccountPage3 } from './create-account-page-3/create-account-page-
 import { CreateAccountPage4 } from './create-account-page-4/create-account-page-4';
 import { ErrorAlertPanel } from '../../components/error-alert-panel/error-alert-panel';
 
+import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';
+
 import './create-account-page.css';
 import '../styling/form-styling.css';
 
@@ -71,6 +73,8 @@ export const CreateAccountPage = () => {
 
     return (
         <div>
+            <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
+
             {/* Pass currentPage and totalSteps to the sidebar */}
             <CreateAccountSidebar currentPage={currentPage} totalSteps={totalSteps} />
 

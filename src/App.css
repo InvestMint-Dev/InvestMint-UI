@@ -10,7 +10,7 @@ html {
   height: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   html {
     font-size: 14px; /* Smaller base size on mobile */
   }

@@ -18,3 +18,9 @@
 .error-alert-panel.hide {
     opacity: 0; /* Hide panel */
 }
+
+@media (max-width: 768px) {
+    .create-account-form {
+        width: 20rem;
+    }
+  }
