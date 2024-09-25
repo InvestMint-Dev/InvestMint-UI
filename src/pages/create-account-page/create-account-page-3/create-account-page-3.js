@@ -150,17 +150,17 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 {(errors.firstName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.firstName}</p>}
                 {(errors.lastName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.lastName}</p>}
                 <div className='form-flex-container'>
-                    <textarea className='form-textarea form-textarea-half' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "2px solid red" : "none" }} />
-                    <textarea className='form-textarea form-textarea-half' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "2px solid red" : "none" }} />
+                    <textarea id="form-textarea" className='form-textarea form-textarea-half' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "2px solid red" : "none" }} />
+                    <textarea id="form-textarea" className='form-textarea form-textarea-half' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "2px solid red" : "none" }} />
                 </div>
 
                 {(errors.email && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.email}</p>}
-                <textarea className='form-textarea form-textarea-full' name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid red" : "none" }} />
+                <textarea id="form-textarea" className='form-textarea form-textarea-full' name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid red" : "none" }} />
 
                 {(errors.phoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.phoneNumber}</p>}
                 {(errors.mobileNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.mobileNumber}</p>}
                 <div className='form-flex-container'>
-                    <textarea
+                    <textarea id="form-textarea"
                         className='form-textarea form-textarea-half'
                         name="phoneNumber"
                         placeholder='Phone Number'
@@ -168,7 +168,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                         onChange={handleChange}
                         style={{ border: (errors.phoneNumber && nextButtonClicked) ? "2px solid red" : "none" }}
                     />
-                    <textarea
+                    <textarea id="form-textarea"
                         className='form-textarea form-textarea-half'
                         name="mobileNumber"
                         placeholder='Mobile Number'
@@ -179,10 +179,10 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 </div>
 
                 {(errors.companyName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyName}</p>}
-                <textarea className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid red" : "none" }} />
+                <textarea id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid red" : "none" }} />
 
                 {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.companyPhoneNumber}</p>}
-                <textarea 
+                <textarea id="form-textarea" 
                     className='form-textarea form-textarea-full' 
                     name="companyPhoneNumber" 
                     placeholder='Company Phone Number' 
@@ -191,7 +191,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid red" : "none" }} />
 
                 {(errors.addressLine1 && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.addressLine1}</p>}
-                <textarea
+                <textarea id="form-textarea"
                     className='form-textarea form-textarea-full'
                     name="addressLine1"
                     placeholder='Company Address Line 1'
@@ -215,7 +215,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 {(errors.zipcode && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.zipcode}</p>}
                 <div className='form-flex-container'>
                     {/* City Input */}
-                    <textarea
+                    <textarea id="form-textarea"
                         className='form-textarea form-textarea-third'
                         name="city"
                         placeholder='City'
@@ -224,7 +224,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     />
 
                     {/* State Input */}
-                    <textarea
+                    <textarea id="form-textarea"
                         className='form-textarea form-textarea-third'
                         name="state"
                         placeholder='State'
@@ -233,7 +233,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                     />
 
                     {/* Zipcode Input */}
-                    <textarea
+                    <textarea id="form-textarea"
                         className='form-textarea form-textarea-third'
                         name="zipcode"
                         placeholder='Zipcode'
@@ -243,7 +243,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 </div>
 
                 {(errors.countryName && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.countryName}</p>}
-                <textarea 
+                <textarea id="form-textarea" 
                     className='form-textarea form-textarea-full' 
                     name="countryName" 
                     placeholder='Country' 
@@ -280,7 +280,7 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                             </div>
                             
                             {(errors[`account-${index}`] && nextButtonClicked) && <p style={{ color: 'red' }}>{errors[`account-${index}`]}</p>}
-                            <textarea 
+                            <textarea id="form-textarea" 
                                 className='form-textarea bankinputs-textarea'
                                 id={`account-${index}`} 
                                 name="accountNumber" 
@@ -293,9 +293,9 @@ export const CreateAccountPage3 = forwardRef((props, ref) => {
                 </div>
 
                 <h3>If your company has an investment advisor:</h3>
-                <textarea className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "2px solid red" : "none" }} />
+                <textarea id="form-textarea" className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "2px solid red" : "none" }} />
                 {errors.advisorName && <p style={{ color: 'red' }}>{errors.advisorName}</p>}
-                <textarea className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "2px solid red" : "none" }} />
+                <textarea id="form-textarea" className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "2px solid red" : "none" }} />
                 {errors.investmentAccountNumber && <p style={{ color: 'red' }}>{errors.investmentAccountNumber}</p>}
             </div>
         </div>

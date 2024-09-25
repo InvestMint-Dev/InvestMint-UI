@@ -23,7 +23,7 @@ export const CreateAccountPage2 = forwardRef((props, ref) => {
                         <option value="3">Option 3</option>
                     </select>
                 </div>
-                <textarea className='form-textarea form-textarea-full' placeholder='Answer'></textarea>
+                <textarea id="form-textarea" className='form-textarea form-textarea-full' placeholder='Answer'></textarea>
 
                 <h2>or</h2>
 
@@ -35,7 +35,7 @@ export const CreateAccountPage2 = forwardRef((props, ref) => {
                         <option value="3">Option 3</option>
                     </select>
                 </div>
-                <textarea className='form-textarea form-textarea-full' placeholder='SMS'></textarea>
+                <textarea id="form-textarea" className='form-textarea form-textarea-full' placeholder='SMS'></textarea>
             </div>
         </div>
     );

@@ -35,6 +35,9 @@ body {
   background: rgba(166, 219, 158, 0.5);
   border: none;
   resize: none;
+
+  white-space: nowrap;  /* Prevent text from wrapping to the next line */
+  overflow-x: auto;     /* Allow horizontal scrolling */
 }
 
 .form-textarea-full {
