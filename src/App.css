@@ -1,28 +1,30 @@
-body {
-  background-color: #fafafa;
-  font-family: "Inter", sans-serif;
-  font-size: 16px; /* Default font size */
+html {
+  font-size: 16px; /* Default base size */
 }
 
-/* Small devices (phones) */
 @media (max-width: 600px) {
-  body {
-      font-size: 14px; /* Smaller font size for mobile */
+  html {
+      font-size: 14px; /* Smaller base size on mobile */
   }
 }
 
-/* Medium devices (tablets) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  body {
-      font-size: 1.125rem; /* Larger font size for tablets */
-  }
-}
-
-/* Large devices (desktops) */
 @media (min-width: 1025px) {
-  body {
-      font-size: 1.25rem; /* Even larger font size for desktops */
+  html {
+      font-size: 18px; /* Larger base size on desktops */
   }
+}
+
+body {
+  font-size: 1rem; /* Scales with the root font size */
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1rem;
 }
 
 .logo-display {

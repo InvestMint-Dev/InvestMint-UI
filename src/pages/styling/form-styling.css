@@ -1,15 +1,14 @@
 
 .form-heading {
-  font-size: 2.5rem;
   color: black;
   text-align: center;
-  font-weight: 800;
+  font-weight: bold;
 }
 
 .form-textarea { /*input area*/
   width: calc(100% - 2.5rem);
   height: 2.5rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   line-height: 2.5rem;
@@ -90,7 +89,7 @@
   background: #166739;
   color: white;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .form-submit-button:hover {
@@ -172,4 +171,19 @@
 .show-password-button img {
   width: 1.5625rem; /* Adjust size as needed */
   height: auto; /* Adjust size as needed */
+}
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+  .form-label {
+    font-size: 0.75rem;
+  }
+
+  .form-link {
+    font-size: 0.75rem;
+  }
+
+  .form-textarea { /*input area*/
+    font-size: 1rem;
+  }
 }

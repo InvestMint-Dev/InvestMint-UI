@@ -5,7 +5,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 12.5rem;
-    width: 34.375rem;
+    width: 32.5rem;
 }
 
 .log-in-form {
@@ -16,4 +16,11 @@
 
 .log-in-form.fade-in {
     opacity: 1; /* Fully opaque */
+}
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+    .log-in-form-container {
+        width: 20rem;
+    }
 }
