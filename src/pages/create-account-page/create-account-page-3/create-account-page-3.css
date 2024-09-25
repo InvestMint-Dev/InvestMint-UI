@@ -2,36 +2,36 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
 .bankinputs-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
-    gap: 10px; /* Space between grid items */
-    width: 700px;
-    padding: 10px;
+    gap: 0.625rem; /* Space between grid items */
+    width: 43.75rem;
+    padding: 0.625rem;
     background-color: rgba(166, 219, 158, 0.5);
-    border-radius: 20px;
+    border-radius: 1.25rem;
 }
 
 .bankinputs-set {
     background-color: white;
-    width: 200px;
+    width: 12.5rem;
     display: block;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 1.25rem;
+    padding: 0.625rem;
     padding-bottom: 0;
 }
 
 
 .bankinputs-add-button {
-    width: 220px;
+    width: 13.75rem;
     display: block;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     border: none;
     background-color: white;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #A6DB9E;
 }
@@ -42,41 +42,41 @@
 }
 
 .bankinputs-select select{
-    width: 200px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 15px;
-    padding-left: 10px;
-    padding-right: 50px;
+    width: 12.5rem;
+    height: 1.5625rem;
+    line-height: 1.5625rem;
+    font-size: 0.9375rem;
+    padding-left: 0.625rem;
+    padding-right: 3.125rem;
     
     appearance: none; /* Remove default arrow */
     -webkit-appearance: none; /* For Webkit browsers */
     -moz-appearance: none; /* For Firefox */
     background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M0 0l2 2 2-2z"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 10px top 10px; /* Adjust vertical position */
-    background-size: 12px;
+    background-position: right 0.625rem top 0.625rem; /* Adjust vertical position */
+    background-size: 0.75rem;
 }
 
 .bankinputs-textarea {
-    width: 180px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 15px;
-    margin-bottom: 10px;
+    width: 11.25rem;
+    height: 1.5625rem;
+    line-height: 1.5625rem;
+    font-size: 0.9375rem;
+    margin-bottom: 0.625rem;
     padding: 0;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
 }
 
 .bankinputs-select {
-    height: 20px;
-    line-height: 20px;
-    font-size: 15px;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    font-size: 0.9375rem;
     margin: 0;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     padding: 0;
-    padding-right: 40px;
+    padding-right: 2.5rem;
 }
 
 .bankinputs-remove-button {
@@ -85,7 +85,7 @@
     border: none;
     font-weight: bold;
     color: #23694A;
-    margin-bottom: 5px;
+    margin-bottom: 0.3125rem;
 }
 
 .bankinputs-remove-button:hover {
@@ -105,7 +105,7 @@
 }
 
 .suggestions-list li {
-    padding: 10px;
+    padding: 0.625rem;
     cursor: pointer;
 }
 

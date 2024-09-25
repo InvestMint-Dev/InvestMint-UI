@@ -14,44 +14,44 @@ body {
 /* Medium devices (tablets) */
 @media (min-width: 601px) and (max-width: 1024px) {
   body {
-      font-size: 18px; /* Larger font size for tablets */
+      font-size: 1.125rem; /* Larger font size for tablets */
   }
 }
 
 /* Large devices (desktops) */
 @media (min-width: 1025px) {
   body {
-      font-size: 20px; /* Even larger font size for desktops */
+      font-size: 1.25rem; /* Even larger font size for desktops */
   }
 }
 
 
 .top-left-logo-display {
   position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 200px;
+  top: 0.625rem;
+  left: 0.625rem;
+  width: 12.5rem;
   height: auto;
 }
 
 .form-heading {
-  font-size: 35px;
+  font-size: 2.5rem;
   color: black;
   text-align: center;
   font-weight: 800;
 }
 
 .form-textarea { /*input area*/
-  width: calc(100% - 40px);
-  height: 40px;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  line-height: 40px;
-  border-radius: 50px;
+  width: calc(100% - 2.5rem);
+  height: 2.5rem;
+  margin-bottom: 0.625rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  line-height: 2.5rem;
+  border-radius: 3.125rem;
 
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   justify-content: center;
 
@@ -64,46 +64,46 @@ body {
 }
 
 .form-textarea-full {
-  width: calc(100% - 40px); /* Full width */
+  width: calc(100% - 2.5rem); /* Full width */
 }
 
 .form-textarea-half {
-  width: calc(45% - 10px); /* Half width */
+  width: calc(45% - 0.625rem); /* Half width */
 }
 
 .form-textarea-third {
-  width: calc(30% - 20px); /* One-third width */
+  width: calc(30% - 1.25rem); /* One-third width */
 }
 
 .form-option-1-container {
   display: flex;
   align-items: center; /* Aligns items vertically in the center */
-  margin-top: 10px;
+  margin-top: 0.625rem;
   width: calc(100%);
 }
 
 .form-option-2-container {
-  margin-top: 15px;
+  margin-top: 0.9375rem;
   text-align: center;
 }
 
 .form-checkbox {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   color: #F1FFF0;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 .form-label {
-  margin-left: 5px;
-  font-size: 15px;
+  margin-left: 0.3125rem;
+  font-size: 0.9375rem;
   font-weight: bold;
   color: #166739;
 }
 
 .form-link {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: bold;
   color: #166739;
   margin-left: auto; /* Pushes the forgot password text to the right */
@@ -118,14 +118,14 @@ body {
 
 .form-submit-button {
   width: calc(100%);
-  margin-top: 20px;
-  border-radius: 50px;
+  margin-top: 1.25rem;
+  border-radius: 3.125rem;
   border: none;
-  height: 50px;
+  height: 3.125rem;
   background: #166739;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .form-submit-button:hover {
@@ -135,14 +135,14 @@ body {
 
 .form-stepper-button {
   width: calc(25%);
-  margin-top: 20px;
-  border-radius: 50px;
+  margin-top: 1.25rem;
+  border-radius: 3.125rem;
   border: none;
-  height: 50px;
+  height: 3.125rem;
   background: #166739;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .form-stepper-button:hover {
@@ -157,25 +157,25 @@ body {
 
 /* Hide the default arrow */
 .form-select select {
-  margin-bottom: 20px;
-  border-radius: 50px;
-  height: 44px;
-  width: 450px;
-  padding-left: 20px;
-  padding-right: 40px;
+  margin-bottom: 1.25rem;
+  border-radius: 3.125rem;
+  height: 2.75rem;
+  width: 28.125rem;
+  padding-left: 1.25rem;
+  padding-right: 2.5rem;
   text-align: left;
   background: rgba(166, 219, 158, 0.5);
   border: none;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 1.125rem;
 
   appearance: none; /* Remove default arrow */
   -webkit-appearance: none; /* For Webkit browsers */
   -moz-appearance: none; /* For Firefox */
   background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M0 0l2 2 2-2z"/></svg>');
   background-repeat: no-repeat;
-  background-position: right 15px top 20px; /* Adjust vertical position */
-  background-size: 12px;
+  background-position: right 0.9375rem top 1.25rem; /* Adjust vertical position */
+  background-size: 0.75rem;
 }
 
 .form-flex-container {
@@ -190,13 +190,13 @@ body {
 }
 
 .password-textarea {
-  width: calc(100%-40px);
+  width: calc(100% - 2.5rem);
 }
 
 .show-password-button {
   position: absolute;
   top: 45%;
-  right: 15px; /* Adjust as needed */
+  right: 0.9375rem; /* Adjust as needed */
   transform: translateY(-50%);
   background: none;
   border: none;
@@ -205,6 +205,6 @@ body {
 }
 
 .show-password-button img {
-  width: 25px; /* Adjust size as needed */
+  width: 1.5625rem; /* Adjust size as needed */
   height: auto; /* Adjust size as needed */
 }

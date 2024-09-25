@@ -4,14 +4,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 205px;
-    width: 550px;
+    margin-top: 12.5rem;
+    width: 34.375rem;
 }
 
 .log-in-form {
     opacity: 0; /* Start fully transparent */
     transition: opacity 2s ease-in; /* 2 seconds fade-in with ease-in timing */
-    margin-top: 25px;
+    margin-top: 1.5rem;
 }
 
 .log-in-form.fade-in {

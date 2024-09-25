@@ -119,7 +119,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </button>
 
                 {(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") && 
-                <div style={{marginTop: '30px'}}>
+                <div style={{marginTop: '1.875rem'}}>
                     {(errors.investingQ2CashAmount && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2CashAmount}</p>}
                     <p>Enter Amount:</p>
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid red" : "none" }} 
@@ -129,7 +129,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </div>}
 
                 {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
-                <div style={{marginTop: '30px'}}>
+                <div style={{marginTop: '1.875rem'}}>
                     <p>How long have you been in business? (in days)</p>
                     {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ2BusinessDuration}</p>}
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid red" : "none" }} className='form-textarea text-input' 
@@ -244,7 +244,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </button>
 
                 {(formData.investingQ4 !== "" && formData.investingQ4 === "Date") && 
-                <div style={{marginTop: '30px'}}>
+                <div style={{marginTop: '1.875rem'}}>
                     <p>Enter Date:</p>
                     {(errors.investingQ4CashBackDate && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDate}</p>}
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
@@ -254,7 +254,7 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                 </div>}
 
                 {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
-                <div style={{marginTop: '30px'}}>
+                <div style={{marginTop: '1.875rem'}}>
                     <p>Enter Duration:</p>
                     {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p style={{ color: 'red' }}>{errors.investingQ4CashBackDuration}</p>}
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'

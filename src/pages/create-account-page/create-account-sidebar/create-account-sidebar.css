@@ -3,7 +3,7 @@
     width: calc(30%);
     height: 100vh;
     top: 0;
-    border-radius: 0 50px 50px 0;
+    border-radius: 0 3.125rem 3.125rem 0;
     background-color: rgba(113, 204, 168, 0.3);
 }
 
@@ -16,16 +16,16 @@
 }
 
 .create-account-sidebar-stepper {
-    margin-bottom: 40px;
-    height: 60px;
-    line-height: 60px;
+    margin-bottom: 2.5rem;
+    height: 3.75rem;
+    line-height: 3.75rem;
     display: flex;
     align-items: center; /* Aligns the circle and text vertically */
 }
 
 .create-account-sidebar-stepper-circle {
-    width: 60px;  /* Circle width */
-    height: 60px; /* Circle height */
+    width: 3.75rem;  /* Circle width */
+    height: 3.75rem; /* Circle height */
     background-color: #71CCA8; 
     border-radius: 50%; /* Makes the element circular */
 }
@@ -36,8 +36,8 @@
 
 .create-account-sidebar-stepper-label {
     font-weight: bold;
-    padding-left: 15px; /* Adjust space between circle and label */
-    font-size: 18px;
+    padding-left: 0.9375rem; /* Adjust space between circle and label */
+    font-size: 1.125rem;
     color: #71CCA8; 
 }
 
@@ -50,15 +50,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 10px; /* Align with large circles */
-    height: 50px; /* Adjust the spacing between large circles */
+    margin-left: 0.625rem; /* Align with large circles */
+    height: 3.125rem; /* Adjust the spacing between large circles */
     justify-content: space-between;
 }
 
 /* Style for the small circles */
 .small-circle {
-    width: 5px;
-    height: 5px;
+    width: 0.3125rem;
+    height: 0.3125rem;
     border-radius: 50%;
     background-color: grey; /* Small dot color */
 }

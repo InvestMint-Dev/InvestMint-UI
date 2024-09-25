@@ -6,36 +6,36 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 205px;
-    width: 550px;
+    margin-top: 12.5rem;
+    width: 34.375rem;
 }
 
 .page-2-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 205px;
-    width: 550px;
+    margin-top: 12.5rem;
+    width: 34.375rem;
 }
 
 .page-3-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 75px;
-    width: 700px;
+    margin-top: 6.25rem;
+    width: 43.75rem;
 }
 
 .page-4-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
-    width: 700px;
+    margin-top: 6.25rem;
+    width: 43.75rem;
 }
 
 .stepper-container {
-    width: 550px;
+    width: 34.375rem;
     display: flex;
     margin-left: auto;
     margin-right: auto;
