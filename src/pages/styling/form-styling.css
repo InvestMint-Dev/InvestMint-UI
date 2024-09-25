@@ -36,7 +36,7 @@
 }
 
 .form-textarea-third {
-  width: calc(30% - 1.25rem); /* One-third width */
+  width: calc(30% - 1.5rem); /* One-third width */
 }
 
 .form-option-1-container {
@@ -201,10 +201,10 @@
   }
 
   .form-textarea-half {
-    width: calc(45% - 1.75rem); /* Half width */
+    width: calc(45% - 2rem); /* Half width */
   }
   
   .form-textarea-third {
-    width: calc(30% - 2rem); /* One-third width */
+    width: calc(30% - 2.25rem); /* One-third width */
   }
 }
