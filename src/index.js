@@ -17,11 +17,24 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
+// Determine the redirect URI based on the current path
+const getRedirectUri = () => {
+  const currentPath = window.location.pathname;
+  
+  if (currentPath === '/create-account-1') {
+    return window.location.origin + '/create-account-3'; // Redirect from /create-account-1 to /create-account-3
+  } else if (currentPath === '/log-in') {
+    return window.location.origin + '/dashboard'; // Redirect from /log-in to /dashboard
+  } else {
+    return window.location.origin; // Fallback redirect (can be modified as needed)
+  }
+};
+
 root.render(
   <Auth0Provider
     domain={process.env.REACT_APP_AUTH0_DOMAIN}
     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
-    redirectUri={window.location.origin + '/dashboard'}
+    redirectUri={getRedirectUri()} // Use dynamic redirect URI
   >
     <App />
   </Auth0Provider>,
