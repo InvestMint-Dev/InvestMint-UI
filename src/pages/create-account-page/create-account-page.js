@@ -45,12 +45,6 @@ export const CreateAccountPage = () => {
             if (isValid) {
                 if (currentPage < totalSteps) {
                     if (currentPage === 1) {
-                        setCurrentPage(currentPage + 1);
-                        setNextButtonClicked(false);
-                        setShowErrorAlert(false);
-                    } 
-                    else if (currentPage === 2) {
-                        // Trigger Auth0 authentication when moving from Page 1 to Page 2
                         if (!isAuthenticated) {
                             await loginWithRedirect();
                         } else {
@@ -58,7 +52,8 @@ export const CreateAccountPage = () => {
                             setNextButtonClicked(false);
                             setShowErrorAlert(false);
                         }
-                    } else {
+                    } 
+                    else {
                         setCurrentPage(currentPage + 1);
                         setNextButtonClicked(false);
                         setShowErrorAlert(false);
