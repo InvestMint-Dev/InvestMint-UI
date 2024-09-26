@@ -5,6 +5,7 @@ import { validateLogInFields } from '../../../validators/validators';
 import '../create-account-page.css';
 import './create-account-page-1.css';
 
+import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import openEye from '../../../assets/images/icons/Eye.png';
 import closedEye from '../../../assets/images/icons/Closed Eye.png';
@@ -76,8 +77,12 @@ export const CreateAccountPage1 = () => {
 
   return (
     <div>
+      {showErrorAlert && (
+        <ErrorAlertPanel className={alertClass} />
+      )}
+      
       <CreateAccountSidebar currentPage={1}/>
-      <div className='page-1-container'>
+      <div className='page-1-container'>     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
           <input

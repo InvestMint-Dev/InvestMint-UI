@@ -3,8 +3,10 @@
     top: 0.625rem;
     left: calc(50% + 15%);
     transform: translateX(-50%);
-    padding: 1.25rem;
+    padding: 1.125rem;
+    padding-bottom: 0.75rem;
     border-radius: 1.25rem;
+    max-width: 20rem;
     background-color: rgba(255, 125, 125, 0.5);
     z-index: 1000; /* Ensure it's on top of other elements */
     opacity: 0; /* Start hidden */
