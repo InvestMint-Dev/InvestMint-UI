@@ -62,7 +62,6 @@ export const LogInPage = () => {
                 <h1 className='form-heading'>Log In</h1>
                 <form className='log-in-form' onSubmit={handleSubmit}>
                     {/* email input */}
-                    {(errors.email && submitButtonClicked) && <p style={{ color: "red" }}>{errors.email}</p>}
                     <input 
                         className='form-textarea form-textarea-full' 
                         placeholder='Email'
@@ -73,9 +72,10 @@ export const LogInPage = () => {
                         style={{
                             border: (errors.email && submitButtonClicked) ? "2px solid #71CCA8" : "none"
                         }} />
+                    {(errors.email && submitButtonClicked) && <p style={{ color: "#71CCA8" }}>{errors.email}</p>}
+
 
                     {/* password input */}
-                    {(errors.password && submitButtonClicked) && <p style={{ color: "red" }}>{errors.password}</p>}
                     <div className='password-container'>
                         <input 
                             type={showPassword ? "text" : "password"} // Toggling between text and password
@@ -92,6 +92,7 @@ export const LogInPage = () => {
                             {showPassword ? <img src={openEye}/> : <img src={closedEye}/>}
                         </button>
                     </div>
+                    {(errors.password && submitButtonClicked) && <p style={{ color: "#71CCA8" }}>{errors.password}</p>}
 
                     <div className="form-option-1-container">
                         <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />
