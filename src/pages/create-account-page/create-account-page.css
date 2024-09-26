@@ -7,38 +7,56 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 12.5rem;
-    width: 34.375rem;
+    width: 70vw; /* 70% of the viewport width */
+    max-width: 34.375rem; /* Max width to maintain original size on larger screens */
+    position: relative;
+    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
 }
 
 .page-2-container {
+    margin-top: 9.375rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 9.375rem;
-    width: 34.375rem;
+    width: 70vw; /* 70% of the viewport width */
+    max-width: 34.375rem; /* Max width to maintain original size on larger screens */
+    position: relative;
+    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
 }
 
 .page-3-container {
+    margin-top: 6.25rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6.25rem;
-    width: 43.75rem;
+    width: 70vw; /* 70% of the viewport width */
+    max-width: 34.375rem; /* Max width to maintain original size on larger screens */
+    position: relative;
+    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
 }
 
 .page-4-container {
+    margin-top: 6.25rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6.25rem;
-    width: 43.75rem;
+    width: 70vw; /* 70% of the viewport width */
+    position: relative;
+    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
+    max-width: 43.75rem;
 }
 
 .stepper-container {
-    width: 34.375rem;
-    display: flex;
+    display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 34.375rem; /* Max width to maintain original size on larger screens */
+    position: relative;
+    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
+}
+
+.stepper-button-container {
+    display: flex;
     margin-bottom: 2rem;
     justify-content: space-between; /* Pushes buttons to the edges */
 }

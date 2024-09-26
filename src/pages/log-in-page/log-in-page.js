@@ -113,7 +113,7 @@ export const LogInPage = () => {
 
                     <div className='form-option-2-container'> 
                         <span className="form-label">New Member? </span>
-                        <a href="/create-account" className="form-link">Sign Up here</a>
+                        <a href="/create-account-1" className="form-link">Sign Up here</a>
                     </div>
                 </form>
             </div>

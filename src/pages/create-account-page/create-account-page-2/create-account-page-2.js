@@ -2,6 +2,8 @@ import './create-account-page-2.css';
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { handleKeyDown } from '../../../utils/utils';
 
+import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
+
 export const CreateAccountPage2 = forwardRef((props, ref) => {
     const [errors, setErrors] = useState({});
 
@@ -13,6 +15,8 @@ export const CreateAccountPage2 = forwardRef((props, ref) => {
     }));
 
     return (
+        <div>
+        <CreateAccountSidebar currentPage={1}/>
         <div className='page-2-container'>
             <h1 className='form-heading'>Duo Factor Authentication</h1>
             <div className='duo-factor-authentication-form'>
@@ -38,6 +42,7 @@ export const CreateAccountPage2 = forwardRef((props, ref) => {
                 </div>
                 <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' placeholder='SMS'></textarea>
             </div>
+        </div>
         </div>
     );
 });

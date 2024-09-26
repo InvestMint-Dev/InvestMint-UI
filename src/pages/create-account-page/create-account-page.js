@@ -95,7 +95,7 @@ export const CreateAccountPage = () => {
                 
                 {/* Conditionally render pages based on the current page state */}
                 {currentPage === 1 && <CreateAccountPage1 nextButtonClicked={nextButtonClicked} ref={pageRefs[1]} />}
-                {currentPage === 2 && <CreateAccountPage2 nextButtonClicked={nextButtonClicked} ref={pageRefs[2]} />}
+                {/* {currentPage === 2 && <CreateAccountPage2 nextButtonClicked={nextButtonClicked} ref={pageRefs[2]} />} */}
                 {currentPage === 3 && <CreateAccountPage3 nextButtonClicked={nextButtonClicked} ref={pageRefs[3]} />}
                 {currentPage === 4 && <CreateAccountPage4 nextButtonClicked={nextButtonClicked} ref={pageRefs[4]} />}
 

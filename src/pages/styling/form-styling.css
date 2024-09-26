@@ -102,11 +102,11 @@
   margin-top: 1.25rem;
   border-radius: 3.125rem;
   border: none;
-  height: 3.125rem;
+  height: 3rem;
   background: #166739;
   color: white;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .form-stepper-button:hover {
