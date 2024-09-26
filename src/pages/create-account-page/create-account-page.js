@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth0 } from '@auth0/auth0-react';
 import { CreateAccountSidebar } from './create-account-sidebar/create-account-sidebar';
 import { CreateAccountPage1 } from './create-account-page-1/create-account-page-1';
 import { CreateAccountPage2 } from './create-account-page-2/create-account-page-2';
@@ -21,6 +21,8 @@ export const CreateAccountPage = () => {
     const totalSteps = 4; // Define total steps here
     const navigate = useNavigate();
 
+    const { loginWithRedirect, isAuthenticated } = useAuth0(); // Use Auth0 hooks
+
     useEffect(() => {
         document.title = 'Create Account | InvestMint';
     }, [currentPage]);
@@ -33,7 +35,7 @@ export const CreateAccountPage = () => {
         4: useRef(null)
     };
 
-    const handleNext = () => {
+    const handleNext = async () => {
         setNextButtonClicked(true);
 
         // Trigger validation for the current page
@@ -42,9 +44,25 @@ export const CreateAccountPage = () => {
             const isValid = currentPageRef.current.validate();
             if (isValid) {
                 if (currentPage < totalSteps) {
-                    setCurrentPage(currentPage + 1);
-                    setNextButtonClicked(false);
-                    setShowErrorAlert(false); // Hide error alert on successful validation
+                    if (currentPage === 1) {
+                        setCurrentPage(currentPage + 1);
+                        setNextButtonClicked(false);
+                        setShowErrorAlert(false);
+                    } 
+                    else if (currentPage === 2) {
+                        // Trigger Auth0 authentication when moving from Page 1 to Page 2
+                        if (!isAuthenticated) {
+                            await loginWithRedirect();
+                        } else {
+                            setCurrentPage(currentPage + 1);
+                            setNextButtonClicked(false);
+                            setShowErrorAlert(false);
+                        }
+                    } else {
+                        setCurrentPage(currentPage + 1);
+                        setNextButtonClicked(false);
+                        setShowErrorAlert(false);
+                    }
                 }
             }
             else if (!isValid) {
