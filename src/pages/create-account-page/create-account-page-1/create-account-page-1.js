@@ -3,6 +3,7 @@ import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { validateLogInFields } from '../../../validators/validators';
 import './create-account-page-1.css';
 
+import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import openEye from '../../../assets/images/icons/Eye.png';
 import closedEye from '../../../assets/images/icons/Closed Eye.png';
 
@@ -38,6 +39,8 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
   };
 
   return (
+    <div>
+    <CreateAccountSidebar currentPage={1}/>
     <div className='page-1-container'>
       <h1 className='form-heading'>Create Your Account</h1>
       <div className='create-account-form'>
@@ -85,6 +88,7 @@ export const CreateAccountPage1 = forwardRef((props, ref) => {
         {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.confirmPassword}</p>}
         
       </div>
+    </div>
     </div>
   );
 });

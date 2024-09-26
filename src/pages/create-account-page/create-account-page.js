@@ -88,9 +88,6 @@ export const CreateAccountPage = () => {
         <div>
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
-            {/* Pass currentPage and totalSteps to the sidebar */}
-            <CreateAccountSidebar currentPage={currentPage} totalSteps={totalSteps} />
-
             <div className='page-container'>
                 {showErrorAlert && (
                     <ErrorAlertPanel className={alertClass} />
