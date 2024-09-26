@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react'; // Import Auth0 hook
+
 import './log-in-page.css';
 import '../styling/form-styling.css';
 
@@ -17,6 +19,8 @@ export const LogInPage = () => {
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
     const [submitButtonClicked, setSubMitButtonClicked] = useState(false);
 
+    const { loginWithRedirect, isAuthenticated } = useAuth0(); // Use Auth0 hooks
+
     useEffect(() => {
         // Runs after the component mounts
         const element = document.querySelector('.log-in-form');
@@ -33,14 +37,17 @@ export const LogInPage = () => {
         return Object.keys(validationErrors).length === 0;
     };
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         setSubMitButtonClicked(true);
         e.preventDefault();
 
         if (validateForm()) {
-            // Submit the form if no errors
-            console.log("Form submitted successfully!");
-            setSubMitButtonClicked(false);
+            if (!isAuthenticated) {
+                await loginWithRedirect();
+            } else {
+                console.log("Form submitted successfully!");
+                setSubMitButtonClicked(false);
+            }
         }
     };
 
@@ -97,7 +104,7 @@ export const LogInPage = () => {
                     <div className="form-option-1-container">
                         <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />
                         <span className="form-label">Remember Me</span>
-                        <a href="" className="form-link">Forgot password</a>
+                        <a href="" className="form-link">Forgot password?</a>
                     </div>
 
                     <button type="submit" className='form-submit-button'>
