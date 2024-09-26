@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { validateCompanyLegalInfo } from '../../../validators/validators';
 
+import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import '../create-account-page.css';
 import './create-account-page-3.css'
@@ -175,6 +176,10 @@ export const CreateAccountPage3 = () => {
 
     return (
         <div>
+            {showErrorAlert && (
+                <ErrorAlertPanel className={alertClass} />
+            )}
+
             <CreateAccountSidebar currentPage={3}/>
 
             <div className='page-3-container'>
