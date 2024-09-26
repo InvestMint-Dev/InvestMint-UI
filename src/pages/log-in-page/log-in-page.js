@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, navigate } from 'react';
 import { useAuth0 } from '@auth0/auth0-react'; // Import Auth0 hook
 
 import './log-in-page.css';
@@ -45,7 +45,7 @@ export const LogInPage = () => {
             if (!isAuthenticated) {
                 await loginWithRedirect();
             } else {
-                console.log("Form submitted successfully!");
+                navigate('/dashboard');
                 setSubMitButtonClicked(false);
             }
         }
