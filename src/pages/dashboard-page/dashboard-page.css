@@ -1,0 +1,17 @@
+.logout-button {
+    background: #166739;
+    color: white;
+    font-weight: bold;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 1.5rem;
+    border: none;
+    margin: 0.5rem;
+    float: right;
+    font-size: 0.875rem;
+}
+
+.logout-button:hover, .logout-button:focus {
+    transform: scale(102%);
+    cursor: pointer;
+}
