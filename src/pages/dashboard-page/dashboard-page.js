@@ -12,7 +12,7 @@ export const DashboardPage = () => {
         logout({
             returnTo: window.location.origin // Redirects to the home page or login after logging out
         });
-        navigate('/log-in'); // Navigate to login page after logout
+        navigate('/'); // Navigate to login page after logout
     };
 
     return (
