@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { validateLogInFields } from '../../../validators/validators';
@@ -10,6 +10,10 @@ import openEye from '../../../assets/images/icons/Eye.png';
 import closedEye from '../../../assets/images/icons/Closed Eye.png';
 
 export const CreateAccountPage1 = () => {
+  useEffect(() => {
+    document.title = 'Create Account | InvestMint';
+}, []);
+
   const [nextButtonClicked, setNextButtonClicked] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -119,7 +123,7 @@ export const CreateAccountPage1 = () => {
           {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.confirmPassword}</p>}
           
         </div>
-        
+
         <div className='stepper-container'>
           <div className="stepper-button-container">
               <button className='form-stepper-button' onClick={handleBack}>
