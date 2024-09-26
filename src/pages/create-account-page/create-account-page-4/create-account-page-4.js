@@ -1,14 +1,20 @@
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './create-account-page-4.css';
 
 import { handleKeyDown } from '../../../utils/utils';
 import { validateInvestingQuestionnaire } from '../../../validators/validators';
 
+import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
-export const CreateAccountPage4 = forwardRef((props, ref) => {
-    const { nextButtonClicked } = props;
+export const CreateAccountPage4 = () => {
+    const navigate = useNavigate(); // Navigate hook
+
+    const [nextButtonClicked, setNextButtonClicked] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
+    const [alertClass, setAlertClass] = useState(""); // State for alert class
 
     const [formData, setFormData] = useState({
         investingQ1: "",
@@ -27,15 +33,6 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
     });
 
     const [errors, setErrors] = useState({});
-
-    useImperativeHandle(ref, () => ({
-        validate() {
-            const validationErrors = validateInvestingQuestionnaire(formData);
-            setErrors(validationErrors);
-            return Object.keys(validationErrors).length === 0;
-        }
-    }));
-
     const [expandedSections, setExpandedSections] = useState({
         1: false,
         2.1: false,
@@ -47,7 +44,6 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
         6.1: false,
         6.2: false
     });
-
     const toggleSection = (sectionKey) => {
         setExpandedSections((prevSections) => ({
             ...prevSections,
@@ -55,9 +51,40 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
         }));
     };
     
+    const handleNext = async () => {
+        setNextButtonClicked(true);
+        const validationErrors = validateInvestingQuestionnaire(formData);
+        setErrors(validationErrors);
+        let isValid = Object.keys(validationErrors).length === 0;
+    
+        if (isValid) {
+            navigate('/dashboard'); // Navigate to the next page
+            setNextButtonClicked(false);
+            setShowErrorAlert(false);
+        } else {
+            setAlertClass("show"); // Show error alert
+            setShowErrorAlert(true); // Show error alert on validation failure
+            window.scrollTo({ top: 0, behavior: 'auto' });
+    
+            // Hide error alert after 2 seconds
+            setTimeout(() => {
+                setAlertClass("hide"); // Start fade-out
+                setTimeout(() => {
+                setShowErrorAlert(false); // Remove from DOM after fade-out
+                }, 1000); // Duration of the fade-out transition
+            }, 2000);
+        }
+    };
+
+    const handleBack = () => {
+        navigate('/create-account-3');
+    };
 
     return (
         <div>
+            {showErrorAlert && (
+                <ErrorAlertPanel className={alertClass} />
+            )}
             <CreateAccountSidebar currentPage={4}/>
 
             <div className='page-4-container'>
@@ -441,7 +468,18 @@ export const CreateAccountPage4 = forwardRef((props, ref) => {
                         Strongly agree
                     </button>
                 </div>
+
+                <div className='stepper-container'>
+                    <div className="stepper-button-container">
+                        <button className='form-stepper-button' onClick={handleBack}>
+                        Back
+                        </button>
+                        <button className='form-stepper-button' onClick={handleNext}>
+                        Next
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
-});
+};
