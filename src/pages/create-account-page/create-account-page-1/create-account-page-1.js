@@ -47,7 +47,7 @@ export const CreateAccountPage1 = () => {
       if (!isAuthenticated) {
         await loginWithRedirect(); // Trigger Auth0 authentication
       } else {
-        navigate('/create-account-page-3'); // Navigate to the next page
+        navigate('/create-account-3'); // Navigate to the next page
         setNextButtonClicked(false);
         setShowErrorAlert(false);
       }
@@ -119,16 +119,17 @@ export const CreateAccountPage1 = () => {
           {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.confirmPassword}</p>}
           
         </div>
-      </div>
-      <div className='stepper-container'>
-        <div className="stepper-button-container">
-            <button className='form-stepper-button' onClick={handleBack}>
-              Back
-            </button>
-            <button className='form-stepper-button' onClick={handleNext}>
-              Next
-            </button>
-          </div>
+        
+        <div className='stepper-container'>
+          <div className="stepper-button-container">
+              <button className='form-stepper-button' onClick={handleBack}>
+                Back
+              </button>
+              <button className='form-stepper-button' onClick={handleNext}>
+                Next
+              </button>
+            </div>
+        </div>
       </div>
     </div>
   );

@@ -32,7 +32,7 @@
 }
 
 .form-textarea-half {
-  width: calc(45% - 0.625rem); /* Half width */
+  width: calc(45% - 1rem); /* Half width */
 }
 
 .form-textarea-third {
