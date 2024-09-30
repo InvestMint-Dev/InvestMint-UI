@@ -23,7 +23,7 @@ export const CreateAccountPage3 = () => {
 
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
-    const HERE_API_KEY = process.env.REACT_APP_HERE_API_KEY;
+    const REACT_APP_HERE_API_KEY = process.env.REACT_APP_HERE_API_KEY;
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -126,7 +126,7 @@ export const CreateAccountPage3 = () => {
                 params: {
                     q: address,
                     in: 'countryCode:CAN', // For Canada
-                    apiKey: HERE_API_KEY, // Replace with your actual API key
+                    apiKey: REACT_APP_HERE_API_KEY, // Replace with your actual API key
                 },
             });
 
