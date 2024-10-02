@@ -9,7 +9,7 @@ import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.p
 import openEye from '../../assets/images/icons/Eye.png';
 import closedEye from '../../assets/images/icons/Closed Eye.png';
 
-export const LogInPage = () => {
+export const LogInPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -47,6 +47,7 @@ export const LogInPage = () => {
             } else {
                 navigate('/dashboard');
                 setSubMitButtonClicked(false);
+                onLogin(); // Call onLogin here
             }
         }
     };

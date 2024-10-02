@@ -9,7 +9,7 @@ import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-ale
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
-export const CreateAccountPage4 = () => {
+export const CreateAccountPage4 = ({onLogin}) => {
     const navigate = useNavigate(); // Navigate hook
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
@@ -61,6 +61,7 @@ export const CreateAccountPage4 = () => {
             navigate('/dashboard'); // Navigate to the next page
             setNextButtonClicked(false);
             setShowErrorAlert(false);
+            onLogin(); // Call onLogin here
         } else {
             setAlertClass("show"); // Show error alert
             setShowErrorAlert(true); // Show error alert on validation failure
