@@ -108,7 +108,7 @@ export const LogInPage = ({ onLogin }) => {
                         <a href="" className="form-link">Forgot password?</a>
                     </div>
 
-                    <button type="submit" className='form-submit-button'>
+                    <button type="submit" onClick={handleSubmit} className='form-submit-button'>
                         Submit
                     </button>
 
