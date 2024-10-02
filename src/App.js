@@ -10,44 +10,25 @@ import { CashCalculator } from './pages/create-account-page/create-account-page-
 import { DashboardPage } from './pages/dashboard-page/dashboard-page';
 import { LoadingPage } from './pages/loading-page/loading-page';
 
-// This component ensures protected routes are only accessible when the user is authenticated
-const ProtectedRoute = ({ isAuthenticated, children }) => {
-  if (!isAuthenticated) {
-    // Redirect to login page if not authenticated
-    return <Navigate to="/log-in" />;
-  }
-  // If authenticated, render the protected component (e.g., dashboard)
-  return children;
-};
+
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Set this to `true` when the user logs in successfully
-  
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
-
-  
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoadingPage />} />
-        <Route path="/log-in" element={<LogInPage onLogin={handleLogin}/>} />
+        <Route path="/log-in" element={<LogInPage/>} />
         
         {/* These account creation pages are accessible without authentication */}
         <Route path="/create-account-1" element={<CreateAccountPage1 />} />
         <Route path="/create-account-3" element={<CreateAccountPage3 />} />
-        <Route path="/create-account-4" element={<CreateAccountPage4 onLogin={handleLogin}/>} />
+        <Route path="/create-account-4" element={<CreateAccountPage4 />} />
 
         <Route path="/cash-calculator" element={<CashCalculator />} />
 
-        {/* Protected route for dashboard */}
         <Route
           path="/dashboard"
-          element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <DashboardPage />
-            </ProtectedRoute>
+          element={<DashboardPage />
           }
         />
       </Routes>
