@@ -22,11 +22,6 @@ export const LogInPage = ({ onLogin }) => {
     const { loginWithRedirect, isAuthenticated } = useAuth0(); // Use Auth0 hooks
 
     useEffect(() => {
-        // Runs after the component mounts
-        const element = document.querySelector('.log-in-form');
-        if (element) {
-            element.classList.add('fade-in');
-        }
         document.title = 'Log In | InvestMint';
     }, []); // Empty dependency array means this effect runs once after the initial render
 
@@ -97,7 +92,7 @@ export const LogInPage = ({ onLogin }) => {
                             }} >
                             </input>
                         <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
-                            {showPassword ? <img src={openEye}/> : <img src={closedEye}/>}
+                            {showPassword ? <img alt='Open Eye' src={openEye}/> : <img alt='Closed Eye' src={closedEye}/>}
                         </button>
                     </div>
                     {(errors.password && submitButtonClicked) && <p style={{ color: "#71CCA8" }}>{errors.password}</p>}
