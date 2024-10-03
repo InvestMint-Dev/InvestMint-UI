@@ -46,7 +46,7 @@ p {
 
 .fade-in {
   opacity: 0;                 /* Initial state is transparent */
-  transition: opacity 0.5s;  /* Transition effect for opacity */
+  transition: opacity 0.75s;  /* Transition effect for opacity */
 }
 
 .fade-in.visible {

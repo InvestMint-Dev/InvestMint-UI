@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { validateCompanyLegalInfo } from '../../../validators/validators';
@@ -11,7 +11,12 @@ import './create-account-page-3.css'
 import { handleKeyDown } from '../../../utils/utils';
 
 export const CreateAccountPage3 = () => {
+    const [fadeIn, setFadeIn] = useState(false);
     const navigate = useNavigate(); // Navigate hook
+
+    useEffect(() => {
+        setFadeIn(true); // Trigger fade-in effect on mount
+    }, []);
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const [suggestions, setSuggestions] = useState({
@@ -175,7 +180,7 @@ export const CreateAccountPage3 = () => {
     };
 
     return (
-        <div>
+        <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             {showErrorAlert && (
                 <ErrorAlertPanel className={alertClass} />
             )}
