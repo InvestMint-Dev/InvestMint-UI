@@ -11,7 +11,10 @@ import openEye from '../../../assets/images/icons/Eye.png';
 import closedEye from '../../../assets/images/icons/Closed Eye.png';
 
 export const CreateAccountPage1 = () => {
+  const [fadeIn, setFadeIn] = useState(false);
+
   useEffect(() => {
+    setFadeIn(true); // Trigger fade-in effect on mount
     document.title = 'Create Account | InvestMint';
 }, []);
 
@@ -76,7 +79,7 @@ export const CreateAccountPage1 = () => {
   };
 
   return (
-    <div>
+    <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
       {showErrorAlert && (
         <ErrorAlertPanel className={alertClass} />
       )}

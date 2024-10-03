@@ -10,6 +10,7 @@ import openEye from '../../assets/images/icons/Eye.png';
 import closedEye from '../../assets/images/icons/Closed Eye.png';
 
 export const LogInPage = ({ onLogin }) => {
+    const [fadeIn, setFadeIn] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -23,6 +24,7 @@ export const LogInPage = ({ onLogin }) => {
 
     useEffect(() => {
         document.title = 'Log In | InvestMint';
+        setFadeIn(true); // Trigger fade-in effect on mount
     }, []); // Empty dependency array means this effect runs once after the initial render
 
 
@@ -58,7 +60,7 @@ export const LogInPage = ({ onLogin }) => {
     })};
 
     return (
-        <div>
+        <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
             <div className='log-in-form-container'>
