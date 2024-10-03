@@ -333,7 +333,7 @@ export const CreateAccountPage3 = () => {
                                     style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "2px solid #71CCA8" : "none" }} 
                                     name="accountNumber" 
                                     value={formData.bankAccounts[index].accountNumber} // Ensure the value is set correctly
-                                    placeholder="Account number" 
+                                    placeholder="Account Number" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
                                 {(errors[`account-${index}`] && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors[`account-${index}`]}</p>}

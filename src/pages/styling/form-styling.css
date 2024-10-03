@@ -18,8 +18,10 @@
   font-size: 1rem;
   font-weight: bold;
   justify-content: center;
+  text-align: center;
 
   background: rgba(166, 219, 158, 0.5);
+  color: rgb(35, 105, 74);
   border: none;
   resize: none;
 
