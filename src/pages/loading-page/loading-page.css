@@ -24,7 +24,7 @@
 .loading-progress {
     width: 0%; /* Start with 0% width */
     height: 100%; /* Full height of the loading bar */
-    background-color: #71CCA8; /* Color of the loading progress */
+    background-color: #61b090; /* Color of the loading progress */
     animation: loadingAnimation 3s forwards; /* Animation over 3 seconds */
 }
 

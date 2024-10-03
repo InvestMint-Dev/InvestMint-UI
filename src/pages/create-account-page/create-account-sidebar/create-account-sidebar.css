@@ -27,7 +27,7 @@
 .create-account-sidebar-stepper-circle {
     width: 3.75rem;  /* Circle width */
     height: 3.75rem; /* Circle height */
-    background-color: #71CCA8; 
+    background-color: #61b090; 
     border-radius: 50%; /* Makes the element circular */
 }
 
@@ -39,7 +39,7 @@
     font-weight: bold;
     padding-left: 0.9375rem; /* Adjust space between circle and label */
     font-size: 1rem;
-    color: #71CCA8; 
+    color: #61b090; 
 }
 
 .active-label {

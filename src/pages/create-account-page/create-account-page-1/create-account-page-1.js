@@ -94,9 +94,9 @@ export const CreateAccountPage1 = () => {
             placeholder='Email'
             value={formData.email}
             onChange={handleChange}
-            style={{ border: (errors.email && nextButtonClicked) ? "2px solid #71CCA8" : "none" }}
+            style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }}
           />
-          {(errors.email && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.email}</p>}
+          {(errors.email && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.email}</p>}
 
           <div className='password-container'>
             <input
@@ -106,13 +106,13 @@ export const CreateAccountPage1 = () => {
               placeholder='Password'
               value={formData.password}
               onChange={handleChange}
-              style={{ border: (errors.password && nextButtonClicked) ? "2px solid #71CCA8" : "none" }}
+              style={{ border: (errors.password && nextButtonClicked) ? "2px solid #61b090" : "none" }}
             />
             <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <img src={openEye} alt="Show" /> : <img src={closedEye} alt="Hide" />}
             </button>
           </div>
-          {(errors.password && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.password}</p>}
+          {(errors.password && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.password}</p>}
 
           <div className='password-container'>
             <input
@@ -122,13 +122,13 @@ export const CreateAccountPage1 = () => {
               placeholder='Confirm Password'
               value={formData.confirmPassword}
               onChange={handleChange}
-              style={{ border: (errors.confirmPassword && nextButtonClicked) ? "2px solid #71CCA8" : "none" }}
+              style={{ border: (errors.confirmPassword && nextButtonClicked) ? "2px solid #61b090" : "none" }}
             />
             <button type="button" className='show-password-button' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
               {showConfirmPassword ? <img src={openEye} alt="Show" /> : <img src={closedEye} alt="Hide" />}
             </button>
           </div>
-          {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#71CCA8' }}>{errors.confirmPassword}</p>}
+          {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.confirmPassword}</p>}
           
         </div>
 
