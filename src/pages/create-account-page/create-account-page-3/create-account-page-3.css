@@ -11,6 +11,7 @@
     gap: 0.625rem; /* Space between grid items */
     width: 70vw; /* 70% of the viewport width */
     max-width: 38.75rem; /* Max width to maintain original size on larger screens */
+    margin-top: 1rem;
     padding: 0.625rem;
     background-color: rgba(166, 219, 158, 0.5);
     border-radius: 1.25rem;
@@ -123,6 +124,8 @@
 }
 
 h3 {
+    margin-top: 2rem;
+    margin-bottom: 0rem;
     color:rgb(35, 105, 74);
 }
 

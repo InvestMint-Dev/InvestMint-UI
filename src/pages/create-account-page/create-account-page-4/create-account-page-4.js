@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './create-account-page-4.css';
 
@@ -10,7 +10,12 @@ import { CreateAccountSidebar } from '../create-account-sidebar/create-account-s
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
 export const CreateAccountPage4 = ({onLogin}) => {
+    const [fadeIn, setFadeIn] = useState(false);
     const navigate = useNavigate(); // Navigate hook
+
+    useEffect(() => {
+        setFadeIn(true); // Trigger fade-in effect on mount
+    }, []);
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
@@ -83,7 +88,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
     };
 
     return (
-        <div>
+        <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             {showErrorAlert && (
                 <ErrorAlertPanel className={alertClass} />
             )}
