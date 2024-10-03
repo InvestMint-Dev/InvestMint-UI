@@ -127,10 +127,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(1)}
                     >
-                        {expandedSections[1] ? '-' : '+'}
+                        {expandedSections[1] ? '−' : '+'}
                     </button>
                     {expandedSections[1] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[1] ? 'expanded' : ''}`}>
                             Establishing your comfort level in investing is the first step of an effective asset/liability management program.
                         </p>
                     )}
@@ -183,10 +183,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(2.1)}
                     >
-                        {expandedSections[2.1] ? '-' : '+'}
+                        {expandedSections[2.1] ? '−' : '+'}
                     </button>
                     {expandedSections[2.1] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[2.1] ? 'expanded' : ''}`}>
                             It is important to know exactly how much idle cash you have.  Just because you have a certain bank balance, the amount of cash you have available to invest is a function of how much money you have and when you need your cash back in the bank.
                         </p>
                     )}
@@ -196,10 +196,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(2.2)}
                     >
-                        {expandedSections[2.2] ? '-' : '+'}
+                        {expandedSections[2.2] ? '−' : '+'}
                     </button>
                     {expandedSections[2.2] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[2.2] ? 'expanded' : ''}`}>
                             Determining how much money you want invested needs to be assessed with the timing when you want the cash back in your bank account. Depending on your goal, that could be a short or long period of time. It might be a onetime expense, such as buying inventory, paying bills, or even making an acquisition. These future plans are important to consider when mapping out an asset / liability management strategy.
                         </p>
                     )}
@@ -241,10 +241,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(3.1)}
                     >
-                        {expandedSections[3.1] ? '-' : '+'}
+                        {expandedSections[3.1] ? '−' : '+'}
                     </button>
                     {expandedSections[3.1] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[3.1] ? 'expanded' : ''}`}>
                             Estimate the amount of time you have until you need to start spending the money you're investing. If your time frame is short, we'll suggest a more conservative allocation to preserve your assets. If you won't need the money for many years, we'll suggest an allocation that will target a slightly higher return for your risk tolerances.
                         </p>
                     )}
@@ -254,10 +254,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(3.2)}
                     >
-                        {expandedSections[3.2] ? '-' : '+'}
+                        {expandedSections[3.2] ? '−' : '+'}
                     </button>
                     {expandedSections[3.2] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[3.2] ? 'expanded' : ''}`}>
                             Once you start withdrawing and spending your money, you'll want to be sure it will last as long as you need it to. Depending on your goal, that could be a short or long period of time. Your annual plan is critical to consider when mapping out an investment strategy.
                         </p>
                     )}
@@ -335,10 +335,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(5.1)}
                     >
-                        {expandedSections[5.1] ? '-' : '+'}
+                        {expandedSections[5.1] ? '−' : '+'}
                     </button>
                     {expandedSections[5.1] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[5.1] ? 'expanded' : ''}`}>
                             Consider the sources of cash you expect to have in the future. How certain are you that they'll materialize? We'll consider your estimated degree of financial stability as another factor in determining an appropriate asset allocation.
                         </p>
                     )}
@@ -348,10 +348,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(5.2)}
                     >
-                        {expandedSections[5.2] ? '-' : '+'}
+                        {expandedSections[5.2] ? '−' : '+'}
                     </button>
                     {expandedSections[5.2] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[5.2] ? 'expanded' : ''}`}>
                             Your asset mix could be completely conservative or moderately conservative depending on your current and future sources of cash. A stable financial outlook provides the foundation on which to base your investment strategy. Generally, more stability affords you more opportunity to take on investment risk. Less stability suggests that a more conservative approach might better serve you.
                         </p>
                     )}
@@ -381,10 +381,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(6.1)}
                     >
-                        {expandedSections[6.1] ? '-' : '+'}
+                        {expandedSections[6.1] ? '−' : '+'}
                     </button>
                     {expandedSections[6.1] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[6.1] ? 'expanded' : ''}`}>
                             If you're inclined to sell all or a portion of your investments during a volatile time in the market, that suggests you have a lower risk tolerance and may prefer a more conservative asset mix. If you tend to hold on to your investments or even buy more during this time, you have a slightly higher risk tolerance and may feel comfortable with an higher target return allocation.
                         </p>
                     )}
@@ -394,10 +394,10 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <button 
                         onClick={() => toggleSection(6.2)}
                     >
-                        {expandedSections[6.2] ? '-' : '+'}
+                        {expandedSections[6.2] ? '−' : '+'}
                     </button>
                     {expandedSections[6.2] && (
-                        <p>
+                        <p className={`explanation ${expandedSections[6.2] ? 'expanded' : ''}`}>
                             Market volatility can trigger uncertainty and fear. Your risk tolerance is how comfortable you are during volatile times, when market swings can  change the return of your investments. Taking on more risk can lead to higher returns, but could also have lower returns (or even small losses) in certain scenarios. Conversely, a mix that's too conservative can miss out of risk-appropriate returns.
                         </p>
                     )}
