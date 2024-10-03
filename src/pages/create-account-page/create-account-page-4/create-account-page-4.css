@@ -4,6 +4,7 @@
     background-color:rgba(166, 219, 158, 0.25);
     padding: 1.25rem;
     text-align: center;
+    font-weight: 500;
 
     img {
         width: 90%;
@@ -108,4 +109,8 @@
         width: 18rem;
         font-size: 0.9rem;
     }
+}
+
+p {
+    margin-top: 20px;
 }
