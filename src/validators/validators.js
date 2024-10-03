@@ -65,11 +65,13 @@ export const validateCompanyLegalInfo = (formData) => {
         errors.email = "Email is invalid.";
     }
 
+    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
+
     // Validate phone numbers
     if (!formData.phoneNumber || formData.phoneNumber.trim() === "") {
         errors.phoneNumber = "Phone Number is required.";
-    } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
-        errors.phoneNumber = "Phone Number must be 10 digits.";
+    } else if (!phoneRegex.test(formData.phoneNumber)) {
+        errors.phoneNumber = "Phone Number must be in the format (000) 000-0000.";
     }
 
     if (!formData.mobileNumber || formData.mobileNumber.trim() === "") {
