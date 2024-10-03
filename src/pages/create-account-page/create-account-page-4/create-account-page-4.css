@@ -54,7 +54,7 @@
 
 .question-footer {
     width: 40.625rem;
-    padding: 0.9375rem 1.25rem 1.25rem 1.25rem;
+    padding: 0.9375rem 1.25rem 0 1.25rem;
 
     background-color: rgba(35, 105, 74, 0.8);
     color: white;
@@ -79,7 +79,6 @@
 
 .question-footer-last {
     border-radius: 0 0 1.25rem 1.25rem;
-    margin-bottom: 0.9375rem;
 }
 
 .text-input {
@@ -113,4 +112,18 @@
 
 p {
     margin-top: 20px;
+    
+}
+
+.explanation {
+    max-height: 0;              /* Start with a height of 0 */
+    overflow: hidden;           /* Hide overflowing content */
+    transition: max-height 0.5s ease, opacity 0.5s ease; /* Smooth transition for max-height and opacity */
+    opacity: 0;                 /* Start with opacity 0 */
+}
+
+.explanation.expanded {
+    max-height: 300px;          /* Set a max-height for expanded state (adjust as needed) */
+    opacity: 1;                 /* Fade in */
+    padding-bottom: 1.25rem;
 }

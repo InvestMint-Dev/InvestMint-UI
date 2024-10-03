@@ -129,11 +129,11 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     >
                         {expandedSections[1] ? '−' : '+'}
                     </button>
-                    {expandedSections[1] && (
+                    {/* {expandedSections[1] && ( */}
                         <p className={`explanation ${expandedSections[1] ? 'expanded' : ''}`}>
                             Establishing your comfort level in investing is the first step of an effective asset/liability management program.
                         </p>
-                    )}
+                    {/* )} */}
                 </div>
 
                 {/* Q2 */}
