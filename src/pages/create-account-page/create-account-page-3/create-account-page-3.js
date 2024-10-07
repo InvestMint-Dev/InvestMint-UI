@@ -81,7 +81,6 @@ export const CreateAccountPage3 = () => {
             });
         } 
         else {
-            
             // Handle changes for other form fields
             setFormData(prevData => {
                 const updatedValue = (name === 'phoneNumber') || (name === 'mobileNumber') || (name === 'companyPhoneNumber') ? formatPhoneNumber(value) : value;
@@ -172,17 +171,43 @@ export const CreateAccountPage3 = () => {
 
 
     const addBankInputSet = () => {
-        setFormData(prevData => ({
-            ...prevData,
-            bankAccounts: [...prevData.bankAccounts, { id: Date.now(), bank: "", accountNumber: "" }]
-        }));
+        setFormData(prevData => {
+            // Create the updated data first
+            const updatedData = {
+                ...prevData,
+                bankAccounts: [
+                    ...(prevData.bankAccounts || []), // Ensure it's an array or create a new one if undefined
+                    { id: Date.now(), bank: "", accountNumber: "" }
+                ]
+            };
+            
+            // Validate the updated data
+            const validationErrors = validateCompanyLegalInfo(updatedData);
+    
+            // Set the validation errors if any
+            setErrors(validationErrors);
+    
+            // Return the updated formData to actually update the state
+            return updatedData;
+        });
     };
 
     const removeBankInputSet = (index) => {
-        setFormData(prevData => ({
+        setFormData(prevData => {
+            const updatedData = {
             ...prevData,
             bankAccounts: prevData.bankAccounts.filter((_, i) => i !== index)
-        }));
+            };
+
+            // Validate the updated data
+            const validationErrors = validateCompanyLegalInfo(updatedData);
+    
+            // Set the validation errors if any
+            setErrors(validationErrors);
+    
+            // Return the updated formData to actually update the state
+            return updatedData;
+        });
     };
 
     return (
@@ -329,7 +354,8 @@ export const CreateAccountPage3 = () => {
                     {(errors.countryName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.countryName}</p>}
 
                     <h3>Company Bank Accounts</h3>
-                    <div className="bankinputs-container">
+                    <div className="bankinputs-container"
+                    style={{ border: (errors.bankAccounts && nextButtonClicked) ? "2px solid #61b090" : "none" }} >
                         <button className="bankinputs-add-button" onClick={addBankInputSet}>+</button>
 
                         {formData.bankAccounts.map((set, index) => (
