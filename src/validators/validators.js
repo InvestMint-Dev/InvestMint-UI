@@ -105,6 +105,9 @@ export const validateCompanyLegalInfo = (formData) => {
         errors.companyPhoneNumber = "Company Phone Number must be 10 digits.";
     }
 
+    if (!formData.bankAccounts || formData.bankAccounts.length == 0) {
+        errors.bankAccounts = "At least one company bank account is required.";
+    }
     // Validate bank accounts
     formData.bankAccounts.forEach((account, index) => {
         if (!account.bank) {

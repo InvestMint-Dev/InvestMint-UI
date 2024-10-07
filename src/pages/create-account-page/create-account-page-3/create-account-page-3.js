@@ -43,7 +43,7 @@ export const CreateAccountPage3 = () => {
         city: "",
         zipcode: "",
         companyPhoneNumber: "",
-        bankAccounts: [{ id: 1, bank: "", accountNumber: "" }], // Example initial bank account
+        bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "" }], // Example initial bank account
         advisorName: "",
         investmentAccountNumber: ""
     });
@@ -103,7 +103,7 @@ export const CreateAccountPage3 = () => {
         const validationErrors = validateCompanyLegalInfo(formData);
         setErrors(validationErrors);
         const isValid = Object.keys(validationErrors).length === 0;
-    
+        
         if (isValid) {
             navigate('/create-account-4'); // Navigate to the next page
             setNextButtonClicked(false);
@@ -370,6 +370,8 @@ export const CreateAccountPage3 = () => {
                             </div>
                         ))}
                     </div>
+                    {(errors.bankAccounts && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.bankAccounts}</p>}
+
 
                     <h3>If your company has an investment advisor:</h3>
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "2px solid #61b090" : "none" }} />
