@@ -79,7 +79,9 @@ export const CreateAccountPage3 = () => {
                 setErrors(validationErrors);
                 return updatedData;
             });
-        } else {
+        } 
+        else {
+            
             // Handle changes for other form fields
             setFormData(prevData => {
                 const updatedValue = (name === 'phoneNumber') || (name === 'mobileNumber') || (name === 'companyPhoneNumber') ? formatPhoneNumber(value) : value;
@@ -153,14 +155,18 @@ export const CreateAccountPage3 = () => {
     };
 
     const handleLocationSuggestionClick = (suggestion) => {
-        setFormData({
-            ...formData,
-            addressLine1: suggestion.title, // Set the selected address line
-            city: suggestion.city,
-            state: suggestion.state,
-            zipcode: suggestion.zipcode,
-            countryName: suggestion.countryName
-        });
+        setFormData(prevData => {
+                const updatedData = { ...prevData, 
+                    addressLine1: suggestion.title, // Set the selected address line
+                    city: suggestion.city,
+                    state: suggestion.state,
+                    zipcode: suggestion.zipcode,
+                    countryName: suggestion.countryName
+                };
+                const validationErrors = validateCompanyLegalInfo(updatedData);
+                setErrors(validationErrors);
+                return updatedData;
+            });
         setSuggestions([]); // Clear suggestions after selection
     };
 
