@@ -289,7 +289,7 @@ export const CreateAccountPage3 = () => {
                                 value={formData.city}
                                 readOnly // Make this read-only since it's auto-filled
                             />
-                            {(errors.state && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.state}</p>}
+                            {(errors.city && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.city}</p>}
                         </div>
 
                         {/* State Input */}
@@ -302,7 +302,7 @@ export const CreateAccountPage3 = () => {
                                 value={formData.state}
                                 readOnly // Make this read-only since it's auto-filled
                             />
-                            {(errors.city && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.city}</p>}
+                            {(errors.state && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.state}</p>}
                         </div>
 
                         {/* Zipcode Input */}

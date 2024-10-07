@@ -98,8 +98,6 @@ export const validateCompanyLegalInfo = (formData) => {
     }
     if (!formData.zipcode || formData.zipcode.trim() === "") {
         errors.zipcode = "Zipcode is required.";
-    } else if (!/^\d{5}$/.test(formData.zipcode)) {
-        errors.zipcode = "Zipcode must be 5 digits.";
     }
     if (!formData.companyPhoneNumber || formData.companyPhoneNumber.trim() === "") {
         errors.companyPhoneNumber = "Company Phone Number is required.";
