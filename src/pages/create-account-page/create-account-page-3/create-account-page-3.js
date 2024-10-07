@@ -192,102 +192,126 @@ export const CreateAccountPage3 = () => {
                 <div className='company-legal-information-form'>
                     {/* Form fields */}
                     <div className='form-flex-container'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-half' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-half' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
-                    </div>
-                    {(errors.firstName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.firstName}</p>}
-                    {(errors.lastName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.lastName}</p>}
+                        <div className='form-textarea-container-half'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                            {(errors.firstName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.firstName}</p>}
+                        </div>
 
-                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
-                    {(errors.email && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.email}</p>}
+                        <div className='form-textarea-container-half'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                            {(errors.lastName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.lastName}</p>}
+                        </div>
+                    </div>
+
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                        {(errors.email && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.email}</p>}
+                    </div>
 
                     <div className='form-flex-container'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea form-textarea-half'
-                            name="phoneNumber"
-                            placeholder='Phone Number'
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            style={{ border: (errors.phoneNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }}
-                        />
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea form-textarea-half'
-                            name="mobileNumber"
-                            placeholder='Mobile Number'
-                            value={formData.mobileNumber}
-                            onChange={handleChange}
-                            style={{ border: (errors.mobileNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }}
-                        />
+                        <div className='form-textarea-container-half'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                                className='form-textarea'
+                                name="phoneNumber"
+                                placeholder='Phone Number'
+                                value={formData.phoneNumber}
+                                onChange={handleChange}
+                                style={{ border: (errors.phoneNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }}
+                            />
+                            {(errors.phoneNumber && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.phoneNumber}</p>}
+                        </div>
+
+                        <div className='form-textarea-container-half'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                                className='form-textarea'
+                                name="mobileNumber"
+                                placeholder='Mobile Number'
+                                value={formData.mobileNumber}
+                                onChange={handleChange}
+                                style={{ border: (errors.mobileNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }}
+                            />
+                            {(errors.mobileNumber && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.mobileNumber}</p>}
+                        </div>
                     </div>
-                    {(errors.phoneNumber && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.phoneNumber}</p>}
-                    {(errors.mobileNumber && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.mobileNumber}</p>}
 
-                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
-                    {(errors.companyName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.companyName}</p>}
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                        {(errors.companyName && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.companyName}</p>}
+                    </div>
 
-                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" 
-                        className='form-textarea form-textarea-full' 
-                        name="companyPhoneNumber" 
-                        placeholder='Company Phone Number' 
-                        value={formData.companyPhoneNumber} 
-                        onChange={handleChange} 
-                        style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
-                    {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.companyPhoneNumber}</p>}
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" 
+                            className='form-textarea form-textarea-full' 
+                            name="companyPhoneNumber" 
+                            placeholder='Company Phone Number' 
+                            value={formData.companyPhoneNumber} 
+                            onChange={handleChange} 
+                            style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                        {(errors.companyPhoneNumber && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.companyPhoneNumber}</p>}
+                    </div>
 
-                    <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                        className='form-textarea form-textarea-full'
-                        name="addressLine1"
-                        placeholder='Company Address Line 1'
-                        value={formData.addressLine1}
-                        onChange={handleChange}
-                        style={{ border: (errors.addressLine1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}
-                    />
-                    {/* Render suggestions for address line */}
-                    {suggestions.length > 0 && (
-                        <ul className="suggestions-list">
-                            {suggestions.map((suggestion, index) => (
-                                <li key={index} onClick={() => handleLocationSuggestionClick(suggestion)}>
-                                    {suggestion.title}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
-                    {(errors.addressLine1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.addressLine1}</p>}
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                            className='form-textarea form-textarea-full'
+                            name="addressLine1"
+                            placeholder='Company Address Line 1'
+                            value={formData.addressLine1}
+                            onChange={handleChange}
+                            style={{ border: (errors.addressLine1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}
+                        />
+                        {/* Render suggestions for address line */}
+                        {suggestions.length > 0 && (
+                            <ul className="suggestions-list">
+                                {suggestions.map((suggestion, index) => (
+                                    <li key={index} onClick={() => handleLocationSuggestionClick(suggestion)}>
+                                        {suggestion.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        {(errors.addressLine1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.addressLine1}</p>}
+                    </div>
 
                     <div className='form-flex-container'>
                         {/* City Input */}
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea form-textarea-third'
-                            style={{ border: (errors.state && nextButtonClicked)  ? "2px solid #61b090" : "none" }} 
-                            name="city"
-                            placeholder='City'
-                            value={formData.city}
-                            readOnly // Make this read-only since it's auto-filled
-                        />
+                        <div className='form-textarea-container-third'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                                className='form-textarea'
+                                style={{ border: (errors.state && nextButtonClicked)  ? "2px solid #61b090" : "none" }} 
+                                name="city"
+                                placeholder='City'
+                                value={formData.city}
+                                readOnly // Make this read-only since it's auto-filled
+                            />
+                            {(errors.state && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.state}</p>}
+                        </div>
 
                         {/* State Input */}
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea form-textarea-third'
-                            style={{ border: (errors.city && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
-                            name="state"
-                            placeholder='State'
-                            value={formData.state}
-                            readOnly // Make this read-only since it's auto-filled
-                        />
+                        <div className='form-textarea-container-third'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                                className='form-textarea'
+                                style={{ border: (errors.city && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                                name="state"
+                                placeholder='State'
+                                value={formData.state}
+                                readOnly // Make this read-only since it's auto-filled
+                            />
+                            {(errors.city && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.city}</p>}
+                        </div>
 
                         {/* Zipcode Input */}
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea form-textarea-third'
-                            style={{ border: (errors.zipcode && nextButtonClicked)  ? "2px solid #61b090" : "none" }} 
-                            name="zipcode"
-                            placeholder='Zipcode'
-                            value={formData.zipcode}
-                            readOnly // Make this read-only since it's auto-filled
-                        />
+                        <div className='form-textarea-container-third'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                                className='form-textarea'
+                                style={{ border: (errors.zipcode && nextButtonClicked)  ? "2px solid #61b090" : "none" }} 
+                                name="zipcode"
+                                placeholder='Zipcode'
+                                value={formData.zipcode}
+                                readOnly // Make this read-only since it's auto-filled
+                            />
+                            {(errors.zipcode && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.zipcode}</p>}
+                        </div>
                     </div>
-                    {(errors.state && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.state}</p>}
-                    {(errors.city && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.city}</p>}
-                    {(errors.zipcode && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.zipcode}</p>}
 
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" 
                         className='form-textarea form-textarea-full' 
