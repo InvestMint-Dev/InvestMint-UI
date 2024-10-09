@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import axios from 'axios'; // For making API requests
 import { validateLogInFields } from '../../../validators/validators';
 import '../create-account-page.css';
 import './create-account-page-1.css';
@@ -52,27 +53,67 @@ export const CreateAccountPage1 = () => {
     const isValid = Object.keys(validationErrors).length === 0;
 
     if (isValid) {
-      if (!isAuthenticated) {
-        await loginWithRedirect(); // Trigger Auth0 authentication
+  //     if (!isAuthenticated) {
+  //       await loginWithRedirect(); // Trigger Auth0 authentication
+  //     } else {
+  //       navigate('/create-account-3'); // Navigate to the next page
+  //       setNextButtonClicked(false);
+  //       setShowErrorAlert(false);
+  //     }
+  //   } else {
+  //     setAlertClass("show"); // Show error alert
+  //     setShowErrorAlert(true); // Show error alert on validation failure
+  //     window.scrollTo({ top: 0, behavior: 'auto' });
+
+  //     // Hide error alert after 2 seconds
+  //     setTimeout(() => {
+  //       setAlertClass("hide"); // Start fade-out
+  //       setTimeout(() => {
+  //         setShowErrorAlert(false); // Remove from DOM after fade-out
+  //       }, 1000); // Duration of the fade-out transition
+  //     }, 2000);
+  //   }
+  // };
+    try {
+      const response = await fetch('http://localhost:8000/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        // Backend error (e.g., user already exists)
+        setAlertClass("show");
+        setShowErrorAlert(true);
+        setErrors({ signup: data.message });  // Display the error from backend
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        
+        // Hide error after 2 seconds
+        setTimeout(() => {
+          setAlertClass("hide");
+          setTimeout(() => {
+            setShowErrorAlert(false); // Remove from DOM after fade-out
+          }, 1000); 
+        }, 2000);
       } else {
-        navigate('/create-account-3'); // Navigate to the next page
+        // Success
+        navigate('/create-account-3');
         setNextButtonClicked(false);
         setShowErrorAlert(false);
       }
-    } else {
-      setAlertClass("show"); // Show error alert
-      setShowErrorAlert(true); // Show error alert on validation failure
-      window.scrollTo({ top: 0, behavior: 'auto' });
-
-      // Hide error alert after 2 seconds
-      setTimeout(() => {
-        setAlertClass("hide"); // Start fade-out
-        setTimeout(() => {
-          setShowErrorAlert(false); // Remove from DOM after fade-out
-        }, 1000); // Duration of the fade-out transition
-      }, 2000);
+    } catch (error) {
+      console.error('Error during signup:', error);
     }
-  };
+  } else {
+    setShowErrorAlert(true);
+  }
+};
 
   const handleBack = () => {
     navigate('/log-in');
@@ -88,6 +129,7 @@ export const CreateAccountPage1 = () => {
       <div className='page-1-container'>     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
+        {(errors.signup && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.signup}</p>}
           <input
             className='form-textarea form-textarea-full'
             name='email'
