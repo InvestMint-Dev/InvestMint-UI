@@ -114,83 +114,11 @@ export const CreateAccountPage1 = () => {
         } catch (error) {
             console.error('Error during signup:', error);
         }
-    } else {
-        setShowErrorAlert(true);
-    }
-};
+      } else {
+          setShowErrorAlert(true);
+      }
+  };
 
-
-//   const handleNext = async () => {
-//     setNextButtonClicked(true);
-//     const validationErrors = validateLogInFields(formData, 'createAccount');
-//     setErrors(validationErrors);
-//     const isValid = Object.keys(validationErrors).length === 0;
-
-//     if (isValid) {
-//   //     if (!isAuthenticated) {
-//   //       await loginWithRedirect(); // Trigger Auth0 authentication
-//   //     } else {
-//   //       navigate('/create-account-3'); // Navigate to the next page
-//   //       setNextButtonClicked(false);
-//   //       setShowErrorAlert(false);
-//   //     }
-//   //   } else {
-//   //     setAlertClass("show"); // Show error alert
-//   //     setShowErrorAlert(true); // Show error alert on validation failure
-//   //     window.scrollTo({ top: 0, behavior: 'auto' });
-
-//   //     // Hide error alert after 2 seconds
-//   //     setTimeout(() => {
-//   //       setAlertClass("hide"); // Start fade-out
-//   //       setTimeout(() => {
-//   //         setShowErrorAlert(false); // Remove from DOM after fade-out
-//   //       }, 1000); // Duration of the fade-out transition
-//   //     }, 2000);
-//   //   }
-//   // };
-//     try {
-//       const response = await fetch('http://localhost:8000/api/auth/signup', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           email: formData.email,
-//           password: formData.password,
-//         }),
-//       });
-
-//       const data = await response.json();
-//       if (!response.ok) {
-//         // Backend error (e.g., user already exists)
-//         setAlertClass("show");
-//         setShowErrorAlert(true);
-//         setErrors({ signup: data.message });  // Display the error from backend
-//         window.scrollTo({ top: 0, behavior: 'auto' });
-        
-//         // Hide error after 2 seconds
-//         setTimeout(() => {
-//           setAlertClass("hide");
-//           setTimeout(() => {
-//             setShowErrorAlert(false); // Remove from DOM after fade-out
-//           }, 1000); 
-//         }, 2000);
-//       } else {
-//         if (!isAuthenticated) {
-//           await loginWithRedirect(); // Trigger Auth0 authentication
-//         } else {
-//           navigate('/create-account-3'); // Navigate to the next page
-//           setNextButtonClicked(false);
-//           setShowErrorAlert(false);
-//         }
-//       }
-//     } catch (error) {
-//       console.error('Error during signup:', error);
-//     }
-//   } else {
-//     setShowErrorAlert(true);
-//   }
-// };
 
   const handleBack = () => {
     navigate('/log-in');
