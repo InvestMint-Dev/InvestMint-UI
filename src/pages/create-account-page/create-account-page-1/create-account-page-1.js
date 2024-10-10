@@ -102,10 +102,13 @@ export const CreateAccountPage1 = () => {
           }, 1000); 
         }, 2000);
       } else {
-        // Success
-        navigate('/create-account-3');
-        setNextButtonClicked(false);
-        setShowErrorAlert(false);
+        if (!isAuthenticated) {
+          await loginWithRedirect(); // Trigger Auth0 authentication
+        } else {
+          navigate('/create-account-3'); // Navigate to the next page
+          setNextButtonClicked(false);
+          setShowErrorAlert(false);
+        }
       }
     } catch (error) {
       console.error('Error during signup:', error);
