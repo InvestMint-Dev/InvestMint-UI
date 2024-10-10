@@ -1,5 +1,7 @@
-import React, { useState, useEffect, navigate } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react'; // Import Auth0 hook
+import axios from 'axios';
 
 import './log-in-page.css';
 import '../styling/form-styling.css';
@@ -21,6 +23,7 @@ export const LogInPage = ({ onLogin }) => {
     const [submitButtonClicked, setSubMitButtonClicked] = useState(false);
 
     const { loginWithRedirect, isAuthenticated } = useAuth0(); // Use Auth0 hooks
+    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'Log In | InvestMint';
@@ -38,14 +41,47 @@ export const LogInPage = ({ onLogin }) => {
         setSubMitButtonClicked(true);
         e.preventDefault();
 
+        // if (validateForm()) {
+        //     if (!isAuthenticated) {
+        //         await loginWithRedirect();
+        //     } else {
+        //         navigate('/dashboard');
+        //         setSubMitButtonClicked(false);
+        //         onLogin(); // Call onLogin here
+        //     }
+        // }
+
         if (validateForm()) {
-            if (!isAuthenticated) {
-                await loginWithRedirect();
+            try {
+            const response = await fetch('http://localhost:8000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                if (!isAuthenticated) {
+                    await loginWithRedirect();
+                } else {
+                    navigate('/dashboard');
+                    setSubMitButtonClicked(false);
+                    onLogin(); // Call onLogin here
+                }
             } else {
-                navigate('/dashboard');
-                setSubMitButtonClicked(false);
-                onLogin(); // Call onLogin here
+                // Display error message from the backend
+                setErrors({ login: data.message });
             }
+        } catch (error) {
+            console.error('Error during login:', error);
+            setErrors({ login: 'Something went wrong. Please try again.' });
+        }
         }
     };
 
