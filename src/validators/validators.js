@@ -76,7 +76,7 @@ export const validateCompanyLegalInfo = (formData) => {
 
     if (!formData.mobileNumber || formData.mobileNumber.trim() === "") {
         errors.mobileNumber = "Mobile Number is required.";
-    } else if (!/^\d{10}$/.test(formData.mobileNumber)) {
+    } else if (!phoneRegex.test(formData.mobileNumber)) {
         errors.mobileNumber = "Mobile Number must be 10 digits.";
     }
 
@@ -101,11 +101,11 @@ export const validateCompanyLegalInfo = (formData) => {
     }
     if (!formData.companyPhoneNumber || formData.companyPhoneNumber.trim() === "") {
         errors.companyPhoneNumber = "Company Phone Number is required.";
-    } else if (!/^\d{10}$/.test(formData.companyPhoneNumber)) {
+    } else if (!phoneRegex.test(formData.companyPhoneNumber)) {
         errors.companyPhoneNumber = "Company Phone Number must be 10 digits.";
     }
 
-    if (!formData.bankAccounts || formData.bankAccounts.length == 0) {
+    if (!formData.bankAccounts || formData.bankAccounts.length === 0) {
         errors.bankAccounts = "At least one company bank account is required.";
     }
     // Validate bank accounts
