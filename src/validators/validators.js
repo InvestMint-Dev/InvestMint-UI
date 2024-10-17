@@ -46,6 +46,27 @@ export const validateLogInFields = (formData, formType) => {
     return errors;
 };
 
+export const validateTwoFactorAuth = (formData) => {
+    const errors = {};
+
+    if (!formData.securityQuestion1 || formData.securityQuestion1.trim() === "") {
+        errors.securityQuestion1 = "Choose your first security question.";
+    }
+
+    if (!formData.securityAnswer1 || formData.securityAnswer1.trim() === "") {
+        errors.securityAnswer1 = "Answer is required."
+    }
+
+    if (!formData.securityQuestion2 || formData.securityQuestion2.trim() === "") {
+        errors.securityQuestion1 = "Choose your second security question.";
+    }
+
+    if (!formData.securityAnswer2 || formData.securityAnswer2.trim() === "") {
+        errors.securityAnswer2 = "Answer is required."
+    }
+
+    return errors;
+};
 
 export const validateCompanyLegalInfo = (formData) => {
     const errors = {};
