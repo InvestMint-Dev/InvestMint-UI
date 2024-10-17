@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import '../create-account-page.css';
+
+import { handleKeyDown } from '../../../utils/utils';
 import { validateTwoFactorAuth } from '../../../validators/validators';
 
 export const CreateAccountPage2 = () => {
@@ -107,45 +109,55 @@ export const CreateAccountPage2 = () => {
             <CreateAccountSidebar currentPage={3}/>
 
             <div className='page-3-container'>
-                <select 
-                    style={{ border: (errors[`securityQuestion1`] && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
-                    id= "securityQuestion1"
-                    name="securityQuestion1" 
-                    value={formData.securityQuestion1} // Ensure the value is set correctly
-                    onChange={(e) => handleChange(e)}
-                >
-                    <option value="">Select Bank</option>
-                    <option value="RBC">Royal Bank of Canada (RBC)</option>
-                    <option value="TD">Toronto-Dominion Bank (TD)</option>
-                    <option value="BMO">Bank of Montreal (BMO)</option>
-                    <option value="Scotiabank">Scotiabank (TD)</option>
-                    <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
-                    <option value="NBC">National Bank of Canada (NBC)</option>
-                    <option value="Laurentian Bank">Laurentian Bank</option>
-                    <option value="EQ Bank">Equitable Bank (EQ Bank)</option>
-                </select>                            
-                {(errors[`securityQuestion1`] && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors[`securityQuestion1`]}</p>}
-                
-                
-                <select 
-                    style={{ border: (errors[`securityQuestion2`] && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
-                    id= "securityQuestion2"
-                    name="securityQuestion2" 
-                    value={formData.securityQuestion1} // Ensure the value is set correctly
-                    onChange={(e) => handleChange(e)}
-                >
-                    <option value="">Select Bank</option>
-                    <option value="RBC">Royal Bank of Canada (RBC)</option>
-                    <option value="TD">Toronto-Dominion Bank (TD)</option>
-                    <option value="BMO">Bank of Montreal (BMO)</option>
-                    <option value="Scotiabank">Scotiabank (TD)</option>
-                    <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
-                    <option value="NBC">National Bank of Canada (NBC)</option>
-                    <option value="Laurentian Bank">Laurentian Bank</option>
-                    <option value="EQ Bank">Equitable Bank (EQ Bank)</option>
-                </select>                            
-                {(errors[`securityQuestion2`] && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors[`securityQuestion2`]}</p>}
-                
+                <div className='two-factor-auth-form'>
+                    <select 
+                        style={{ border: (errors.securityQuestion1 && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                        id= "securityQuestion1"
+                        name="securityQuestion1" 
+                        value={formData.securityQuestion1} // Ensure the value is set correctly
+                        onChange={(e) => handleChange(e)}
+                    >
+                        <option value="">Select Bank</option>
+                        <option value="RBC">Royal Bank of Canada (RBC)</option>
+                        <option value="TD">Toronto-Dominion Bank (TD)</option>
+                        <option value="BMO">Bank of Montreal (BMO)</option>
+                        <option value="Scotiabank">Scotiabank (TD)</option>
+                        <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
+                        <option value="NBC">National Bank of Canada (NBC)</option>
+                        <option value="Laurentian Bank">Laurentian Bank</option>
+                        <option value="EQ Bank">Equitable Bank (EQ Bank)</option>
+                    </select>                            
+                    {(errors.securityQuestion1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityQuestion1}</p>}
+                    
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer1" placeholder='Answer' value={formData.securityAnswer1} onChange={handleChange} style={{ border: (errors.securityAnswer1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
+                        {(errors.securityAnswer1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityAnswer1}</p>}
+                    </div>
+
+                    <select 
+                        style={{ border: (errors.securityQuestion2 && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                        id= "securityQuestion2"
+                        name="securityQuestion2" 
+                        value={formData.securityQuestion1} // Ensure the value is set correctly
+                        onChange={(e) => handleChange(e)}
+                    >
+                        <option value="">Select Bank</option>
+                        <option value="RBC">Royal Bank of Canada (RBC)</option>
+                        <option value="TD">Toronto-Dominion Bank (TD)</option>
+                        <option value="BMO">Bank of Montreal (BMO)</option>
+                        <option value="Scotiabank">Scotiabank (TD)</option>
+                        <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
+                        <option value="NBC">National Bank of Canada (NBC)</option>
+                        <option value="Laurentian Bank">Laurentian Bank</option>
+                        <option value="EQ Bank">Equitable Bank (EQ Bank)</option>
+                    </select>                            
+                    {(errors.securityQuestion2 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityQuestion2}</p>}
+                    
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer2" placeholder='Answer' value={formData.securityAnswer2} onChange={handleChange} style={{ border: (errors.securityAnswer2 && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
+                        {(errors.securityAnswer2 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityAnswer2}</p>}
+                    </div>
+                </div>
 
                 <div className='stepper-container'>
                     <div className="stepper-button-container">
