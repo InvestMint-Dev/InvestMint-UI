@@ -126,6 +126,27 @@ export const CreateAccountPage2 = () => {
                 </select>                            
                 {(errors[`securityQuestion1`] && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors[`securityQuestion1`]}</p>}
                 
+                
+                <select 
+                    style={{ border: (errors[`securityQuestion2`] && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                    id= "securityQuestion2"
+                    name="securityQuestion2" 
+                    value={formData.securityQuestion1} // Ensure the value is set correctly
+                    onChange={(e) => handleChange(e)}
+                >
+                    <option value="">Select Bank</option>
+                    <option value="RBC">Royal Bank of Canada (RBC)</option>
+                    <option value="TD">Toronto-Dominion Bank (TD)</option>
+                    <option value="BMO">Bank of Montreal (BMO)</option>
+                    <option value="Scotiabank">Scotiabank (TD)</option>
+                    <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
+                    <option value="NBC">National Bank of Canada (NBC)</option>
+                    <option value="Laurentian Bank">Laurentian Bank</option>
+                    <option value="EQ Bank">Equitable Bank (EQ Bank)</option>
+                </select>                            
+                {(errors[`securityQuestion2`] && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors[`securityQuestion2`]}</p>}
+                
+
                 <div className='stepper-container'>
                     <div className="stepper-button-container">
                         <button className='form-stepper-button' onClick={handleBack}>
