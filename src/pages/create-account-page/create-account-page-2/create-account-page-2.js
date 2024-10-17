@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import '../create-account-page.css';
+import { validateTwoFactorAuth } from '../../../validators/validators';
 
 export const CreateAccountPage2 = () => {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ export const CreateAccountPage2 = () => {
         setFormData(prevData => {
             const updatedValue = value;
             const updatedData = { ...prevData, [name]: updatedValue };
-            const validationErrors = validateCompanyLegalInfo(updatedData);
+            const validationErrors = validateTwoFactorAuth(updatedData);
             setErrors(validationErrors);
             return updatedData;
         });
@@ -35,7 +36,7 @@ export const CreateAccountPage2 = () => {
 
     const handleNext = async () => {
         setNextButtonClicked(true);
-        const validationErrors = validateCompanyLegalInfo(formData);
+        const validationErrors = validateTwoFactorAuth(formData);
         setErrors(validationErrors);
         const isValid = Object.keys(validationErrors).length === 0;
         
