@@ -5,7 +5,7 @@ export const CreateAccountSidebar = ({ currentPage }) => {
     // Array of step labels for easier management
     const steps = [
         'Create Your Account',
-        'Duo Factor Authentication',
+        'Two-Factor Authentication',
         'Company Legal Information',
         'Investing Questionnaire'
     ];
