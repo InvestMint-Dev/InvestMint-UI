@@ -12,7 +12,7 @@
     line-height: 1.5625rem;
     font-size: 0.9375rem;
     margin-top: 0.9375rem;
-    margin-bottom: none;
+    margin-bottom: 0;
     padding-left: 0.625rem;
     padding-right: 3.125rem;
     color: rgb(35, 105, 74);
@@ -40,3 +40,14 @@
 .form-textarea-container-full {
     margin-top: 0.9375rem;
 }
+
+/* Small devices (phones) */
+@media (max-width: 768px) {
+    .security-questions-select select{
+        overflow-x: scroll;
+    }
+    
+    .security-questions-select {
+        margin-bottom: 0;
+    }
+  }
