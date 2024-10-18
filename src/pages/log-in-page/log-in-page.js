@@ -82,6 +82,10 @@ export const LogInPage = ({ onLogin }) => {
         return updatedFormData;
     })};
 
+    const handleSignupClick = () => {
+        navigate('/create-account-1');
+    }
+
     return (
         <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
@@ -134,7 +138,7 @@ export const LogInPage = ({ onLogin }) => {
 
                     <div className='form-option-2-container'> 
                         <span className="form-label">New Member? </span>
-                        <a href="/create-account-1" className="form-link">Sign Up here</a>
+                        <a onClick={handleSignupClick} className="form-link">Sign Up here</a>
                     </div>
                 </form>
             </div>
