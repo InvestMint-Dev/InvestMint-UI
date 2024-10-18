@@ -16,7 +16,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
     const location = useLocation();
 
     const navigate = useNavigate(); // Navigate hook
-    const { currentStep, goToNextStep } = useProgress();
+    const { currentStep, goToNextStep, logIn } = useProgress();
 
     const { userId } = location.state || {};
 
@@ -103,8 +103,8 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     throw new Error('Failed to save investing information');
                 }
                 
-                goToNextStep();
-                
+                logIn(); // Set the user as authenticated
+
                 navigate('/dashboard'); // Navigate to the next page
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);

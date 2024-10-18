@@ -7,6 +7,8 @@ import './log-in-page.css';
 import '../styling/form-styling.css';
 
 import { validateLogInFields } from '../../validators/validators';
+import { useProgress } from '../../context/ProgressContext'; // Use the progress context
+
 import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';
 import openEye from '../../assets/images/icons/Eye.png';
 import closedEye from '../../assets/images/icons/Closed Eye.png';
@@ -21,6 +23,8 @@ export const LogInPage = ({ onLogin }) => {
     const [errors, setErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
     const [submitButtonClicked, setSubMitButtonClicked] = useState(false);
+
+    const {logIn} = useProgress();
 
     const navigate = useNavigate();
 
@@ -58,7 +62,7 @@ export const LogInPage = ({ onLogin }) => {
             if (response.ok) {
                 navigate('/dashboard');
                 setSubMitButtonClicked(false);
-                onLogin(); // Call onLogin here
+                logIn(); // Call onLogin here
             } else {
                 // Display error message from the backend
                 setErrors({ login: data.message });

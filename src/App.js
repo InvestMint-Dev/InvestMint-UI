@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import './App.css';
 import { LogInPage } from './pages/log-in-page/log-in-page';
@@ -12,6 +13,14 @@ import { DashboardPage } from './pages/dashboard-page/dashboard-page';
 import { LoadingPage } from './pages/loading-page/loading-page';
 
 import { ProgressProvider } from './context/ProgressContext'; // Import the context provider
+import { useProgress } from './context/ProgressContext';
+
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useProgress();
+
+  return isAuthenticated ? children : <Navigate to="/log-in" />;
+};
+
 
 const App = () => {
   return (
@@ -31,7 +40,10 @@ const App = () => {
 
           <Route
             path="/dashboard"
-            element={<DashboardPage />
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
             }
           />
         </Routes>
