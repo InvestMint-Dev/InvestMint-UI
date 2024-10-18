@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/InvestMint_UI/static/css/main.b1c050b5.css",
-    "main.js": "/InvestMint_UI/static/js/main.97b0ae35.js",
-    "static/js/845.aca6eac3.chunk.js": "/InvestMint_UI/static/js/845.aca6eac3.chunk.js",
-    "static/media/InvestMint Big Leaf Logo - 2.png": "/InvestMint_UI/static/media/InvestMint Big Leaf Logo - 2.49497dbf40b0a7add317.png",
-    "static/media/page-4-chart.png": "/InvestMint_UI/static/media/page-4-chart.57c5f9a904cf24c05639.png",
-    "index.html": "/InvestMint_UI/index.html",
-    "main.b1c050b5.css.map": "/InvestMint_UI/static/css/main.b1c050b5.css.map",
-    "main.97b0ae35.js.map": "/InvestMint_UI/static/js/main.97b0ae35.js.map",
-    "845.aca6eac3.chunk.js.map": "/InvestMint_UI/static/js/845.aca6eac3.chunk.js.map"
+    "main.css": "/static/css/main.b1c050b5.css",
+    "main.js": "/static/js/main.49ca164b.js",
+    "static/js/845.aca6eac3.chunk.js": "/static/js/845.aca6eac3.chunk.js",
+    "static/media/InvestMint Big Leaf Logo - 2.png": "/static/media/InvestMint Big Leaf Logo - 2.49497dbf40b0a7add317.png",
+    "static/media/page-4-chart.png": "/static/media/page-4-chart.57c5f9a904cf24c05639.png",
+    "index.html": "/index.html",
+    "main.b1c050b5.css.map": "/static/css/main.b1c050b5.css.map",
+    "main.49ca164b.js.map": "/static/js/main.49ca164b.js.map",
+    "845.aca6eac3.chunk.js.map": "/static/js/845.aca6eac3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b1c050b5.css",
-    "static/js/main.97b0ae35.js"
+    "static/js/main.49ca164b.js"
   ]
 }
