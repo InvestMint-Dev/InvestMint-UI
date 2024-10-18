@@ -116,7 +116,7 @@ export const CreateAccountPage3 = () => {
         
         if (isValid) {
             try {
-                const response = await fetch(`https://investmint-api.onrender.com/api/companyInformation/${userId}`, {
+                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/companyInformation/${userId}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
