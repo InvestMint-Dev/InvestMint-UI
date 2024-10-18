@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { validateCompanyLegalInfo } from '../../../validators/validators';
 
@@ -12,11 +12,17 @@ import { handleKeyDown } from '../../../utils/utils';
 
 export const CreateAccountPage3 = () => {
     const [fadeIn, setFadeIn] = useState(false);
+    const location = useLocation();
+
+    const { userId } = location.state || {};
+
     const navigate = useNavigate(); // Navigate hook
 
+    
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
     }, []);
+    
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
     const [suggestions, setSuggestions] = useState({
@@ -104,27 +110,64 @@ export const CreateAccountPage3 = () => {
         const isValid = Object.keys(validationErrors).length === 0;
         
         if (isValid) {
-            navigate('/create-account-4'); // Navigate to the next page
-            setNextButtonClicked(false);
-            setShowErrorAlert(false);
+            try {
+                const response = await fetch(`http://localhost:8000/api/companyInformation/${userId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        firstName: formData.firstName,
+                        lastName: formData.lastName,
+                        email: formData.email,
+                        phoneNumber: formData.phoneNumber, 
+                        mobileNumber: formData.mobileNumber, 
+                        companyName: formData.companyName, 
+                        countryName: formData.countryName, 
+                        companyPhoneNumber: formData.companyPhoneNumber, 
+                        companyAddressLine: formData.addressLine1, 
+                        state: formData.state, 
+                        city: formData.city, 
+                        zipcode: formData.zipcode, 
+                        companyBankAccounts: formData.bankAccounts, 
+                        advisorName: formData.advisorName, 
+                        companyInvestmentAccountNumber: formData.investmentAccountNumber, 
+                    }),
+                });
+                
+                
+                if (!response.ok) {
+                    const errorMessage = await response.text();
+                    console.error('Error response:', errorMessage);
+                    throw new Error('Failed to save company information');
+                }
+        
+                const data = await response.json();
+    
+                navigate('/create-account-4'); // Navigate to the next page
+                setNextButtonClicked(false);
+                setShowErrorAlert(false);
+            } catch (error) {
+                console.error('Error saving company information:', error);
+            }
         } else {
-            setAlertClass("show"); // Show error alert
-            setShowErrorAlert(true); // Show error alert on validation failure
+            setAlertClass("show");
+            setShowErrorAlert(true);
             window.scrollTo({ top: 0, behavior: 'auto' });
     
-            // Hide error alert after 2 seconds
             setTimeout(() => {
-                setAlertClass("hide"); // Start fade-out
+                setAlertClass("hide");
                 setTimeout(() => {
-                setShowErrorAlert(false); // Remove from DOM after fade-out
-                }, 1000); // Duration of the fade-out transition
+                setShowErrorAlert(false);
+                }, 1000); 
             }, 2000);
         }
-      };
+    };
+    
 
-      const handleBack = () => {
-        navigate('/create-account-1');
-      };
+    const handleBack = () => {
+    navigate('/create-account-2');
+    };
 
     const fetchAddressSuggestions = async (address) => {
         try {
@@ -235,7 +278,7 @@ export const CreateAccountPage3 = () => {
                     </div>
 
                     <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
                         {(errors.email && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.email}</p>}
                     </div>
 

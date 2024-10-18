@@ -66,7 +66,6 @@ export const CreateAccountPage2 = () => {
                 });
 
                 const data = await response.json();
-                console.log('Response data:', data);
         
                 if (response.ok) {
                     navigate('/create-account-3', { state: { userId: data.userId } }); // Navigate to the next page
