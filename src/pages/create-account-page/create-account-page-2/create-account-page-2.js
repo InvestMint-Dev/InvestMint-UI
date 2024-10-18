@@ -56,7 +56,7 @@ export const CreateAccountPage2 = () => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        auth0_id: Date.now(),
+                        auth0_id: Date.parse(),
                         email: email,
                         password: password,
                         securityQuestion1: formData.securityQuestion1,
