@@ -50,7 +50,7 @@ export const CreateAccountPage2 = () => {
         
         if (isValid) {
             try {
-                const response = await fetch(`http://localhost:8000/api/companyInformation/`, {
+                const response = await fetch(`http://localhost:8000/api/auth/signup`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
