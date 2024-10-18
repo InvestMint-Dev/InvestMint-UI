@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
@@ -10,7 +10,12 @@ import { handleKeyDown } from '../../../utils/utils';
 import { validateTwoFactorAuth } from '../../../validators/validators';
 
 export const CreateAccountPage2 = () => {
+    const location = useLocation();
     const navigate = useNavigate();
+
+    // Access email and password from the state
+    const { email, password } = location.state || {};
+
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
 
@@ -51,34 +56,26 @@ export const CreateAccountPage2 = () => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        firstName: formData.firstName,
-                        lastName: formData.lastName,
-                        email: formData.email,
-                        phoneNumber: formData.phoneNumber, 
-                        mobileNumber: formData.mobileNumber, 
-                        companyName: formData.companyName, 
-                        companyPhoneNumber: formData.companyPhoneNumber, 
-                        companyAddressLine: formData.companyAddressLine, 
-                        city: formData.city, 
-                        state: formData.state, 
-                        zipcode: formData.zipcode, 
-                        country: formData.country, 
-                        companyBankAccounts: formData.bankAccounts, 
-                        advisorName: formData.advisorName, 
-                        companyInvestmentAccountNumber: formData.investmentAccountNumber, 
+                        email: email,
+                        password: password,
+                        securityQuestion1: formData.securityQuestion1,
+                        securityAnswer1: formData.securityAnswer1,
+                        securityQuestion2: formData.securityQuestion2,
+                        securityAnswer2: formData.securityAnswer2,
                     }),
                 });
+
+                const data = await response.json();
+                console.log('Response data:', data);
         
-                if (!response.ok) {
+                if (response.ok) {
+                    navigate('/create-account-3', { state: { userId: data.userId } }); // Navigate to the next page
+                    setNextButtonClicked(false);
+                    setShowErrorAlert(false);
+                }
+                else {
                     throw new Error('Failed to save company information');
                 }
-        
-                const data = await response.json();
-                console.log('Company information saved:', data);
-
-                navigate('/create-account-3'); // Navigate to the next page
-                setNextButtonClicked(false);
-                setShowErrorAlert(false);
             } catch (error) {
                 console.error('Error saving company information:', error);
             }
