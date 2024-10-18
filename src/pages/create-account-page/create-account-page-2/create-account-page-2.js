@@ -105,7 +105,7 @@ export const CreateAccountPage2 = () => {
                 <ErrorAlertPanel className={alertClass} />
             )}
 
-            <CreateAccountSidebar currentPage={3}/>
+            <CreateAccountSidebar currentPage={2}/>
 
             <div className='page-2-container'>\
                 <h1 className="form-heading">Two-Factor Authentication</h1>
