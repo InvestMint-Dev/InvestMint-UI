@@ -46,139 +46,17 @@ export const CreateAccountPage1 = () => {
     });
   };
 
-  // const handleNext = async () => {
-  //   setNextButtonClicked(true); // Disable button to prevent multiple submissions
-  //   const validationErrors = validateLogInFields(formData, 'createAccount');
-  //   setErrors(validationErrors);
-  //   const isValid = Object.keys(validationErrors).length === 0;
-
-  //   // Validate form here
-  //   if (isValid) {
-  //       try {
-  //           const response = await fetch('http://localhost:8000/api/auth/signup', {
-  //               method: 'POST',
-  //               headers: {
-  //                   'Content-Type': 'application/json',
-  //               },
-  //               body: JSON.stringify({
-  //                   email: formData.email,
-  //                   password: formData.password,
-  //               }),
-  //           });
-
-  //           const data = await response.json();
-  //           console.log('Response data:', data); // Log the entire response
-
-  //           if (!response.ok) {
-  //               // Handle backend error (e.g., user already exists)
-  //               setAlertClass("show");
-  //               setShowErrorAlert(true);
-  //               setErrors({ signup: data.message });  // Display the error from backend
-  //               window.scrollTo({ top: 0, behavior: 'auto' });
-
-  //               // Hide error after 2 seconds
-  //               setTimeout(() => {
-  //                   setAlertClass("hide");
-  //                   setTimeout(() => {
-  //                       setShowErrorAlert(false); // Remove from DOM after fade-out
-  //                   }, 1000); 
-  //               }, 2000);
-  //           } else {
-  //               const userId = data.userId; // Get userId from the response
-
-  //               // User created successfully, now authenticate
-  //               if (!isAuthenticated) {
-  //                   await loginWithRedirect(); // Trigger Auth0 authentication
-  //               } else {
-  //                   const token = await getIdTokenSilently(); // Retrieve the token
-
-  //                   // User is already authenticated, create the user profile in the backend
-  //                   const profileResponse = await fetch('http://localhost:8000/api/users', {
-  //                       method: 'POST',
-  //                       headers: {
-  //                           'Content-Type': 'application/json',
-  //                           'Authorization': `Bearer ${token}`, // Use the token to authenticate the request
-  //                       },
-  //                       body: JSON.stringify({
-  //                           email: formData.email,
-  //                           // Any other user profile data you want to include
-  //                       }),
-  //                   });
-
-  //                   if (profileResponse.ok) {
-  //                     if (userId) {
-  //                         navigate('/create-account-3', { state: { userId } });
-  //                     } else {
-  //                         console.error('User ID is null or undefined.');
-  //                         // Handle the error case, maybe navigate without userId or show a message
-  //                     }
-  //                   } else {
-  //                       // Handle errors from user profile creation
-  //                       const profileData = await profileResponse.json();
-  //                       setErrors({ profile: profileData.message }); // Display the error from backend
-  //                   }
-  //               }
-  //           }
-  //       } catch (error) {
-  //           console.error('Error during signup:', error);
-  //       }
-  //     } else {
-  //         setShowErrorAlert(true);
-  //     }
-  // };
-
   const handleNext = async () => {
     setNextButtonClicked(true); // Disable button to prevent multiple submissions
     const validationErrors = validateLogInFields(formData, 'createAccount');
     setErrors(validationErrors);
     const isValid = Object.keys(validationErrors).length === 0;
 
-    // Validate form here
     if (isValid) {
-       // User created successfully, now authenticate
-       if (!isAuthenticated) {
-          await loginWithRedirect(); // Trigger Auth0 authentication
-        } 
-        else {
-          const token = await getIdTokenSilently(); // Retrieve the token
-
-          try {
-            const response = await fetch('http://localhost:8000/api/auth/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: formData.email,
-                    password: formData.password,
-                }),
-            });
-
-            const data = await response.json();
-            console.log('Response data:', data); // Log the entire response
-
-          if (!response.ok) {
-              // Handle backend error (e.g., user already exists)
-              setAlertClass("show");
-              setShowErrorAlert(true);
-              setErrors({ signup: data.message });  // Display the error from backend
-              window.scrollTo({ top: 0, behavior: 'auto' });
-
-              // Hide error after 2 seconds
-              setTimeout(() => {
-                  setAlertClass("hide");
-                  setTimeout(() => {
-                      setShowErrorAlert(false); // Remove from DOM after fade-out
-                  }, 1000); 
-              }, 2000);
-          } else {
-              const userId = data.userId; // Get userId from the response
-              navigate('/create-account-3', { state: { userId } });
-          }
-        } catch (error) {
-            console.error('Error during signup:', error);
-        }
-      } 
+        // Navigate to the next page and pass email and password via the state
+        navigate('/create-account-2', { state: { email: formData.email, password: formData.password } });
+    } else {
+        setShowErrorAlert(true);
     }
   };
 
