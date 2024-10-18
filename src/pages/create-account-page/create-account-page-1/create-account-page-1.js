@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios'; // For making API requests
 import { validateLogInFields } from '../../../validators/validators';
 import '../create-account-page.css';
@@ -33,7 +32,6 @@ export const CreateAccountPage1 = () => {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle password visibility
 
-  const { loginWithRedirect, isAuthenticated, getIdTokenSilently } = useAuth0(); // Use Auth0 hooks
   const navigate = useNavigate(); // Navigate hook
 
   const handleChange = (e) => {

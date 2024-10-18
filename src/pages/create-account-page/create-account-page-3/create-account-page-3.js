@@ -58,7 +58,7 @@ export const CreateAccountPage3 = () => {
 
     const handleChange = (e, index) => {
         const { name, value } = e.target;
-
+        
         // Phone number masking logic
         const formatPhoneNumber = (phoneNumber) => {
             const cleaned = phoneNumber.replace(/\D/g, ''); // Remove all non-numeric characters
@@ -142,9 +142,9 @@ export const CreateAccountPage3 = () => {
                     throw new Error('Failed to save company information');
                 }
         
-                const data = await response.json();
+                // const data = await response.json();
     
-                navigate('/create-account-4'); // Navigate to the next page
+                navigate('/create-account-4', { state: { userId: userId } }); // Navigate to the next page
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);
             } catch (error) {

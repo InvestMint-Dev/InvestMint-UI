@@ -22,7 +22,6 @@ export const LogInPage = ({ onLogin }) => {
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
     const [submitButtonClicked, setSubMitButtonClicked] = useState(false);
 
-    const { loginWithRedirect, isAuthenticated } = useAuth0(); // Use Auth0 hooks
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -41,16 +40,6 @@ export const LogInPage = ({ onLogin }) => {
         setSubMitButtonClicked(true);
         e.preventDefault();
 
-        // if (validateForm()) {
-        //     if (!isAuthenticated) {
-        //         await loginWithRedirect();
-        //     } else {
-        //         navigate('/dashboard');
-        //         setSubMitButtonClicked(false);
-        //         onLogin(); // Call onLogin here
-        //     }
-        // }
-
         if (validateForm()) {
             try {
             const response = await fetch('http://localhost:8000/api/auth/login', {
@@ -67,13 +56,9 @@ export const LogInPage = ({ onLogin }) => {
             const data = await response.json();
 
             if (response.ok) {
-                if (!isAuthenticated) {
-                    await loginWithRedirect();
-                } else {
-                    navigate('/dashboard');
-                    setSubMitButtonClicked(false);
-                    onLogin(); // Call onLogin here
-                }
+                navigate('/dashboard');
+                setSubMitButtonClicked(false);
+                onLogin(); // Call onLogin here
             } else {
                 // Display error message from the backend
                 setErrors({ login: data.message });

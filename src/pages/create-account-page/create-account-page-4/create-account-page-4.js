@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './create-account-page-4.css';
 
 import { handleKeyDown } from '../../../utils/utils';
@@ -11,7 +11,11 @@ import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
 export const CreateAccountPage4 = ({onLogin}) => {
     const [fadeIn, setFadeIn] = useState(false);
+
+    const location = useLocation();
     const navigate = useNavigate(); // Navigate hook
+
+    const { userId } = location.state || {};
 
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
@@ -64,10 +68,43 @@ export const CreateAccountPage4 = ({onLogin}) => {
         let isValid = Object.keys(validationErrors).length === 0;
     
         if (isValid) {
-            navigate('/dashboard'); // Navigate to the next page
-            setNextButtonClicked(false);
-            setShowErrorAlert(false);
-            onLogin(); // Call onLogin here
+            try {
+                const response = await fetch(`http://localhost:8000/api/investingQuestionnaire/${userId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        investingQ1: formData.investingQ1,
+                        investingQ2: formData.investingQ2,
+                        investingQ2CashAmount: formData.investingQ2CashAmount,
+                        investingQ2BusinessDuration: formData.investingQ2BusinessDuration,
+                        investingQ2AverageCashPerYear: formData.investingQ2AverageCashPerYear,
+                        investingQ3: formData.investingQ3,
+                        investingQ4: formData.investingQ4,
+                        investingQ4CashBackDate: formData.investingQ4CashBackDate,
+                        investingQ4CashBackDuration: formData.investingQ4CashBackDuration,
+                        investingQ5: formData.investingQ5,
+                        investingQ6: formData.investingQ6,
+                        investingQ7: formData.investingQ7,
+                        investingQ8: formData.investingQ8
+                    }),
+                });
+
+                if (!response.ok) {
+                    const errorMessage = await response.text();
+                    console.error('Error response:', errorMessage);
+                    throw new Error('Failed to save investing information');
+                }
+                
+
+                navigate('/dashboard'); // Navigate to the next page
+                setNextButtonClicked(false);
+                setShowErrorAlert(false);
+                onLogin(); // Call onLogin here
+            } catch (error) {
+                console.error('Error saving investing information:', error);
+            }
         } else {
             setAlertClass("show"); // Show error alert
             setShowErrorAlert(true); // Show error alert on validation failure

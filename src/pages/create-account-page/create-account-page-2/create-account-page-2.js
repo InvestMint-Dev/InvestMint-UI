@@ -66,6 +66,7 @@ export const CreateAccountPage2 = () => {
                 });
 
                 const data = await response.json();
+                console.log(data);
         
                 if (response.ok) {
                     navigate('/create-account-3', { state: { userId: data.userId } }); // Navigate to the next page
@@ -73,10 +74,10 @@ export const CreateAccountPage2 = () => {
                     setShowErrorAlert(false);
                 }
                 else {
-                    throw new Error('Failed to save company information');
+                    throw new Error('Failed to save signup information');
                 }
             } catch (error) {
-                console.error('Error saving company information:', error);
+                console.error('Error saving signup information:', error);
             }
         } else {
             setAlertClass("show"); // Show error alert
