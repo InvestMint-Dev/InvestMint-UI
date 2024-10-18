@@ -1,7 +1,7 @@
 {
   "name": "investmint-ui",
   "version": "0.1.0",
-  "homepage": "https://InvestMint-Dev.github.io/InvestMint_UI",
+  "homepage": "https://investmint-dev.github.io/InvestMint_UI",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
