@@ -11,30 +11,32 @@ import { CashCalculator } from './pages/create-account-page/create-account-page-
 import { DashboardPage } from './pages/dashboard-page/dashboard-page';
 import { LoadingPage } from './pages/loading-page/loading-page';
 
-
+import { ProgressProvider } from './context/ProgressContext'; // Import the context provider
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoadingPage />} />
-        <Route path="/log-in" element={<LogInPage/>} />
-        
-        {/* These account creation pages are accessible without authentication */}
-        <Route path="/create-account-1" element={<CreateAccountPage1 />} />
-        <Route path="/create-account-2" element={<CreateAccountPage2 />} />
-        <Route path="/create-account-3" element={<CreateAccountPage3 />} />
-        <Route path="/create-account-4" element={<CreateAccountPage4 />} />
+    <ProgressProvider> {/* Wrap the app with ProgressProvider */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoadingPage />} />
+          <Route path="/log-in" element={<LogInPage/>} />
+          
+          {/* These account creation pages are accessible without authentication */}
+          <Route path="/create-account-1" element={<CreateAccountPage1 />} />
+          <Route path="/create-account-2" element={<CreateAccountPage2 />} />
+          <Route path="/create-account-3" element={<CreateAccountPage3 />} />
+          <Route path="/create-account-4" element={<CreateAccountPage4 />} />
 
-        <Route path="/cash-calculator" element={<CashCalculator />} />
+          <Route path="/cash-calculator" element={<CashCalculator />} />
 
-        <Route
-          path="/dashboard"
-          element={<DashboardPage />
-          }
-        />
-      </Routes>
-    </Router>
+          <Route
+            path="/dashboard"
+            element={<DashboardPage />
+            }
+          />
+        </Routes>
+      </Router>
+    </ProgressProvider>
   );
 };
 

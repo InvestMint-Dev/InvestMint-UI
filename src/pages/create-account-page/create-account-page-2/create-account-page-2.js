@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
@@ -8,10 +8,23 @@ import './create-account-page-2.css';
 
 import { handleKeyDown } from '../../../utils/utils';
 import { validateTwoFactorAuth } from '../../../validators/validators';
+import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
 
 export const CreateAccountPage2 = () => {
+    const [fadeIn, setFadeIn] = useState(false);
+
     const location = useLocation();
     const navigate = useNavigate();
+
+    const { currentStep, goToNextStep } = useProgress();
+
+    useEffect (() => {
+        setFadeIn(true); // Trigger fade-in effect on mount
+
+        if (currentStep < 2) {
+            navigate("/create-account-1");
+        }
+    }, []);
 
     // Access email and password from the state
     const { email, password } = location.state || {};
@@ -70,6 +83,7 @@ export const CreateAccountPage2 = () => {
                 console.log(data);
         
                 if (response.ok) {
+                    goToNextStep();
                     navigate('/create-account-3', { state: { userId: data.userId } }); // Navigate to the next page
                     setNextButtonClicked(false);
                     setShowErrorAlert(false);
@@ -100,7 +114,7 @@ export const CreateAccountPage2 = () => {
       };
 
     return (
-        <div>
+        <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             {showErrorAlert && (
                 <ErrorAlertPanel className={alertClass} />
             )}

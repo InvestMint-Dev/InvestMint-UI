@@ -1,7 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 import { validateCompanyLegalInfo } from '../../../validators/validators';
+import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
@@ -17,10 +19,13 @@ export const CreateAccountPage3 = () => {
     const { userId } = location.state || {};
 
     const navigate = useNavigate(); // Navigate hook
+    const { currentStep, goToNextStep } = useProgress();
 
-    
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
+        if (currentStep < 3) {
+            navigate("/create-account-1");
+        }
     }, []);
     
 
@@ -143,7 +148,8 @@ export const CreateAccountPage3 = () => {
                 }
         
                 // const data = await response.json();
-    
+                goToNextStep();
+                
                 navigate('/create-account-4', { state: { userId: userId } }); // Navigate to the next page
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);

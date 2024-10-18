@@ -4,6 +4,7 @@ import './create-account-page-4.css';
 
 import { handleKeyDown } from '../../../utils/utils';
 import { validateInvestingQuestionnaire } from '../../../validators/validators';
+import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
@@ -13,12 +14,17 @@ export const CreateAccountPage4 = ({onLogin}) => {
     const [fadeIn, setFadeIn] = useState(false);
 
     const location = useLocation();
+
     const navigate = useNavigate(); // Navigate hook
+    const { currentStep, goToNextStep } = useProgress();
 
     const { userId } = location.state || {};
 
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
+        if (currentStep < 3) {
+            navigate("/create-account-1");
+        }
     }, []);
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
@@ -97,7 +103,8 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     throw new Error('Failed to save investing information');
                 }
                 
-
+                goToNextStep();
+                
                 navigate('/dashboard'); // Navigate to the next page
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);

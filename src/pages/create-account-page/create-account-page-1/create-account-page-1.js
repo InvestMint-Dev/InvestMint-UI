@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // For making API requests
+
 import { validateLogInFields } from '../../../validators/validators';
+import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
+
 import '../create-account-page.css';
 import './create-account-page-1.css';
 
@@ -12,6 +15,7 @@ import closedEye from '../../../assets/images/icons/Closed Eye.png';
 
 export const CreateAccountPage1 = () => {
   const [fadeIn, setFadeIn] = useState(false);
+  const { currentStep, goToNextStep } = useProgress();
 
   useEffect(() => {
     setFadeIn(true); // Trigger fade-in effect on mount
@@ -50,10 +54,12 @@ export const CreateAccountPage1 = () => {
     setErrors(validationErrors);
     const isValid = Object.keys(validationErrors).length === 0;
 
-    if (isValid) {
+    if (isValid && currentStep >= 1) {
+        goToNextStep();
         // Navigate to the next page and pass email and password via the state
         navigate('/create-account-2', { state: { email: formData.email, password: formData.password } });
-    } else {
+    } 
+    else {
         setShowErrorAlert(true);
     }
   };
