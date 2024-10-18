@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react'; // Import Auth0 hook
-import axios from 'axios';
 
 import './log-in-page.css';
 import '../styling/form-styling.css';

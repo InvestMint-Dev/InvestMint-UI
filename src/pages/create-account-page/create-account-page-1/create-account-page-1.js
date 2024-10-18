@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // For making API requests
 
 import { validateLogInFields } from '../../../validators/validators';
 import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
@@ -31,7 +30,7 @@ export const CreateAccountPage1 = () => {
 
   const [errors, setErrors] = useState({});
   const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
-  const [alertClass, setAlertClass] = useState(""); // State for alert class
+  const alertClass = ""; // State for alert class
 
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle password visibility
