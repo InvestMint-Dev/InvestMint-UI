@@ -54,14 +54,42 @@ export const CreateAccountPage1 = () => {
     const isValid = Object.keys(validationErrors).length === 0;
 
     if (isValid && currentStep >= 1) {
-        goToNextStep();
-        // Navigate to the next page and pass email and password via the state
-        navigate('/create-account-2', { state: { email: formData.email, password: formData.password } });
-    } 
-    else {
+        try {
+            // Make API call to check if the email already exists
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: formData.email }),
+            });
+
+            if (!response.ok) {
+                // Handle errors based on response status
+                const errorResponse = await response.json();
+                if (errorResponse.message === 'User already exists') {
+                    setErrors((prevErrors) => ({
+                        ...prevErrors,
+                        email: 'This email is already registered.',
+                    }));
+                    setShowErrorAlert(true);
+                    return; // Stop the flow if the email is already registered
+                }
+                throw new Error('An unexpected error occurred');
+            }
+
+            // If email is not taken, proceed to the next step
+            goToNextStep();
+            navigate('/create-account-2', { state: { email: formData.email, password: formData.password } });
+        } catch (error) {
+            console.error('Error checking email:', error);
+            setShowErrorAlert(true);
+        }
+    } else {
         setShowErrorAlert(true);
     }
-  };
+};
+
 
   const handleBack = () => {
     navigate('/log-in');
