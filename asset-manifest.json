@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/InvestMint-UI/static/css/main.b1c050b5.css",
-    "main.js": "/InvestMint-UI/static/js/main.b9848ec5.js",
+    "main.js": "/InvestMint-UI/static/js/main.3ccd78f8.js",
     "static/js/845.aca6eac3.chunk.js": "/InvestMint-UI/static/js/845.aca6eac3.chunk.js",
     "static/media/InvestMint Big Leaf Logo - 2.png": "/InvestMint-UI/static/media/InvestMint Big Leaf Logo - 2.49497dbf40b0a7add317.png",
     "static/media/page-4-chart.png": "/InvestMint-UI/static/media/page-4-chart.57c5f9a904cf24c05639.png",
     "index.html": "/InvestMint-UI/index.html",
     "main.b1c050b5.css.map": "/InvestMint-UI/static/css/main.b1c050b5.css.map",
-    "main.b9848ec5.js.map": "/InvestMint-UI/static/js/main.b9848ec5.js.map",
+    "main.3ccd78f8.js.map": "/InvestMint-UI/static/js/main.3ccd78f8.js.map",
     "845.aca6eac3.chunk.js.map": "/InvestMint-UI/static/js/845.aca6eac3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b1c050b5.css",
-    "static/js/main.b9848ec5.js"
+    "static/js/main.3ccd78f8.js"
   ]
 }
