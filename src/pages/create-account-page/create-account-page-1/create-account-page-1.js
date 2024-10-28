@@ -151,14 +151,14 @@ export const CreateAccountPage1 = () => {
         </div>
 
         <div className='stepper-container'>
-          <div className="stepper-button-container">
-              <button className='form-stepper-button' onClick={handleBack}>
-                Back
-              </button>
-              <button className='form-stepper-button' onClick={handleNext}>
+              <button className='form-stepper-button' style={{width: '100%'}} onClick={handleNext}>
                 Next
               </button>
+            <div className='form-option-2-container'>
+              <span className="form-label">Already Have an Account? </span>
+              <a className="form-link" onClick={handleBack}>Login Here</a>
             </div>
+            
         </div>
       </div>
     </div>
