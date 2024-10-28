@@ -93,8 +93,8 @@
   border-radius: 3.125rem;
   border: none;
   height: 3.125rem;
-  background: #166739;
-  color: white;
+  background: rgba(35, 105, 74, 0.8);
+  color: #F1FFF0;
   font-weight: bold;
   font-size: 1.125rem;
 }
