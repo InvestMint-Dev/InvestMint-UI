@@ -145,7 +145,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                 <div className='question-container'
                 style={{ border: (errors.investingQ1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}>
                     <p className='question-label'>When it comes to investing in money markets/fixed income securities or ETFs, I would describe myself as:</p>
-                    {(errors.investingQ1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ1}</p>}
+                    {(errors.investingQ1 && nextButtonClicked) && <p className='form-error'>{errors.investingQ1}</p>}
                     <button 
                         className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Very experienced") ? 'clicked' : ''}`} 
                         onClick={() => setFormData({ ...formData, investingQ1: "Very experienced" })}>
@@ -193,7 +193,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                 <div className='question-container'
                 style={{ border: (errors.investingQ2 && nextButtonClicked) ? "2px solid #61b090" : "none" }}>
                     <p className='question-label'>Do you know the total amount of cash you would like to invest?</p>
-                    {(errors.investingQ2 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ2}</p>}
+                    {(errors.investingQ2 && nextButtonClicked) && <p className='form-error'>{errors.investingQ2}</p>}
                     <button 
                         className={`question-answer-button ${(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") ? 'clicked' : ''}`} 
                         onClick={() => setFormData({ ...formData, investingQ2: "Yes" })}>
@@ -207,7 +207,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
 
                     {(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") && 
                     <div style={{marginTop: '1.875rem'}}>
-                        {(errors.investingQ2CashAmount && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ2CashAmount}</p>}
+                        {(errors.investingQ2CashAmount && nextButtonClicked) && <p className='form-error'>{errors.investingQ2CashAmount}</p>}
                         <p>Enter Amount:</p>
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
                             className='form-textarea text-input' 
@@ -218,13 +218,13 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
                     <div style={{marginTop: '1.875rem'}}>
                         <p>How long have you been in business? (in days)</p>
-                        {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ2BusinessDuration}</p>}
+                        {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p className='form-error'>{errors.investingQ2BusinessDuration}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "2px solid #61b090" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2BusinessDuration} // Set the current value from the state
                             onChange={(e) => setFormData({ ...formData, investingQ2BusinessDuration: e.target.value })}/>
 
                         <p>What is your average cash per year?</p>
-                        {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ2AverageCashPerYear}</p>}
+                        {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p className='form-error'>{errors.investingQ2AverageCashPerYear}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "2px solid #61b090" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
                             onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })}/>
@@ -268,7 +268,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                 <div className='question-container'  style={{ border: (errors.investingQ3 && nextButtonClicked) ? "2px solid #61b090" : "none" }}>
                     <p className='question-label'>Generally when making investments, I would like the money 
                     available to be returned to my bank account within:</p>
-                    {(errors.investingQ3 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ3}</p>}
+                    {(errors.investingQ3 && nextButtonClicked) && <p className='form-error'>{errors.investingQ3}</p>}
                     <button 
                         className={`question-answer-button ${(formData.investingQ3 !== "" && formData.investingQ3 === "1 month or less") ? 'clicked' : ''}`}
                         onClick={() => setFormData({ ...formData, investingQ3: "1 month or less" })}>
@@ -332,7 +332,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                 <div className='question-container question-container-no-footer' style={{ border: (errors.investingQ4 && nextButtonClicked) ? "2px solid #61b090" : "none" }}>
                     <p className='question-label'>Do you need the cash back in the bank by a certain date or are 
                     you okay to define a duration in which the investments will be available but not necessarily sold?</p>
-                    {(errors.investingQ4 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ4}</p>}
+                    {(errors.investingQ4 && nextButtonClicked) && <p className='form-error'>{errors.investingQ4}</p>}
                     <button className={`question-answer-button ${(formData.investingQ4 !== "" && formData.investingQ4 === "Date") ? 'clicked' : ''}`} 
                         onClick={() => setFormData({ ...formData, investingQ4: "Date" })}>
                         Date
@@ -345,7 +345,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     {(formData.investingQ4 !== "" && formData.investingQ4 === "Date") && 
                     <div style={{marginTop: '1.875rem'}}>
                         <p>Enter Date:</p>
-                        {(errors.investingQ4CashBackDate && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ4CashBackDate}</p>}
+                        {(errors.investingQ4CashBackDate && nextButtonClicked) && <p className='form-error'>{errors.investingQ4CashBackDate}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
                             style={{ border: (errors.investingQ4CashBackDate && nextButtonClicked) ? "2px solid #61b090" : "none" }}
                             value={formData.investingQ4CashBackDate} // Set the current value from the state
@@ -355,7 +355,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
                     <div style={{marginTop: '1.875rem'}}>
                         <p>Enter Duration:</p>
-                        {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ4CashBackDuration}</p>}
+                        {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p className='form-error'>{errors.investingQ4CashBackDuration}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
                             style={{ border: (errors.investingQ4CashBackDuration && nextButtonClicked) ? "2px solid #61b090" : "none" }}
                             value={formData.investingQ4CashBackDuration} // Set the current value from the state
@@ -367,7 +367,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                 <div className='question-container'
                     style={{ border: (errors.investingQ5 && nextButtonClicked) ? "2px solid #61b090" : "none" }}>
                     <p className='question-label'>My current and future sources of cash are:</p>
-                    {(errors.investingQ5 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ5}</p>}
+                    {(errors.investingQ5 && nextButtonClicked) && <p className='form-error'>{errors.investingQ5}</p>}
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Very unpredictable") ? 'clicked' : ''}`}
@@ -434,7 +434,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <p className='question-label'>
                         From September 2008 through October 2008, bonds lost 4%. If I owned a fixed income investment that lost 4% in two months, I would:
                     </p>
-                    {(errors.investingQ6 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ6}</p>}
+                    {(errors.investingQ6 && nextButtonClicked) && <p className='form-error'>{errors.investingQ6}</p>}
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ6 !== "" && formData.investingQ6 === "Sell the entire investment") ? 'clicked' : ''}`}
@@ -486,7 +486,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <p className='question-label'>
                         The chart shows the greatest possible 1-year loss and the highest 1-year gain on 3 different hypothetical investments of $1,000,000.* Given the potential gain or loss in any 1 year, I would invest my money in:
                     </p>
-                    {(errors.investingQ7 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ7}</p>}
+                    {(errors.investingQ7 && nextButtonClicked) && <p className='form-error'>{errors.investingQ7}</p>}
                     
                     <img src={chart}></img>
                     
@@ -513,7 +513,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
                     <p className='question-label'>
                         Generally, I prefer an investment with few (or no) ups and downs in value, and I am willing to accept the lower returns these investments may make.
                     </p>
-                    {(errors.investingQ8 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.investingQ8}</p>}
+                    {(errors.investingQ8 && nextButtonClicked) && <p className='form-error'>{errors.investingQ8}</p>}
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Strongly disagree") ? 'clicked' : ''}`}

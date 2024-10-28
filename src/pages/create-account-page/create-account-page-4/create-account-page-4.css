@@ -114,10 +114,6 @@
     }
 }
 
-p {
-    margin-top: 20px;
-}
-
 .section {
     margin-top: 0;
     max-height: 0;              /* Start with a height of 0 */

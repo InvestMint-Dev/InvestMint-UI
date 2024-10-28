@@ -40,7 +40,7 @@ export const ForgotPasswordPage = () => {
                 onChange={(e) => setEmail(e.target.value)}
             ></textarea>
             {error && <p style={{ color: '#61b090'}}>{error}</p>}
-            {successMessage && <p style={{ color: '#61b090' }}>{successMessage}</p>}
+            {successMessage && <p className='form-error'>{successMessage}</p>}
 
             <button onClick={handleSendResetLink} className='form-submit-button'>
                 Send Reset Link

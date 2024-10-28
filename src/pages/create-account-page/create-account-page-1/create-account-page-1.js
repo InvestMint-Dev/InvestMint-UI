@@ -105,7 +105,7 @@ export const CreateAccountPage1 = () => {
       <div className='page-1-container'>     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
-        {(errors.signup && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.signup}</p>}
+        {(errors.signup && nextButtonClicked) && <p className='form-error'>{errors.signup}</p>}
           <input
             className='form-textarea form-textarea-full'
             name='email'
@@ -114,7 +114,7 @@ export const CreateAccountPage1 = () => {
             onChange={handleChange}
             style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }}
           />
-          {(errors.email && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.email}</p>}
+          {(errors.email && nextButtonClicked) && <p className='form-error'>{errors.email}</p>}
 
           <div className='password-container'>
             <input
@@ -130,7 +130,7 @@ export const CreateAccountPage1 = () => {
               {showPassword ? <img src={openEye} alt="Show" /> : <img src={closedEye} alt="Hide" />}
             </button>
           </div>
-          {(errors.password && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.password}</p>}
+          {(errors.password && nextButtonClicked) && <p className='form-error'>{errors.password}</p>}
 
           <div className='password-container'>
             <input
@@ -146,7 +146,7 @@ export const CreateAccountPage1 = () => {
               {showConfirmPassword ? <img src={openEye} alt="Show" /> : <img src={closedEye} alt="Hide" />}
             </button>
           </div>
-          {(errors.confirmPassword && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.confirmPassword}</p>}
+          {(errors.confirmPassword && nextButtonClicked) && <p className='form-error'>{errors.confirmPassword}</p>}
           
         </div>
 

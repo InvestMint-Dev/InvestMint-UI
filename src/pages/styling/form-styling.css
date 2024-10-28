@@ -164,6 +164,12 @@
   width: calc(100% - 1rem);
 }
 
+.form-error {
+  color: #61b090;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .show-password-button {
   position: absolute;
   top: 65%;

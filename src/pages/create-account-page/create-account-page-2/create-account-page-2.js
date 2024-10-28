@@ -144,13 +144,13 @@ export const CreateAccountPage2 = () => {
                             <option value="firstEmployee">What is the name of your company’s first employee?</option>
                             <option value="parentCompany">What is the name of your company’s parent company (if applicable)?</option>
                         </select>                            
-                        {(errors.securityQuestion1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityQuestion1}</p>}
+                        {(errors.securityQuestion1 && nextButtonClicked) && <p className='form-error'>{errors.securityQuestion1}</p>}
                     </div>
                     
                     {formData.securityQuestion1 && 
                         <div className='form-textarea-container-full'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer1" placeholder='Answer' value={formData.securityAnswer1} onChange={handleChange} style={{ border: (errors.securityAnswer1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
-                            {(errors.securityAnswer1 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityAnswer1}</p>}
+                            {(errors.securityAnswer1 && nextButtonClicked) && <p className='form-error'>{errors.securityAnswer1}</p>}
                         </div>
                     }
 
@@ -174,13 +174,13 @@ export const CreateAccountPage2 = () => {
                             <option value="firstBoardMember">What is the name of the first board member in your company?</option>
                             <option value="annualRevenue">What was your company’s reported annual revenue in its first year of operation?</option>
                         </select>                            
-                        {(errors.securityQuestion2 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityQuestion2}</p>}
+                        {(errors.securityQuestion2 && nextButtonClicked) && <p className='form-error'>{errors.securityQuestion2}</p>}
                     </div>
 
                     {formData.securityQuestion2 && 
                         <div className='form-textarea-container-full'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer2" placeholder='Answer' value={formData.securityAnswer2} onChange={handleChange} style={{ border: (errors.securityAnswer2 && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
-                            {(errors.securityAnswer2 && nextButtonClicked) && <p style={{ color: '#61b090' }}>{errors.securityAnswer2}</p>}
+                            {(errors.securityAnswer2 && nextButtonClicked) && <p className='form-error'>{errors.securityAnswer2}</p>}
                         </div>
                     }
                     

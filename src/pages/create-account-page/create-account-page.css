@@ -60,10 +60,6 @@
     justify-content: space-between; /* Pushes buttons to the edges */
 }
 
-p {
-    margin-top: 10px;
-}
-
 /* Small devices (phones and tablets) */
 @media (max-width: 768px) {
     .page-container {
