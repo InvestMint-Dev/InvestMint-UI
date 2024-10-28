@@ -86,6 +86,10 @@ export const LogInPage = ({ onLogin }) => {
         navigate('/create-account-1');
     }
 
+    const handleForgotPasswordClick = () => {
+        navigate('/forgot-password');
+    }
+
     return (
         <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
@@ -129,7 +133,7 @@ export const LogInPage = ({ onLogin }) => {
                     <div className="form-option-1-container">
                         <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />
                         <span className="form-label">Remember Me</span>
-                        <a href="" className="form-link">Forgot password?</a>
+                        <a onClick={handleForgotPasswordClick} className="form-link">Forgot password?</a>
                     </div>
 
                     <button type="submit" onClick={handleSubmit} className='form-submit-button'>
