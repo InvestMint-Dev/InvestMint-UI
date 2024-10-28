@@ -95,7 +95,7 @@ export const LogInPage = ({ onLogin }) => {
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
             <div className='log-in-form-container'>
-                <h1 className='form-heading'>Log In</h1>
+                <h1 className='form-heading'>Login</h1>
                 <form className='log-in-form' onSubmit={handleSubmit}>
                     {/* email input */}
                     <input 
@@ -108,7 +108,7 @@ export const LogInPage = ({ onLogin }) => {
                         style={{
                             border: (errors.email && submitButtonClicked) ? "3px solid #71CCA8" : "none"
                         }} />
-                    {(errors.email && submitButtonClicked) && <p style={{ color: "#61b090" }}>{errors.email}</p>}
+                    {(errors.email && submitButtonClicked) && <p className='form-error'>{errors.email}</p>}
 
 
                     {/* password input */}
@@ -128,7 +128,7 @@ export const LogInPage = ({ onLogin }) => {
                             {showPassword ? <img alt='Open Eye' src={openEye}/> : <img alt='Closed Eye' src={closedEye}/>}
                         </button>
                     </div>
-                    {(errors.password && submitButtonClicked) && <p style={{ color: "#61b090" }}>{errors.password}</p>}
+                    {(errors.password && submitButtonClicked) && <p className='form-error'>{errors.password}</p>}
 
                     <div className="form-option-1-container">
                         <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />
