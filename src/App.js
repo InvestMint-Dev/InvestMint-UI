@@ -16,6 +16,7 @@ import { ProgressProvider } from './context/ProgressContext'; // Import the cont
 import { useProgress } from './context/ProgressContext';
 import { ForgotPasswordPage } from './pages/forgot-password-page/forgot-password-page';
 import { ResetPasswordPage } from './pages/reset-password-page/reset-password-page';
+import { ContactUsPage } from './pages/contact-us-page/contact-us-page';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useProgress();
@@ -42,6 +43,9 @@ const App = () => {
 
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
+
+          <Route path="/contact-us" element={<ContactUsPage />} />
+
 
           <Route
             path="/dashboard"
