@@ -6,7 +6,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12.5rem;
+    margin-top: 10rem;
     width: 70vw; /* 70% of the viewport width */
     max-width: 34.375rem; /* Max width to maintain original size on larger screens */
     position: relative;
