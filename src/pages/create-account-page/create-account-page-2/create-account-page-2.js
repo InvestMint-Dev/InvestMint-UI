@@ -127,7 +127,7 @@ export const CreateAccountPage2 = () => {
                 <div className='two-factor-auth-form'>
                     <div className='form-select security-questions-select'>
                         <select 
-                            style={{ border: (errors.securityQuestion1 && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                            style={{ border: (errors.securityQuestion1 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                             id= "securityQuestion1"
                             name="securityQuestion1" 
                             value={formData.securityQuestion1} // Ensure the value is set correctly
@@ -149,14 +149,14 @@ export const CreateAccountPage2 = () => {
                     
                     {formData.securityQuestion1 && 
                         <div className='form-textarea-container-full'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer1" placeholder='Answer' value={formData.securityAnswer1} onChange={handleChange} style={{ border: (errors.securityAnswer1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer1" placeholder='Answer' value={formData.securityAnswer1} onChange={handleChange} style={{ border: (errors.securityAnswer1 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                             {(errors.securityAnswer1 && nextButtonClicked) && <p className='form-error'>{errors.securityAnswer1}</p>}
                         </div>
                     }
 
                     <div className='form-select security-questions-select'>
                         <select 
-                            style={{ border: (errors.securityQuestion2 && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                            style={{ border: (errors.securityQuestion2 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                             id= "securityQuestion2"
                             name="securityQuestion2" 
                             value={formData.securityQuestion2} // Ensure the value is set correctly
@@ -179,7 +179,7 @@ export const CreateAccountPage2 = () => {
 
                     {formData.securityQuestion2 && 
                         <div className='form-textarea-container-full'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer2" placeholder='Answer' value={formData.securityAnswer2} onChange={handleChange} style={{ border: (errors.securityAnswer2 && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer2" placeholder='Answer' value={formData.securityAnswer2} onChange={handleChange} style={{ border: (errors.securityAnswer2 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                             {(errors.securityAnswer2 && nextButtonClicked) && <p className='form-error'>{errors.securityAnswer2}</p>}
                         </div>
                     }

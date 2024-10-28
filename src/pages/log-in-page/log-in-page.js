@@ -106,7 +106,7 @@ export const LogInPage = ({ onLogin }) => {
                         value={formData.email}
                         onChange={handleChange}
                         style={{
-                            border: (errors.email && submitButtonClicked) ? "2px solid #61b090" : "none"
+                            border: (errors.email && submitButtonClicked) ? "3px solid #71CCA8" : "none"
                         }} />
                     {(errors.email && submitButtonClicked) && <p style={{ color: "#61b090" }}>{errors.email}</p>}
 
@@ -121,7 +121,7 @@ export const LogInPage = ({ onLogin }) => {
                             className='form-textarea form-textarea-full password-textarea' 
                             placeholder='Password'
                             style={{
-                                border: (errors.password && submitButtonClicked) ? "2px solid #61b090" : "none"
+                                border: (errors.password && submitButtonClicked) ? "3px solid #71CCA8" : "none"
                             }} >
                             </input>
                         <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>

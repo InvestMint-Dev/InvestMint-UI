@@ -273,18 +273,18 @@ export const CreateAccountPage3 = () => {
                     {/* Form fields */}
                     <div className='form-flex-container'>
                         <div className='form-textarea-container-half'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                             {(errors.firstName && nextButtonClicked) && <p className='form-error'>{errors.firstName}</p>}
                         </div>
 
                         <div className='form-textarea-container-half'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                             {(errors.lastName && nextButtonClicked) && <p className='form-error'>{errors.lastName}</p>}
                         </div>
                     </div>
 
                     <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "2px solid #61b090" : "none" }}></textarea>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                         {(errors.email && nextButtonClicked) && <p className='form-error'>{errors.email}</p>}
                     </div>
 
@@ -296,7 +296,7 @@ export const CreateAccountPage3 = () => {
                                 placeholder='Phone Number'
                                 value={formData.phoneNumber}
                                 onChange={handleChange}
-                                style={{ border: (errors.phoneNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }}
+                                style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
                             />
                             {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
                         </div>
@@ -308,14 +308,14 @@ export const CreateAccountPage3 = () => {
                                 placeholder='Mobile Number'
                                 value={formData.mobileNumber}
                                 onChange={handleChange}
-                                style={{ border: (errors.mobileNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }}
+                                style={{ border: (errors.mobileNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
                             />
                             {(errors.mobileNumber && nextButtonClicked) && <p className='form-error'>{errors.mobileNumber}</p>}
                         </div>
                     </div>
 
                     <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                         {(errors.companyName && nextButtonClicked) && <p className='form-error'>{errors.companyName}</p>}
                     </div>
 
@@ -326,7 +326,7 @@ export const CreateAccountPage3 = () => {
                             placeholder='Company Phone Number' 
                             value={formData.companyPhoneNumber} 
                             onChange={handleChange} 
-                            style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "2px solid #61b090" : "none" }} />
+                            style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                         {(errors.companyPhoneNumber && nextButtonClicked) && <p className='form-error'>{errors.companyPhoneNumber}</p>}
                     </div>
 
@@ -337,7 +337,7 @@ export const CreateAccountPage3 = () => {
                             placeholder='Company Address Line 1'
                             value={formData.addressLine1}
                             onChange={handleChange}
-                            style={{ border: (errors.addressLine1 && nextButtonClicked) ? "2px solid #61b090" : "none" }}
+                            style={{ border: (errors.addressLine1 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
                         />
                         {/* Render suggestions for address line */}
                         {suggestions.length > 0 && (
@@ -357,7 +357,7 @@ export const CreateAccountPage3 = () => {
                         <div className='form-textarea-container-third'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea"
                                 className='form-textarea'
-                                style={{ border: (errors.state && nextButtonClicked)  ? "2px solid #61b090" : "none" }} 
+                                style={{ border: (errors.state && nextButtonClicked)  ? "3px solid #71CCA8" : "none" }} 
                                 name="city"
                                 placeholder='City'
                                 value={formData.city}
@@ -370,7 +370,7 @@ export const CreateAccountPage3 = () => {
                         <div className='form-textarea-container-third'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea"
                                 className='form-textarea'
-                                style={{ border: (errors.city && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                                style={{ border: (errors.city && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                 name="state"
                                 placeholder='State'
                                 value={formData.state}
@@ -383,7 +383,7 @@ export const CreateAccountPage3 = () => {
                         <div className='form-textarea-container-third'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea"
                                 className='form-textarea'
-                                style={{ border: (errors.zipcode && nextButtonClicked)  ? "2px solid #61b090" : "none" }} 
+                                style={{ border: (errors.zipcode && nextButtonClicked)  ? "3px solid #71CCA8" : "none" }} 
                                 name="zipcode"
                                 placeholder='Zipcode'
                                 value={formData.zipcode}
@@ -398,13 +398,13 @@ export const CreateAccountPage3 = () => {
                         name="countryName" 
                         placeholder='Country' 
                         value={formData.countryName} 
-                        style={{ border: (errors.countryName && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                        style={{ border: (errors.countryName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                         readOnly/>
                     {(errors.countryName && nextButtonClicked) && <p className='form-error'>{errors.countryName}</p>}
 
                     <h3>Company Bank Accounts</h3>
                     <div className="bankinputs-container"
-                    style={{ border: (errors.bankAccounts && nextButtonClicked) ? "2px solid #61b090" : "none" }} >
+                    style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
                         <button className="bankinputs-add-button" onClick={addBankInputSet}>+</button>
 
                         {formData.bankAccounts.map((set, index) => (
@@ -413,7 +413,7 @@ export const CreateAccountPage3 = () => {
 
                                 <div className='form-select bankinputs-select'>
                                     <select 
-                                        style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                                        style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                         id={`bank-${index}`} 
                                         name="bank" 
                                         value={formData.bankAccounts[index].bank} // Ensure the value is set correctly
@@ -435,7 +435,7 @@ export const CreateAccountPage3 = () => {
                                 <textarea onKeyDown={handleKeyDown}
                                     className='form-textarea bankinputs-textarea'
                                     id={`account-${index}`} 
-                                    style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "2px solid #61b090" : "none" }} 
+                                    style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                     name="accountNumber" 
                                     value={formData.bankAccounts[index].accountNumber} // Ensure the value is set correctly
                                     placeholder="Account Number" 
@@ -449,9 +449,9 @@ export const CreateAccountPage3 = () => {
 
 
                     <h3>If your company has an investment advisor:</h3>
-                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "2px solid #61b090" : "none" }} />
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "3px solid #71CCA8" : "none" }} />
                     {errors.advisorName && <p className='form-error'>{errors.advisorName}</p>}
-                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "2px solid #61b090" : "none" }} />
+                    <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "3px solid #71CCA8" : "none" }} />
                     {errors.investmentAccountNumber && <p className='form-error'>{errors.investmentAccountNumber}</p>}
                 </div>
 
