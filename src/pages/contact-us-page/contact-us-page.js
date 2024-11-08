@@ -16,6 +16,10 @@ export const ContactUsPage = () => {
         if (!formData.email) {
             newErrors.email = "Email is required.";
         }
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = "Email is invalid.";
+        }
+
         if (!formData.title) {
             newErrors.title = "Title is required.";
         }
