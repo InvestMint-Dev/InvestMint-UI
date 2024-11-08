@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 export const ContactUsPage = () => {
     const [formData, setFormData] = useState({
@@ -27,6 +28,7 @@ export const ContactUsPage = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        validateForm();
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value
@@ -47,6 +49,7 @@ export const ContactUsPage = () => {
             <h1>Contact Us</h1>
             
             <textarea
+                style={{ border: (errors.email && submitButtonClicked) ? "3px solid #71CCA8" : "none" }}
                 name="email"
                 className="form-textarea"
                 placeholder="Email"
@@ -56,6 +59,7 @@ export const ContactUsPage = () => {
             {errors.email && <p style={{ color: '#61b090' }}>{errors.email}</p>}
 
             <textarea
+                style={{ border: (errors.title && submitButtonClicked) ? "3px solid #71CCA8" : "none" }}
                 name="title"
                 className="form-textarea"
                 placeholder="Title"
@@ -65,6 +69,7 @@ export const ContactUsPage = () => {
             {errors.title && <p style={{ color: '#61b090' }}>{errors.title}</p>}
 
             <textarea
+                style={{ border: (errors.message && submitButtonClicked) ? "3px solid #71CCA8" : "none" }}
                 name="message"
                 className="form-textarea"
                 placeholder="Type your message here ..."
