@@ -17,25 +17,30 @@ export const ForgotPasswordPage = () => {
         setError(null);
         setSuccessMessage('');
 
-        try {
-            setIsSending(true);
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/forgot-password`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email }),
-            });
+        if (!email) {
+            setError('Please provide the email address you used to sign up.');
+        }
+        else {
+            try {
+                setIsSending(true);
+                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/forgot-password`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email }),
+                });
 
-            const data = await response.json();
-            if (response.ok) {
-                setSuccessMessage('Password reset link sent successfully. Check your email.');
-                setSendResetLinkClicked(false);
-            } else {
-                setError(data.message || 'Failed to send reset link.');
+                const data = await response.json();
+                if (response.ok) {
+                    setSuccessMessage('Password reset link sent successfully. Check your email.');
+                    setSendResetLinkClicked(false);
+                } else {
+                    setError(data.message || 'Failed to send reset link.');
+                }
+            } catch (error) {
+                setError('An error occurred. Please try again.');
+            } finally {
+                setIsSending(false);
             }
-        } catch (error) {
-            setError('An error occurred. Please try again.');
-        } finally {
-            setIsSending(false);
         }
     };
 
