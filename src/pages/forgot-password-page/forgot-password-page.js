@@ -40,12 +40,13 @@ export const ForgotPasswordPage = () => {
         <div className="forgot-password-container">
             <h1>Forgot Password?</h1>
             <textarea
+                style={{ border: (error && sendResetLinkClicked) ? "3px solid #71CCA8" : "none" }}
                 className="form-textarea"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             ></textarea>
-            {error && <p style={{ color: '#61b090'}}>{error}</p>}
+            {(error && sendResetLinkClicked) && <p className='form-error'>{error}</p>}
             {successMessage && <p className='form-error'>{successMessage}</p>}
 
             <button 
