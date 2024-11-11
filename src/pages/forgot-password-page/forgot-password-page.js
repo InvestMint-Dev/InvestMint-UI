@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import './forgot-password-page.css';
 
 export const ForgotPasswordPage = () => {
@@ -8,6 +8,9 @@ export const ForgotPasswordPage = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [isSending, setIsSending] = useState(false);
 
+    useEffect(() => {
+        document.title = 'Forgot Password | InvestMint';
+    }, []); // Empty dependency array means this effect runs once after the initial render
 
     const handleSendResetLink = async () => {
         setSendResetLinkClicked(true);

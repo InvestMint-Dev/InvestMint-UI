@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './reset-password-page.css';
 import openEye from '../../assets/images/icons/Eye.png';
 import closedEye from '../../assets/images/icons/Closed Eye.png';
@@ -8,6 +8,11 @@ export const ResetPasswordPage = () => {
     const [errors, setErrors] = useState({});
     const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+
+    useEffect(() => {
+        document.title = 'Reset Password | InvestMint';
+    }, []); // Empty dependency array means this effect runs once after the initial render
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
