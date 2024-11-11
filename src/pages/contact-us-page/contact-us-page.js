@@ -91,7 +91,7 @@ export const ContactUsPage = () => {
 
     return (
         <div className="contact-us-container">
-            <h1>Contact Us</h1>
+            <h1 className="form-heading">Contact Us</h1>
             
             {errors.general && (
                 <div className='form-error'>{errors.general}</div>

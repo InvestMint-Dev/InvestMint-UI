@@ -41,7 +41,8 @@ export const ForgotPasswordPage = () => {
 
     return (
         <div className="forgot-password-container">
-            <h1>Forgot Password?</h1>
+            <h1 className="form-heading">Forgot Password?</h1>
+
             <textarea
                 style={{ border: (error && sendResetLinkClicked) ? "3px solid #71CCA8" : "none" }}
                 className="form-textarea"
