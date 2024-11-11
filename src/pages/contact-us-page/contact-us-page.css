@@ -1,0 +1,14 @@
+.contact-us-container {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem;
+    width: 32.5rem;
+}
+
+.message-container {
+    height: 10rem;
+    overflow-y: scroll;
+    border-radius: 1rem;
+}

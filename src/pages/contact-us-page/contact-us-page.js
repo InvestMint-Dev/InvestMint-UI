@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './contact-us-page.css';
+
 
 export const ContactUsPage = () => {
     const [formData, setFormData] = useState({
@@ -84,7 +86,7 @@ export const ContactUsPage = () => {
     };
 
     return (
-        <div className="forgot-password-container">
+        <div className="contact-us-container">
             <h1>Contact Us</h1>
             
             {errors.general && (
@@ -116,7 +118,7 @@ export const ContactUsPage = () => {
             <textarea
                 style={{ border: (errors.message && submitButtonClicked) ? "3px solid #71CCA8" : "none" }}
                 name="message"
-                className="form-textarea"
+                className="form-textarea message-container"
                 placeholder="Type your message here ..."
                 value={formData.message}
                 onChange={handleChange}
