@@ -90,7 +90,7 @@ export const ContactUsPage = () => {
             <h1>Contact Us</h1>
             
             {errors.general && (
-                <div className="error-message">{errors.general}</div>
+                <div className='form-error'>{errors.general}</div>
             )}
             
             <textarea
@@ -102,7 +102,7 @@ export const ContactUsPage = () => {
                 onChange={handleChange}
                 disabled={isSubmitting}
             />
-            {errors.email && <p style={{ color: '#61b090' }}>{errors.email}</p>}
+            {errors.email && <p className='form-error'>{errors.email}</p>}
 
             <textarea
                 style={{ border: (errors.title && submitButtonClicked) ? "3px solid #71CCA8" : "none" }}
@@ -113,7 +113,7 @@ export const ContactUsPage = () => {
                 onChange={handleChange}
                 disabled={isSubmitting}
             />
-            {errors.title && <p style={{ color: '#61b090' }}>{errors.title}</p>}
+            {errors.title && <p className='form-error'>{errors.title}</p>}
 
             <textarea
                 style={{ border: (errors.message && submitButtonClicked) ? "3px solid #71CCA8" : "none" }}
@@ -124,7 +124,7 @@ export const ContactUsPage = () => {
                 onChange={handleChange}
                 disabled={isSubmitting}
             />
-            {errors.message && <p style={{ color: '#61b090' }}>{errors.message}</p>}
+            {errors.message && <p className='form-error'>{errors.message}</p>}
 
             {successMessage && <p className='form-success'>{successMessage}</p>}
 
