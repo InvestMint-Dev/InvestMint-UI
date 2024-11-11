@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './contact-us-page.css';
 
@@ -13,6 +13,10 @@ export const ContactUsPage = () => {
     const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        document.title = 'Contact Us | InvestMint';
+    }, []); // Empty dependency array means this effect runs once after the initial render
 
     const validateForm = () => {
         const newErrors = {};
