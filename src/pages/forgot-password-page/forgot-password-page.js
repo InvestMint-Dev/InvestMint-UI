@@ -6,6 +6,8 @@ export const ForgotPasswordPage = () => {
     const [sendResetLinkClicked, setSendResetLinkClicked] = useState(false);
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState('');
+    const [isSending, setIsSending] = useState(false);
+
 
     const handleSendResetLink = async () => {
         setSendResetLinkClicked(true);
@@ -13,6 +15,7 @@ export const ForgotPasswordPage = () => {
         setSuccessMessage('');
 
         try {
+            setIsSending(true);
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/forgot-password`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -22,11 +25,14 @@ export const ForgotPasswordPage = () => {
             const data = await response.json();
             if (response.ok) {
                 setSuccessMessage('Password reset link sent successfully. Check your email.');
+                setSendResetLinkClicked(false);
             } else {
                 setError(data.message || 'Failed to send reset link.');
             }
         } catch (error) {
             setError('An error occurred. Please try again.');
+        } finally {
+            setIsSending(false);
         }
     };
 
@@ -42,8 +48,11 @@ export const ForgotPasswordPage = () => {
             {error && <p style={{ color: '#61b090'}}>{error}</p>}
             {successMessage && <p className='form-error'>{successMessage}</p>}
 
-            <button onClick={handleSendResetLink} className='form-submit-button'>
-                Send Reset Link
+            <button 
+            onClick={handleSendResetLink} 
+            className='form-submit-button'
+            disabled={isSending}>
+                {isSending ? 'Sending...' : 'Send Reset Link'}
             </button>
         </div>
     );
