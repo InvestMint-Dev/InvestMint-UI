@@ -1,18 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import './reset-password-page.css';
-import openEye from '../../assets/images/icons/Eye.png';
-import closedEye from '../../assets/images/icons/Closed Eye.png';
+import { Loader2, Eye, EyeOff } from "lucide-react";
 
 export const ResetPasswordPage = () => {
     const [formData, setFormData] = useState({ password: '', confirmPassword: '' });
     const [errors, setErrors] = useState({});
     const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(false);
+    const [resetError, setResetError] = useState('');
+    const [resetSuccess, setResetSuccess] = useState('');
+    const [token, setToken] = useState('');
+    
     useEffect(() => {
         document.title = 'Reset Password | InvestMint';
-    }, []); // Empty dependency array means this effect runs once after the initial render
+        // Get token from URL on component mount
+        
+        // Debug logs
+        console.log('Full URL:', window.location.href);
+        console.log('Hash:', window.location.hash);
+        console.log('Search:', window.location.search);
+        console.log('Pathname:', window.location.pathname);
+        
+        // Try multiple methods to get the token
+        const hash = window.location.hash;
+        console.log('Raw hash:', hash);
+        
+        // Method 1: Parse from hash
+        const hashParams = new URLSearchParams(hash.replace('#/reset-password', ''));
+        const tokenFromHash = hashParams.get('token');
+        console.log('Token from hash:', tokenFromHash);
+        
+        // Method 2: Parse from search
+        const searchParams = new URLSearchParams(window.location.search);
+        const tokenFromSearch = searchParams.get('token');
+        console.log('Token from search:', tokenFromSearch);
+        
+        // Method 3: Parse full URL
+        const fullUrlParams = new URLSearchParams(window.location.href.split('?')[1]);
+        const tokenFromFullUrl = fullUrlParams.get('token');
+        console.log('Token from full URL:', tokenFromFullUrl);
 
+        // Try to get the token from any available method
+        const finalToken = tokenFromHash || tokenFromSearch || tokenFromFullUrl;
+        
+        if (finalToken) {
+            console.log('Final token found:', finalToken);
+            setToken(finalToken);
+        } else {
+            console.log('No token found by any method');
+            setResetError('No reset token found in URL. Please use the link from your email.');
+        }
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,58 +74,128 @@ export const ResetPasswordPage = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSendResetLink = () => {
+    const handleResetPassword = async () => {
         setSubmitButtonClicked(true);
+
+        // Check if token exists
+        if (!token) {
+            setResetError('Reset token is missing. Please use the link from your email.');
+            return;
+        }
+
         if (validateForm()) {
-            // Code to send reset password request to backend
-            console.log("Password reset successfully.");
+            setIsLoading(true);
+            setResetError('');
+            setResetSuccess('');
+
+            try {
+                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/reset-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        token: token,  // Use the token from state
+                        password: formData.password
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    setResetSuccess('Password reset successful!');
+                    // Store the JWT token if returned
+                    if (data.token) {
+                        localStorage.setItem('token', data.token);
+                    }
+                    // Redirect to login page after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 2000);
+                } else {
+                    setResetError(data.message || 'Failed to reset password.');
+                }
+            } catch (error) {
+                setResetError('An error occurred. Please try again.');
+            } finally {
+                setIsLoading(false);
+            }
         }
     };
 
+    // Rest of the component remains the same...
     return (
-        <div className='reset-password-container'>
+        <div className="reset-password-container">
             <h1 className="form-heading">Reset Password</h1>
 
             {/* Password input */}
-            <div className='password-container'>
+            <div className="password-container relative">
                 <input 
                     type={showPassword ? "text" : "password"} 
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
-                    className='form-textarea form-textarea-full password-textarea' 
-                    placeholder='Password'
+                    className="form-textarea form-textarea-full password-textarea" 
+                    placeholder="Password"
                     style={{
                         border: (errors.password && submitButtonClicked) ? "3px solid #71CCA8" : "none"
                     }}
                 />
-                <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <img alt='Open Eye' src={openEye}/> : <img alt='Closed Eye' src={closedEye}/>}
+                <button 
+                    type="button" 
+                    className="show-password-button absolute right-3 top-1/2 transform -translate-y-1/2"
+                    onClick={() => setShowPassword(!showPassword)}
+                >
+                    {showPassword ? 
+                        <Eye className="h-5 w-5 text-gray-500" /> : 
+                        <EyeOff className="h-5 w-5 text-gray-500" />
+                    }
                 </button>
             </div>
-            {(errors.password && submitButtonClicked) && <p className='form-error'>{errors.password}</p>}
+            {(errors.password && submitButtonClicked) && <p className="form-error">{errors.password}</p>}
 
             {/* Confirm Password input */}
-            <div className='password-container'>
+            <div className="password-container relative">
                 <input 
                     type={showPassword ? "text" : "password"} 
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className='form-textarea form-textarea-full password-textarea' 
-                    placeholder='Confirm Password'
+                    className="form-textarea form-textarea-full password-textarea" 
+                    placeholder="Confirm Password"
                     style={{
                         border: (errors.confirmPassword && submitButtonClicked) ? "3px solid #71CCA8" : "none"
                     }}
                 />
-                <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <img alt='Open Eye' src={openEye}/> : <img alt='Closed Eye' src={closedEye}/>}
+                <button 
+                    type="button" 
+                    className="show-password-button absolute right-3 top-1/2 transform -translate-y-1/2"
+                    onClick={() => setShowPassword(!showPassword)}
+                >
+                    {showPassword ? 
+                        <Eye className="h-5 w-5 text-gray-500" /> : 
+                        <EyeOff className="h-5 w-5 text-gray-500" />
+                    }
                 </button>
             </div>
-            {(errors.confirmPassword && submitButtonClicked) && <p className='form-error'>{errors.confirmPassword}</p>}
+            {(errors.confirmPassword && submitButtonClicked) && <p className="form-error">{errors.confirmPassword}</p>}
 
-            <button onClick={handleSendResetLink} className='form-submit-button'>
-                Reset
+            {resetError && <p className="form-error">{resetError}</p>}
+            {resetSuccess && <p className="text-green-500">{resetSuccess}</p>}
+
+            <button 
+                onClick={handleResetPassword} 
+                className="form-submit-button flex items-center justify-center gap-2"
+                disabled={isLoading}
+            >
+                {isLoading ? (
+                    <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <span>Resetting...</span>
+                    </>
+                ) : (
+                    'Reset Password'
+                )}
             </button>
         </div>
     );
