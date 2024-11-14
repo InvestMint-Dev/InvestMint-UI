@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react'; // Import Eye and EyeOff icons from Lucide React
 
 import { validateLogInFields } from '../../../validators/validators';
 import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
@@ -126,8 +127,12 @@ export const CreateAccountPage1 = () => {
               onChange={handleChange}
               style={{ border: (errors.password && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
             />
-            <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? <img src={openEye} alt="Show" /> : <img src={closedEye} alt="Hide" />}
+            <button 
+              type="button" 
+              className='show-password-button' 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <Eye /> : <EyeOff />}
             </button>
           </div>
           {(errors.password && nextButtonClicked) && <p className='form-error'>{errors.password}</p>}
@@ -142,8 +147,12 @@ export const CreateAccountPage1 = () => {
               onChange={handleChange}
               style={{ border: (errors.confirmPassword && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
             />
-            <button type="button" className='show-password-button' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
-              {showConfirmPassword ? <img src={openEye} alt="Show" /> : <img src={closedEye} alt="Hide" />}
+            <button 
+              type="button" 
+              className='show-password-button' 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <Eye /> : <EyeOff />}
             </button>
           </div>
           {(errors.confirmPassword && nextButtonClicked) && <p className='form-error'>{errors.confirmPassword}</p>}
