@@ -13,41 +13,28 @@ export const ResetPasswordPage = () => {
     
     useEffect(() => {
         document.title = 'Reset Password | InvestMint';
-        // Get token from URL on component mount
-        
-        // Debug logs
-        console.log('Full URL:', window.location.href);
-        console.log('Hash:', window.location.hash);
-        console.log('Search:', window.location.search);
-        console.log('Pathname:', window.location.pathname);
         
         // Try multiple methods to get the token
         const hash = window.location.hash;
-        console.log('Raw hash:', hash);
         
         // Method 1: Parse from hash
         const hashParams = new URLSearchParams(hash.replace('#/reset-password', ''));
         const tokenFromHash = hashParams.get('token');
-        console.log('Token from hash:', tokenFromHash);
         
         // Method 2: Parse from search
         const searchParams = new URLSearchParams(window.location.search);
         const tokenFromSearch = searchParams.get('token');
-        console.log('Token from search:', tokenFromSearch);
         
         // Method 3: Parse full URL
         const fullUrlParams = new URLSearchParams(window.location.href.split('?')[1]);
         const tokenFromFullUrl = fullUrlParams.get('token');
-        console.log('Token from full URL:', tokenFromFullUrl);
 
         // Try to get the token from any available method
         const finalToken = tokenFromHash || tokenFromSearch || tokenFromFullUrl;
         
         if (finalToken) {
-            console.log('Final token found:', finalToken);
             setToken(finalToken);
         } else {
-            console.log('No token found by any method');
             setResetError('No reset token found in URL. Please use the link from your email.');
         }
     }, []);
