@@ -1,6 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import './forgot-password-page.css';
 
+import { handleKeyDown } from '../../utils/utils';
+
 export const ForgotPasswordPage = () => {
     const [email, setEmail] = useState('');
     const [sendResetLinkClicked, setSendResetLinkClicked] = useState(false);
@@ -49,6 +51,7 @@ export const ForgotPasswordPage = () => {
             <h1 className="form-heading">Forgot Password?</h1>
 
             <textarea
+                onKeyDown={handleKeyDown}
                 style={{ border: (error && sendResetLinkClicked) ? "3px solid #71CCA8" : "none" }}
                 className="form-textarea"
                 placeholder="Email"
