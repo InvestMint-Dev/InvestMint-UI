@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react'; // Import Eye and EyeOff icons from Lucide React
 
 import './log-in-page.css';
 import '../styling/form-styling.css';
@@ -8,8 +9,6 @@ import { validateLogInFields } from '../../validators/validators';
 import { useProgress } from '../../context/ProgressContext'; // Use the progress context
 
 import bigLeafLogo from '../../assets/images/logo/InvestMint Big Leaf Logo - 2.png';
-import openEye from '../../assets/images/icons/Eye.png';
-import closedEye from '../../assets/images/icons/Closed Eye.png';
 
 export const LogInPage = ({ onLogin }) => {
     const [fadeIn, setFadeIn] = useState(false);
@@ -110,11 +109,10 @@ export const LogInPage = ({ onLogin }) => {
                         }} />
                     {(errors.email && submitButtonClicked) && <p className='form-error'>{errors.email}</p>}
 
-
-                    {/* password input */}
+                    {/* Password input */}
                     <div className='password-container'>
                         <input 
-                            type={showPassword ? "text" : "password"} // Toggling between text and password
+                            type={showPassword ? "text" : "password"}
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
@@ -122,13 +120,18 @@ export const LogInPage = ({ onLogin }) => {
                             placeholder='Password'
                             style={{
                                 border: (errors.password && submitButtonClicked) ? "3px solid #71CCA8" : "none"
-                            }} >
-                            </input>
-                        <button type="button" className='show-password-button' onClick={() => setShowPassword(!showPassword)}>
-                            {showPassword ? <img alt='Open Eye' src={openEye}/> : <img alt='Closed Eye' src={closedEye}/>}
+                            }}
+                        />
+                        <button 
+                            type="button" 
+                            className='show-password-button' 
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? <Eye /> : <EyeOff />}
                         </button>
                     </div>
                     {(errors.password && submitButtonClicked) && <p className='form-error'>{errors.password}</p>}
+
 
                     <div className="form-option-1-container">
                         <input className="form-checkbox" type="checkbox" id="rememberUser" name="rememberUser" value="rememberUser" />
