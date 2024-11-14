@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Loader2, Eye, EyeOff } from "lucide-react";
+import { handleKeyDown } from '../../utils/utils';
 
 export const ResetPasswordPage = () => {
     const [formData, setFormData] = useState({ password: '', confirmPassword: '' });
@@ -118,6 +119,7 @@ export const ResetPasswordPage = () => {
             {/* Password input */}
             <div className="password-container relative">
                 <input 
+                    onKeyDown={handleKeyDown}
                     type={showPassword ? "text" : "password"} 
                     name="password"
                     value={formData.password}
@@ -144,6 +146,7 @@ export const ResetPasswordPage = () => {
             {/* Confirm Password input */}
             <div className="password-container relative">
                 <input 
+                    onKeyDown={handleKeyDown}
                     type={showPassword ? "text" : "password"} 
                     name="confirmPassword"
                     value={formData.confirmPassword}
