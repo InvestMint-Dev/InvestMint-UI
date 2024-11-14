@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Loader2, Eye, EyeOff } from "lucide-react";
 import { handleKeyDown } from '../../utils/utils';
 
+import './reset-password-page.css';
+
 export const ResetPasswordPage = () => {
     const [formData, setFormData] = useState({ password: '', confirmPassword: '' });
     const [errors, setErrors] = useState({});
