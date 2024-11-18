@@ -45,49 +45,52 @@ export const CreateAccountPage1 = ( ) => {
   };
 
   const handleNext = async () => {
-    setNextButtonClicked(true); // Disable button to prevent multiple submissions
     const validationErrors = validateLogInFields(formData, 'createAccount');
     setErrors(validationErrors);
     const isValid = Object.keys(validationErrors).length === 0;
 
-    if (isValid) {
-        try {
-            // Make API call to check if the email already exists
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email: formData.email }),
-            });
+    if (!isValid) {
+        setShowErrorAlert(true); // Show alert if form is not valid
+        return; // Exit early if validation fails
+    }
 
-            if (!response.ok) {
-                // Handle errors based on response status
-                const errorResponse = await response.json();
-                if (errorResponse.message === 'User already exists') {
-                    setErrors((prevErrors) => ({
-                        ...prevErrors,
-                        email: 'This email is already registered.',
-                    }));
-                    setShowErrorAlert(true);
-                    return; // Stop the flow if the email is already registered
-                }
-                throw new Error('An unexpected error occurred');
-            }
+    setNextButtonClicked(true); // Disable button after validation passes
 
-            //render next page
+    try {
+        // Make API call to check if the email already exists
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: formData.email }),
+        });
+
+        if (response.ok) {
+            // If no user exists, proceed to the next page
             setDisplayStepper(false);
-        } catch (error) {
-            console.error('Error checking email:', error);
-            setShowErrorAlert(true);
+        } else {
+            const errorResponse = await response.json();
+            if (errorResponse.message === 'User already exists.') {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    email: 'This email is already registered.',
+                }));
+                setShowErrorAlert(true);
+                return; // Stop flow if email is already registered
+            }
+            throw new Error('An unexpected error occurred');
         }
-    } else {
-        setShowErrorAlert(true);
+    } catch (error) {
+        console.error('Error checking email:', error);
+        setShowErrorAlert(true); // Show alert if there's an API error
+    } finally {
+        setNextButtonClicked(false); // Re-enable the button after API call completes
     }
 };
 
 
-  const handleBack = () => {
+  const handleLogIn = () => {
     navigate('/log-in');
   };
 
@@ -161,7 +164,7 @@ export const CreateAccountPage1 = ( ) => {
               </button>
               <div className='form-option-2-container'>
                 <span className="form-label">Already Have an Account? </span>
-                <a className="form-link" onClick={handleBack}>Login Here</a>
+                <a className="form-link" onClick={handleLogIn}>Login Here</a>
               </div>
             </div>
           )
