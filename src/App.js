@@ -17,6 +17,7 @@ import { useProgress } from './context/ProgressContext';
 import { ForgotPasswordPage } from './pages/forgot-password-page/forgot-password-page';
 import { ResetPasswordPage } from './pages/reset-password-page/reset-password-page';
 import { ContactUsPage } from './pages/contact-us-page/contact-us-page';
+import { CreateAccountPage } from './pages/create-account-page/create-account-page';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useProgress();
@@ -27,17 +28,13 @@ const ProtectedRoute = ({ children }) => {
 
 const App = () => {
   return (
-    <ProgressProvider> {/* Wrap the app with ProgressProvider */}
+    <ProgressProvider>
       <Router>
         <Routes>
           <Route path="/" element={<LoadingPage />} />
           <Route path="/log-in" element={<LogInPage/>} />
-          
-          {/* These account creation pages are accessible without authentication */}
-          <Route path="/create-account-1" element={<CreateAccountPage1 />} />
-          <Route path="/create-account-2" element={<CreateAccountPage2 />} />
-          <Route path="/create-account-3" element={<CreateAccountPage3 />} />
-          <Route path="/create-account-4" element={<CreateAccountPage4 />} />
+
+          <Route path="/create-account" element={<CreateAccountPage />} />
 
           <Route path="/cash-calculator" element={<CashCalculator />} />
 
