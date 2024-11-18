@@ -29,7 +29,7 @@ export const CreateAccountPage = () => {
             {currentStep >= 1 && <CreateAccountPage1 renderNextPage={handleNext} />}
             {currentStep >= 2 && <CreateAccountPage2 renderPreviousPage={handleBack} renderNextPage={handleNext}/>}
             {currentStep >= 3 && <CreateAccountPage3 renderPreviousPage={handleBack} renderNextPage={handleNext}/>}
-            {currentStep >= 4 && <CreateAccountPage4 renderPreviousPage={handleBack} renderNextPage={handleNext}/>}
+            {currentStep >= 4 && <CreateAccountPage4 renderPreviousPage={handleBack}/>}
         </div>
     );
 }

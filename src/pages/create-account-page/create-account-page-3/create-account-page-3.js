@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import { validateCompanyLegalInfo } from '../../../validators/validators';
@@ -10,15 +10,13 @@ import './create-account-page-3.css'
 ;
 import { handleKeyDown } from '../../../utils/utils';
 
-export const CreateAccountPage3 = () => {
+export const CreateAccountPage3 = ({ renderPreviousPage, renderNextPage }) => {
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
 
     const location = useLocation();
 
     const { userId } = location.state || {};
-
-    const navigate = useNavigate(); // Navigate hook
 
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
@@ -144,8 +142,7 @@ export const CreateAccountPage3 = () => {
                 }
         
                 // const data = await response.json();
-                
-                navigate('/create-account-4', { state: { userId: userId } }); // Navigate to the next page
+                renderNextPage();
                 setDisplayStepper(false);
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);
@@ -165,6 +162,10 @@ export const CreateAccountPage3 = () => {
             }, 2000);
         }
     };
+
+    const handleBack = () => {
+        renderPreviousPage();
+      };
 
     const fetchAddressSuggestions = async (address) => {
         try {
@@ -447,8 +448,12 @@ export const CreateAccountPage3 = () => {
                     displayStepper && (
                         <div className='stepper-container'>
                             <div className="stepper-button-container">
+                                <button className='form-stepper-button' onClick={handleBack}>
+                                    Back
+                                </button>
+
                                 <button className='form-stepper-button' onClick={handleNext}>
-                                Next
+                                    Next
                                 </button>
                             </div>
                         </div>
