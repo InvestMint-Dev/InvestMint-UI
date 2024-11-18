@@ -20,9 +20,6 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
         setFadeIn(true); // Trigger fade-in effect on mount
     }, []);
 
-    // Access email and password from the state
-    const { email, password } = location.state || {};
-
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
 
