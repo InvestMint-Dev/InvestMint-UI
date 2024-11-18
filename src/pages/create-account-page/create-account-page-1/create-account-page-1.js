@@ -1,49 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff } from 'lucide-react'; // Import Eye and EyeOff icons from Lucide React
+import { Eye, EyeOff } from 'lucide-react';
 
 import { validateLogInFields } from '../../../validators/validators';
-
 import '../create-account-page.css';
 import './create-account-page-1.css';
-
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 
-export const CreateAccountPage1 = ( { formData, updateFormData, onNext } ) => {
+export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
   const [fadeIn, setFadeIn] = useState(false);
   const [displayStepper, setDisplayStepper] = useState(true);
+  const [nextButtonClicked, setNextButtonClicked] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setFadeIn(true); // Trigger fade-in effect on mount
+    setFadeIn(true);
     document.title = 'Create Account | InvestMint';
-}, []);
-
-  const [nextButtonClicked, setNextButtonClicked] = useState(false);
-
-  const [errors, setErrors] = useState({});
-  const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
-  const alertClass = ""; // State for alert class
-
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle password visibility
-
-  const navigate = useNavigate(); // Navigate hook
+  }, []);
 
   const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // setFormData(prevFormData => {
-    //   const updatedFormData = { ...prevFormData, [name]: value };
-    //   const validationErrors = validateLogInFields(updatedFormData, 'createAccount');
-    //   setErrors(validationErrors);
-    //   return updatedFormData;
-    // });
-
     const { name, value } = e.target;
     const newData = { ...formData, [name]: value };
-    updateFormData({ [name]: value });
-    
+    updateFormData(newData);
+
+    // Revalidate on change to update errors dynamically
     const validationErrors = validateLogInFields(newData, 'createAccount');
     setErrors(validationErrors);
+    setNextButtonClicked(false); // Reset styling on every field change
   };
 
   const handleNext = async () => {
@@ -51,47 +38,34 @@ export const CreateAccountPage1 = ( { formData, updateFormData, onNext } ) => {
     setErrors(validationErrors);
     const isValid = Object.keys(validationErrors).length === 0;
 
-    if (!isValid) {
-        setShowErrorAlert(true); // Show alert if form is not valid
-        return; // Exit early if validation fails
-    }
+    setNextButtonClicked(true); // Ensure error styling if validation fails
 
-    setNextButtonClicked(true); // Disable button after validation passes
+    if (!isValid) return; // Stop if there are validation errors
 
     try {
-        // Make API call to check if the email already exists
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: formData.email }),
-        });
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email }),
+      });
 
-        if (response.ok) {
-            // If no user exists, proceed to the next page
-            onNext();
-            setDisplayStepper(false);
-        } else {
-            const errorResponse = await response.json();
-            if (errorResponse.message === 'User already exists.') {
-                setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    email: 'This email is already registered.',
-                }));
-                setShowErrorAlert(true);
-                return; // Stop flow if email is already registered
-            }
-            throw new Error('An unexpected error occurred');
+      if (response.ok) {
+        onNext(); // Move to the next step if email is available
+        setDisplayStepper(false);
+      } else {
+        const errorResponse = await response.json();
+        if (errorResponse.message === 'User already exists.') {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            email: 'This email is already registered.',
+          }));
+          setNextButtonClicked(true); // Keep error styling for registered email
         }
+      }
     } catch (error) {
-        console.error('Error checking email:', error);
-        setShowErrorAlert(true); // Show alert if there's an API error
-    } finally {
-        setNextButtonClicked(false); // Re-enable the button after API call completes
+      console.error('Error checking email:', error);
     }
-};
-
+  };
 
   const handleLogIn = () => {
     navigate('/log-in');
@@ -99,24 +73,22 @@ export const CreateAccountPage1 = ( { formData, updateFormData, onNext } ) => {
 
   return (
     <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
-      {showErrorAlert && (
-        <ErrorAlertPanel className={alertClass} />
-      )}
+      {/* {Object.keys(errors).length > 0 && nextButtonClicked && (
+        <ErrorAlertPanel message="Please fix the errors in the form." />
+      )} */}
       
       <div className='create-account-form-container'>     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
-        {(errors.signup && nextButtonClicked) && <p className='form-error'>{errors.signup}</p>}
           <input
             className='form-textarea form-textarea-full'
             name='email'
             placeholder='Email'
             value={formData.email}
             onChange={handleChange}
-            style={{ border: (errors.email && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
+            style={{ border: errors.email ? "3px solid #71CCA8" : "none" }}
           />
-          {(errors.email && nextButtonClicked) && <p className='form-error'>{errors.email}</p>}
-
+          {errors.email && <p className='form-error'>{errors.email}</p>}
           <div className='password-container'>
             <input
               className='form-textarea form-textarea-full'
