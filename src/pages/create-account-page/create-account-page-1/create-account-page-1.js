@@ -3,19 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react'; // Import Eye and EyeOff icons from Lucide React
 
 import { validateLogInFields } from '../../../validators/validators';
-import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
 
 import '../create-account-page.css';
 import './create-account-page-1.css';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
-import openEye from '../../../assets/images/icons/Eye.png';
-import closedEye from '../../../assets/images/icons/Closed Eye.png';
 
-export const CreateAccountPage1 = () => {
+export const CreateAccountPage1 = ( ) => {
   const [fadeIn, setFadeIn] = useState(false);
-  const { currentStep, goToNextStep } = useProgress();
 
   useEffect(() => {
     setFadeIn(true); // Trigger fade-in effect on mount
@@ -54,7 +50,7 @@ export const CreateAccountPage1 = () => {
     setErrors(validationErrors);
     const isValid = Object.keys(validationErrors).length === 0;
 
-    if (isValid && currentStep >= 1) {
+    if (isValid) {
         try {
             // Make API call to check if the email already exists
             const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
@@ -79,9 +75,8 @@ export const CreateAccountPage1 = () => {
                 throw new Error('An unexpected error occurred');
             }
 
-            // If email is not taken, proceed to the next step
-            goToNextStep();
-            navigate('/create-account-2', { state: { email: formData.email, password: formData.password } });
+            //render next page
+
         } catch (error) {
             console.error('Error checking email:', error);
             setShowErrorAlert(true);
