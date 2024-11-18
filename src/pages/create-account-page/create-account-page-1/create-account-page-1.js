@@ -9,7 +9,7 @@ import './create-account-page-1.css';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 
-export const CreateAccountPage1 = ( { renderNextPage } ) => {
+export const CreateAccountPage1 = ( { formData, updateFormData, onNext } ) => {
   const [fadeIn, setFadeIn] = useState(false);
   const [displayStepper, setDisplayStepper] = useState(true);
 
@@ -19,11 +19,6 @@ export const CreateAccountPage1 = ( { renderNextPage } ) => {
 }, []);
 
   const [nextButtonClicked, setNextButtonClicked] = useState(false);
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
 
   const [errors, setErrors] = useState({});
   const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
@@ -35,13 +30,20 @@ export const CreateAccountPage1 = ( { renderNextPage } ) => {
   const navigate = useNavigate(); // Navigate hook
 
   const handleChange = (e) => {
+    // const { name, value } = e.target;
+    // setFormData(prevFormData => {
+    //   const updatedFormData = { ...prevFormData, [name]: value };
+    //   const validationErrors = validateLogInFields(updatedFormData, 'createAccount');
+    //   setErrors(validationErrors);
+    //   return updatedFormData;
+    // });
+    
     const { name, value } = e.target;
-    setFormData(prevFormData => {
-      const updatedFormData = { ...prevFormData, [name]: value };
-      const validationErrors = validateLogInFields(updatedFormData, 'createAccount');
-      setErrors(validationErrors);
-      return updatedFormData;
-    });
+    const newData = { ...formData, [name]: value };
+    updateFormData({ [name]: value });
+    
+    const validationErrors = validateLogInFields(newData, 'createAccount');
+    setErrors(validationErrors);
   };
 
   const handleNext = async () => {
@@ -68,7 +70,7 @@ export const CreateAccountPage1 = ( { renderNextPage } ) => {
 
         if (response.ok) {
             // If no user exists, proceed to the next page
-            renderNextPage();
+            onNext();
             setDisplayStepper(false);
         } else {
             const errorResponse = await response.json();

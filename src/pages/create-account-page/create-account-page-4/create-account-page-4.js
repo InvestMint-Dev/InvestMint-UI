@@ -9,7 +9,7 @@ import { useProgress } from '../../../context/ProgressContext'; // Use the progr
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
-export const CreateAccountPage4 = ( {renderPreviousPage, onLogin} ) => {
+export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
 
@@ -125,7 +125,7 @@ export const CreateAccountPage4 = ( {renderPreviousPage, onLogin} ) => {
     };
 
     const handleBack = () => {
-        renderPreviousPage();
+        onBack();
     };
 
     return (

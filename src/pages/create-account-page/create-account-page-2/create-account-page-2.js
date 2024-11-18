@@ -9,7 +9,7 @@ import './create-account-page-2.css';
 import { handleKeyDown } from '../../../utils/utils';
 import { validateTwoFactorAuth } from '../../../validators/validators';
 
-export const CreateAccountPage2 = ({ renderPreviousPage, renderNextPage }) => {
+export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext }) => {
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
 
@@ -26,26 +26,33 @@ export const CreateAccountPage2 = ({ renderPreviousPage, renderNextPage }) => {
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
 
-    const [formData, setFormData] = useState({
-        securityQuestion1: "",
-        securityAnswer1: "",
-        securityQuestion2: "",
-        securityAnswer2: ""
-    });
+    // const [formData, setFormData] = useState({
+    //     securityQuestion1: "",
+    //     securityAnswer1: "",
+    //     securityQuestion2: "",
+    //     securityAnswer2: ""
+    // });
 
     const [errors, setErrors] = useState({});
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        // const { name, value } = e.target;
 
-        setFormData(prevData => {
-            const updatedValue = value;
-            const updatedData = { ...prevData, [name]: updatedValue };
-            const validationErrors = validateTwoFactorAuth(updatedData);
-            setErrors(validationErrors);
-            return updatedData;
-        });
+        // setFormData(prevData => {
+        //     const updatedValue = value;
+        //     const updatedData = { ...prevData, [name]: updatedValue };
+        //     const validationErrors = validateTwoFactorAuth(updatedData);
+        //     setErrors(validationErrors);
+        //     return updatedData;
+        // });
+
+        const { name, value } = e.target;
+        const newData = { ...formData, [name]: value };
+        updateFormData({ [name]: value });
+        
+        const validationErrors = validateTwoFactorAuth(newData);
+        setErrors(validationErrors);
     };
 
 
@@ -56,38 +63,38 @@ export const CreateAccountPage2 = ({ renderPreviousPage, renderNextPage }) => {
         const isValid = Object.keys(validationErrors).length === 0;
         
         if (isValid) {
-            try {
-                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signup`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        auth0_id: Date.now(),
-                        email: email,
-                        password: password,
-                        securityQuestion1: formData.securityQuestion1,
-                        securityAnswer1: formData.securityAnswer1,
-                        securityQuestion2: formData.securityQuestion2,
-                        securityAnswer2: formData.securityAnswer2,
-                    }),
-                });
+            // try {
+            //     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signup`, {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //         body: JSON.stringify({
+            //             auth0_id: Date.now(),
+            //             email: email,
+            //             password: password,
+            //             securityQuestion1: formData.securityQuestion1,
+            //             securityAnswer1: formData.securityAnswer1,
+            //             securityQuestion2: formData.securityQuestion2,
+            //             securityAnswer2: formData.securityAnswer2,
+            //         }),
+            //     });
 
-                const data = await response.json();
-                console.log(data);
+            //     const data = await response.json();
+            //     console.log(data);
         
-                if (response.ok) {
-                    renderNextPage();
+            //     if (response.ok) {
+                    onNext();
                     setDisplayStepper(false);
                     setNextButtonClicked(false);
                     setShowErrorAlert(false);
-                }
-                else {
-                    throw new Error('Failed to save signup information');
-                }
-            } catch (error) {
-                console.error('Error saving signup information:', error);
-            }
+            //     }
+            //     else {
+            //         throw new Error('Failed to save signup information');
+            //     }
+            // } catch (error) {
+            //     console.error('Error saving signup information:', error);
+            // }
         } else {
             setAlertClass("show"); // Show error alert
             setShowErrorAlert(true); // Show error alert on validation failure
@@ -104,7 +111,7 @@ export const CreateAccountPage2 = ({ renderPreviousPage, renderNextPage }) => {
       };
 
       const handleBack = () => {
-        renderPreviousPage();
+        onBack();
       };
 
     return (

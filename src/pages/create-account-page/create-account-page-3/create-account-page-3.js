@@ -10,7 +10,7 @@ import './create-account-page-3.css'
 ;
 import { handleKeyDown } from '../../../utils/utils';
 
-export const CreateAccountPage3 = ({ renderPreviousPage, renderNextPage }) => {
+export const CreateAccountPage3 = ({ onBack, onNext }) => {
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
 
@@ -142,7 +142,7 @@ export const CreateAccountPage3 = ({ renderPreviousPage, renderNextPage }) => {
                 }
         
                 // const data = await response.json();
-                renderNextPage();
+                onNext();
                 setDisplayStepper(false);
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);
@@ -164,7 +164,7 @@ export const CreateAccountPage3 = ({ renderPreviousPage, renderNextPage }) => {
     };
 
     const handleBack = () => {
-        renderPreviousPage();
+        onBack();
       };
 
     const fetchAddressSuggestions = async (address) => {
