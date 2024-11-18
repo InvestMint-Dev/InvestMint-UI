@@ -1,6 +1,6 @@
 .create-account-sidebar-container {
     position: fixed;
-    width: calc(30%);
+    width: calc(35%);
     height: 100vh;
     top: 0;
     left: 0;
@@ -25,8 +25,8 @@
 }
 
 .create-account-sidebar-stepper-circle {
-    width: 3.75rem;  /* Circle width */
-    height: 3.75rem; /* Circle height */
+    width: 3rem;  /* Circle width */
+    height: 3rem; /* Circle height */
     background-color: #61b090; 
     border-radius: 50%; /* Makes the element circular */
 }
@@ -38,7 +38,7 @@
 .create-account-sidebar-stepper-label {
     font-weight: bold;
     padding-left: 0.9375rem; /* Adjust space between circle and label */
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #61b090; 
 }
 
