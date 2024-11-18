@@ -9,7 +9,7 @@ import './create-account-page-2.css';
 import { handleKeyDown } from '../../../utils/utils';
 import { validateTwoFactorAuth } from '../../../validators/validators';
 
-export const CreateAccountPage2 = () => {
+export const CreateAccountPage2 = ({ renderPreviousPage, renderNextPage }) => {
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
 
@@ -77,7 +77,7 @@ export const CreateAccountPage2 = () => {
                 console.log(data);
         
                 if (response.ok) {
-                    navigate('/create-account-3', { state: { userId: data.userId } }); // Navigate to the next page
+                    renderNextPage();
                     setDisplayStepper(false);
                     setNextButtonClicked(false);
                     setShowErrorAlert(false);
@@ -104,7 +104,7 @@ export const CreateAccountPage2 = () => {
       };
 
       const handleBack = () => {
-        navigate('/create-account-1');
+        renderPreviousPage();
       };
 
     return (

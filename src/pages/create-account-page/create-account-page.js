@@ -26,10 +26,10 @@ export const CreateAccountPage = () => {
             <CreateAccountSidebar currentPage={currentStep}/>
 
             {/* Conditionally render pages based on the current step */}
-            {currentStep >= 1 && <CreateAccountPage1 />}
-            {currentStep >= 2 && <CreateAccountPage2 />}
-            {currentStep >= 3 && <CreateAccountPage3 />}
-            {currentStep >= 4 && <CreateAccountPage4 />}
+            {currentStep >= 1 && <CreateAccountPage1 renderNextPage={handleNext} />}
+            {currentStep >= 2 && <CreateAccountPage2 renderPreviousPage={handleBack} renderNextPage={handleNext}/>}
+            {currentStep >= 3 && <CreateAccountPage3 renderPreviousPage={handleBack} renderNextPage={handleNext}/>}
+            {currentStep >= 4 && <CreateAccountPage4 renderPreviousPage={handleBack} renderNextPage={handleNext}/>}
         </div>
     );
 }

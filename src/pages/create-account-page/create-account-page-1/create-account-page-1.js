@@ -9,7 +9,7 @@ import './create-account-page-1.css';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 
-export const CreateAccountPage1 = ( ) => {
+export const CreateAccountPage1 = ( { renderNextPage } ) => {
   const [fadeIn, setFadeIn] = useState(false);
   const [displayStepper, setDisplayStepper] = useState(true);
 
@@ -68,6 +68,7 @@ export const CreateAccountPage1 = ( ) => {
 
         if (response.ok) {
             // If no user exists, proceed to the next page
+            renderNextPage();
             setDisplayStepper(false);
         } else {
             const errorResponse = await response.json();
