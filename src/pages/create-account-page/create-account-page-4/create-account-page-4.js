@@ -138,7 +138,7 @@ export const CreateAccountPage4 = ({onLogin}) => {
             )}
             <CreateAccountSidebar currentPage={4}/>
 
-            <div className='page-4-container'>
+            <div className='create-account-form-container'>
                 <h1 className='form-heading'>Investing Questionnaire</h1>
 
                 {/* Q1 */}

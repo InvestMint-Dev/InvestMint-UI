@@ -103,7 +103,7 @@ export const CreateAccountPage1 = () => {
       )}
       
       <CreateAccountSidebar currentPage={1}/>
-      <div className='page-1-container'>     
+      <div className='create-account-form-container'>     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
         {(errors.signup && nextButtonClicked) && <p className='form-error'>{errors.signup}</p>}

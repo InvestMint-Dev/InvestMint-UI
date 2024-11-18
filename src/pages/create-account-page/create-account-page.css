@@ -2,48 +2,15 @@
     margin-left: 30%; /* Leaves space for the sidebar */
 }
 
-.page-1-container {
+.create-account-form-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10rem;
+    margin-top: 5rem;
     width: 70vw; /* 70% of the viewport width */
     max-width: 34.375rem; /* Max width to maintain original size on larger screens */
     position: relative;
     left: 15vw; /* Move the container to the right to center it in 70% of the screen */
-}
-
-.page-2-container {
-    margin-top: 7rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70vw; /* 70% of the viewport width */
-    max-width: 34.375rem; /* Max width to maintain original size on larger screens */
-    position: relative;
-    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
-}
-
-.page-3-container {
-    margin-top: 7.5rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70vw; /* 70% of the viewport width */
-    max-width: 40rem; /* Max width to maintain original size on larger screens */
-    position: relative;
-    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
-}
-
-.page-4-container {
-    margin-top: 6.25rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70vw; /* 70% of the viewport width */
-    position: relative;
-    left: 15vw; /* Move the container to the right to center it in 70% of the screen */
-    max-width: 43.75rem;
 }
 
 .stepper-container {
@@ -67,22 +34,7 @@
         margin-bottom: 0;
     }
 
-    .page-1-container {
-        width: 20rem;
-        left: 0;
-    }
-
-    .page-2-container {
-        width: 20rem;
-        left: 0;
-    }
-
-    .page-3-container {
-        width: 20rem;
-        left: 0;
-    }
-
-    .page-4-container {
+    .create-account-form-container {
         width: 20rem;
         left: 0;
     }

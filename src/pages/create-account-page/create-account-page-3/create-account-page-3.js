@@ -267,7 +267,7 @@ export const CreateAccountPage3 = () => {
 
             <CreateAccountSidebar currentPage={3}/>
 
-            <div className='page-3-container'>
+            <div className='create-account-form-container'>
                 <h1 className='form-heading'>Company Legal Information</h1>
                 <div className='company-legal-information-form'>
                     {/* Form fields */}

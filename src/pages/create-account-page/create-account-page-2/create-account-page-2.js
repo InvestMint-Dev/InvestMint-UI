@@ -121,7 +121,7 @@ export const CreateAccountPage2 = () => {
 
             <CreateAccountSidebar currentPage={2}/>
 
-            <div className='page-2-container'>\
+            <div className='create-account-form-container'>\
                 <h1 className="form-heading">Two-Factor Authentication</h1>
                 
                 <div className='two-factor-auth-form'>
