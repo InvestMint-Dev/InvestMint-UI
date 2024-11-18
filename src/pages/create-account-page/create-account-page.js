@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CreateAccountSidebar } from "./create-account-sidebar/create-account-sidebar";
 import { CreateAccountPage1 } from "./create-account-page-1/create-account-page-1";
@@ -8,6 +9,7 @@ import { CreateAccountPage4 } from "./create-account-page-4/create-account-page-
 
 export const CreateAccountPage = () => {
     const [currentStep, setCurrentStep] = useState(1);
+    const navigate = useNavigate();
     
     // Combined state for all form data
     const [formData, setFormData] = useState({
@@ -60,18 +62,18 @@ export const CreateAccountPage = () => {
 
     const handleSubmit = async () => {
         try {
-            // First, check if email exists
-            const emailCheckResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email: formData.email }),
-            });
+            // // First, check if email exists
+            // const emailCheckResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ email: formData.email }),
+            // });
 
-            if (!emailCheckResponse.ok) {
-                throw new Error('Email already exists');
-            }
+            // if (!emailCheckResponse.ok) {
+            //     throw new Error('Email already exists');
+            // }
 
             // Create user account
             const signupResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signup`, {
@@ -125,8 +127,34 @@ export const CreateAccountPage = () => {
                 throw new Error('Failed to save company information');
             }
 
+            const investingQuestionnaireResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/investingQuestionnaire/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    investingQ1: formData.investingQ1,
+                    investingQ2: formData.investingQ2,
+                    investingQ2CashAmount: formData.investingQ2CashAmount,
+                    investingQ2BusinessDuration: formData.investingQ2BusinessDuration,
+                    investingQ2AverageCashPerYear: formData.investingQ2AverageCashPerYear,
+                    investingQ3: formData.investingQ3,
+                    investingQ4: formData.investingQ4,
+                    investingQ4CashBackDate: formData.investingQ4CashBackDate,
+                    investingQ4CashBackDuration: formData.investingQ4CashBackDuration,
+                    investingQ5: formData.investingQ5,
+                    investingQ6: formData.investingQ6,
+                    investingQ7: formData.investingQ7,
+                    investingQ8: formData.investingQ8
+                }),
+            });
+
+            if (!investingQuestionnaireResponse.ok) {
+                throw new Error('Failed to save investing questionnaire.');
+            }
+
             // Handle successful completion
-            handleNext();
+            navigate('/dashboard'); // Navigate to the next page
         } catch (error) {
             console.error('Error during account creation:', error);
             // Handle error appropriately
@@ -163,6 +191,7 @@ export const CreateAccountPage = () => {
             {currentStep >= 4 && (
                 <CreateAccountPage4
                     formData={formData}
+                    updateFormData={updateFormData}
                     onBack={handleBack}
                     onSubmit={handleSubmit}
                 />

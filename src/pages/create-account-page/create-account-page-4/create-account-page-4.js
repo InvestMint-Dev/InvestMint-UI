@@ -9,9 +9,8 @@ import { useProgress } from '../../../context/ProgressContext'; // Use the progr
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
-export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
+export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit } ) => {
     const [fadeIn, setFadeIn] = useState(false);
-    const [displayStepper, setDisplayStepper] = useState(true);
 
     const location = useLocation();
 
@@ -28,21 +27,21 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
 
-    const [formData, setFormData] = useState({
-        investingQ1: "",
-        investingQ2: "",
-        investingQ2CashAmount: "$",
-        investingQ2BusinessDuration: "",
-        investingQ2AverageCashPerYear: "$",
-        investingQ3: "",
-        investingQ4: "",
-        investingQ4CashBackDate: "",
-        investingQ4CashBackDuration: "",
-        investingQ5: "",
-        investingQ6: "",
-        investingQ7: "",
-        investingQ8: ""
-    });
+    // const [formData, setFormData] = useState({
+    //     investingQ1: "",
+    //     investingQ2: "",
+    //     investingQ2CashAmount: "$",
+    //     investingQ2BusinessDuration: "",
+    //     investingQ2AverageCashPerYear: "$",
+    //     investingQ3: "",
+    //     investingQ4: "",
+    //     investingQ4CashBackDate: "",
+    //     investingQ4CashBackDuration: "",
+    //     investingQ5: "",
+    //     investingQ6: "",
+    //     investingQ7: "",
+    //     investingQ8: ""
+    // });
 
     const [errors, setErrors] = useState({});
     const [expandedSections, setExpandedSections] = useState({
@@ -71,44 +70,41 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
         let isValid = Object.keys(validationErrors).length === 0;
     
         if (isValid) {
-            try {
-                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/investingQuestionnaire/${userId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        investingQ1: formData.investingQ1,
-                        investingQ2: formData.investingQ2,
-                        investingQ2CashAmount: formData.investingQ2CashAmount,
-                        investingQ2BusinessDuration: formData.investingQ2BusinessDuration,
-                        investingQ2AverageCashPerYear: formData.investingQ2AverageCashPerYear,
-                        investingQ3: formData.investingQ3,
-                        investingQ4: formData.investingQ4,
-                        investingQ4CashBackDate: formData.investingQ4CashBackDate,
-                        investingQ4CashBackDuration: formData.investingQ4CashBackDuration,
-                        investingQ5: formData.investingQ5,
-                        investingQ6: formData.investingQ6,
-                        investingQ7: formData.investingQ7,
-                        investingQ8: formData.investingQ8
-                    }),
-                });
+            // try {
+            //     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/investingQuestionnaire/${userId}`, {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //         body: JSON.stringify({
+            //             investingQ1: formData.investingQ1,
+            //             investingQ2: formData.investingQ2,
+            //             investingQ2CashAmount: formData.investingQ2CashAmount,
+            //             investingQ2BusinessDuration: formData.investingQ2BusinessDuration,
+            //             investingQ2AverageCashPerYear: formData.investingQ2AverageCashPerYear,
+            //             investingQ3: formData.investingQ3,
+            //             investingQ4: formData.investingQ4,
+            //             investingQ4CashBackDate: formData.investingQ4CashBackDate,
+            //             investingQ4CashBackDuration: formData.investingQ4CashBackDuration,
+            //             investingQ5: formData.investingQ5,
+            //             investingQ6: formData.investingQ6,
+            //             investingQ7: formData.investingQ7,
+            //             investingQ8: formData.investingQ8
+            //         }),
+            //     });
 
-                if (!response.ok) {
-                    const errorMessage = await response.text();
-                    console.error('Error response:', errorMessage);
-                    throw new Error('Failed to save investing information');
-                }
+            //     if (!response.ok) {
+            //         const errorMessage = await response.text();
+            //         console.error('Error response:', errorMessage);
+            //         throw new Error('Failed to save investing information');
+            //     }
                 
-                logIn(); // Set the user as authenticated
-
-                navigate('/dashboard'); // Navigate to the next page
+                onSubmit();
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);
-                onLogin(); // Call onLogin here
-            } catch (error) {
-                console.error('Error saving investing information:', error);
-            }
+            // } catch (error) {
+            //     console.error('Error saving investing information:', error);
+            // }
         } else {
             setAlertClass("show"); // Show error alert
             setShowErrorAlert(true); // Show error alert on validation failure
@@ -144,27 +140,27 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     {(errors.investingQ1 && nextButtonClicked) && <p className='form-error'>{errors.investingQ1}</p>}
                     <button 
                         className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Very experienced") ? 'clicked' : ''}`} 
-                        onClick={() => setFormData({ ...formData, investingQ1: "Very experienced" })}>
+                        onClick={() => updateFormData({ investingQ1: "Very experienced" })}>
                         Very experienced
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Experienced") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ1: "Experienced" })}>
+                        onClick={() => updateFormData({ investingQ1: "Experienced" })}>
                         Experienced
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Somewhat experienced") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ1: "Somewhat experienced" })}>
+                        onClick={() => updateFormData({ investingQ1: "Somewhat experienced" })}>
                         Somewhat experienced
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Somewhat inexperienced") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ1: "Somewhat inexperienced" })}>
+                        onClick={() => updateFormData({ investingQ1: "Somewhat inexperienced" })}>
                         Somewhat inexperienced
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ1 !== "" && formData.investingQ1 === "Very inexperienced") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ1: "Very inexperienced" })}>
+                        onClick={() => updateFormData({ investingQ1: "Very inexperienced" })}>
                         Very inexperienced
                     </button>
                 </div>
@@ -192,12 +188,12 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     {(errors.investingQ2 && nextButtonClicked) && <p className='form-error'>{errors.investingQ2}</p>}
                     <button 
                         className={`question-answer-button ${(formData.investingQ2 !== "" && formData.investingQ2 === "Yes") ? 'clicked' : ''}`} 
-                        onClick={() => setFormData({ ...formData, investingQ2: "Yes" })}>
+                        onClick={() => updateFormData({ investingQ2: "Yes" })}>
                         Yes
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ2 !== "" && formData.investingQ2 === "No") ? 'clicked' : ''}`} 
-                        onClick={() => setFormData({ ...formData, investingQ2: "No" })}>
+                        onClick={() => updateFormData({ investingQ2: "No" })}>
                         No
                     </button>
 
@@ -208,7 +204,7 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                             className='form-textarea text-input' 
                             value={formData.investingQ2CashAmount} // Set the current value from the state
-                            onChange={(e) => setFormData({ ...formData, investingQ2CashAmount: e.target.value })}/>
+                            onChange={(e) => updateFormData({ investingQ2CashAmount: e.target.value })}/>
                     </div>}
 
                     {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
@@ -217,13 +213,13 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                         {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p className='form-error'>{errors.investingQ2BusinessDuration}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2BusinessDuration} // Set the current value from the state
-                            onChange={(e) => setFormData({ ...formData, investingQ2BusinessDuration: e.target.value })}/>
+                            onChange={(e) => updateFormData({ investingQ2BusinessDuration: e.target.value })}/>
 
                         <p>What is your average cash per year?</p>
                         {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p className='form-error'>{errors.investingQ2AverageCashPerYear}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
-                            onChange={(e) => setFormData({ ...formData, investingQ2AverageCashPerYear: e.target.value })}/>
+                            onChange={(e) => updateFormData({ investingQ2AverageCashPerYear: e.target.value })}/>
                         <a href='/cash-calculator' target="_blank">Average cash calculator</a>
                     </div>}
                 </div>
@@ -267,27 +263,27 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     {(errors.investingQ3 && nextButtonClicked) && <p className='form-error'>{errors.investingQ3}</p>}
                     <button 
                         className={`question-answer-button ${(formData.investingQ3 !== "" && formData.investingQ3 === "1 month or less") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ3: "1 month or less" })}>
+                        onClick={() => updateFormData({ investingQ3: "1 month or less" })}>
                         1 month or less
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ3 !== "" && formData.investingQ3 === "1 to 3 months") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ3: "1 to 3 months" })}>
+                        onClick={() => updateFormData({ investingQ3: "1 to 3 months" })}>
                         1 to 3 months
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ3 !== "" && formData.investingQ3 === "3 to 6 months") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ3: "3 to 6 months" })}>
+                        onClick={() => updateFormData({ investingQ3: "3 to 6 months" })}>
                         3 to 6 months
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ3 !== "" && formData.investingQ3 === "6 to 9 months") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ3: "6 to 9 months" })}>
+                        onClick={() => updateFormData({ investingQ3: "6 to 9 months" })}>
                         6 to 9 months
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ3 !== "" && formData.investingQ3 === "9 to 12 months") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ3: "9 to 12 months" })}>
+                        onClick={() => updateFormData({ investingQ3: "9 to 12 months" })}>
                         9 to 12 months
                     </button>
                 </div>
@@ -330,11 +326,11 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     you okay to define a duration in which the investments will be available but not necessarily sold?</p>
                     {(errors.investingQ4 && nextButtonClicked) && <p className='form-error'>{errors.investingQ4}</p>}
                     <button className={`question-answer-button ${(formData.investingQ4 !== "" && formData.investingQ4 === "Date") ? 'clicked' : ''}`} 
-                        onClick={() => setFormData({ ...formData, investingQ4: "Date" })}>
+                        onClick={() => updateFormData({ investingQ4: "Date" })}>
                         Date
                     </button>
                     <button className={`question-answer-button ${(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") ? 'clicked' : ''}`} 
-                        onClick={() => setFormData({ ...formData, investingQ4: "Duration" })}>
+                        onClick={() => updateFormData({ investingQ4: "Duration" })}>
                         Duration
                     </button>
 
@@ -345,7 +341,7 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
                             style={{ border: (errors.investingQ4CashBackDate && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
                             value={formData.investingQ4CashBackDate} // Set the current value from the state
-                            onChange={(e) => setFormData({ ...formData, investingQ4CashBackDate: e.target.value })}/>
+                            onChange={(e) => updateFormData({ investingQ4CashBackDate: e.target.value })}/>
                     </div>}
 
                     {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
@@ -355,7 +351,7 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
                             style={{ border: (errors.investingQ4CashBackDuration && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
                             value={formData.investingQ4CashBackDuration} // Set the current value from the state
-                            onChange={(e) => setFormData({ ...formData, investingQ4CashBackDuration: e.target.value })}/>
+                            onChange={(e) => updateFormData({ investingQ4CashBackDuration: e.target.value })}/>
                     </div>}
                 </div>
 
@@ -367,27 +363,27 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Very unpredictable") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ5: "Very unpredictable" })}>
+                        onClick={() => updateFormData({ investingQ5: "Very unpredictable" })}>
                         Very unpredictable
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Unpredictable") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ5: "Unpredictable" })}>
+                        onClick={() => updateFormData({ investingQ5: "Unpredictable" })}>
                         Unpredictable
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Somewhat predictable") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ5: "Somewhat predictable" })}>
+                        onClick={() => updateFormData({ investingQ5: "Somewhat predictable" })}>
                         Somewhat predictable
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Predictable") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ5: "Predictable" })}>
+                        onClick={() => updateFormData({ investingQ5: "Predictable" })}>
                         Predictable
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ5 !== "" && formData.investingQ5 === "Very predictable") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ5: "Very predictable" })}>
+                        onClick={() => updateFormData({ investingQ5: "Very predictable" })}>
                         Very predictable
                     </button>
                 </div>
@@ -434,12 +430,12 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ6 !== "" && formData.investingQ6 === "Sell the entire investment") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ6: "Sell the entire investment" })}>
+                        onClick={() => updateFormData({ investingQ6: "Sell the entire investment" })}>
                         Sell the entire investment
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ6 !== "" && formData.investingQ6 === "Sell a portion of the investment") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ6: "Sell a portion of the investment" })}>
+                        onClick={() => updateFormData({ investingQ6: "Sell a portion of the investment" })}>
                         Sell a portion of the investment
                     </button>
                 </div>
@@ -488,17 +484,17 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "The lowest volatility ETF") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ7: "The lowest volatility ETF" })}>
+                        onClick={() => updateFormData({ investingQ7: "The lowest volatility ETF" })}>
                         The lowest volatility ETF
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "A low volatility ETF") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ7: "A low volatility ETF" })}>
+                        onClick={() => updateFormData({ investingQ7: "A low volatility ETF" })}>
                         A low volatility ETF
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "A low to moderate volatility ETF") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ7: "A low to moderate volatility ETF" })}>
+                        onClick={() => updateFormData({ investingQ7: "A low to moderate volatility ETF" })}>
                         A low to moderate volatility ETF
                     </button>
                 </div>
@@ -513,32 +509,32 @@ export const CreateAccountPage4 = ( {onBack, onLogin} ) => {
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Strongly disagree") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ8: "Strongly disagree" })}>
+                        onClick={() => updateFormData({ investingQ8: "Strongly disagree" })}>
                         Strongly disagree
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Disagree") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ8: "Disagree" })}>
+                        onClick={() => updateFormData({ investingQ8: "Disagree" })}>
                         Disagree
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Somewhat disagree") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ8: "Somewhat disagree" })}>
+                        onClick={() => updateFormData({ investingQ8: "Somewhat disagree" })}>
                         Somewhat disagree
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Somewhat agree") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ8: "Somewhat agree" })}>
+                        onClick={() => updateFormData({ investingQ8: "Somewhat agree" })}>
                         Somewhat agree
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Agree") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ8: "Agree" })}>
+                        onClick={() => updateFormData({ investingQ8: "Agree" })}>
                         Agree
                     </button>
                     <button 
                         className={`question-answer-button ${(formData.investingQ8 !== "" && formData.investingQ8 === "Strongly agree") ? 'clicked' : ''}`}
-                        onClick={() => setFormData({ ...formData, investingQ8: "Strongly agree" })}>
+                        onClick={() => updateFormData({ investingQ8: "Strongly agree" })}>
                         Strongly agree
                     </button>
                 </div>
