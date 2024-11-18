@@ -1,8 +1,6 @@
 import { React, useState, useEffect} from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
-import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import '../create-account-page.css';
 import './create-account-page-2.css';
 
@@ -13,9 +11,6 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
 
-    const location = useLocation();
-    const navigate = useNavigate();
-
     useEffect (() => {
         setFadeIn(true); // Trigger fade-in effect on mount
     }, []);
@@ -23,27 +18,10 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
 
-    // const [formData, setFormData] = useState({
-    //     securityQuestion1: "",
-    //     securityAnswer1: "",
-    //     securityQuestion2: "",
-    //     securityAnswer2: ""
-    // });
-
     const [errors, setErrors] = useState({});
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
 
     const handleChange = (e) => {
-        // const { name, value } = e.target;
-
-        // setFormData(prevData => {
-        //     const updatedValue = value;
-        //     const updatedData = { ...prevData, [name]: updatedValue };
-        //     const validationErrors = validateTwoFactorAuth(updatedData);
-        //     setErrors(validationErrors);
-        //     return updatedData;
-        // });
-
         const { name, value } = e.target;
         const newData = { ...formData, [name]: value };
         updateFormData({ [name]: value });
@@ -60,38 +38,10 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
         const isValid = Object.keys(validationErrors).length === 0;
         
         if (isValid) {
-            // try {
-            //     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signup`, {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //         },
-            //         body: JSON.stringify({
-            //             auth0_id: Date.now(),
-            //             email: email,
-            //             password: password,
-            //             securityQuestion1: formData.securityQuestion1,
-            //             securityAnswer1: formData.securityAnswer1,
-            //             securityQuestion2: formData.securityQuestion2,
-            //             securityAnswer2: formData.securityAnswer2,
-            //         }),
-            //     });
-
-            //     const data = await response.json();
-            //     console.log(data);
-        
-            //     if (response.ok) {
-                    onNext();
-                    setDisplayStepper(false);
-                    setNextButtonClicked(false);
-                    setShowErrorAlert(false);
-            //     }
-            //     else {
-            //         throw new Error('Failed to save signup information');
-            //     }
-            // } catch (error) {
-            //     console.error('Error saving signup information:', error);
-            // }
+            onNext();
+            setDisplayStepper(false);
+            setNextButtonClicked(false);
+            setShowErrorAlert(false);
         } else {
             setAlertClass("show"); // Show error alert
             setShowErrorAlert(true); // Show error alert on validation failure

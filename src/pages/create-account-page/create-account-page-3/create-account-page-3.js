@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import { validateCompanyLegalInfo } from '../../../validators/validators';
@@ -13,10 +12,6 @@ import { handleKeyDown } from '../../../utils/utils';
 export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext }) => {
     const [fadeIn, setFadeIn] = useState(false);
     const [displayStepper, setDisplayStepper] = useState(true);
-
-    const location = useLocation();
-
-    const { userId } = location.state || {};
 
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
@@ -93,7 +88,7 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
             // const validationErrors = validateCompanyLegalInfo(newData);
             // setErrors(validationErrors);
             // Handle bank account fields
-            
+
             const updatedBankAccounts = [...formData.bankAccounts];
             updatedBankAccounts[index] = { ...updatedBankAccounts[index], [name]: value };
             const newData = { ...formData, bankAccounts: updatedBankAccounts };

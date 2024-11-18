@@ -37,7 +37,7 @@ export const CreateAccountPage1 = ( { formData, updateFormData, onNext } ) => {
     //   setErrors(validationErrors);
     //   return updatedFormData;
     // });
-    
+
     const { name, value } = e.target;
     const newData = { ...formData, [name]: value };
     updateFormData({ [name]: value });

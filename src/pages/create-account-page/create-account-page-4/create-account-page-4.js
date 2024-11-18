@@ -1,23 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import './create-account-page-4.css';
 
 import { handleKeyDown } from '../../../utils/utils';
 import { validateInvestingQuestionnaire } from '../../../validators/validators';
-import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
 export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit } ) => {
     const [fadeIn, setFadeIn] = useState(false);
-
-    const location = useLocation();
-
-    const navigate = useNavigate(); // Navigate hook
-    const { logIn } = useProgress();
-
-    const { userId } = location.state || {};
 
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
@@ -480,7 +471,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                     </p>
                     {(errors.investingQ7 && nextButtonClicked) && <p className='form-error'>{errors.investingQ7}</p>}
                     
-                    <img src={chart}></img>
+                    <img alt='Investment Options Chart (jpg)' src={chart}></img>
                     
                     <button 
                         className={`question-answer-button ${(formData.investingQ7 !== "" && formData.investingQ7 === "The lowest volatility ETF") ? 'clicked' : ''}`}
