@@ -10,21 +10,18 @@ import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-ale
 import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
-export const CreateAccountPage4 = ({onLogin}) => {
+export const CreateAccountPage4 = ( {onLogin} ) => {
     const [fadeIn, setFadeIn] = useState(false);
 
     const location = useLocation();
 
     const navigate = useNavigate(); // Navigate hook
-    const { currentStep, goToNextStep, logIn } = useProgress();
+    const { logIn } = useProgress();
 
     const { userId } = location.state || {};
 
     useEffect(() => {
         setFadeIn(true); // Trigger fade-in effect on mount
-        if (currentStep < 3) {
-            navigate("/create-account-1");
-        }
     }, []);
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
