@@ -82,7 +82,7 @@ export const LogInPage = ({ onLogin }) => {
     })};
 
     const handleSignupClick = () => {
-        navigate('/create-account-1');
+        navigate('/create-account');
     }
 
     const handleForgotPasswordClick = () => {

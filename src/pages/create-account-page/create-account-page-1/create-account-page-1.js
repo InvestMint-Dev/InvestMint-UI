@@ -144,9 +144,9 @@ export const CreateAccountPage1 = ( ) => {
             <button 
               type="button" 
               className='show-password-button' 
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
-              {showPassword ? <Eye /> : <EyeOff />}
+              {showConfirmPassword ? <Eye /> : <EyeOff />}
             </button>
           </div>
           {(errors.confirmPassword && nextButtonClicked) && <p className='form-error'>{errors.confirmPassword}</p>}
