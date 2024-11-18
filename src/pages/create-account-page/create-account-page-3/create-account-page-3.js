@@ -5,7 +5,6 @@ import axios from 'axios';
 import { validateCompanyLegalInfo } from '../../../validators/validators';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
-import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import '../create-account-page.css';
 import './create-account-page-3.css'
 ;
@@ -13,6 +12,8 @@ import { handleKeyDown } from '../../../utils/utils';
 
 export const CreateAccountPage3 = () => {
     const [fadeIn, setFadeIn] = useState(false);
+    const [displayStepper, setDisplayStepper] = useState(true);
+
     const location = useLocation();
 
     const { userId } = location.state || {};
@@ -145,6 +146,7 @@ export const CreateAccountPage3 = () => {
                 // const data = await response.json();
                 
                 navigate('/create-account-4', { state: { userId: userId } }); // Navigate to the next page
+                setDisplayStepper(false);
                 setNextButtonClicked(false);
                 setShowErrorAlert(false);
             } catch (error) {
@@ -162,11 +164,6 @@ export const CreateAccountPage3 = () => {
                 }, 1000); 
             }, 2000);
         }
-    };
-    
-
-    const handleBack = () => {
-    navigate('/create-account-2');
     };
 
     const fetchAddressSuggestions = async (address) => {
@@ -258,8 +255,6 @@ export const CreateAccountPage3 = () => {
             {showErrorAlert && (
                 <ErrorAlertPanel className={alertClass} />
             )}
-
-            <CreateAccountSidebar currentPage={3}/>
 
             <div className='create-account-form-container'>
                 <h1 className='form-heading'>Company Legal Information</h1>
@@ -448,17 +443,17 @@ export const CreateAccountPage3 = () => {
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "3px solid #71CCA8" : "none" }} />
                     {errors.investmentAccountNumber && <p className='form-error'>{errors.investmentAccountNumber}</p>}
                 </div>
-
-                <div className='stepper-container'>
-                    <div className="stepper-button-container">
-                        <button className='form-stepper-button' onClick={handleBack}>
-                        Back
-                        </button>
-                        <button className='form-stepper-button' onClick={handleNext}>
-                        Next
-                        </button>
-                    </div>
-                </div>
+                {
+                    displayStepper && (
+                        <div className='stepper-container'>
+                            <div className="stepper-button-container">
+                                <button className='form-stepper-button' onClick={handleNext}>
+                                Next
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     );

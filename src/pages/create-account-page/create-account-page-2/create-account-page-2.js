@@ -11,6 +11,7 @@ import { validateTwoFactorAuth } from '../../../validators/validators';
 
 export const CreateAccountPage2 = () => {
     const [fadeIn, setFadeIn] = useState(false);
+    const [displayStepper, setDisplayStepper] = useState(true);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -77,6 +78,7 @@ export const CreateAccountPage2 = () => {
         
                 if (response.ok) {
                     navigate('/create-account-3', { state: { userId: data.userId } }); // Navigate to the next page
+                    setDisplayStepper(false);
                     setNextButtonClicked(false);
                     setShowErrorAlert(false);
                 }
@@ -111,9 +113,7 @@ export const CreateAccountPage2 = () => {
                 <ErrorAlertPanel className={alertClass} />
             )}
 
-            <CreateAccountSidebar currentPage={2}/>
-
-            <div className='create-account-form-container'>\
+            <div className='create-account-form-container'>
                 <h1 className="form-heading">Two-Factor Authentication</h1>
                 
                 <div className='two-factor-auth-form'>
@@ -177,17 +177,20 @@ export const CreateAccountPage2 = () => {
                     }
                     
                 </div>
-
-                <div className='stepper-container'>
-                    <div className="stepper-button-container">
-                        <button className='form-stepper-button' onClick={handleBack}>
-                        Back
-                        </button>
-                        <button className='form-stepper-button' onClick={handleNext}>
-                        Next
-                        </button>
-                    </div>
-                </div>
+                {
+                    displayStepper && (
+                        <div className='stepper-container'>
+                            <div className="stepper-button-container">
+                                <button className='form-stepper-button' onClick={handleBack}>
+                                Back
+                                </button>
+                                <button className='form-stepper-button' onClick={handleNext}>
+                                Next
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
     );

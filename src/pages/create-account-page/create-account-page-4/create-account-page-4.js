@@ -7,11 +7,11 @@ import { validateInvestingQuestionnaire } from '../../../validators/validators';
 import { useProgress } from '../../../context/ProgressContext'; // Use the progress context
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
-import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 import chart from '../../../assets/images/create-account-page/page-4-chart.png';
 
 export const CreateAccountPage4 = ( {onLogin} ) => {
     const [fadeIn, setFadeIn] = useState(false);
+    const [displayStepper, setDisplayStepper] = useState(true);
 
     const location = useLocation();
 
@@ -133,7 +133,6 @@ export const CreateAccountPage4 = ( {onLogin} ) => {
             {showErrorAlert && (
                 <ErrorAlertPanel className={alertClass} />
             )}
-            <CreateAccountSidebar currentPage={4}/>
 
             <div className='create-account-form-container'>
                 <h1 className='form-heading'>Investing Questionnaire</h1>

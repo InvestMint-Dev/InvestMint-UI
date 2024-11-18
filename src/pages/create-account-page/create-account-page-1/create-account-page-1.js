@@ -8,10 +8,10 @@ import '../create-account-page.css';
 import './create-account-page-1.css';
 
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
-import { CreateAccountSidebar } from '../create-account-sidebar/create-account-sidebar';
 
 export const CreateAccountPage1 = ( ) => {
   const [fadeIn, setFadeIn] = useState(false);
+  const [displayStepper, setDisplayStepper] = useState(true);
 
   useEffect(() => {
     setFadeIn(true); // Trigger fade-in effect on mount
@@ -76,7 +76,7 @@ export const CreateAccountPage1 = ( ) => {
             }
 
             //render next page
-
+            setDisplayStepper(false);
         } catch (error) {
             console.error('Error checking email:', error);
             setShowErrorAlert(true);
@@ -97,7 +97,6 @@ export const CreateAccountPage1 = ( ) => {
         <ErrorAlertPanel className={alertClass} />
       )}
       
-      <CreateAccountSidebar currentPage={1}/>
       <div className='create-account-form-container'>     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
@@ -154,16 +153,19 @@ export const CreateAccountPage1 = ( ) => {
           
         </div>
 
-        <div className='stepper-container'>
+        {
+          displayStepper && (
+            <div className='stepper-container'>
               <button className='form-stepper-button' style={{width: '100%'}} onClick={handleNext}>
                 Next
               </button>
-            <div className='form-option-2-container'>
-              <span className="form-label">Already Have an Account? </span>
-              <a className="form-link" onClick={handleBack}>Login Here</a>
+              <div className='form-option-2-container'>
+                <span className="form-label">Already Have an Account? </span>
+                <a className="form-link" onClick={handleBack}>Login Here</a>
+              </div>
             </div>
-            
-        </div>
+          )
+        }
       </div>
     </div>
   );

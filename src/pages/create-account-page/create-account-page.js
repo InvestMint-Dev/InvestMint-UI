@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { CreateAccountSidebar } from "./create-account-sidebar/create-account-sidebar";
 import { CreateAccountPage1 } from "./create-account-page-1/create-account-page-1";
 import { CreateAccountPage2 } from "./create-account-page-2/create-account-page-2";
 import { CreateAccountPage3 } from "./create-account-page-3/create-account-page-3";
@@ -22,21 +23,13 @@ export const CreateAccountPage = () => {
 
     return (
         <div>
-            {/* Conditionally render pages based on the current step */}
-            {currentStep === 1 && <CreateAccountPage1 />}
-            {currentStep === 2 && <CreateAccountPage2 />}
-            {currentStep === 3 && <CreateAccountPage3 />}
-            {currentStep === 4 && <CreateAccountPage4 />}
+            <CreateAccountSidebar currentPage={currentStep}/>
 
-            {/* Navigation buttons */}
-            <div className="stepper-container">
-                {currentStep > 1 && (
-                    <button onClick={handleBack}>Back</button>
-                )}
-                {currentStep < 4 && (
-                    <button onClick={handleNext}>Next</button>
-                )}
-            </div>
+            {/* Conditionally render pages based on the current step */}
+            {currentStep >= 1 && <CreateAccountPage1 />}
+            {currentStep >= 2 && <CreateAccountPage2 />}
+            {currentStep >= 3 && <CreateAccountPage3 />}
+            {currentStep >= 4 && <CreateAccountPage4 />}
         </div>
     );
 }
