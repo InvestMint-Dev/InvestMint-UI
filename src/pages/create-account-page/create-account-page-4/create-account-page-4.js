@@ -170,7 +170,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
                             onChange={(e) => updateFormData(formatCashValue('investingQ2AverageCashPerYear', e))}/>
-                        <a href='/cash-calculator' target="_blank">Average cash calculator</a>
+                        <a href="#/cash-calculator" target="_blank">Average cash calculator</a>
                     </div>}
                 </div>
                 <div className='question-footer question-footer-middle'>
