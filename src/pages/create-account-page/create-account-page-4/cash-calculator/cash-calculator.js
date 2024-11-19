@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import './cash-calculator.css';
 export const CashCalculator = () => {
     // State for all input values
     const [inputValues, setInputValues] = useState({});
@@ -47,7 +47,7 @@ export const CashCalculator = () => {
 
     return (
         <div>
-            <div className="flex justify-center items-center mt-8">
+            <div className="heading-container">
                 <h2 className="calculator-heading">Annual Average Cash Calculator</h2>
                 <textarea 
                     readOnly

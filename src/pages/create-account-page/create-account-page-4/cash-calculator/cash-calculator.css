@@ -3,6 +3,7 @@
     align-items: center; /* Vertically center */
     justify-content: center; /* Horizontally center */
     gap: 1.25rem; /* Adds space between h1 and textarea */
+    margin-top: 1rem;
 }
 
 .calculator-heading {
@@ -81,6 +82,4 @@ th, td {
     padding: 0.625rem;
     background-color: rgba(35, 105, 74, 0.8);
     color: white;
-    font-weight: bold;
-    padding: 0.625rem;
 }
