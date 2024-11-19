@@ -287,14 +287,19 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                     </button>
 
                     {(formData.investingQ4 !== "" && formData.investingQ4 === "Date") && 
-                    <div style={{marginTop: '1.875rem'}}>
+                    <div style={{ marginTop: '1.875rem' }}>
                         <p>Enter Date:</p>
                         {(errors.investingQ4CashBackDate && nextButtonClicked) && <p className='form-error'>{errors.investingQ4CashBackDate}</p>}
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea text-input'
+                        <input
+                            type="date"
+                            id="form-date"
+                            className='form-textarea text-input'
                             style={{ border: (errors.investingQ4CashBackDate && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
-                            value={formData.investingQ4CashBackDate} // Set the current value from the state
-                            onChange={(e) => updateFormData({ investingQ4CashBackDate: e.target.value })}/>
+                            value={formData.investingQ4CashBackDate}
+                            onChange={(e) => updateFormData({ investingQ4CashBackDate: e.target.value })}
+                        />
                     </div>}
+                
 
                     {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
                     <div style={{marginTop: '1.875rem'}}>
