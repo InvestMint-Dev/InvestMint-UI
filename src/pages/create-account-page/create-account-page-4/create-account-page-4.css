@@ -1,5 +1,5 @@
 .question-container {
-    width: calc(100% - 3.5rem);
+    width: calc(100% - 2.5rem);
     border-radius: 1.25rem 1.25rem 0 0;
     background-color:rgba(166, 219, 158, 0.25);
     padding: 1.25rem;
@@ -20,7 +20,7 @@
 
 .question-container-no-footer {
     border-radius: 1.25rem;
-    margin-bottom: 0.9375rem;
+    margin-bottom: 1rem;
 }
 
 .question-label {
@@ -55,7 +55,7 @@
 }
 
 .question-footer {
-    width: 40.625rem;
+    width: calc(100% - 2.75rem);
     padding: 0.9375rem 1.25rem 0 1.5rem;
 
     background-color: rgba(35, 105, 74, 0.8);
@@ -82,7 +82,7 @@
 .question-footer-last {
     border-radius: 0 0 1.25rem 1.25rem;
     padding-bottom: 0.35rem;
-    margin-bottom: 0.9375rem;
+    margin-bottom: 1rem;
 }
 
 .text-input {
