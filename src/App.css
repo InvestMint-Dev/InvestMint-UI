@@ -42,7 +42,9 @@ h1 {
 
 p {
   font-size: 0.9375rem;
-  margin-top: 5px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+
 }
 
 .fade-in {
