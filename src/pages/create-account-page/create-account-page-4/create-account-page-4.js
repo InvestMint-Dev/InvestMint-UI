@@ -153,6 +153,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                         <p>Enter Amount:</p>
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                             className='form-textarea text-input' 
+                            placeholder='$ 0'
                             value={formData.investingQ2CashAmount} // Set the current value from the state
                             onChange={(e) => updateFormData(formatCashValue('investingQ2CashAmount', e))}/>
                     </div>}
@@ -168,6 +169,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                         <p>What is your average cash per year?</p>
                         {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p className='form-error'>{errors.investingQ2AverageCashPerYear}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
+                            placeholder='$ 0'
                             value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
                             onChange={(e) => updateFormData(formatCashValue('investingQ2AverageCashPerYear', e))}/>
                         <a href="#/cash-calculator" target="_blank">Average cash calculator</a>
