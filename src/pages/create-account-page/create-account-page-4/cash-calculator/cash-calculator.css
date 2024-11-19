@@ -18,6 +18,7 @@
     border: none;
     height: 1.5rem; /* Adjust height for better sizing */
     padding: 0.5rem;
+    padding-left: 1rem;
     line-height: 1.5rem;
     font-size: 1rem;
     margin: 0; /* Remove margin-bottom for better alignment */
@@ -47,7 +48,7 @@ th, td {
 }
 
 .section-divider {
-    background-color: #23694A;
+    background-color: rgba(35, 105, 74, 0.8)    ;
     color: white;
     font-weight: bold;
     text-align: left;
@@ -78,7 +79,7 @@ th, td {
     width: 5vw;
     height: 1.25rem;
     padding: 0.625rem;
-    background-color: #23694A;
+    background-color: rgba(35, 105, 74, 0.8);
     color: white;
     font-weight: bold;
     padding: 0.625rem;
