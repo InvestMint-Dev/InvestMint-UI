@@ -67,6 +67,13 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
         onBack();
     };
 
+    const formatCashValue = (fieldName, e) => {
+        const rawValue = e.target.value.replace(/[^0-9]/g, ""); // Remove non-numeric characters
+        const formattedValue = '$ ' + Number(rawValue).toLocaleString(); // Add commas and $ sign
+        return { [fieldName]: formattedValue }; // Return in correct format
+    };
+    
+
     return (
         <div id='create-account-4' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             {showErrorAlert && (
@@ -147,7 +154,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2CashAmount && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                             className='form-textarea text-input' 
                             value={formData.investingQ2CashAmount} // Set the current value from the state
-                            onChange={(e) => updateFormData({ investingQ2CashAmount: e.target.value })}/>
+                            onChange={(e) => updateFormData(formatCashValue('investingQ2CashAmount', e))}/>
                     </div>}
 
                     {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
@@ -162,7 +169,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                         {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p className='form-error'>{errors.investingQ2AverageCashPerYear}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2AverageCashPerYear} // Set the current value from the state
-                            onChange={(e) => updateFormData({ investingQ2AverageCashPerYear: e.target.value })}/>
+                            onChange={(e) => updateFormData(formatCashValue('investingQ2AverageCashPerYear', e))}/>
                         <a href='/cash-calculator' target="_blank">Average cash calculator</a>
                     </div>}
                 </div>
