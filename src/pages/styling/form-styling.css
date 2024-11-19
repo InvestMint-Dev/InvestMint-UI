@@ -22,8 +22,7 @@
 .form-textarea { /*input area*/
   width: calc(100% - 1rem);
   height: 2.5rem;
-  margin: 0;
-  margin-top: 1rem;
+  margin: 0.5rem;
   line-height: 2.5rem;
   border-radius: 3.125rem;
 
@@ -128,7 +127,7 @@
 
 /* Hide the default arrow */
 .form-select select {
-  margin-bottom: 1.25rem;
+  margin: 0.5rem;
   border-radius: 3.125rem;
   height: 2.75rem;
   width: 28.125rem;

@@ -52,6 +52,7 @@
     height: 1.5625rem;
     line-height: 1.5625rem;
     font-size: 0.9375rem;
+    margin: 0;
     margin-top: 0.15rem;
     padding-left: 0.625rem;
     padding-right: 3.125rem;
@@ -72,6 +73,7 @@
     text-align: left;
     line-height: 1.5625rem;
     font-size: 0.9375rem;
+    margin: 0;
     margin-bottom: 0.625rem;
     padding: 0;
     padding-left: 0.625rem;

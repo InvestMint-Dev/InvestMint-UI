@@ -1,5 +1,5 @@
 .question-container {
-    width: 40.625rem;
+    width: calc(100% - 3.5rem);
     border-radius: 1.25rem 1.25rem 0 0;
     background-color:rgba(166, 219, 158, 0.25);
     padding: 1.25rem;
