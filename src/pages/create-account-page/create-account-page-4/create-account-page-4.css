@@ -46,8 +46,16 @@
     margin-bottom: 0.625rem;
 }
 
-.question-answer-button:hover, .question-answer-button.clicked {
+.question-answer-button:hover {
     transform: scale(105%);
+    font-size: 0.975rem;
+    background-color: white;
+    color: #166739;
+    border: 2px solid #166739;
+    cursor: pointer;
+}
+
+.question-answer-button.clicked {
     font-size: 0.975rem;
     background-color: white;
     color: #166739;

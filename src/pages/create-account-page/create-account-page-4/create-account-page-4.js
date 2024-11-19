@@ -18,22 +18,6 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
     const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
     const [alertClass, setAlertClass] = useState(""); // State for alert class
 
-    // const [formData, setFormData] = useState({
-    //     investingQ1: "",
-    //     investingQ2: "",
-    //     investingQ2CashAmount: "$",
-    //     investingQ2BusinessDuration: "",
-    //     investingQ2AverageCashPerYear: "$",
-    //     investingQ3: "",
-    //     investingQ4: "",
-    //     investingQ4CashBackDate: "",
-    //     investingQ4CashBackDuration: "",
-    //     investingQ5: "",
-    //     investingQ6: "",
-    //     investingQ7: "",
-    //     investingQ8: ""
-    // });
-
     const [errors, setErrors] = useState({});
     const [expandedSections, setExpandedSections] = useState({
         1: false,
@@ -61,41 +45,9 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
         let isValid = Object.keys(validationErrors).length === 0;
     
         if (isValid) {
-            // try {
-            //     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/investingQuestionnaire/${userId}`, {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //         },
-            //         body: JSON.stringify({
-            //             investingQ1: formData.investingQ1,
-            //             investingQ2: formData.investingQ2,
-            //             investingQ2CashAmount: formData.investingQ2CashAmount,
-            //             investingQ2BusinessDuration: formData.investingQ2BusinessDuration,
-            //             investingQ2AverageCashPerYear: formData.investingQ2AverageCashPerYear,
-            //             investingQ3: formData.investingQ3,
-            //             investingQ4: formData.investingQ4,
-            //             investingQ4CashBackDate: formData.investingQ4CashBackDate,
-            //             investingQ4CashBackDuration: formData.investingQ4CashBackDuration,
-            //             investingQ5: formData.investingQ5,
-            //             investingQ6: formData.investingQ6,
-            //             investingQ7: formData.investingQ7,
-            //             investingQ8: formData.investingQ8
-            //         }),
-            //     });
-
-            //     if (!response.ok) {
-            //         const errorMessage = await response.text();
-            //         console.error('Error response:', errorMessage);
-            //         throw new Error('Failed to save investing information');
-            //     }
-                
-                onSubmit();
-                setNextButtonClicked(false);
-                setShowErrorAlert(false);
-            // } catch (error) {
-            //     console.error('Error saving investing information:', error);
-            // }
+            onSubmit();
+            setNextButtonClicked(false);
+            setShowErrorAlert(false);
         } else {
             setAlertClass("show"); // Show error alert
             setShowErrorAlert(true); // Show error alert on validation failure
