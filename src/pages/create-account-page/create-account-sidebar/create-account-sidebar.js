@@ -10,13 +10,23 @@ export const CreateAccountSidebar = ({ currentPage }) => {
         'Investing Questionnaire'
     ];
 
+    const onStepperClick = (index) => {
+        const element = document.getElementById('create-account-' + (index + 1));
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.warn(`Element with ID create-account-${index} not found.`);
+        }
+    };
+
+
     return (
         <div className="create-account-sidebar-container">
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
             <div className='create-account-sidebar-stepper-container'>
                 {steps.map((step, index) => (
-                    <div key={index} className='create-account-sidebar-stepper'>
+                    <div key={index} className='create-account-sidebar-stepper' onClick={() => onStepperClick(index)}>
                         {/* Change circle style based on currentPage */}
                         <div 
                             className={`create-account-sidebar-stepper-circle ${

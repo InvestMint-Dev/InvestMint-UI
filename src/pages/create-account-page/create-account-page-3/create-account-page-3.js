@@ -295,7 +295,7 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
 
 
     return (
-        <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
+        <div id='create-account-3' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             {showErrorAlert && (
                 <ErrorAlertPanel className={alertClass} />
             )}

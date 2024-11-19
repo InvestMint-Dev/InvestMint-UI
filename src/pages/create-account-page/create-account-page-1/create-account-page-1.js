@@ -72,7 +72,7 @@ export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
   };
 
   return (
-    <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
+    <div id='create-account-1' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
       {/* {Object.keys(errors).length > 0 && nextButtonClicked && (
         <ErrorAlertPanel message="Please fix the errors in the form." />
       )} */}
