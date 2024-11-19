@@ -22,6 +22,7 @@ export const CashCalculator = () => {
 
     // Calculate monthly totals whenever inputs change
     useEffect(() => {
+        document.title = 'Cash Calculator | InvestMint';
         const newMonthlyTotals = Array(12).fill(0).map((_, monthIndex) => {
             let monthTotal = 0;
             
