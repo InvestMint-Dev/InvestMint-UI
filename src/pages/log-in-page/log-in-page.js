@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react'; // Import Eye and EyeOff icons from Lucide React
+import { ErrorAlertPanel } from '../../components/error-alert-panel/error-alert-panel';
 
 import './log-in-page.css';
 import '../styling/form-styling.css';
@@ -62,11 +63,11 @@ export const LogInPage = ({ onLogin }) => {
                 logIn(); // Call onLogin here
             } else {
                 // Display error message from the backend
-                setErrors({ login: data.message });
+                setErrors({ email: data.message });
             }
         } catch (error) {
             console.error('Error during login:', error);
-            setErrors({ login: 'Something went wrong. Please try again.' });
+            setErrors({ email: 'Something went wrong. Please try again.' });
         }
         }
     };
@@ -93,7 +94,11 @@ export const LogInPage = ({ onLogin }) => {
         <div className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <img className='logo-display' src={bigLeafLogo} alt="InvestMint Logo" />
 
-            <div className='log-in-form-container'>
+            <div className={`log-in-form-container ${(Object.keys(errors).length > 0 && submitButtonClicked) ? 'error' : 'no-error'}`}>
+                {Object.keys(errors).length > 0 && submitButtonClicked && (
+                    <ErrorAlertPanel errors={errors} />
+                )}  
+
                 <h1 className='form-heading'>Login</h1>
                 <form className='log-in-form' onSubmit={handleSubmit}>
                     {/* email input */}

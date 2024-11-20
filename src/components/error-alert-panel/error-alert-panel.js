@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 export const ErrorAlertPanel = ({ errors }) => {
     const onErrorClick = (key) => {
+        console.log(key);
         const element = document.getElementsByName(key);
-        console.log(element);
         if (element) {
             element[0].scrollIntoView({ behavior: 'smooth' });
         } else {

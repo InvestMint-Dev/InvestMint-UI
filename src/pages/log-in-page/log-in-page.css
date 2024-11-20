@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 .log-in-form-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10rem;
     width: 32.5rem;
+    margin-bottom: 5rem;
+    transition: margin-top 0.3s ease; /* Optional: smooth transition */
 }
 
+.log-in-form-container.no-error {
+    margin-top: 10rem;
+}
+
+.log-in-form-container.error {
+    margin-top: 5rem;
+}
 .log-in-form {
     margin-top: 1.5rem;
 }
