@@ -15,9 +15,6 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
         setFadeIn(true); // Trigger fade-in effect on mount
     }, []);
 
-    const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
-    const [alertClass, setAlertClass] = useState(""); // State for alert class
-
     const [errors, setErrors] = useState({});
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
 
@@ -41,17 +38,12 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
             onNext();
             setDisplayStepper(false);
             setNextButtonClicked(false);
-            setShowErrorAlert(false);
         } else {
-            setAlertClass("show"); // Show error alert
-            setShowErrorAlert(true); // Show error alert on validation failure
             window.scrollTo({ top: 0, behavior: 'auto' });
     
             // Hide error alert after 2 seconds
             setTimeout(() => {
-                setAlertClass("hide"); // Start fade-out
                 setTimeout(() => {
-                setShowErrorAlert(false); // Remove from DOM after fade-out
                 }, 1000); // Duration of the fade-out transition
             }, 2000);
         }
@@ -63,11 +55,11 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
 
     return (
         <div id='create-account-2' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
-            {showErrorAlert && (
-                <ErrorAlertPanel className={alertClass} />
-            )}
-
             <div className='create-account-form-container'>
+                {Object.keys(errors).length > 0 && nextButtonClicked && (
+                    <ErrorAlertPanel errors={errors} />
+                )}
+
                 <h1 className="form-heading">Two-Factor Authentication</h1>
                 
                 <div className='two-factor-auth-form'>

@@ -53,16 +53,16 @@ export const validateTwoFactorAuth = (formData) => {
         errors.securityQuestion1 = "Choose your first security question.";
     }
 
-    if (!formData.securityAnswer1 || formData.securityAnswer1.trim() === "") {
-        errors.securityAnswer1 = "Answer is required."
+    if (!errors.securityQuestion1 && (!formData.securityAnswer1 || formData.securityAnswer1.trim() === "")) {
+        errors.securityAnswer1 = "Answer your first security question."
     }
 
     if (!formData.securityQuestion2 || formData.securityQuestion2.trim() === "") {
         errors.securityQuestion2 = "Choose your second security question.";
     }
 
-    if (!formData.securityAnswer2 || formData.securityAnswer2.trim() === "") {
-        errors.securityAnswer2 = "Answer is required."
+    if (!errors.securityQuestion2 && (!formData.securityAnswer2 || formData.securityAnswer2.trim() === "")) {
+        errors.securityAnswer2 = "Answer your second security question."
     }
 
     return errors;

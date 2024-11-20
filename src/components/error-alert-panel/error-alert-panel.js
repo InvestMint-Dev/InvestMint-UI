@@ -1,7 +1,7 @@
 import './error-alert-panel.css';
 import { useState } from 'react';
 
-export const ErrorAlertPanel = ({ errors, className }) => {
+export const ErrorAlertPanel = ({ errors }) => {
     const onErrorClick = (key) => {
         const element = document.getElementsByName(key);
         console.log(element);
@@ -12,7 +12,7 @@ export const ErrorAlertPanel = ({ errors, className }) => {
         }
     }
     return (
-        <div className={`error-alert-panel ${className}`}>
+        <div className={`error-alert-panel`}>
             <h4>Error:</h4> 
             <ul>
             {Object.entries(errors).map(([key, error]) => (
