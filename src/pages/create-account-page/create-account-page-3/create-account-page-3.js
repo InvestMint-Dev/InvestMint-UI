@@ -25,28 +25,8 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
         zipcode: [],
         countryName: []
     });
-
-    const [showErrorAlert, setShowErrorAlert] = useState(false); // State for alert visibility
-    const [alertClass, setAlertClass] = useState(""); // State for alert class
+    
     const REACT_APP_HERE_API_KEY = process.env.REACT_APP_HERE_API_KEY;
-
-    // const [formData, setFormData] = useState({
-    //     firstName: "",
-    //     lastName: "",
-    //     email: "",
-    //     phoneNumber: "",
-    //     mobileNumber: "",
-    //     companyName: "",
-    //     countryName: "",
-    //     addressLine1: "",
-    //     state: "",
-    //     city: "",
-    //     zipcode: "",
-    //     companyPhoneNumber: "",
-    //     bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "" }], // Example initial bank account
-    //     advisorName: "",
-    //     investmentAccountNumber: ""
-    // });
 
     const [errors, setErrors] = useState({});
 
@@ -70,25 +50,6 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
         };
 
         if (name === 'bank' || name === 'accountNumber') {
-            // // Handle changes for bank account fields
-            // setFormData(prevData => {
-            //     const updatedBankAccounts = [...prevData.bankAccounts];
-            //     updatedBankAccounts[index] = { ...updatedBankAccounts[index], [name]: value }; // name can be 'bank' or 'accountNumber'
-            //     const updatedData = { ...prevData, bankAccounts: updatedBankAccounts };
-            //     const validationErrors = validateCompanyLegalInfo(updatedData);
-            //     setErrors(validationErrors);
-            //     return updatedData;
-            // });
-            // const updatedBankAccounts = [...formData.bankAccounts];
-            // updatedBankAccounts[index] = { ...updatedBankAccounts[index], [name]: value }; // name can be 'bank' or 'accountNumber'
-
-            // const newData = { ...formData, bankAccounts: updatedBankAccounts };
-            // updateFormData({ [name]: value });
-            
-            // const validationErrors = validateCompanyLegalInfo(newData);
-            // setErrors(validationErrors);
-            // Handle bank account fields
-
             const updatedBankAccounts = [...formData.bankAccounts];
             updatedBankAccounts[index] = { ...updatedBankAccounts[index], [name]: value };
             const newData = { ...formData, bankAccounts: updatedBankAccounts };
@@ -96,14 +57,6 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
             setErrors(validateCompanyLegalInfo(newData));
         } 
         else {
-            // Handle changes for other form fields
-            // setFormData(prevData => {
-            //     const updatedValue = (name === 'phoneNumber') || (name === 'mobileNumber') || (name === 'companyPhoneNumber') ? formatPhoneNumber(value) : value;
-            //     const updatedData = { ...prevData, [name]: updatedValue };
-            //     const validationErrors = validateCompanyLegalInfo(updatedData);
-            //     setErrors(validationErrors);
-            //     return updatedData;
-            // });
             const formattedValue = ['phoneNumber', 'mobileNumber', 'companyPhoneNumber'].includes(name) 
                 ? formatPhoneNumber(value) 
                 : value;
@@ -124,58 +77,12 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
         setErrors(validationErrors);
         const isValid = Object.keys(validationErrors).length === 0;
         
-        if (isValid) {
-            // try {
-            //     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/companyInformation/${userId}`, {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //         },
-            //         body: JSON.stringify({
-            //             firstName: formData.firstName,
-            //             lastName: formData.lastName,
-            //             email: formData.email,
-            //             phoneNumber: formData.phoneNumber, 
-            //             mobileNumber: formData.mobileNumber, 
-            //             companyName: formData.companyName, 
-            //             countryName: formData.countryName, 
-            //             companyPhoneNumber: formData.companyPhoneNumber, 
-            //             companyAddressLine: formData.addressLine1, 
-            //             state: formData.state, 
-            //             city: formData.city, 
-            //             zipcode: formData.zipcode, 
-            //             companyBankAccounts: formData.bankAccounts, 
-            //             advisorName: formData.advisorName, 
-            //             companyInvestmentAccountNumber: formData.investmentAccountNumber, 
-            //         }),
-            //     });
-                
-                
-            //     if (!response.ok) {
-            //         const errorMessage = await response.text();
-            //         console.error('Error response:', errorMessage);
-            //         throw new Error('Failed to save company information');
-            //     }
-        
-                // const data = await response.json();
-                onNext();
-                setDisplayStepper(false);
-                setNextButtonClicked(false);
-                setShowErrorAlert(false);
-            // } catch (error) {
-            //     console.error('Error saving company information:', error);
-            // }
+    if (isValid) {
+            onNext();
+            setDisplayStepper(false);
+            setNextButtonClicked(false);
         } else {
-            setAlertClass("show");
-            setShowErrorAlert(true);
             window.scrollTo({ top: 0, behavior: 'auto' });
-    
-            setTimeout(() => {
-                setAlertClass("hide");
-                setTimeout(() => {
-                setShowErrorAlert(false);
-                }, 1000); 
-            }, 2000);
         }
     };
 
@@ -210,63 +117,6 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
         }
     };
 
-    // const handleLocationSuggestionClick = (suggestion) => {
-    //     setFormData(prevData => {
-    //             const updatedData = { ...prevData, 
-    //                 addressLine1: suggestion.title, // Set the selected address line
-    //                 city: suggestion.city,
-    //                 state: suggestion.state,
-    //                 zipcode: suggestion.zipcode,
-    //                 countryName: suggestion.countryName
-    //             };
-    //             const validationErrors = validateCompanyLegalInfo(updatedData);
-    //             setErrors(validationErrors);
-    //             return updatedData;
-    //         });
-    //     setSuggestions([]); // Clear suggestions after selection
-    // };
-
-
-    // const addBankInputSet = () => {
-    //     setFormData(prevData => {
-    //         // Create the updated data first
-    //         const updatedData = {
-    //             ...prevData,
-    //             bankAccounts: [
-    //                 ...(prevData.bankAccounts || []), // Ensure it's an array or create a new one if undefined
-    //                 { id: Date.now(), bank: "", accountNumber: "" }
-    //             ]
-    //         };
-            
-    //         // Validate the updated data
-    //         const validationErrors = validateCompanyLegalInfo(updatedData);
-    
-    //         // Set the validation errors if any
-    //         setErrors(validationErrors);
-    
-    //         // Return the updated formData to actually update the state
-    //         return updatedData;
-    //     });
-    // };
-
-    // const removeBankInputSet = (index) => {
-    //     setFormData(prevData => {
-    //         const updatedData = {
-    //         ...prevData,
-    //         bankAccounts: prevData.bankAccounts.filter((_, i) => i !== index)
-    //         };
-
-    //         // Validate the updated data
-    //         const validationErrors = validateCompanyLegalInfo(updatedData);
-    
-    //         // Set the validation errors if any
-    //         setErrors(validationErrors);
-    
-    //         // Return the updated formData to actually update the state
-    //         return updatedData;
-    //     });
-    // };
-
     const handleLocationSuggestionClick = (suggestion) => {
         const updates = {
             addressLine1: suggestion.title,
@@ -296,11 +146,11 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
 
     return (
         <div id='create-account-3' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
-            {showErrorAlert && (
-                <ErrorAlertPanel className={alertClass} />
-            )}
-
             <div className='create-account-form-container'>
+                {Object.keys(errors).length > 0 && nextButtonClicked && (
+                    <ErrorAlertPanel errors={errors} />
+                )}
+
                 <h1 className='form-heading'>Company Legal Information</h1>
                 <div className='company-legal-information-form'>
                     {/* Form fields */}

@@ -7,15 +7,10 @@
     border-bottom: 2px solid #d8000c;
 }
 
+a {
+    line-height: 1.25rem;
+}
 a:hover { 
     text-decoration: underline;  
     cursor: pointer;
 }
-@media (max-width: 768px) {
-    .error-alert-panel {
-        display: absolute;
-        top: 2rem;
-        left: calc(50%);
-        width: 80%;
-    }
-  }

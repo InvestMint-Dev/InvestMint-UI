@@ -40,12 +40,6 @@ export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext })
             setNextButtonClicked(false);
         } else {
             window.scrollTo({ top: 0, behavior: 'auto' });
-    
-            // Hide error alert after 2 seconds
-            setTimeout(() => {
-                setTimeout(() => {
-                }, 1000); // Duration of the fade-out transition
-            }, 2000);
         }
       };
 
