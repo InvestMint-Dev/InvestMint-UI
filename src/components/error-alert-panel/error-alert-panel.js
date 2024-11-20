@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 export const ErrorAlertPanel = ({ errors }) => {
     const onErrorClick = (key) => {
-        console.log(key);
         const element = document.getElementsByName(key);
         if (element) {
             element[0].scrollIntoView({ behavior: 'smooth' });
@@ -12,7 +11,7 @@ export const ErrorAlertPanel = ({ errors }) => {
         }
     }
     return (
-        <div className={`error-alert-panel`}>
+        <div id='error-alert-panel' className={`error-alert-panel`}>
             <h4>Error:</h4> 
             <ul>
             {Object.entries(errors).map(([key, error]) => (

@@ -40,7 +40,10 @@ export const CreateAccountPage2 = ({ isCurrentPage, formData, updateFormData, on
             setDisplayStepper(false);
             setNextButtonClicked(false);
         } else {
-            window.scrollTo({ top: 0, behavior: 'auto' });
+            const errorAlertPanel = document.getElementById('error-alert-panel');
+            if (errorAlertPanel) {
+                errorAlertPanel.scrollIntoView({ behavior: 'smooth' });
+            }
         }
       };
 
