@@ -151,6 +151,8 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
     return (
         <div id='create-account-3' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
             <div className='create-account-form-container'>
+                {!isCurrentPage && <div className="overlay"></div>}
+
                 {Object.keys(errors).length > 0 && nextButtonClicked && (
                     <ErrorAlertPanel errors={errors} />
                 )}

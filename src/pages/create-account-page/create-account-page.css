@@ -49,3 +49,14 @@
         }
     }
   }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* semi-transparent overlay */
+    z-index: 10; /* ensure it covers the form */
+    cursor: not-allowed; /* change cursor to indicate disabled state */
+}
