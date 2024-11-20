@@ -157,12 +157,12 @@ export const validateInvestingQuestionnaire = (formData) => {
 
     //Q1
     if (!formData.investingQ1 || formData.investingQ1.trim() === "") {
-        errors.investingQ1 = "Answer this question.";
+        errors.investingQ1 = "Answer question 1.";
     }
     
     //Q2
     if (!formData.investingQ2 || formData.investingQ2.trim() === "") {
-        errors.investingQ2 = "Answer this question.";
+        errors.investingQ2 = "Answer question 2.";
     }
     if (formData.investingQ2 === "Yes") {
         if (!formData.investingQ2CashAmount || formData.investingQ2CashAmount.trim() === "$") {
@@ -180,12 +180,12 @@ export const validateInvestingQuestionnaire = (formData) => {
 
     //Q3
     if (!formData.investingQ3 || formData.investingQ3.trim() === "") {
-        errors.investingQ3 = "Answer this question.";
+        errors.investingQ3 = "Answer question 3.";
     }
 
     //Q4
     if (!formData.investingQ4 || formData.investingQ4.trim() === "") {
-        errors.investingQ4 = "Answer this question.";
+        errors.investingQ4 = "Answer question 4.";
     }
     if (formData.investingQ4 === "Date") {
         if (!formData.investingQ4CashBackDate || formData.investingQ4CashBackDate.trim() === "") {
@@ -200,22 +200,22 @@ export const validateInvestingQuestionnaire = (formData) => {
 
     //Q5
     if (!formData.investingQ5 || formData.investingQ5.trim() === "") {
-        errors.investingQ5 = "Answer this question.";
+        errors.investingQ5 = "Answer question 5.";
     }
 
     //Q6
     if (!formData.investingQ6 || formData.investingQ6.trim() === "") {
-        errors.investingQ6 = "Answer this question.";
+        errors.investingQ6 = "Answer question 6.";
     }
 
     //Q7
     if (!formData.investingQ7 || formData.investingQ7.trim() === "") {
-        errors.investingQ7 = "Answer this question.";
+        errors.investingQ7 = "Answer question 7.";
     }
 
     //Q8
     if (!formData.investingQ8 || formData.investingQ8.trim() === "") {
-        errors.investingQ8 = "Answer this question.";
+        errors.investingQ8 = "Answer question 8.";
     }
 
     return errors;

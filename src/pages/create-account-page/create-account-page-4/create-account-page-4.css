@@ -18,6 +18,11 @@
     }
 }
 
+.form-error {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
 .question-container-no-footer {
     border-radius: 1.25rem;
     margin-bottom: 1rem;
