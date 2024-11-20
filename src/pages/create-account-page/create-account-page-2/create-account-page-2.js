@@ -7,13 +7,14 @@ import './create-account-page-2.css';
 import { handleKeyDown } from '../../../utils/utils';
 import { validateTwoFactorAuth } from '../../../validators/validators';
 
-export const CreateAccountPage2 = ({ formData, updateFormData, onBack, onNext }) => {
+export const CreateAccountPage2 = ({ isCurrentPage, formData, updateFormData, onBack, onNext }) => {
     const [fadeIn, setFadeIn] = useState(false);
-    const [displayStepper, setDisplayStepper] = useState(true);
+    const [displayStepper, setDisplayStepper] = useState(isCurrentPage);
 
     useEffect (() => {
+        setDisplayStepper(isCurrentPage);
         setFadeIn(true); // Trigger fade-in effect on mount
-    }, []);
+    }, [isCurrentPage]);
 
     const [errors, setErrors] = useState({});
     const [nextButtonClicked, setNextButtonClicked] = useState(false);

@@ -7,9 +7,9 @@ import '../create-account-page.css';
 import './create-account-page-1.css';
 import { ErrorAlertPanel } from '../../../components/error-alert-panel/error-alert-panel';
 
-export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
+export const CreateAccountPage1 = ({ isCurrentPage, formData, updateFormData, onNext }) => {
   const [fadeIn, setFadeIn] = useState(false);
-  const [displayStepper, setDisplayStepper] = useState(true);
+  const [displayStepper, setDisplayStepper] = useState(isCurrentPage);
   const [nextButtonClicked, setNextButtonClicked] = useState(false);
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -19,8 +19,9 @@ export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
 
   useEffect(() => {
     setFadeIn(true);
+    setDisplayStepper(isCurrentPage);
     document.title = 'Create Account | InvestMint';
-  }, []);
+  }, [isCurrentPage]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

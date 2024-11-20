@@ -9,13 +9,14 @@ import './create-account-page-3.css'
 ;
 import { handleKeyDown } from '../../../utils/utils';
 
-export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext }) => {
+export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, onBack, onNext }) => {
     const [fadeIn, setFadeIn] = useState(false);
-    const [displayStepper, setDisplayStepper] = useState(true);
+    const [displayStepper, setDisplayStepper] = useState(isCurrentPage);
 
     useEffect(() => {
+        setDisplayStepper(isCurrentPage)
         setFadeIn(true); // Trigger fade-in effect on mount
-    }, []);
+    }, [isCurrentPage]);
     
 
     const [nextButtonClicked, setNextButtonClicked] = useState(false);
@@ -25,7 +26,7 @@ export const CreateAccountPage3 = ({ formData, updateFormData, onBack, onNext })
         zipcode: [],
         countryName: []
     });
-    
+
     const REACT_APP_HERE_API_KEY = process.env.REACT_APP_HERE_API_KEY;
 
     const [errors, setErrors] = useState({});

@@ -62,19 +62,6 @@ export const CreateAccountPage = () => {
 
     const handleSubmit = async () => {
         try {
-            // // First, check if email exists
-            // const emailCheckResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/check-email`, {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ email: formData.email }),
-            // });
-
-            // if (!emailCheckResponse.ok) {
-            //     throw new Error('Email already exists');
-            // }
-
             // Create user account
             const signupResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/signup`, {
                 method: 'POST',
@@ -167,6 +154,7 @@ export const CreateAccountPage = () => {
 
             {currentStep >= 1 && (
                 <CreateAccountPage1 
+                    isCurrentPage={(currentStep === 1)}
                     formData={formData}
                     updateFormData={updateFormData}
                     onNext={handleNext}
@@ -174,6 +162,7 @@ export const CreateAccountPage = () => {
             )}
             {currentStep >= 2 && (
                 <CreateAccountPage2
+                    isCurrentPage={(currentStep === 2)}
                     formData={formData}
                     updateFormData={updateFormData}
                     onBack={handleBack}
@@ -182,6 +171,7 @@ export const CreateAccountPage = () => {
             )}
             {currentStep >= 3 && (
                 <CreateAccountPage3
+                    isCurrentPage={(currentStep === 3)}
                     formData={formData}
                     updateFormData={updateFormData}
                     onBack={handleBack}
@@ -190,6 +180,7 @@ export const CreateAccountPage = () => {
             )}
             {currentStep >= 4 && (
                 <CreateAccountPage4
+                    isCurrentPage={(currentStep === 4)}
                     formData={formData}
                     updateFormData={updateFormData}
                     onBack={handleBack}
