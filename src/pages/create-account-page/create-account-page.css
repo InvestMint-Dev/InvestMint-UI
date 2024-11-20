@@ -7,6 +7,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 5rem;
+    padding-bottom: 5rem;
     width: 65vw; /* 70% of the viewport width */
     max-width: 34.375rem; /* Max width to maintain original size on larger screens */
     position: relative;

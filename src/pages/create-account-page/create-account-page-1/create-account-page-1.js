@@ -73,15 +73,15 @@ export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
 
   return (
     <div id='create-account-1' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
-      {/* {Object.keys(errors).length > 0 && nextButtonClicked && (
-        <ErrorAlertPanel message="Please fix the errors in the form." />
-      )} */}
-      
-      <div className='create-account-form-container'>     
+      <div className='create-account-form-container'>
+        {Object.keys(errors).length > 0 && nextButtonClicked && (
+          <ErrorAlertPanel errors={errors} />
+        )}     
         <h1 className='form-heading'>Create Your Account</h1>
         <div className='create-account-form'>
           <input
             className='form-textarea form-textarea-full'
+            id='email'
             name='email'
             placeholder='Email'
             value={formData.email}
@@ -91,6 +91,7 @@ export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
           {errors.email && <p className='form-error'>{errors.email}</p>}
           <div className='password-container'>
             <input
+              id='password'
               className='form-textarea form-textarea-full'
               name='password'
               type={showPassword ? "text" : "password"} 
@@ -113,6 +114,7 @@ export const CreateAccountPage1 = ({ formData, updateFormData, onNext }) => {
             <input
               className='form-textarea form-textarea-full'
               name='confirmPassword'
+              id='confirmPassword'
               type={showConfirmPassword ? "text" : "password"} 
               placeholder='Confirm Password'
               value={formData.confirmPassword}
