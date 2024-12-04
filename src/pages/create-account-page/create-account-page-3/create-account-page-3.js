@@ -58,7 +58,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
             setErrors(validateCompanyLegalInfo(newData));
         } 
         else {
-            const formattedValue = ['phoneNumber', 'mobileNumber', 'companyPhoneNumber'].includes(name) 
+            const formattedValue = ['phoneNumber', 'mobileNumber'].includes(name) 
                 ? formatPhoneNumber(value) 
                 : value;
             const newData = { ...formData, [name]: formattedValue };
@@ -160,6 +160,11 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                 <h1 className='form-heading'>Company Legal Information</h1>
                 <div className='company-legal-information-form'>
                     {/* Form fields */}
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
+                        {(errors.companyName && nextButtonClicked) && <p className='form-error'>{errors.companyName}</p>}
+                    </div>
+                    
                     <div className='form-flex-container'>
                         <div className='form-textarea-container-half'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
@@ -201,22 +206,6 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                             />
                             {(errors.mobileNumber && nextButtonClicked) && <p className='form-error'>{errors.mobileNumber}</p>}
                         </div>
-                    </div>
-
-                    <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
-                        {(errors.companyName && nextButtonClicked) && <p className='form-error'>{errors.companyName}</p>}
-                    </div>
-
-                    <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" 
-                            className='form-textarea form-textarea-full' 
-                            name="companyPhoneNumber" 
-                            placeholder='Company Phone Number' 
-                            value={formData.companyPhoneNumber} 
-                            onChange={handleChange} 
-                            style={{ border: (errors.companyPhoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
-                        {(errors.companyPhoneNumber && nextButtonClicked) && <p className='form-error'>{errors.companyPhoneNumber}</p>}
                     </div>
 
                     <div className='form-textarea-container-full'>

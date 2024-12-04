@@ -35,7 +35,6 @@ export const CreateAccountPage = () => {
         state: '',
         city: '',
         zipcode: '',
-        companyPhoneNumber: '',
         bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "" }],
         advisorName: '',
         investmentAccountNumber: ''
@@ -99,7 +98,6 @@ export const CreateAccountPage = () => {
                     mobileNumber: formData.mobileNumber,
                     companyName: formData.companyName,
                     countryName: formData.countryName,
-                    companyPhoneNumber: formData.companyPhoneNumber,
                     companyAddressLine: formData.addressLine1,
                     state: formData.state,
                     city: formData.city,

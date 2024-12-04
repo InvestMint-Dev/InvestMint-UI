@@ -120,11 +120,6 @@ export const validateCompanyLegalInfo = (formData) => {
     if (!formData.zipcode || formData.zipcode.trim() === "") {
         errors.zipcode = "Zipcode is required.";
     }
-    if (!formData.companyPhoneNumber || formData.companyPhoneNumber.trim() === "") {
-        errors.companyPhoneNumber = "Company Phone Number is required.";
-    } else if (!phoneRegex.test(formData.companyPhoneNumber)) {
-        errors.companyPhoneNumber = "Company Phone Number must be 10 digits.";
-    }
 
     if (!formData.bankAccounts || formData.bankAccounts.length === 0) {
         errors.bankAccounts = "At least one company bank account is required.";

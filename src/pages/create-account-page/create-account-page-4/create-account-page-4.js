@@ -152,7 +152,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
 
                     {(formData.investingQ2 !== "" && formData.investingQ2 === "No") && 
                     <div style={{marginTop: '1.875rem'}}>
-                        <p>How long have you been in business? (in days)</p>
+                        <p>How many months of bank account data do you have? (in days)</p>
                         {(errors.investingQ2BusinessDuration && nextButtonClicked) && <p className='form-error'>{errors.investingQ2BusinessDuration}</p>}
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" style={{ border: (errors.investingQ2BusinessDuration && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
                             value={formData.investingQ2BusinessDuration} // Set the current value from the state
@@ -296,7 +296,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
 
                     {(formData.investingQ4 !== "" && formData.investingQ4 === "Duration") && 
                     <div style={{marginTop: '1.875rem'}}>
-                        <p>Enter Duration:</p>
+                        <p>Enter Duration: (in days)</p>
                         {(errors.investingQ4CashBackDuration && nextButtonClicked) && <p className='form-error'>{errors.investingQ4CashBackDuration}</p>}
                         <textarea 
                             name='investingQ4CashBackDuration'
