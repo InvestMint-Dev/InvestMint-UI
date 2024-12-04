@@ -223,7 +223,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea"
                             className='form-textarea form-textarea-full'
                             name="addressLine1"
-                            placeholder='Company Address Line 1'
+                            placeholder='Company Registered Address'
                             value={formData.addressLine1}
                             onChange={handleChange}
                             style={{ border: (errors.addressLine1 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
@@ -261,7 +261,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                 className='form-textarea'
                                 style={{ border: (errors.city && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                 name="state"
-                                placeholder='State'
+                                placeholder='Province / State'
                                 value={formData.state}
                                 readOnly // Make this read-only since it's auto-filled
                             />
@@ -312,7 +312,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                         <option value="RBC">Royal Bank of Canada (RBC)</option>
                                         <option value="TD">Toronto-Dominion Bank (TD)</option>
                                         <option value="BMO">Bank of Montreal (BMO)</option>
-                                        <option value="Scotiabank">Scotiabank (TD)</option>
+                                        <option value="Scotiabank">Scotiabank (BNS)</option>
                                         <option value="CIBC">Canadian Imperial Bank of Commerce (CIBC)</option>
                                         <option value="NBC">National Bank of Canada (NBC)</option>
                                         <option value="Laurentian Bank">Laurentian Bank</option>
