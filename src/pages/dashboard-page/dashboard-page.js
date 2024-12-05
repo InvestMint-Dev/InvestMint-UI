@@ -22,8 +22,14 @@ export const DashboardPage = () => {
             <DashboardHeader />
             <div className='dashboard-container'>
                 <DashboardSidebar />
-                <div className='portfolio-container'>
-                    <h3>Portfolio</h3>
+                <div className='main-page-container'>
+                    <div className='portfolio-container'>
+                        <h4>Portfolio</h4>
+                        <div className='etf-container'>
+                            <h2>$4520</h2>
+                            <p><b>ETF 1</b></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* <button className='logout-button' onClick={handleLogout}>

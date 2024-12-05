@@ -20,3 +20,40 @@
     display: flex;
     width: 100%;
 }
+
+.main-page-container {
+    width: calc(70%);
+}
+
+.portfolio-container {
+    background: #23694A;
+    margin: 3rem;
+    padding: 1.5rem;
+    border-radius: 21px;
+    color: white;
+    
+    h4 {
+        margin-top: 0;
+    }
+}
+
+
+.etf-container {
+    background: rgba(166, 219, 158, 0.5);
+    width: auto;
+    padding: 0.75rem;
+    border-radius: 18px;
+    width: 10rem;
+    text-align: center;
+
+    h2 {
+        color: #F1FFF0;
+        margin: 0;
+    }
+
+    p {
+        color: #23694A;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
