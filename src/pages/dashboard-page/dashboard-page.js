@@ -20,7 +20,7 @@ export const DashboardPage = () => {
     return (
         <div>
             <DashboardHeader />
-            <div>
+            <div className='dashboard-container'>
                 <DashboardSidebar />
                 <div className='portfolio-container'>
                     <h3>Portfolio</h3>

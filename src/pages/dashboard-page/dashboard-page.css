@@ -15,3 +15,8 @@
     transform: scale(102%);
     cursor: pointer;
 }
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+}
