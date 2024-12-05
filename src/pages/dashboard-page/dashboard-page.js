@@ -22,6 +22,9 @@ export const DashboardPage = () => {
             <DashboardHeader />
             <div>
                 <DashboardSidebar />
+                <div className='portfolio-container'>
+                    <h3>Portfolio</h3>
+                </div>
             </div>
             {/* <button className='logout-button' onClick={handleLogout}>
                 Log Out
