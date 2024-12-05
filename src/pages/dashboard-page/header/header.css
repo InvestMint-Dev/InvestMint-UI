@@ -1,0 +1,23 @@
+.header-container {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    background-color: #71CCA8;
+    color: white;
+}
+.logo {
+    width: 35%;
+}
+.header-nav-container {
+    width: 65vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    font-size: 1rem;
+    border: none;
+    background: none;
+    color: white;
+    font-weight: bold;
+}
