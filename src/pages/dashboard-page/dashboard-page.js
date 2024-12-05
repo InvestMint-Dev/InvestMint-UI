@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dashboard-page.css';
 import { DashboardHeader } from './header/header';
+import { DashboardSidebar } from './sidebar/sidebar';
 
 export const DashboardPage = () => {
     // const { logout } = useAuth0();
@@ -19,6 +20,9 @@ export const DashboardPage = () => {
     return (
         <div>
             <DashboardHeader />
+            <div>
+                <DashboardSidebar />
+            </div>
             {/* <button className='logout-button' onClick={handleLogout}>
                 Log Out
             </button> */}
