@@ -1,5 +1,12 @@
 .sidebar-container {
-    width: 30%;
+    width: calc(30% - 4rem);
     height: 50rem;;
     background: #F1FFF0;
+    padding: 2rem;
+}
+
+.sidebar-info-box {
+    background: rgba(166, 219, 158, 0.5);
+    height: 5rem;
+    border-radius: 20px;
 }
