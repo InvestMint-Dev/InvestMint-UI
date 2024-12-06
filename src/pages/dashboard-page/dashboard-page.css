@@ -93,3 +93,23 @@
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
+.go-to-sandbox-container {
+    background: #23694A;
+    margin: 3rem;
+    margin-top: 0;
+    padding: 1.25rem;
+    border-radius: 3rem;
+
+    h3 {
+        color: #F1FFF0;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+        color: #A6DB9E;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+}

@@ -25,7 +25,7 @@ export const DashboardPage = () => {
                 <div className='main-page-container'>
                     <div className='portfolio-container'>
                         <h4>Portfolio</h4>
-                        <div className='flex-container'>
+                        <div className='etf-container flex-container'>
                             <div className='etf-item-container'>
                                 <h2>$4520</h2>
                                 <p><b>ETF 1</b></p>
@@ -57,6 +57,11 @@ export const DashboardPage = () => {
                             <div className='bank-item-container'></div>
                             <div className='bank-item-container'></div>
                         </div>
+                    </div>
+
+                    <div className='go-to-sandbox-container'>
+                        <h3>Go to Sandbox</h3>
+                        <p>The Sandbox is an interface to experiment with and change your portfolio preferences.</p>
                     </div>
                 </div>
             </div>
