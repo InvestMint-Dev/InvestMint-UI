@@ -84,3 +84,11 @@
     margin-left: 1rem;
     margin-right: 3rem;
 }
+
+.bank-item-container {
+    background-color: rgba(166, 219, 158, 0.8);
+    height: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}

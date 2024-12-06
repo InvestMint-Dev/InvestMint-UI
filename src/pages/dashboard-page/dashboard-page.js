@@ -38,6 +38,9 @@ export const DashboardPage = () => {
 
                         <div className='risk-bank-container bank-container'>
                             <h4>Bank</h4>
+                            <div className='bank-item-container'></div>
+                            <div className='bank-item-container'></div>
+                            <div className='bank-item-container'></div>
                         </div>
                     </div>
                 </div>
