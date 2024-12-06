@@ -58,3 +58,18 @@
         margin-bottom: 0;
     }
 }
+
+.risk-container {
+    background: #F1FFF0;
+    margin: 3rem;
+    padding: 1.5rem;
+    border-radius: 21px;
+    width: calc(50% - 6rem);
+    color: white;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+    
+    h4 {
+        color: #23694A;
+        margin-top: 0;
+    }
+}

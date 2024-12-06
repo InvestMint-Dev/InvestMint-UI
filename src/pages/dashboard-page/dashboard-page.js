@@ -30,6 +30,14 @@ export const DashboardPage = () => {
                             <p><b>ETF 1</b></p>
                         </div>
                     </div>
+
+                    <div className='risk-container'>
+                        <h4>Risk</h4>
+                    </div>
+
+                    <div className='risk-container'>
+                        <h4>Risk</h4>
+                    </div>
                 </div>
             </div>
             {/* <button className='logout-button' onClick={handleLogout}>
