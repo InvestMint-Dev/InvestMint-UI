@@ -25,9 +25,23 @@ export const DashboardPage = () => {
                 <div className='main-page-container'>
                     <div className='portfolio-container'>
                         <h4>Portfolio</h4>
-                        <div className='etf-container'>
-                            <h2>$4520</h2>
-                            <p><b>ETF 1</b></p>
+                        <div className='flex-container'>
+                            <div className='etf-item-container'>
+                                <h2>$4520</h2>
+                                <p><b>ETF 1</b></p>
+                            </div>
+                            <div className='etf-item-container'>
+                                <h2>$4520</h2>
+                                <p><b>ETF 2</b></p>
+                            </div>
+                            <div className='etf-item-container'>
+                                <h2>$4520</h2>
+                                <p><b>ETF 3</b></p>
+                            </div>
+                            <div className='etf-item-container'>
+                                <h2>$4520</h2>
+                                <p><b>ETF 4</b></p>
+                            </div>
                         </div>
                     </div>
 
@@ -38,6 +52,7 @@ export const DashboardPage = () => {
 
                         <div className='risk-bank-container bank-container'>
                             <h4>Bank</h4>
+                            <div className='bank-item-container'></div>
                             <div className='bank-item-container'></div>
                             <div className='bank-item-container'></div>
                             <div className='bank-item-container'></div>

@@ -39,12 +39,13 @@
 }
 
 
-.etf-container {
-    background: rgba(166, 219, 158, 0.7);
-    width: auto;
+.etf-item-container {
+    background: rgb(241, 255, 240, 0.4);
     padding: 0.75rem;
     border-radius: 18px;
     width: 10rem;
+    margin: 0.5rem;
+
     text-align: center;
 
     h2 {
