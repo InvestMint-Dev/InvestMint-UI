@@ -10,6 +10,11 @@ html {
   height: auto;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 14px; /* Smaller base size on mobile */

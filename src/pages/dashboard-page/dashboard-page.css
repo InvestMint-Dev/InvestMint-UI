@@ -59,12 +59,13 @@
     }
 }
 
-.risk-container {
+.risk-bank-container {
     background: #F1FFF0;
     margin: 3rem;
+    margin-top: 0;
     padding: 1.5rem;
     border-radius: 21px;
-    width: calc(50% - 6rem);
+    width: calc(50% - 7rem);
     color: white;
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
     
@@ -72,4 +73,14 @@
         color: #23694A;
         margin-top: 0;
     }
+}
+
+.risk-container {
+    margin-left: 3rem;
+    margin-right: 1rem;
+}
+
+.bank-container {
+    margin-left: 1rem;
+    margin-right: 3rem;
 }

@@ -31,12 +31,14 @@ export const DashboardPage = () => {
                         </div>
                     </div>
 
-                    <div className='risk-container'>
-                        <h4>Risk</h4>
-                    </div>
+                    <div className='flex-container'>
+                        <div className='risk-bank-container risk-container'>
+                            <h4>Risk</h4>
+                        </div>
 
-                    <div className='risk-container'>
-                        <h4>Risk</h4>
+                        <div className='risk-bank-container bank-container'>
+                            <h4>Bank</h4>
+                        </div>
                     </div>
                 </div>
             </div>
