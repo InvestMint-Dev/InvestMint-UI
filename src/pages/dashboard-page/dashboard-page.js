@@ -5,6 +5,8 @@ import './dashboard-page.css';
 import { DashboardHeader } from './header/header';
 import { DashboardSidebar } from './sidebar/sidebar';
 
+import sandbox from '../../assets/images/icons/Sandbox.png';
+
 export const DashboardPage = () => {
     // const { logout } = useAuth0();
     const navigate = useNavigate();
@@ -59,10 +61,13 @@ export const DashboardPage = () => {
                         </div>
                     </div>
 
-                    <div className='go-to-sandbox-container'>
-                        <h3>Go to Sandbox</h3>
-                        <p>The Sandbox is an interface to experiment with and change your portfolio preferences.</p>
-                    </div>
+                        <div className='go-to-sandbox-container flex-container'>
+                            <img style={{width: '2rem', height: 'auto'}} src={sandbox} alt='Sandbox icon'></img>
+                            <div>
+                                <h3>Go to Sandbox</h3>
+                                <p>The Sandbox is an interface to experiment with and change your portfolio preferences.</p>
+                            </div>
+                        </div>
                 </div>
             </div>
             {/* <button className='logout-button' onClick={handleLogout}>
