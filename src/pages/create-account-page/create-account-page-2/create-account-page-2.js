@@ -72,14 +72,14 @@ export const CreateAccountPage2 = ({ isCurrentPage, formData, updateFormData, on
                             onChange={(e) => handleChange(e)}
                         >
                             <option value="">Select Security Question 1</option>
-                            <option value="firstClient">What was the name of your company's first major client?</option>
+                            <option value="firstClient">What was the first name of your company's first major client?</option>
                             <option value="foundingYear">In what year was your company founded?</option>
                             <option value="firstOffice">What city was your company’s first office located in?</option>
-                            <option value="founder">What is the name of your company’s founder?</option>
+                            <option value="founder">What is the first name of your company’s founder?</option>
                             <option value="firstProject">What was the name of your company’s first project?</option>
                             <option value="companyMotto">What is your company’s motto or mission statement?</option>
                             <option value="firstProduct">What was the name of your company's first product or service?</option>
-                            <option value="firstEmployee">What is the name of your company’s first employee?</option>
+                            <option value="firstEmployee">What is the first name of your company’s first employee?</option>
                             <option value="parentCompany">What is the name of your company’s parent company (if applicable)?</option>
                         </select>                            
                         {(errors.securityQuestion1 && nextButtonClicked) && <p className='form-error'>{errors.securityQuestion1}</p>}
@@ -109,7 +109,7 @@ export const CreateAccountPage2 = ({ isCurrentPage, formData, updateFormData, on
                             <option value="firstClientContract">What was the name of the company involved in your first major client contract?</option>
                             <option value="industryAssociation">What is the name of the first industry association your company joined?</option>
                             <option value="companyAnniversary">What date does your company celebrate as its official anniversary?</option>
-                            <option value="firstBoardMember">What is the name of the first board member in your company?</option>
+                            <option value="firstBoardMember">What is the first name of the first board member in your company?</option>
                             <option value="annualRevenue">What was your company’s reported annual revenue in its first year of operation?</option>
                         </select>                            
                         {(errors.securityQuestion2 && nextButtonClicked) && <p className='form-error'>{errors.securityQuestion2}</p>}
