@@ -161,7 +161,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                 <div className='company-legal-information-form'>
                     {/* Form fields */}
                     <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Legal Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                         {(errors.companyName && nextButtonClicked) && <p className='form-error'>{errors.companyName}</p>}
                     </div>
                     
