@@ -25,7 +25,6 @@
     background-size: 0.75rem;
 }
 
-
 .security-questions-select {
     height: 1.25rem;
     line-height: 1.25rem;
@@ -36,8 +35,18 @@
     padding-right: 2.5rem;
 }
 
+.form-textarea {
+    font-size: 0.9375rem;
+}
+
+.securityQuestion2-textarea {
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
+
 .form-textarea-container-full {
     margin-top: 0.9375rem;
+    font-size: 0.9375rem;
 }
 
 /* Small devices (phones) */

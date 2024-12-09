@@ -92,7 +92,12 @@ export const CreateAccountPage2 = ({ isCurrentPage, formData, updateFormData, on
                         </div>
                     }
 
-                    <div className='form-select security-questions-select'>
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea securityQuestion2-textarea'  name="securityQuestion2" placeholder='Enter your second security question.' value={formData.securityQuestion2} onChange={handleChange} style={{ border: (errors.securityQuestion2 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
+                        {(errors.securityQuestion2 && nextButtonClicked) && <p className='form-error'>{errors.securityQuestion2}</p>}
+                    </div>
+
+                    {/* <div className='form-select security-questions-select'>
                         <select 
                             style={{ border: (errors.securityQuestion2 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                             id= "securityQuestion2"
@@ -113,10 +118,10 @@ export const CreateAccountPage2 = ({ isCurrentPage, formData, updateFormData, on
                             <option value="annualRevenue">What was your company’s reported annual revenue in its first year of operation?</option>
                         </select>                            
                         {(errors.securityQuestion2 && nextButtonClicked) && <p className='form-error'>{errors.securityQuestion2}</p>}
-                    </div>
+                    </div> */}
 
                     {formData.securityQuestion2 && 
-                        <div className='form-textarea-container-full'>
+                        <div>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="securityAnswer2" placeholder='Answer' value={formData.securityAnswer2} onChange={handleChange} style={{ border: (errors.securityAnswer2 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                             {(errors.securityAnswer2 && nextButtonClicked) && <p className='form-error'>{errors.securityAnswer2}</p>}
                         </div>
