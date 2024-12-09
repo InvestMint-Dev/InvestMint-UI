@@ -158,7 +158,7 @@ export const CreateAccountPage4 = ( { formData, updateFormData, onBack, onSubmit
                             value={formData.investingQ2BusinessDuration} // Set the current value from the state
                             onChange={(e) => updateFormData({ investingQ2BusinessDuration: e.target.value })}/>
 
-                        <p>What is your average cash per year?</p>
+                        <p>What is your average monthly cash balance per year?</p>
                         {(errors.investingQ2AverageCashPerYear && nextButtonClicked) && <p className='form-error'>{errors.investingQ2AverageCashPerYear}</p>}
                         <textarea onKeyDown={handleKeyDown} name='investingQ2AverageCashPerYear' id="form-textarea" style={{ border: (errors.investingQ2AverageCashPerYear && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} className='form-textarea text-input' 
                             placeholder='$ 0'
