@@ -147,6 +147,19 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
         setErrors(validateCompanyLegalInfo({ ...formData, bankAccounts: updatedBankAccounts }));
     };
 
+    const addAuthorisedPersonnel = () => {
+        const newAuthorisedPersonnel = { id: Date.now(), firstName: "", lastName: "", phoneNumber: ""};
+        const updatedAuthorisedPersonnel = [...(formData.authorisedPersonnel || []), newAuthorisedPersonnel];
+        updateFormData({ authorisedPersonnel: updatedAuthorisedPersonnel });
+        setErrors(validateCompanyLegalInfo({ ...formData, authorisedPersonnel: updatedAuthorisedPersonnel }));
+    };
+
+    const removeAuthorisedPersonnel = (index) => {
+        const updatedAuthorisedPersonnel = formData.authorisedPersonnel.filter((_, i) => i !== index);
+        updateFormData({ uthorisedPersonnel: updatedAuthorisedPersonnel });
+        setErrors(validateCompanyLegalInfo({ ...formData, authorisedPersonnel: updatedAuthorisedPersonnel }));
+    };
+
 
     return (
         <div id='create-account-3' className={`fade-in ${fadeIn ? 'visible' : ''}`}>
@@ -166,6 +179,16 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
 
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                         {(errors.email && nextButtonClicked) && <p className='form-error'>{errors.email}</p>}
+                        
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                            className='form-textarea'
+                            name="phoneNumber"
+                            placeholder='Phone Number (e.g. (123) 456-7890)'
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
+                        />
+                        {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
                     </div>
 
                     <div className='form-textarea-container-full'>
@@ -252,30 +275,61 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                             {(errors.lastName && nextButtonClicked) && <p className='form-error'>{errors.lastName}</p>}
                         </div>
                     </div>
+                    <div className="setinputs-container"
+                    style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
+                        <button className="setinputs-add-button" onClick={addAuthorisedPersonnel}>+</button>
 
-                    <div className='form-textarea-container-full'>
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea'
-                            name="phoneNumber"
-                            placeholder='Phone Number (e.g. (123) 456-7890)'
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
-                        />
-                        {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
+                        {formData.authorisedPersonnel.map((set, index) => (
+                            <div key={set.id} className="setinputs-set">
+                                <button className="setinputs-remove-button" onClick={() => removeAuthorisedPersonnel(index)}>Delete</button>
+
+                                <textarea onKeyDown={handleKeyDown}
+                                    className='form-textarea setinputs-textarea'
+                                    id={`firstName-${index}`} 
+                                    style={{ border: (errors[`personnel-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    name="firstName" 
+                                    value={formData.authorisedPersonnel[index].firstName} // Ensure the value is set correctly
+                                    placeholder="First Name" 
+                                    onChange={(e) => handleChange(e, index)}
+                                />
+
+                                <textarea onKeyDown={handleKeyDown}
+                                    className='form-textarea setinputs-textarea'
+                                    id={`lastName-${index}`} 
+                                    style={{ border: (errors[`personnel-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    name="lastName" 
+                                    value={formData.authorisedPersonnel[index].lastName} // Ensure the value is set correctly
+                                    placeholder="Last Name" 
+                                    onChange={(e) => handleChange(e, index)}
+                                />
+
+                                <textarea onKeyDown={handleKeyDown}
+                                    className='form-textarea setinputs-textarea'
+                                    id={`phoneNumber-${index}`} 
+                                    style={{ border: (errors[`personnel-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    name="phoneNumber" 
+                                    value={formData.authorisedPersonnel[index].phoneNumber} // Ensure the value is set correctly
+                                    placeholder="Phone Number" 
+                                    onChange={(e) => handleChange(e, index)}
+                                />
+                                {(errors[`account-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`account-${index}`]}</p>}
+                            </div>
+                        ))}
                     </div>
+                    {(errors.bankAccounts && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
+
 
                 
                     <h3>Company Bank Accounts</h3>
-                    <div className="bankinputs-container"
+                    <div className="setinputs-container"
                     style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
-                        <button className="bankinputs-add-button" onClick={addBankInputSet}>+</button>
+                        <button className="setinputs-add-button" onClick={addBankInputSet}>+</button>
 
                         {formData.bankAccounts.map((set, index) => (
-                            <div key={set.id} className="bankinputs-set">
-                                <button className="bankinputs-remove-button" onClick={() => removeBankInputSet(index)}>Delete</button>
+                            <div key={set.id} className="setinputs-set">
+                                <button className="setinputs-remove-button" onClick={() => removeBankInputSet(index)}>Delete</button>
 
-                                <div className='form-select bankinputs-select'>
+                                <div className='form-select setinputs-select'>
                                     <select 
                                         style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                         id={`bank-${index}`} 
@@ -297,7 +351,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                 {(errors[`bank-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`bank-${index}`]}</p>}
                                 
                                 <textarea onKeyDown={handleKeyDown}
-                                    className='form-textarea bankinputs-textarea'
+                                    className='form-textarea setinputs-textarea'
                                     id={`account-${index}`} 
                                     style={{ border: (errors[`account-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                     name="accountNumber" 

@@ -8,7 +8,7 @@ import { CreateAccountPage3 } from "./create-account-page-3/create-account-page-
 import { CreateAccountPage4 } from "./create-account-page-4/create-account-page-4";
 
 export const CreateAccountPage = () => {
-    const [currentStep, setCurrentStep] = useState(1);
+    const [currentStep, setCurrentStep] = useState(3);
     const navigate = useNavigate();
     
     // Combined state for all form data
@@ -25,8 +25,6 @@ export const CreateAccountPage = () => {
         securityAnswer2: '',
         
         // Page 3 data
-        firstName: '',
-        lastName: '',
         phoneNumber: '',
         companyName: '',
         countryName: '',
@@ -34,6 +32,7 @@ export const CreateAccountPage = () => {
         state: '',
         city: '',
         zipcode: '',
+        authorisedPersonnel: [{ id: Date.now(), firstName: "", lastName: "", phoneNumber: ""}],
         bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "" }],
         advisorName: '',
         investmentAccountNumber: ''

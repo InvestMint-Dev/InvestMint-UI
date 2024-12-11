@@ -5,7 +5,7 @@
     margin-bottom: 3.125rem;
 }
 
-.bankinputs-container {
+.setinputs-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 3 columns with equal width */
     gap: 0.625rem; /* Space between grid items */
@@ -17,7 +17,7 @@
     border-radius: 1.25rem;
 }
 
-.bankinputs-set {
+.setinputs-set {
     background-color: white;
     width: calc(100% - 1.25rem);
     display: block;
@@ -31,7 +31,7 @@
 }
 
 
-.bankinputs-add-button {
+.setinputs-add-button {
     width: calc(100%);
     display: block;
     border-radius: 1.25rem;
@@ -42,12 +42,12 @@
     color: #A6DB9E;
 }
 
-.bankinputs-add-button:hover {
+.setinputs-add-button:hover {
     background-color: #166739;
     cursor: pointer;
 }
 
-.bankinputs-select select{
+.setinputs-select select{
     width: calc(100% + 2.375rem) ;
     height: 1.75rem;
     line-height: 1.5625rem;
@@ -67,7 +67,7 @@
     background-size: 0.75rem;
 }
 
-.bankinputs-textarea {
+.setinputs-textarea {
     width: calc(100% - 1.25rem);
     height: 1.5625rem;
     text-align: left;
@@ -80,11 +80,11 @@
     padding-right: 0.625rem;
 }
 
-.bankinputs-textarea::placeholder {
+.setinputs-textarea::placeholder {
     text-align: left;
 }
 
-.bankinputs-select {
+.setinputs-select {
     height: 1.25rem;
     line-height: 1.25rem;
     font-size: 0.9375rem;
@@ -94,7 +94,7 @@
     padding-right: 2.5rem;
 }
 
-.bankinputs-remove-button {
+.setinputs-remove-button {
     background: none;
     float: right;
     border: none;
@@ -103,7 +103,7 @@
     margin-bottom: 0.3125rem;
 }
 
-.bankinputs-remove-button:hover {
+.setinputs-remove-button:hover {
     text-decoration: underline;
     cursor: pointer;
 }
@@ -135,7 +135,7 @@ h3 {
 }
 
 @media (max-width: 768px) {
-    .bankinputs-container {
+    .setinputs-container {
         display: grid;
         grid-template-columns: repeat(1, 1fr); /* 3 columns with equal width */
         width: 19rem;
@@ -143,15 +143,15 @@ h3 {
         border-radius: 1.25rem;
     }
 
-    .bankinputs-set {
+    .setinputs-set {
         width: 17.75rem;
     }
     
-    .bankinputs-select select {
+    .setinputs-select select {
         width: 17.75rem;
     }
 
-    .bankinputs-add-button {
+    .setinputs-add-button {
         width: 19rem;
     }
   }

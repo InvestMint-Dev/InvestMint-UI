@@ -71,13 +71,13 @@ export const validateTwoFactorAuth = (formData) => {
 export const validateCompanyLegalInfo = (formData) => {
     const errors = {};
 
-    // Validate first name and last name
-    if (!formData.firstName || formData.firstName.trim() === "") {
-        errors.firstName = "First Name is required.";
-    }
-    if (!formData.lastName || formData.lastName.trim() === "") {
-        errors.lastName = "Last Name is required.";
-    }
+    // // Validate first name and last name
+    // if (!formData.firstName || formData.firstName.trim() === "") {
+    //     errors.firstName = "First Name is required.";
+    // }
+    // if (!formData.lastName || formData.lastName.trim() === "") {
+    //     errors.lastName = "Last Name is required.";
+    // }
 
     // Validate email
     if (!formData.email || formData.email.trim() === "") {
@@ -133,6 +133,25 @@ export const validateCompanyLegalInfo = (formData) => {
             errors[`account-${index}`] = "Account number is required.";
         } else if (!/^\d+$/.test(account.accountNumber)) {
             errors[`account-${index}`] = "Account number must be numeric.";
+        }
+    });
+
+    if (!formData.authorisedPersonnel || formData.authorisedPersonnel.length === 0) {
+        errors.authorisedPersonnel = "At least one authorised personnel is required.";
+    }
+    // Validate bank accounts
+    formData.authorisedPersonnel.forEach((personnel, index) => {
+        if (!personnel.firstName) {
+            errors[`firstName-${index}`] = "First name is required.";
+        }
+        if (!personnel.lastName) {
+            errors[`lastName-${index}`] = "Last name is required.";
+        }
+
+        if (!personnel.phoneNumber || personnel.phoneNumber.trim() === "") {
+            errors[`phoneNumber-${index}`] = "Phone Number is required.";
+        } else if (!phoneRegex.test(personnel.phoneNumber)) {
+            errors[`phoneNumber-${index}`] = "Phone Number must be in the format (000) 000-0000.";
         }
     });
 
