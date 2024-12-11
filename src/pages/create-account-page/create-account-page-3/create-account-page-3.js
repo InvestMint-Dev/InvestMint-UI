@@ -66,8 +66,8 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
             setErrors(validateCompanyLegalInfo(newData));
         }
 
-        if (name === 'addressLine1' && value.length > 2) {
-            // Fetch suggestions based on addressLine1
+        if (name === 'addressLine' && value.length > 2) {
+            // Fetch suggestions based on addressLine
             fetchAddressSuggestions(value);
         }
     };
@@ -123,7 +123,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
 
     const handleLocationSuggestionClick = (suggestion) => {
         const updates = {
-            addressLine1: suggestion.title,
+            addressLine: suggestion.title,
             city: suggestion.city,
             state: suggestion.state,
             zipcode: suggestion.zipcode,
@@ -180,42 +180,26 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                     <div className='form-textarea-container-full'>
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                         {(errors.email && nextButtonClicked) && <p className='form-error'>{errors.email}</p>}
-                    </div>
 
-                    <div className='form-flex-container'>
-                        <div className='form-textarea-container-half'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                                className='form-textarea'
-                                name="phoneNumber"
-                                placeholder='Phone Number'
-                                value={formData.phoneNumber}
-                                onChange={handleChange}
-                                style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
-                            />
-                            {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
-                        </div>
-
-                        <div className='form-textarea-container-half'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                                className='form-textarea'
-                                name="mobileNumber"
-                                placeholder='Mobile Number'
-                                value={formData.mobileNumber}
-                                onChange={handleChange}
-                                style={{ border: (errors.mobileNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
-                            />
-                            {(errors.mobileNumber && nextButtonClicked) && <p className='form-error'>{errors.mobileNumber}</p>}
-                        </div>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                            className='form-textarea'
+                            name="phoneNumber"
+                            placeholder='Phone Number (e.g. (123) 456-7890)'
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
+                        />
+                        {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
                     </div>
 
                     <div className='form-textarea-container-full'>
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea"
                             className='form-textarea form-textarea-full'
-                            name="addressLine1"
+                            name="addressLine"
                             placeholder='Company Registered Address'
-                            value={formData.addressLine1}
+                            value={formData.addressLine}
                             onChange={handleChange}
-                            style={{ border: (errors.addressLine1 && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
+                            style={{ border: (errors.addressLine && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
                         />
                         {/* Render suggestions for address line */}
                         {suggestions.length > 0 && (
@@ -227,7 +211,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                 ))}
                             </ul>
                         )}
-                        {(errors.addressLine1 && nextButtonClicked) && <p className='form-error'>{errors.addressLine1}</p>}
+                        {(errors.addressLine && nextButtonClicked) && <p className='form-error'>{errors.addressLine}</p>}
                     </div>
 
                     <div className='form-flex-container'>
