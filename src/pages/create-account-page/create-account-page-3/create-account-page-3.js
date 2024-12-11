@@ -264,7 +264,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                     {(errors.countryName && nextButtonClicked) && <p className='form-error'>{errors.countryName}</p>}
 
                     <h3>Authorised Personnel Information</h3>
-                    <div className='form-flex-container'>
+                    {/* <div className='form-flex-container'>
                         <div className='form-textarea-container-half'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                             {(errors.firstName && nextButtonClicked) && <p className='form-error'>{errors.firstName}</p>}
@@ -274,7 +274,8 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                             {(errors.lastName && nextButtonClicked) && <p className='form-error'>{errors.lastName}</p>}
                         </div>
-                    </div>
+                    </div> */}
+                    
                     <div className="setinputs-container"
                     style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
                         <button className="setinputs-add-button" onClick={addAuthorisedPersonnel}>+</button>
@@ -286,33 +287,36 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                 <textarea onKeyDown={handleKeyDown}
                                     className='form-textarea setinputs-textarea'
                                     id={`firstName-${index}`} 
-                                    style={{ border: (errors[`personnel-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    style={{ border: (errors[`firstName-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                     name="firstName" 
                                     value={formData.authorisedPersonnel[index].firstName} // Ensure the value is set correctly
                                     placeholder="First Name" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
+                                {(errors[`firstName-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`firstName-${index}`]}</p>}
 
                                 <textarea onKeyDown={handleKeyDown}
                                     className='form-textarea setinputs-textarea'
                                     id={`lastName-${index}`} 
-                                    style={{ border: (errors[`personnel-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    style={{ border: (errors[`lastName-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                     name="lastName" 
                                     value={formData.authorisedPersonnel[index].lastName} // Ensure the value is set correctly
                                     placeholder="Last Name" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
+                                {(errors[`lastName-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`lastName-${index}`]}</p>}
+
 
                                 <textarea onKeyDown={handleKeyDown}
                                     className='form-textarea setinputs-textarea'
                                     id={`phoneNumber-${index}`} 
-                                    style={{ border: (errors[`personnel-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    style={{ border: (errors[`phoneNumber-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
                                     name="phoneNumber" 
                                     value={formData.authorisedPersonnel[index].phoneNumber} // Ensure the value is set correctly
                                     placeholder="Phone Number" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
-                                {(errors[`account-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`account-${index}`]}</p>}
+                                {(errors[`phoneNumber-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`phoneNumber-${index}`]}</p>}
                             </div>
                         ))}
                     </div>
