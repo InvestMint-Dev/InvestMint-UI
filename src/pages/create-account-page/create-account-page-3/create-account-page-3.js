@@ -69,6 +69,13 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
             updateFormData({ authPersonnel: updatedAuthPersonnel});
             setErrors(validateCompanyLegalInfo(newData));
         } 
+        else if (name === 'broker' || name === 'advisorName' || name === 'investmentAccountNumber' || name === 'investmentCurrency' || name === 'investmentInterestRate') {
+            const updatedInvestmentAdvisors = [...formData.investmentAdvisors];
+            updatedInvestmentAdvisors[index] = { ...updatedInvestmentAdvisors[index], [name]: value };
+            const newData = { ...formData, investmentAdvisors: updatedInvestmentAdvisors };
+            updateFormData({ investmentAdvisors: updatedInvestmentAdvisors});
+            setErrors(validateCompanyLegalInfo(newData));
+        } 
         else {
             const formattedValue = ['phoneNumber', 'mobileNumber'].includes(name) 
                 ? formatPhoneNumber(value) 
