@@ -332,7 +332,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                             </div>
                         ))}
                     </div>
-                    {(errors.authPersonnel && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
+                    {(errors.authPersonnel && nextButtonClicked) && <p className='form-error'>{errors.authPersonnel}</p>}
                 
                     <h3>Company Bank Accounts</h3>
                     <div className="setinputs-container"
