@@ -32,7 +32,7 @@ export const CreateAccountPage = () => {
         state: '',
         city: '',
         zipcode: '',
-        authorisedPersonnel: [{ id: Date.now(), firstName: "", lastName: "", phoneNumber: ""}],
+        authPersonnel: [{ id: Date.now(), firstName: "", lastName: "", phoneNumber: ""}],
         bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "" }],
         advisorName: '',
         investmentAccountNumber: ''

@@ -57,6 +57,18 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
             updateFormData({ bankAccounts: updatedBankAccounts });
             setErrors(validateCompanyLegalInfo(newData));
         } 
+        else if (name === 'authPersonnelFirstName' || name === 'authPersonnelLastName' || name === 'authPersonnelPhoneNumber') {
+            const updatedAuthPersonnel = [...formData.authPersonnel];
+            updatedAuthPersonnel[index] = { 
+                ...updatedAuthPersonnel[index], 
+                firstName: name === 'authPersonnelFirstName' ? value : updatedAuthPersonnel[index].firstName,
+                lastName: name === 'authPersonnelLastName' ? value : updatedAuthPersonnel[index].lastName,
+                phoneNumber: name === 'authPersonnelPhoneNumber' ? value : updatedAuthPersonnel[index].phoneNumber
+            };            
+            const newData = { ...formData, authPersonnel: updatedAuthPersonnel };
+            updateFormData({ authPersonnel: updatedAuthPersonnel});
+            setErrors(validateCompanyLegalInfo(newData));
+        } 
         else {
             const formattedValue = ['phoneNumber', 'mobileNumber'].includes(name) 
                 ? formatPhoneNumber(value) 
@@ -147,17 +159,17 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
         setErrors(validateCompanyLegalInfo({ ...formData, bankAccounts: updatedBankAccounts }));
     };
 
-    const addAuthorisedPersonnel = () => {
-        const newAuthorisedPersonnel = { id: Date.now(), firstName: "", lastName: "", phoneNumber: ""};
-        const updatedAuthorisedPersonnel = [...(formData.authorisedPersonnel || []), newAuthorisedPersonnel];
-        updateFormData({ authorisedPersonnel: updatedAuthorisedPersonnel });
-        setErrors(validateCompanyLegalInfo({ ...formData, authorisedPersonnel: updatedAuthorisedPersonnel }));
+    const addauthPersonnel = () => {
+        const newauthPersonnel = { id: Date.now(), firstName: "", lastName: "", phoneNumber: ""};
+        const updatedAuthPersonnel = [...(formData.authPersonnel || []), newauthPersonnel];
+        updateFormData({ authPersonnel: updatedAuthPersonnel });
+        setErrors(validateCompanyLegalInfo({ ...formData, authPersonnel: updatedAuthPersonnel }));
     };
 
-    const removeAuthorisedPersonnel = (index) => {
-        const updatedAuthorisedPersonnel = formData.authorisedPersonnel.filter((_, i) => i !== index);
-        updateFormData({ uthorisedPersonnel: updatedAuthorisedPersonnel });
-        setErrors(validateCompanyLegalInfo({ ...formData, authorisedPersonnel: updatedAuthorisedPersonnel }));
+    const removeauthPersonnel = (index) => {
+        const updatedAuthPersonnel = formData.authPersonnel.filter((_, i) => i !== index);
+        updateFormData({ authPersonnel: updatedAuthPersonnel });
+        setErrors(validateCompanyLegalInfo({ ...formData, authPersonnel: updatedAuthPersonnel }));
     };
 
 
@@ -277,19 +289,19 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                     </div> */}
                     
                     <div className="setinputs-container"
-                    style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
-                        <button className="setinputs-add-button" onClick={addAuthorisedPersonnel}>+</button>
+                    style={{ border: (errors.authPersonnel && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
+                        <button className="setinputs-add-button" onClick={addauthPersonnel}>+</button>
 
-                        {formData.authorisedPersonnel.map((set, index) => (
+                        {formData.authPersonnel.map((set, index) => (
                             <div key={set.id} className="setinputs-set">
-                                <button className="setinputs-remove-button" onClick={() => removeAuthorisedPersonnel(index)}>Delete</button>
+                                <button className="setinputs-remove-button" onClick={() => removeauthPersonnel(index)}>Delete</button>
 
                                 <textarea onKeyDown={handleKeyDown}
                                     className='form-textarea setinputs-textarea'
                                     id={`firstName-${index}`} 
                                     style={{ border: (errors[`firstName-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
-                                    name="firstName" 
-                                    value={formData.authorisedPersonnel[index].firstName} // Ensure the value is set correctly
+                                    name="authPersonnelFirstName" 
+                                    value={formData.authPersonnel[index].firstName} // Ensure the value is set correctly
                                     placeholder="First Name" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
@@ -299,8 +311,8 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                     className='form-textarea setinputs-textarea'
                                     id={`lastName-${index}`} 
                                     style={{ border: (errors[`lastName-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
-                                    name="lastName" 
-                                    value={formData.authorisedPersonnel[index].lastName} // Ensure the value is set correctly
+                                    name="authPersonnelLastName" 
+                                    value={formData.authPersonnel[index].lastName} // Ensure the value is set correctly
                                     placeholder="Last Name" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
@@ -311,8 +323,8 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                     className='form-textarea setinputs-textarea'
                                     id={`phoneNumber-${index}`} 
                                     style={{ border: (errors[`phoneNumber-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
-                                    name="phoneNumber" 
-                                    value={formData.authorisedPersonnel[index].phoneNumber} // Ensure the value is set correctly
+                                    name="authPersonnelPhoneNumber" 
+                                    value={formData.authPersonnel[index].phoneNumber} // Ensure the value is set correctly
                                     placeholder="Phone Number" 
                                     onChange={(e) => handleChange(e, index)}
                                 />
@@ -320,9 +332,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                             </div>
                         ))}
                     </div>
-                    {(errors.bankAccounts && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
-
-
+                    {(errors.authPersonnel && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
                 
                     <h3>Company Bank Accounts</h3>
                     <div className="setinputs-container"

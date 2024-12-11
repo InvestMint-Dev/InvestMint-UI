@@ -136,11 +136,11 @@ export const validateCompanyLegalInfo = (formData) => {
         }
     });
 
-    if (!formData.authorisedPersonnel || formData.authorisedPersonnel.length === 0) {
-        errors.authorisedPersonnel = "At least one authorised personnel is required.";
+    if (!formData.authPersonnel || formData.authPersonnel.length === 0) {
+        errors.authPersonnel = "At least one authorised personnel is required.";
     }
     // Validate bank accounts
-    formData.authorisedPersonnel.forEach((personnel, index) => {
+    formData.authPersonnel.forEach((personnel, index) => {
         if (!personnel.firstName) {
             errors[`firstName-${index}`] = "First name is required.";
         }
