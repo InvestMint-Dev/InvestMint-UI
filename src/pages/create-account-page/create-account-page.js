@@ -33,7 +33,7 @@ export const CreateAccountPage = () => {
         city: '',
         zipcode: '',
         authPersonnel: [{ id: Date.now(), firstName: "", lastName: "", phoneNumber: ""}],
-        bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "" }],
+        bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "", bankerName: "", currency: "", currentInterestRate: ""}],
         advisorName: '',
         investmentAccountNumber: ''
     });

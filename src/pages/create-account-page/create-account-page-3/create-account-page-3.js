@@ -50,7 +50,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
             return formattedPhoneNumber;
         };
 
-        if (name === 'bank' || name === 'accountNumber') {
+        if (name === 'bank' || name === 'accountNumber'  || name === 'bankerName'  || name === 'currency'  || name === 'currentInterestRate') {
             const updatedBankAccounts = [...formData.bankAccounts];
             updatedBankAccounts[index] = { ...updatedBankAccounts[index], [name]: value };
             const newData = { ...formData, bankAccounts: updatedBankAccounts };
@@ -147,7 +147,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
     };
 
     const addBankInputSet = () => {
-        const newBankAccount = { id: Date.now(), bank: "", accountNumber: "" };
+        const newBankAccount = { id: Date.now(), bank: "", accountNumber: "", bankerName: "", currency: "", currentInterestRate: ""};
         const updatedBankAccounts = [...(formData.bankAccounts || []), newBankAccount];
         updateFormData({ bankAccounts: updatedBankAccounts });
         setErrors(validateCompanyLegalInfo({ ...formData, bankAccounts: updatedBankAccounts }));
@@ -374,13 +374,50 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                                     onChange={(e) => handleChange(e, index)}
                                 />
                                 {(errors[`account-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`account-${index}`]}</p>}
+                                
+                                <textarea onKeyDown={handleKeyDown}
+                                    className='form-textarea setinputs-textarea'
+                                    id={`bankerName-${index}`} 
+                                    style={{ border: (errors[`bankerName-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    name="bankerName" 
+                                    value={formData.bankAccounts[index].bankerName} // Ensure the value is set correctly
+                                    placeholder="Banker Name" 
+                                    onChange={(e) => handleChange(e, index)}
+                                />
+                                {(errors[`bankerName-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`bankerName-${index}`]}</p>}
+                                
+                                <div className='form-select setinputs-select'>
+                                    <select 
+                                        style={{ border: (errors[`currency-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                        id={`currency-${index}`} 
+                                        name="currency" 
+                                        value={formData.bankAccounts[index].currency} // Ensure the value is set correctly
+                                        onChange={(e) => handleChange(e, index)}
+                                    >
+                                        <option value="">Select Currency</option>
+                                        <option value="CAD">CAD (CA$)</option>
+                                        <option value="USD">USD (US$)</option>
+                                    </select>                            
+                                </div>
+                                {(errors[`bank-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`bank-${index}`]}</p>}
+
+                                <textarea onKeyDown={handleKeyDown}
+                                    className='form-textarea setinputs-textarea'
+                                    id={`currentInterestRate-${index}`} 
+                                    style={{ border: (errors[`currentInterestRate-${index}`] && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} 
+                                    name="currentInterestRate" 
+                                    value={formData.bankAccounts[index].currentInterestRate} // Ensure the value is set correctly
+                                    placeholder="Current Interest Rate" 
+                                    onChange={(e) => handleChange(e, index)}
+                                />
+                                {(errors[`currentInterestRate-${index}`] && nextButtonClicked) && <p className='form-error'>{errors[`currentInterestRate-${index}`]}</p>}
                             </div>
                         ))}
                     </div>
                     {(errors.bankAccounts && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
 
 
-                    <h3>If your company has an investment advisor: (optional) </h3>
+                    <h3>Investment Advisors</h3>
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "3px solid #71CCA8" : "none" }} />
                     {errors.advisorName && <p className='form-error'>{errors.advisorName}</p>}
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "3px solid #71CCA8" : "none" }} />
