@@ -124,17 +124,6 @@ export const validateCompanyLegalInfo = (formData) => {
     if (!formData.bankAccounts || formData.bankAccounts.length === 0) {
         errors.bankAccounts = "At least one company bank account is required.";
     }
-    // Validate bank accounts
-    formData.bankAccounts.forEach((account, index) => {
-        if (!account.bank) {
-            errors[`bank-${index}`] = "Bank selection is required.";
-        }
-        if (!account.accountNumber || account.accountNumber.trim() === "") {
-            errors[`account-${index}`] = "Account number is required.";
-        } else if (!/^\d+$/.test(account.accountNumber)) {
-            errors[`account-${index}`] = "Account number must be numeric.";
-        }
-    });
 
     if (!formData.authPersonnel || formData.authPersonnel.length === 0) {
         errors.authPersonnel = "At least one authorised personnel is required.";
@@ -155,13 +144,30 @@ export const validateCompanyLegalInfo = (formData) => {
         }
     });
 
-    // Validate advisor information
-    if (formData.advisorName && formData.advisorName.trim() === "") {
-        errors.advisorName = "Advisor Name is required.";
-    }
-    if (formData.investmentAccountNumber && formData.investmentAccountNumber.trim() === "") {
-        errors.investmentAccountNumber = "Company Investment Account Number is required.";
-    }
+    // Validate bank accounts
+    formData.bankAccounts.forEach((account, index) => {
+        if (!account.bank) {
+            errors[`bank-${index}`] = "Bank selection is required.";
+        }
+
+        if (!account.accountNumber || account.accountNumber.trim() === "") {
+            errors[`account-${index}`] = "Account number is required.";
+        } else if (!/^\d+$/.test(account.accountNumber)) {
+            errors[`account-${index}`] = "Account number must be numeric.";
+        }
+
+        if (!account.bankerName) {
+            errors[`bankerName-${index}`] = "Banker name is required.";
+        }
+
+        if (!account.currency) {
+            errors[`currency-${index}`] = "Select currency.";
+        }
+
+        if (!account.currentInterestRate) {
+            errors[`currentInterestRate-${index}`] = "Current interest rate is required.";
+        }
+    });
 
     return errors;
 };
