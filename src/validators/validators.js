@@ -108,8 +108,8 @@ export const validateCompanyLegalInfo = (formData) => {
     if (!formData.countryName || formData.countryName.trim() === "") {
         errors.countryName = "Country Name is required.";
     }
-    if (!formData.addressLine1 || formData.addressLine1.trim() === "") {
-        errors.addressLine1 = "Company Address Line 1 is required.";
+    if (!formData.addressLine || formData.addressLine.trim() === "") {
+        errors.addressLine = "Company Address Line 1 is required.";
     }
     if (!formData.state || formData.state.trim() === "") {
         errors.state = "State is required.";

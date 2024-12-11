@@ -163,33 +163,9 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                     <div className='form-textarea-container-full'>
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="companyName" placeholder='Company Legal Name' value={formData.companyName} onChange={handleChange} style={{ border: (errors.companyName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
                         {(errors.companyName && nextButtonClicked) && <p className='form-error'>{errors.companyName}</p>}
-                    </div>
-                    
-                    <div className='form-flex-container'>
-                        <div className='form-textarea-container-half'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
-                            {(errors.firstName && nextButtonClicked) && <p className='form-error'>{errors.firstName}</p>}
-                        </div>
 
-                        <div className='form-textarea-container-half'>
-                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
-                            {(errors.lastName && nextButtonClicked) && <p className='form-error'>{errors.lastName}</p>}
-                        </div>
-                    </div>
-
-                    <div className='form-textarea-container-full'>
                         <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea'  name="email" placeholder='Email' value={formData.email} onChange={handleChange} style={{ border: (errors.email && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}></textarea>
                         {(errors.email && nextButtonClicked) && <p className='form-error'>{errors.email}</p>}
-
-                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
-                            className='form-textarea'
-                            name="phoneNumber"
-                            placeholder='Phone Number (e.g. (123) 456-7890)'
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
-                        />
-                        {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
                     </div>
 
                     <div className='form-textarea-container-full'>
@@ -264,6 +240,32 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                         readOnly/>
                     {(errors.countryName && nextButtonClicked) && <p className='form-error'>{errors.countryName}</p>}
 
+                    <h3>Authorised Personnel Information</h3>
+                    <div className='form-flex-container'>
+                        <div className='form-textarea-container-half'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
+                            {(errors.firstName && nextButtonClicked) && <p className='form-error'>{errors.firstName}</p>}
+                        </div>
+
+                        <div className='form-textarea-container-half'>
+                            <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="lastName" placeholder='Last Name' value={formData.lastName} onChange={handleChange} style={{ border: (errors.lastName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
+                            {(errors.lastName && nextButtonClicked) && <p className='form-error'>{errors.lastName}</p>}
+                        </div>
+                    </div>
+
+                    <div className='form-textarea-container-full'>
+                        <textarea onKeyDown={handleKeyDown}  id="form-textarea"
+                            className='form-textarea'
+                            name="phoneNumber"
+                            placeholder='Phone Number (e.g. (123) 456-7890)'
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            style={{ border: (errors.phoneNumber && nextButtonClicked) ? "3px solid #71CCA8" : "none" }}
+                        />
+                        {(errors.phoneNumber && nextButtonClicked) && <p className='form-error'>{errors.phoneNumber}</p>}
+                    </div>
+
+                
                     <h3>Company Bank Accounts</h3>
                     <div className="bankinputs-container"
                     style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
