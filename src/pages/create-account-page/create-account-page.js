@@ -34,8 +34,7 @@ export const CreateAccountPage = () => {
         zipcode: '',
         authPersonnel: [{ id: Date.now(), firstName: "", lastName: "", phoneNumber: ""}],
         bankAccounts: [{ id: Date.now(), bank: "", accountNumber: "", bankerName: "", currency: "", currentInterestRate: ""}],
-        advisorName: '',
-        investmentAccountNumber: ''
+        investmentAdvisors: [{ id: Date.now(), broker: "", investmentAccountNumber: "", advisorName: "", investmentCurrency: "", investmentInterestRate: ""}]
     });
 
     const handleNext = () => {
