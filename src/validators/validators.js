@@ -169,6 +169,31 @@ export const validateCompanyLegalInfo = (formData) => {
         }
     });
 
+    // Validate investment advisors
+    formData.investmentAdvisors.forEach((advisor, index) => {
+        if (!advisor.broker) {
+            errors[`broker-${index}`] = "Broker selection is required.";
+        }
+
+        if (!advisor.investmentAccountNumber || advisor.investmentAccountNumber.trim() === "") {
+            errors[`investmentAccountNumber-${index}`] = "Account number is required.";
+        } else if (!/^\d+$/.test(advisor.investmentAccountNumber)) {
+            errors[`investmentAccountNumber-${index}`] = "Account number must be numeric.";
+        }
+
+        if (!advisor.advisorName) {
+            errors[`advisorName-${index}`] = "Advisor name is required.";
+        }
+
+        if (!advisor.investmentCurrency) {
+            errors[`investmentCurrency-${index}`] = "Select currency.";
+        }
+
+        if (!advisor.investmentInterestRate) {
+            errors[`investmentInterestRate-${index}`] = "Current interest rate is required.";
+        }
+    });
+
     return errors;
 };
 
