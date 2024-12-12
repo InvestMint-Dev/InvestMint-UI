@@ -295,7 +295,11 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                         readOnly/>
                     {(errors.countryName && nextButtonClicked) && <p className='form-error'>{errors.countryName}</p>}
 
-                    <h3>Authorised Personnel Information</h3>
+                    <div className='subtitle-container'>
+                        <h3>Authorised Personnel Information</h3>
+                        <button className="setinputs-add-button" onClick={addauthPersonnel}>+</button>
+                    </div>
+                    
                     {/* <div className='form-flex-container'>
                         <div className='form-textarea-container-half'>
                             <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea' name="firstName" placeholder='First Name' value={formData.firstName} onChange={handleChange} style={{ border: (errors.firstName && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} />
@@ -310,8 +314,6 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                     
                     <div className="setinputs-container"
                     style={{ border: (errors.authPersonnel && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
-                        <button className="setinputs-add-button" onClick={addauthPersonnel}>+</button>
-
                         {formData.authPersonnel.map((set, index) => (
                             <div key={set.id} className="setinputs-set">
                                 <button className="setinputs-remove-button" onClick={() => removeauthPersonnel(index)}>Delete</button>

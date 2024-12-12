@@ -32,19 +32,19 @@
 
 
 .setinputs-add-button {
-    width: calc(100%);
-    display: block;
-    border-radius: 1.25rem;
-    border: none;
-    background-color: white;
-    font-size: 2.5rem;
+    background: none;
+    font-size: 1.75rem;
+    margin: 1rem;
+    margin-top: 1.625rem;
     font-weight: 800;
-    color: #A6DB9E;
+    color: #166739;
 }
 
 .setinputs-add-button:hover {
-    background-color: #166739;
+    color: grey;
     cursor: pointer;
+    transform: scale(120%);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 .setinputs-select select{
