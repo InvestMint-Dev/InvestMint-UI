@@ -355,12 +355,14 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                         ))}
                     </div>
                     {(errors.authPersonnel && nextButtonClicked) && <p className='form-error'>{errors.authPersonnel}</p>}
-                
-                    <h3>Company Bank Accounts</h3>
+                    
+                    <div className='subtitle-container'>
+                        <h3>Company Bank Accounts</h3>
+                        <button className="setinputs-add-button" onClick={addBankInputSet}>+</button>
+                    </div>
+                    
                     <div className="setinputs-container"
                     style={{ border: (errors.bankAccounts && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
-                        <button className="setinputs-add-button" onClick={addBankInputSet}>+</button>
-
                         {formData.bankAccounts.map((set, index) => (
                             <div key={set.id} className="setinputs-set">
                                 <button className="setinputs-remove-button" onClick={() => removeBankInputSet(index)}>Delete</button>
