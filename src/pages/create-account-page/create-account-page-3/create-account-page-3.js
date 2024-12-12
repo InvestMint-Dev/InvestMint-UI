@@ -440,8 +440,10 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                     </div>
                     {(errors.bankAccounts && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
 
-
-                    <h3>Investment Advisors</h3>
+                    <div className='subtitle-container'>
+                        <h3>Investment Advisors</h3>
+                        <button className="setinputs-add-button" onClick={addInvestmentAdvisorSet}>+</button>
+                    </div>
                     {/* <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="advisorName" placeholder='Advisor Name' value={formData.advisorName} onChange={handleChange} style={{ border: errors.advisorName ? "3px solid #71CCA8" : "none" }} />
                     {errors.advisorName && <p className='form-error'>{errors.advisorName}</p>}
                     <textarea onKeyDown={handleKeyDown}  id="form-textarea" className='form-textarea form-textarea-full' name="investmentAccountNumber" placeholder='Company Investment Account Number' value={formData.investmentAccountNumber} onChange={handleChange} style={{ border: errors.investmentAccountNumber ? "3px solid #71CCA8" : "none" }} />
@@ -449,8 +451,6 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
 
                     <div className="setinputs-container"
                     style={{ border: (errors.investmentAdvisors && nextButtonClicked) ? "3px solid #71CCA8" : "none" }} >
-                        <button className="setinputs-add-button" onClick={addInvestmentAdvisorSet}>+</button>
-
                         {formData.investmentAdvisors.map((set, index) => (
                             <div key={set.id} className="setinputs-set">
                                 <button className="setinputs-remove-button" onClick={() => removeInvestmentAdvisorSet(index)}>Delete</button>
