@@ -30,34 +30,34 @@
 
 .create-account-sidebar-stepper:hover .create-account-sidebar-stepper-circle {
     scale: calc(102%);
-    background-color: rgba(35, 105, 74, 1); /* Color for active or passed circles */
+    background-color: rgb(29, 84, 59); /* Color for active or passed circles */
 }
 
-.create-account-sidebar-stepper:hover .create-account-sidebar-stepper-label {
+.create-account-sidebar-stepper:hover .create-account-sidebar-stepper-label{
     scale: calc(102%);
-    color: rgba(35, 105, 74, 1); /* Color for active or passed circles */
+    color: rgb(29, 84, 59); /* Color for active or passed circles */
 }
 
 .create-account-sidebar-stepper-circle {
     width: 3rem;  /* Circle width */
     height: 3rem; /* Circle height */
-    background-color: #61b090; 
+    background-color: #6ac19e; 
     border-radius: 50%; /* Makes the element circular */
 }
 
 .active-circle {
-    background-color: rgba(35, 105, 74, 0.8); /* Color for active or passed circles */
+    background-color: rgb(29, 84, 59); /* Color for active or passed circles */
 }
 
 .create-account-sidebar-stepper-label {
     font-weight: bold;
     padding-left: 0.9375rem; /* Adjust space between circle and label */
     font-size: 0.95rem;
-    color: #61b090; 
+    color: #6ac19e; 
 }
 
 .active-label {
-    color: rgba(35, 105, 74, 0.8); /* Color for active or passed circles */
+    color: rgb(29, 84, 59) /* Color for active or passed circles */
 }
 
 /* Container for the small vertical circles */
