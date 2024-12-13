@@ -134,7 +134,7 @@ h3 {
     color:rgb(35, 105, 74);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .setinputs-container {
         display: grid;
         grid-template-columns: repeat(1, 1fr); /* 3 columns with equal width */

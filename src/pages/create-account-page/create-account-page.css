@@ -29,7 +29,7 @@
 }
 
 /* Small devices (phones and tablets) */
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
     .page-container {
         margin-left: 0;
         margin-bottom: 0;
