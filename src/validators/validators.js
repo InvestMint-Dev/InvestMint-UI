@@ -94,13 +94,6 @@ export const validateCompanyLegalInfo = (formData) => {
     } else if (!phoneRegex.test(formData.phoneNumber)) {
         errors.phoneNumber = "Phone Number must be in the format (000) 000-0000.";
     }
-
-    if (!formData.mobileNumber || formData.mobileNumber.trim() === "") {
-        errors.mobileNumber = "Mobile Number is required.";
-    } else if (!phoneRegex.test(formData.mobileNumber)) {
-        errors.mobileNumber = "Mobile Number must be 10 digits.";
-    }
-
     // Validate company information
     if (!formData.companyName || formData.companyName.trim() === "") {
         errors.companyName = "Company Name is required.";
