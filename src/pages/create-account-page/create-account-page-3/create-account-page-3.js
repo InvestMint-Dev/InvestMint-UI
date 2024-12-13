@@ -526,7 +526,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                             </div>
                         ))}
                     </div>
-                    {(errors.bankAccounts && nextButtonClicked) && <p className='form-error'>{errors.bankAccounts}</p>}
+                    {(errors.investmentAdvisors && nextButtonClicked) && <p className='form-error'>{errors.investmentAdvisors}</p>}
                 </div>
                 {
                     displayStepper && (
