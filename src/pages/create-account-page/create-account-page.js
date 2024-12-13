@@ -88,8 +88,6 @@ export const CreateAccountPage = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    firstName: formData.firstName,
-                    lastName: formData.lastName,
                     email: formData.email,
                     phoneNumber: formData.phoneNumber,
                     companyName: formData.companyName,
@@ -99,8 +97,8 @@ export const CreateAccountPage = () => {
                     city: formData.city,
                     zipcode: formData.zipcode,
                     companyBankAccounts: formData.bankAccounts,
-                    advisorName: formData.advisorName,
-                    companyInvestmentAccountNumber: formData.investmentAccountNumber,
+                    authPersonnel: formData.authPersonnel,
+                    investmentAdvisors: formData.investmentAdvisors
                 }),
             });
 

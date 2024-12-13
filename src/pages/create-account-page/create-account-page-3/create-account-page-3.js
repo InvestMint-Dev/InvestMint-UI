@@ -63,7 +63,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
                 ...updatedAuthPersonnel[index], 
                 firstName: name === 'authPersonnelFirstName' ? value : updatedAuthPersonnel[index].firstName,
                 lastName: name === 'authPersonnelLastName' ? value : updatedAuthPersonnel[index].lastName,
-                phoneNumber: name === 'authPersonnelPhoneNumber' ? value : updatedAuthPersonnel[index].phoneNumber
+                phoneNumber: name === 'authPersonnelPhoneNumber' ? formatPhoneNumber(value) : updatedAuthPersonnel[index].phoneNumber
             };            
             const newData = { ...formData, authPersonnel: updatedAuthPersonnel };
             updateFormData({ authPersonnel: updatedAuthPersonnel});
@@ -77,7 +77,7 @@ export const CreateAccountPage3 = ({ isCurrentPage, formData, updateFormData, on
             setErrors(validateCompanyLegalInfo(newData));
         } 
         else {
-            const formattedValue = ['phoneNumber', 'mobileNumber'].includes(name) 
+            const formattedValue = ['phoneNumber'].includes(name) 
                 ? formatPhoneNumber(value) 
                 : value;
             const newData = { ...formData, [name]: formattedValue };
